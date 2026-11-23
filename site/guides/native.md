@@ -31,7 +31,9 @@ const saved = ref(false)
 
 SNativeHeading 为标题提供原生读屏语义。SNativeHStack 和 SNativeVStack 使用主题间距，可控制对齐、分布和换行。给 SNativeAvatar 传入 `presence` 与 `presence-label`，即可显示并朗读在线状态。
 
-SNativeIcon 按名称解析原生图标，支持语义颜色和尺寸。`provideNativeIcons` 为当前组件子树注册字形或变体。SNativeItem 用 `marker`、`start` 和 `end` 插槽组合条目内容，尾部按钮保留独立的触控操作。
+`SNativeIcon` 用与官网、Vue 同一套矢量图形，支持语义颜色和尺寸。用 `<SNativeIcon name="download" />` 显示下载图标。图标字体随 Native 包复制到应用的 `fonts` 目录。自定义构建流程可将包内的 `fonts/SyntroficIcons.ttf` 复制到同一位置。`provideNativeIcons` 仍能为组件子树注册字形或变体。[浏览图标](/icons/)
+
+SNativeItem 用 `marker`、`start` 和 `end` 插槽组合条目内容，尾部按钮保留独立的触控操作。
 
 在项目仓库准备好目标平台的 SDK 和设备或模拟器后，运行对应平台的示例。组件详情页提供例程编号，可在示例应用里定位。
 

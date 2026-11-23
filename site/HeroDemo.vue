@@ -97,8 +97,6 @@ const series: ChartSeries[] = [{ key: 'progress', label: t('项目进度', 'Proj
 
 <style scoped>
 .demo-composition {
-  background: var(--paper);
-  border-radius: 1.05rem;
   min-width: 0;
 }
 .dashboard-header, .dashboard-top, .dashboard-dates, .task-heading, .task-setting { display: flex; align-items: center; justify-content: space-between; gap: .45rem; }
@@ -107,15 +105,15 @@ const series: ChartSeries[] = [{ key: 'progress', label: t('项目进度', 'Proj
 .dashboard-caption, .task-count { font-size: .95rem; color: var(--muted); }
 .dashboard-top { align-items: start; flex-wrap: wrap; }
 .dashboard-pulse { margin-block: .1rem .2rem; font-size: clamp(2.5rem, 4.5vw, 3.65rem); font-weight: 750; letter-spacing: -.075em; line-height: 1.05; font-variant-numeric: tabular-nums; }
-.dashboard-card :deep(.sy-chart__plot) { background: var(--paper); }
+.dashboard-card :deep(.sy-chart__plot) { background: transparent; }
 .dashboard-dates { margin-top: .2rem; font-size: .875rem; color: var(--muted); }
-.task-card { border-radius: .85rem; background: var(--surface); display: grid; align-content: start; }
+.task-card { border-radius: .85rem; background: var(--soft); display: grid; align-content: start; }
 .task-heading { margin-bottom: .3rem; }
 .task-heading strong { font-size: .92rem; }
 .task-items { display: grid; gap: .2rem; margin-block: .45rem; }
 .task-items :deep(.sy-choice__label), .task-setting { font-size: .95rem; }
 .task-setting { margin-top: .15rem; }
 @media (prefers-reduced-motion: no-preference) {
-  .demo-composition, .task-card { transition: background-color var(--site-enter) var(--site-ease); }
+  .task-card { transition: background-color var(--site-enter) var(--site-ease); }
 }
 </style>

@@ -5,6 +5,7 @@ import type { NativeButtonOptions } from '../button'
 import { nativeTextStyle, useNativeUI } from '../context'
 import { useNativeMotion } from '../motion'
 import { centerNativeText } from '../text-alignment'
+import SNativeIcon from './SNativeIcon.vue'
 import SNativePressableFeedback from './SNativePressableFeedback.vue'
 import SNativeSpinner from './SNativeSpinner.vue'
 
@@ -84,6 +85,7 @@ defineExpose({ focus: () => pressable.value?.focus() ?? false })
         <ContentView v-if="$slots.label" col="1">
           <slot name="label" :label="label" :color="palette.ink" :size="sizeStyle.text" />
         </ContentView>
+        <SNativeIcon v-else-if="icon" col="1" :name="icon" :color="palette.ink" :size="sizeStyle.text + 3" />
         <Label v-else col="1" :text="label" :style="nativeTextStyle(label, fontFamily, '600')" :iosAccessibilityAdjustsFontSize="true"
           :fontSize="sizeStyle.text" :color="palette.ink" :textWrap="true" textAlignment="center" verticalAlignment="middle" @loaded="centerNativeText" />
         <ContentView v-if="$slots.end" :col="direction === 'rtl' ? 0 : 2" margin="0 4">

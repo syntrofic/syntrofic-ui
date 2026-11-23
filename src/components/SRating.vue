@@ -1,4 +1,5 @@
 <script setup lang="ts">
+import SIcon from './SIcon.vue'
 import { computed, ref, useTemplateRef } from 'vue'
 import { onFormReset } from '../internal/form-reset'
 
@@ -81,8 +82,8 @@ function clear(event: KeyboardEvent) {
       <span v-for="index in maximum" :key="index" class="sy-rating__cell"
         :style="{ '--sy-rating-fill': Math.max(0, Math.min(1, displayed - index + 1)) * 100 + '%' }"
         @pointermove="showPreview($event, index)" @click="choose($event, index)">
-        <span class="sy-rating__glyph"><slot name="glyph" :index="index" :filled="false">★</slot></span>
-        <span class="sy-rating__glyph sy-rating__glyph--fill"><slot name="glyph" :index="index" :filled="true">★</slot></span>
+        <span class="sy-rating__glyph"><slot name="glyph" :index="index" :filled="false"><SIcon name="star-outline" /></slot></span>
+        <span class="sy-rating__glyph sy-rating__glyph--fill"><slot name="glyph" :index="index" :filled="true"><SIcon name="star" /></slot></span>
       </span>
     </span>
   </span>

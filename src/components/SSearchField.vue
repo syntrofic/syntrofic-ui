@@ -1,4 +1,5 @@
 <script setup lang="ts">
+import SIcon from './SIcon.vue'
 import { computed, useTemplateRef } from 'vue'
 import { joinIds, useTextControl, type TextControlProps } from '../internal/field'
 import { onFormReset } from '../internal/form-reset'
@@ -89,7 +90,7 @@ defineExpose({ input, focus: () => input.value?.focus(), blur: () => input.value
         :data-hidden="!value || undefined"
         :disabled="disabled || !value"
         @click="clear"
-      >×</button>
+      ><SIcon name="close" /></button>
     </div>
     <SDescription v-if="description" :id="hintId">{{ description }}</SDescription>
     <SFieldError v-if="error" :id="errorId">{{ error }}</SFieldError>

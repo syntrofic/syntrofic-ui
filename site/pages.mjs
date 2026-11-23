@@ -2,7 +2,7 @@ import {
   agentCount, astryx, astryxExamples, categories as chineseCategories, components, features as chineseFeatures, guideContent, guides as chineseGuides, markdown,
   nativeInstallPath, repository, templates as chineseTemplates, webInstallPath,
 } from './content.mjs'
-import { icon } from './icons.mjs'
+import { icon, syntroficIcons } from './icons.mjs'
 import { englishCopy, englishFeatures, englishGuides, englishPosts, englishTemplates } from './english.mjs'
 import { checkoutBlocks as chineseBlocks } from './template-catalog.mjs'
 import { readFileSync } from 'node:fs'
@@ -74,6 +74,7 @@ function createSite(english) {
   const navItems = [
     [vuePath, '组件', (path) => path.includes('/components/')],
     ['/templates/', '模板', (path) => path.startsWith('/templates/')],
+    ['/icons/', english ? 'Icons' : '图标', (path) => path === '/icons/'],
     ['/themes/', '主题', (path) => path === '/themes/'],
     ['/docs/', '文档', (path) => path.startsWith('/docs/') && !path.includes('/components/')],
     ['/agent/', 'Agent UI', (path) => path === '/agent/'],
@@ -95,7 +96,14 @@ function createSite(english) {
         <nav class="topnav" aria-label="主导航">${navigation(route, true)}</nav>
         <div class="top-actions">
           <button class="search-button" type="button" data-search-open aria-label="搜索官网" aria-haspopup="dialog" aria-keyshortcuts="Control+K Meta+K">${icon('search')}<span class="search-button__copy"><span>搜索</span></span></button>
-          <button class="icon-button" type="button" data-theme-toggle aria-label="切换明暗主题" aria-pressed="false"><span>${icon('theme')}${icon('moon')}</span></button>
+          <details class="theme-menu" data-site-disclosure="popup">
+            <summary class="icon-button" data-theme-toggle role="button" aria-expanded="false" aria-controls="site-theme-options" aria-label="切换明暗主题"><span>${icon('theme')}${icon('moon')}</span></summary>
+            <fieldset id="site-theme-options" class="theme-options" data-site-disclosure-panel aria-label="${english ? 'Appearance' : '外观偏好'}">
+              <label><input name="site-theme" type="radio" value="system" checked>${english ? 'System' : '跟随系统'}</label>
+              <label><input name="site-theme" type="radio" value="light">${english ? 'Light' : '浅色'}</label>
+              <label><input name="site-theme" type="radio" value="dark">${english ? 'Dark' : '深色'}</label>
+            </fieldset>
+          </details>
           <a class="locale-link" data-site-language href="${languagePath}" hreflang="${language}" lang="${language}" aria-label="${languageLabel}">${english ? '中文' : 'EN'}</a>
           <a class="repo-link" href="${repository}" aria-label="GitHub" title="GitHub 源码">${icon('code')}<span>GitHub</span></a>
           <div class="mobile-nav-frame"><details class="mobile-nav" data-site-disclosure="popup"><summary class="icon-button" aria-label="主导航"><span>${icon('menu')}${icon('close')}</span></summary><nav data-site-disclosure-panel aria-label="移动端主导航">${navigation(route)}<a href="${repository}">GitHub</a></nav></details></div>
@@ -360,6 +368,9 @@ function createSite(english) {
   </template>`,
   }
 
+  const compactPreviewCategories = new Set(['Buttons', 'Forms', 'Date and Time', 'Controls', 'Pickers', 'Colors', 'Form Controls', 'Typography'])
+  const selfContainedPreviews = new Set(['W.power-search', 'W.code-editor', 'WP.rich-text-editor'])
+
   function detail(entry) {
     const platform = entry.native ? 'Native' : 'Vue'
     const root = entry.native ? nativePath : vuePath
@@ -369,8 +380,9 @@ function createSite(english) {
     const imported = entry.reference ? `import ${entry.reference.named ? '{ ' + entry.symbol + ' }' : entry.symbol} from '${entry.reference.from}'` : null
     const example = english ? englishExample(minimalExamples[entry.id]) : minimalExamples[entry.id]
     const use = english ? englishUsage[entry.id] : entry.use
+    const simplePreview = compactPreviewCategories.has(entry.category) && !selfContainedPreviews.has(entry.id)
     const preview = entry.preview ? `<h2 id="实时预览">实时预览</h2>
-      <div class="demo-frame"><div class="demo-body" data-island="component" data-component="${entry.id}">${islandPlaceholder('示例加载中…')}</div></div>` : ''
+      <div class="demo-frame"><div class="demo-body" data-island="component" data-component="${entry.id}"${simplePreview ? ' data-preview-surface' : ''}>${islandPlaceholder('示例加载中…')}</div></div>` : ''
     const sections = english ? '' : entry.notes.map((note, index) => `<section><h3 id="note-${index}">${escape(note.heading)}</h3>${note.html}</section>`).join('')
     const prev = pages[position - 1]
     const next = pages[position + 1]
@@ -551,6 +563,39 @@ function createSite(english) {
     return `<main id="main" class="wide feature-page">${intro('', title)}${content}</main>`
   }
 
+  function iconDirectory() {
+    const title = english ? 'Syntrofic Icons' : 'Syntrofic 图标'
+    const labels = english ? { actions: 'Actions', navigation: 'Navigation', content: 'Content', status: 'Status', devices: 'Devices and tools' }
+      : { actions: '操作', navigation: '导航', content: '内容', status: '状态', devices: '设备与工具' }
+    const searchLabel = english ? 'Search icons' : '搜索图标'
+    const filterLabel = english ? 'Icon category' : '图标类别'
+    const entries = Object.entries(syntroficIcons)
+    return `<main id="main" class="wide feature-page icon-directory">
+      ${intro('', title, english ? 'Flat vector icons for Vue, Native, and SVG.' : '官网、Vue 与 Native 共用的扁平矢量图标。')}
+      <section data-icon-directory aria-label="${title}">
+        <div class="icon-directory-tools" data-icon-tools hidden>
+          <label class="filter-label">${icon('search')}<span class="sr-only">${searchLabel}</span><input type="search" data-icon-search placeholder="${searchLabel}" autocomplete="off"></label>
+          <label class="icon-directory-category"><span class="sr-only">${filterLabel}</span><select data-icon-category>
+            <option value="">${english ? 'All categories' : '全部类别'}</option>
+            ${Object.entries(labels).map(([id, label]) => `<option value="${id}">${label}</option>`).join('')}
+          </select></label>
+          <output data-icon-count role="status">${english ? `${entries.length} icons` : `${entries.length} 个图标`}</output>
+        </div>
+        <ul class="icon-directory-grid" aria-label="${title}">${entries.map(([name, definition]) => {
+          const label = english ? definition.en : definition.zh
+          const keywords = [name, definition.en, definition.zh, definition.keywords, labels[definition.category]].join(' ')
+          const download = english ? `Download ${label} SVG` : `下载${label} SVG`
+          return `<li class="icon-directory-card" data-icon-entry="${name}" data-icon-group="${definition.category}" data-icon-keywords="${escape(keywords)}">
+            <span class="icon-directory-preview">${icon(name)}</span>
+            <div class="icon-directory-name"><strong>${escape(label)}</strong><code>${name}</code></div>
+            <a class="icon-directory-download" href="/icons/svg/${name}.svg" download="syntrofic-${name}.svg" aria-label="${escape(download)}">SVG</a>
+          </li>`
+        }).join('')}</ul>
+        <p class="notice" data-icon-empty hidden>${english ? 'No icons match your search.' : '没有匹配的图标。'}</p>
+      </section>
+    </main>`
+  }
+
   function templateCatalog(title, selected, entries, categories, unit) {
     return `<main id="main" class="wide feature-page">
       <div class="directory-heading">${intro('', title)}${templateSwitch(selected)}</div>
@@ -568,6 +613,9 @@ function createSite(english) {
     english ? 'Build Web, iOS, and Android apps with the MIT-licensed Syntrofic UI library. Explore Vue 3 and NativeScript-Vue components, themes, charts, and live templates.'
       : 'Syntrofic UI 是采用 MIT 许可证的 Vue 3 与 NativeScript-Vue 组件库。在线试用组件、主题、图表和页面模板，构建 Web、iOS 和 Android 界面。', home)
   route('/docs/', '开发文档', 'Syntrofic UI 的入门、组件、主题和开发工具。', docsHome)
+  const iconTitle = english ? 'Syntrofic Icons · SVG icon library' : 'Syntrofic 图标 · SVG 图标库'
+  const iconDescription = english ? 'Search and download flat SVG icons shared by Syntrofic UI for Vue and Native.' : '搜索和下载 Syntrofic 扁平 SVG 图标，可在 Vue 与 Native 中使用。'
+  route('/icons/', iconTitle, iconDescription, iconDirectory)
   route(vuePath, 'Vue 组件', 'Syntrofic UI 的 Vue 3 组件目录和交互示例。', () => list(false))
   route(nativePath, 'Native 组件', 'Syntrofic UI 的 NativeScript-Vue 原生组件目录。', () => list(true))
   for (const entry of components) {
@@ -628,6 +676,7 @@ function createSite(english) {
 
   const searchIndex = [
     ...guides.map(guide => [guide.title, guide.path, '文档', guide.summary]),
+    [iconTitle, '/icons/', english ? 'Icons' : '图标', iconDescription],
     ['独立示例对照', designExamplesPath, '文档', '查找 Astryx 示例及对应的 Syntrofic 组件预览'],
     ...features.map(feature => [feature.title, feature.path, '功能', feature.description]),
     ...posts.map(post => [post.title, postPath(post.id), '更新记录', post.description]),

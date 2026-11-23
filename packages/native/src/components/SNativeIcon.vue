@@ -17,12 +17,17 @@ const props = withDefaults(defineProps<{
   color?: string
   variant?: string
   glyph?: string
-}>(), { size: 19 })
+  mirror?: boolean
+}>(), { size: 19, mirror: undefined })
 const { theme, fontFamily, direction } = useNativeUI()
 const resolve = useNativeIconGlyph()
 const sizes: Record<NativeIconSize, number> = { xsm: 13, sm: 16, md: 19, lg: 24 }
 const numericSize = computed(() => typeof props.size === 'number' ? Number.isFinite(props.size) ? Math.max(1, props.size) : sizes.md : sizes[props.size])
-const glyph = computed(() => props.glyph ?? resolve(props.name, direction.value === 'rtl', props.variant) ?? '')
+const artwork = computed(() => props.glyph === undefined ? resolve(props.name, direction.value === 'rtl', props.variant) : { glyph: props.glyph })
+const glyph = computed(() => artwork.value?.glyph ?? '')
+const textStyle = computed(() => artwork.value?.fontFamily
+  ? { fontFamily: artwork.value.fontFamily, fontWeight: '400' as const } : nativeTextStyle(glyph.value, fontFamily.value, '600'))
+const scaleX = computed(() => (props.mirror === undefined ? artwork.value?.mirror : props.mirror && direction.value === 'rtl') ? -1 : 1)
 const paint = computed(() => {
   const palette = theme.value.colors
   const colors: Record<Exclude<NativeIconTone, 'inherit'>, string> = {
@@ -35,7 +40,7 @@ const paint = computed(() => {
 </script>
 
 <template>
-  <Label :text="glyph" :fontSize="numericSize" :color="paint" :style="nativeTextStyle(glyph, fontFamily, '600')"
+  <Label :text="glyph" :fontSize="numericSize" :color="paint" :style="textStyle" :scaleX="scaleX"
     :width="numericSize + 4" :height="numericSize + 4" textAlignment="center" verticalAlignment="middle" @loaded="centerNativeText"
     :accessible="Boolean(label)" :accessibilityLabel="label" :accessibilityHidden="!label" :accessibilityRole="AccessibilityRole.Image" />
 </template>

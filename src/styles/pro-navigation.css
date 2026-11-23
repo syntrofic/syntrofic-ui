@@ -187,6 +187,11 @@
   }
   .sy-stepper__step[data-status='current'] .sy-stepper__marker { border-color: var(--sy-step-active); background: var(--sy-step-active); color: var(--sy-step-active-foreground); }
   .sy-stepper__step[data-status='complete'] .sy-stepper__marker { border-color: var(--sy-step-finished); background: var(--sy-step-finished-surface); color: var(--sy-step-finished); }
+  .sy-stepper__marker-content { grid-area: 1 / 1; }
+  @media (prefers-reduced-motion: no-preference) {
+    .sy-stepper-mark-enter-active, .sy-stepper-mark-leave-active { transition: opacity var(--sy-motion-replace) var(--sy-ease-settle); }
+    .sy-stepper-mark-enter-from, .sy-stepper-mark-leave-to { opacity: 0; }
+  }
   .sy-stepper__step[data-tone='success'] { --sy-step-status: var(--sy-success); --sy-step-status-surface: var(--sy-success-soft); }
   .sy-stepper__step[data-tone='warning'] { --sy-step-status: var(--sy-warning); --sy-step-status-surface: var(--sy-warning-soft); }
   .sy-stepper__step[data-tone='error'] { --sy-step-status: var(--sy-danger); --sy-step-status-surface: var(--sy-danger-soft); }

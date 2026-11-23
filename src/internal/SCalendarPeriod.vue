@@ -1,4 +1,5 @@
 <script setup lang="ts">
+import SIcon from '../components/SIcon.vue'
 import { computed, nextTick, onMounted, ref, shallowRef, toRef, useId, useTemplateRef, watch } from 'vue'
 import {
   DateFormatter, getLocalTimeZone, isSameDay,
@@ -358,7 +359,7 @@ function jumpToYear(year: DateValue | DateValue[] | undefined) {
         :tabindex="canPage(-1) ? undefined : -1"
         :inert="yearOpen"
         @click="page(-1)"
-      >‹</button>
+      ><SIcon name="chevron-left" /></button>
       <div class="sy-calendar__title">
         <button
           v-if="yearPicker"
@@ -381,7 +382,7 @@ function jumpToYear(year: DateValue | DateValue[] | undefined) {
         :tabindex="canPage(1) ? undefined : -1"
         :inert="yearOpen"
         @click="page(1)"
-      >›</button>
+      ><SIcon name="chevron-right" /></button>
     </div>
     <div class="sy-calendar__stack">
       <SFocusGroup :inert="yearOpen">

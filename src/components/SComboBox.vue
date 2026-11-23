@@ -1,4 +1,5 @@
 <script setup lang="ts">
+import SIcon from './SIcon.vue'
 import { computed } from 'vue'
 import { ComboboxAnchor, ComboboxCancel, ComboboxInput, ComboboxRoot, ComboboxTrigger, useFilter } from 'reka-ui'
 import { useTextControl, type TextControlProps } from '../internal/field'
@@ -68,7 +69,7 @@ function optionLabel(key: unknown) {
           class="sy-combo__action"
           :aria-label="clearLabel"
           :data-hidden="!query || undefined"
-        >×</ComboboxCancel>
+        ><SIcon name="close" /></ComboboxCancel>
         <ComboboxTrigger class="sy-combo__action" :aria-label="triggerLabel">
           <span class="sy-disclosure__arrow" aria-hidden="true"></span>
         </ComboboxTrigger>

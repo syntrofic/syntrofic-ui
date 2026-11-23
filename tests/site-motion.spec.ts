@@ -120,7 +120,7 @@ test('search refinements keep the focused result or return focus to the field wh
 
 test('lightbox captions expand over the white media stage and restore keyboard focus', async ({ page }) => {
   await page.setViewportSize({ width: 390, height: 844 })
-  await page.emulateMedia({ colorScheme: 'dark', reducedMotion: 'no-preference' })
+  await page.emulateMedia({ colorScheme: 'light', reducedMotion: 'no-preference' })
   await page.goto('/docs/vue/components/lightbox/')
   const trigger = page.getByRole('button', { name: '单张预览' })
   await trigger.press('Enter')
@@ -187,7 +187,7 @@ test('the homepage demo keeps its fallback during loading and reveals the ready 
 
 test('homepage template images keep a white skeleton until decoding and crossfade at a fixed size', async ({ page }) => {
   await page.setViewportSize({ width: 390, height: 844 })
-  await page.emulateMedia({ colorScheme: 'dark', reducedMotion: 'no-preference' })
+  await page.emulateMedia({ colorScheme: 'light', reducedMotion: 'no-preference' })
   await page.addInitScript(() => {
     const decode = HTMLImageElement.prototype.decode
     HTMLImageElement.prototype.decode = async function () {
@@ -282,7 +282,7 @@ test('homepage thumbnails start white before site JavaScript and keep a decoded 
   } finally { releaseImage(); releaseRuntime() }
 })
 
-test('homepage charts keep the old data, white plot and focus through a failed refresh and retry', async ({ page }) => {
+test('homepage charts keep the old data, quiet plot and focus through a failed refresh and retry', async ({ page }) => {
   await page.emulateMedia({ colorScheme: 'dark', reducedMotion: 'no-preference' })
   let fail = () => {}
   let succeed = () => {}
@@ -337,7 +337,7 @@ test('homepage charts keep the old data, white plot and focus through a failed r
     await plot.press('End')
     await expect(plot).toHaveAttribute('aria-valuetext', /30 日.*82/)
     expect(await plot.evaluate(node => node.clientHeight)).toBe(height)
-    await expect(plot).toHaveCSS('background-color', 'rgb(255, 255, 255)')
+    await expect(plot).toHaveCSS('background-color', 'rgba(0, 0, 0, 0)')
     expect(requests).toBe(2)
   } finally { fail(); succeed() }
 })
@@ -368,7 +368,7 @@ test('switching homepage chart ranges ignores a late response for the old select
 
 test('the pie-chart preview eases in data controls while keeping its white plot fixed', async ({ page }) => {
   await page.setViewportSize({ width: 390, height: 844 })
-  await page.emulateMedia({ colorScheme: 'dark', reducedMotion: 'no-preference' })
+  await page.emulateMedia({ colorScheme: 'light', reducedMotion: 'no-preference' })
   await page.goto('/docs/vue/components/pie-chart/')
   const stage = page.getByRole('group', { name: '下一批数据预览' })
   const chart = stage.locator('.sy-chart')
@@ -613,7 +613,7 @@ test('build logs keep the visible row anchored when the live buffer rolls over a
 })
 
 test('build logs retain visible records during refresh and show a white skeleton on an initial load', async ({ page }) => {
-  await page.emulateMedia({ colorScheme: 'dark', reducedMotion: 'reduce' })
+  await page.emulateMedia({ colorScheme: 'light', reducedMotion: 'reduce' })
   await page.goto('/docs/vue/components/log-stream/')
   const widget = page.locator('.sy-log-stream')
   const log = widget.getByRole('log', { name: '构建日志' })
@@ -664,7 +664,7 @@ test('build logs retain visible records during refresh and show a white skeleton
 })
 
 test('transfer lists recover a failed member directory without moving the white panels', async ({ page }) => {
-  await page.emulateMedia({ colorScheme: 'dark', reducedMotion: 'reduce' })
+  await page.emulateMedia({ colorScheme: 'light', reducedMotion: 'reduce' })
   let release = () => {}
   const first = new Promise<void>(resolve => { release = resolve })
   let attempts = 0
@@ -793,7 +793,7 @@ test('transfer selectors support immediate edits and retry a staged commit while
 })
 
 test('comment timelines preserve separate drafts and ease rows into activity order', async ({ page }) => {
-  await page.emulateMedia({ colorScheme: 'dark', reducedMotion: 'no-preference' })
+  await page.emulateMedia({ colorScheme: 'light', reducedMotion: 'no-preference' })
   await page.goto('/docs/vue/components/comments/')
   const discussion = page.getByRole('region', { name: '评审讨论' })
   const note = discussion.getByRole('article', { name: '状态提示' })
@@ -864,7 +864,7 @@ test('comment pagination keeps the white timeline readable and retries in place'
 })
 
 test('comment collaboration reveals unread rows without opening an editor and animates typing on a white thread', async ({ page }) => {
-  await page.emulateMedia({ colorScheme: 'dark' })
+  await page.emulateMedia({ colorScheme: 'light' })
   await page.goto('/docs/vue/components/comment-thread/')
   await page.getByRole('button', { name: '协作状态' }).click()
   const thread = page.getByRole('article', { name: '交付段落讨论' })
@@ -1066,7 +1066,7 @@ test('table selection expands the action row with nonlinear motion and follows r
 
 for (const reducedMotion of ['no-preference', 'reduce'] as const) {
   test('component previews wait for nested imports with motion preference ' + reducedMotion, async ({ page }) => {
-    await page.emulateMedia({ colorScheme: 'dark', reducedMotion })
+    await page.emulateMedia({ colorScheme: 'light', reducedMotion })
     let release = () => {}
     const loading = new Promise<void>(resolve => { release = resolve })
     await page.route(/\/(?:assets\/StandardReview-[\w-]+\.js|StandardReview\.vue)(?:\?.*)?$/, async route => {
@@ -1152,7 +1152,7 @@ test('a failed nested preview retries in place with the keyboard and retains foc
 })
 
 test('checkbox theme geometry eases on white and follows the motion preference', async ({ page }) => {
-  await page.emulateMedia({ colorScheme: 'dark', reducedMotion: 'no-preference' })
+  await page.emulateMedia({ colorScheme: 'light', reducedMotion: 'no-preference' })
   await page.goto('/')
   const demo = page.getByRole('region', { name: '交付工作台互动示例' })
   await expect(demo).toHaveCSS('background-color', 'rgb(255, 255, 255)')
@@ -1721,13 +1721,14 @@ test('the site header animates the theme icon without moving its button', async 
     }
   }))
   await toggle.press('Enter')
-  await expect(toggle).toHaveAttribute('aria-pressed', 'true')
+  await page.getByRole('radio', { name: '深色', exact: true }).check()
+  await expect(root).toHaveAttribute('data-site-theme-preference', 'dark')
   await expect(toggle).toHaveAttribute('data-test-theme-motion', /cubic-bezier/)
   await expect(moon!).toHaveCSS('opacity', '1')
   expect(await toggle.boundingBox()).toEqual(geometry)
   await page.emulateMedia({ reducedMotion: 'reduce' })
-  await toggle.press('Enter')
-  await expect(toggle).toHaveAttribute('aria-pressed', 'false')
+  await page.getByRole('radio', { name: '浅色', exact: true }).check()
+  await expect(root).toHaveAttribute('data-site-theme-preference', 'light')
   await expect(sun!).toHaveCSS('opacity', '1')
   expect(await toggle.evaluate(element => element.getAnimations({ subtree: true }).length)).toBe(0)
 })
@@ -1737,11 +1738,11 @@ test('site theme changes reach open tabs and a cached page restores the latest p
   const other = await page.context().newPage()
   await other.goto('/templates/')
   const root = page.locator('html')
-  const toggle = page.getByRole('button', { name: '切换明暗主题' })
   await expect(root).toHaveCSS('background-color', 'rgb(255, 255, 255)')
   await other.getByRole('button', { name: '切换明暗主题' }).press('Enter')
+  await other.getByRole('radio', { name: '深色', exact: true }).check()
   await expect(root).toHaveCSS('background-color', 'rgb(29, 30, 31)')
-  await expect(toggle).toHaveAttribute('aria-pressed', 'true')
+  await expect(root).toHaveAttribute('data-site-theme-preference', 'dark')
 
   const restored = await root.evaluate(async element => {
     localStorage.removeItem('syntrofic-site-theme')
@@ -1750,7 +1751,7 @@ test('site theme changes reach open tabs and a cached page restores the latest p
     return { background: getComputedStyle(element).backgroundColor, scheme: document.querySelector('meta[name=color-scheme]')?.getAttribute('content') }
   })
   expect(restored).toEqual({ background: 'rgb(255, 255, 255)', scheme: 'light' })
-  await expect(toggle).toHaveAttribute('aria-pressed', 'false')
+  await expect(root).toHaveAttribute('data-site-theme-preference', 'system')
   await expect(other.locator('html')).toHaveCSS('background-color', 'rgb(255, 255, 255)')
   await expect(root).not.toHaveAttribute('data-site-theme-restoring')
 })
@@ -2877,7 +2878,7 @@ test('the theme lab animates an outlined danger button through hover, press, and
 
 test('the theme lab animates progress geometry, paint, and loading on white', async ({ page }) => {
   await page.setViewportSize({ width: 390, height: 844 })
-  await page.emulateMedia({ colorScheme: 'dark', reducedMotion: 'no-preference' })
+  await page.emulateMedia({ colorScheme: 'light', reducedMotion: 'no-preference' })
   await page.goto('/themes/')
   const preview = page.getByRole('region', { name: '主题预览' })
   await preview.getByRole('button', { name: '进度条样式' }).click()
@@ -2924,7 +2925,7 @@ test('the theme lab animates progress geometry, paint, and loading on white', as
 
 test('the theme lab animates choice marks and follows the actual switch drag and loading states', async ({ page }) => {
   await page.setViewportSize({ width: 390, height: 844 })
-  await page.emulateMedia({ colorScheme: 'dark', reducedMotion: 'no-preference' })
+  await page.emulateMedia({ colorScheme: 'light', reducedMotion: 'no-preference' })
   await page.goto('/themes/')
   const preview = page.getByRole('region', { name: '主题预览' })
   await preview.getByRole('button', { name: '选择控件标记' }).click()
@@ -2945,8 +2946,8 @@ test('the theme lab animates choice marks and follows the actual switch drag and
   }))
   const colors = preview.getByRole('switch', { name: '自定义控件标记' })
   await colors.click()
-  await expect(checkMark).toHaveCSS('stroke', 'rgb(255, 240, 192)')
-  await expect(mixed.locator('.sy-checkbox__mixed')).toHaveCSS('stroke', 'rgb(241, 224, 255)')
+  await expect(checkMark).toHaveCSS('fill', 'rgb(255, 240, 192)')
+  await expect(mixed.locator('.sy-checkbox__mixed')).toHaveCSS('fill', 'rgb(241, 224, 255)')
   await expect.poll(() => radio.evaluate(node => getComputedStyle(node, '::after').backgroundColor)).toBe('rgb(54, 89, 117)')
   await expect(checkMark).toHaveAttribute('data-test-mark-easing', /cubic-bezier/)
   await expect(checked).toHaveCSS('background-color', boxFill)
@@ -2991,7 +2992,7 @@ test('the theme lab animates choice marks and follows the actual switch drag and
 
 test('the theme lab applies grouped toggle styles in a compact white layout', async ({ page }) => {
   await page.setViewportSize({ width: 390, height: 844 })
-  await page.emulateMedia({ colorScheme: 'dark', reducedMotion: 'no-preference' })
+  await page.emulateMedia({ colorScheme: 'light', reducedMotion: 'no-preference' })
   await page.goto('/themes/')
   await page.getByRole('button', { name: '切换按钮组', exact: true }).click()
   const group = page.getByRole('group', { name: '交付视图' })
@@ -3016,7 +3017,7 @@ test('the theme lab applies grouped toggle styles in a compact white layout', as
 
 test('the theme lab handles optimistic toggle actions and failure on white', async ({ page }) => {
   await page.setViewportSize({ width: 390, height: 844 })
-  await page.emulateMedia({ colorScheme: 'dark', reducedMotion: 'no-preference' })
+  await page.emulateMedia({ colorScheme: 'light', reducedMotion: 'no-preference' })
   await page.goto('/themes/')
   await page.getByRole('button', { name: '异步切换', exact: true }).click()
   const sample = page.getByRole('group', { name: '异步切换预览' })
@@ -3049,7 +3050,7 @@ test('the theme lab handles optimistic toggle actions and failure on white', asy
 
 test('the theme lab resolves simultaneous states with nonlinear transitions', async ({ page }) => {
   await page.setViewportSize({ width: 390, height: 844 })
-  await page.emulateMedia({ colorScheme: 'dark', reducedMotion: 'no-preference' })
+  await page.emulateMedia({ colorScheme: 'light', reducedMotion: 'no-preference' })
   await page.goto('/themes/')
   await page.getByRole('button', { name: '组合状态', exact: true }).click()
   const sample = page.getByRole('group', { name: '组合状态预览' })
@@ -3058,7 +3059,7 @@ test('the theme lab resolves simultaneous states with nonlinear transitions', as
   const lock = sample.getByRole('switch', { name: '锁定附件选项' })
   const attachment = sample.getByRole('checkbox', { name: '包含交付附件' })
   const box = attachment.locator('..').locator('.sy-checkbox__box')
-  const glyph = () => box.locator('.sy-checkbox__check').evaluate(node => getComputedStyle(node).stroke)
+  const glyph = () => box.locator('.sy-checkbox__check').evaluate(node => getComputedStyle(node).fill)
   await configure.click()
   await pin.hover()
   await expect(pin).toHaveCSS('background-color', 'rgb(237, 242, 245)')
@@ -3090,7 +3091,7 @@ test('the theme lab resolves simultaneous states with nonlinear transitions', as
 
 test('the theme lab animates independent button and overlay details', async ({ page }) => {
   await page.setViewportSize({ width: 390, height: 844 })
-  await page.emulateMedia({ colorScheme: 'dark', reducedMotion: 'no-preference' })
+  await page.emulateMedia({ colorScheme: 'light', reducedMotion: 'no-preference' })
   await page.goto('/themes/')
   const preview = page.getByRole('region', { name: '主题预览' })
   await preview.getByRole('button', { name: '控件图标', exact: true }).click()
@@ -3177,7 +3178,7 @@ test('the theme lab animates independent button and overlay details', async ({ p
 
 test('the theme lab separates picker selection from range and calendar focus styles', async ({ page }) => {
   await page.setViewportSize({ width: 390, height: 844 })
-  await page.emulateMedia({ colorScheme: 'dark', reducedMotion: 'no-preference' })
+  await page.emulateMedia({ colorScheme: 'light', reducedMotion: 'no-preference' })
   await page.goto('/themes/')
   const preview = page.getByRole('region', { name: '主题预览' })
   await preview.getByRole('button', { name: '日历日期样式' }).click()
@@ -3383,7 +3384,7 @@ test('the theme lab fades and collapses menu separators while keyboard navigatio
 
 test('the theme lab animates optional parts while leaving their content and keyboard interactions available', async ({ page }) => {
   await page.setViewportSize({ width: 390, height: 844 })
-  await page.emulateMedia({ colorScheme: 'dark', reducedMotion: 'no-preference' })
+  await page.emulateMedia({ colorScheme: 'light', reducedMotion: 'no-preference' })
   await page.goto('/themes/')
   await page.getByRole('button', { name: '可选部件', exact: true }).click()
   const group = page.getByRole('group', { name: '可选部件预览' })
@@ -3523,7 +3524,7 @@ test('the theme lab animates table density and optional dividers on white', asyn
 
 test('the theme lab scales display headings as a hierarchy and preserves the document outline', async ({ page, browserName }) => {
   await page.setViewportSize({ width: 390, height: 844 })
-  await page.emulateMedia({ colorScheme: 'dark', reducedMotion: 'no-preference' })
+  await page.emulateMedia({ colorScheme: 'light', reducedMotion: 'no-preference' })
   await page.goto('/themes/')
   await page.getByRole('button', { name: '展示标题', exact: true }).click()
   const group = page.getByRole('group', { name: '展示标题预览' })
@@ -3595,7 +3596,7 @@ test('the theme lab animates inherited heading sizes while preserving a local ov
 
 test('font roles crossfade independently on white and respect reduced motion', async ({ page }) => {
   await page.setViewportSize({ width: 390, height: 844 })
-  await page.emulateMedia({ colorScheme: 'dark', reducedMotion: 'no-preference' })
+  await page.emulateMedia({ colorScheme: 'light', reducedMotion: 'no-preference' })
   await page.goto('/themes/')
   const theme = page.getByRole('region', { name: '主题预览' })
   await theme.getByRole('button', { name: '字体角色' }).click()
@@ -3636,7 +3637,7 @@ test('font roles crossfade independently on white and respect reduced motion', a
 
 test('theme borders ease on a white preview while an input can keep its original width', async ({ page }) => {
   await page.setViewportSize({ width: 390, height: 844 })
-  await page.emulateMedia({ colorScheme: 'dark', reducedMotion: 'no-preference' })
+  await page.emulateMedia({ colorScheme: 'light', reducedMotion: 'no-preference' })
   await page.goto('/themes/')
   const theme = page.getByRole('region', { name: '主题预览' })
   await theme.getByRole('button', { name: '全局边框' }).click()
@@ -3677,7 +3678,7 @@ test('theme borders ease on a white preview while an input can keep its original
 
 test('the theme lab animates three levels of shadow on a white canvas', async ({ page }) => {
   await page.setViewportSize({ width: 390, height: 844 })
-  await page.emulateMedia({ colorScheme: 'dark', reducedMotion: 'no-preference' })
+  await page.emulateMedia({ colorScheme: 'light', reducedMotion: 'no-preference' })
   await page.goto('/themes/')
   const theme = page.getByRole('region', { name: '主题预览' })
   await theme.getByRole('button', { name: '阴影层级' }).click()
@@ -3712,7 +3713,7 @@ test('the theme lab animates three levels of shadow on a white canvas', async ({
 
 test('a white input keeps the bevel visible through hover, keyboard focus, and invalid status', async ({ page }) => {
   await page.setViewportSize({ width: 390, height: 844 })
-  await page.emulateMedia({ colorScheme: 'dark', reducedMotion: 'no-preference' })
+  await page.emulateMedia({ colorScheme: 'light', reducedMotion: 'no-preference' })
   await page.goto('/themes/')
   const theme = page.getByRole('region', { name: '主题预览' })
   await theme.getByRole('button', { name: '阴影层级' }).click()

@@ -10,6 +10,7 @@ export interface ListInputChange<Item> { type: 'add' | 'update' | 'remove' | 'mo
 </script>
 
 <script setup lang="ts" generic="Item extends object">
+import SIcon from './SIcon.vue'
 import { computed, nextTick, onBeforeUnmount, ref, useId, useTemplateRef, watch } from 'vue'
 import SButton from './SButton.vue'
 import SEmptyState from './SEmptyState.vue'
@@ -231,7 +232,7 @@ onBeforeUnmount(() => { if (addFrame) cancelAnimationFrame(addFrame) })
         </div>
         <div class="sy-list-input__actions">
           <SButton size="md" variant="ghost" :disabled="locked" :aria-label="`${labels.remove} ${itemName} ${index + 1}`" @click="remove(row.key)">
-            <span aria-hidden="true">×</span>
+            <SIcon name="close" />
           </SButton>
           <SButton v-if="reorderable && canReorder?.(row.item) !== false" size="md" variant="ghost" data-reorder-handle
             :aria-disabled="locked || undefined" :aria-label="`${labels.reorder} ${itemName} ${index + 1}`" :aria-pressed="keyboardItem === row.key"

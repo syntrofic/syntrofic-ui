@@ -12,9 +12,9 @@ const document: AgentDocument = {
       { id: 'pending', label: '复核中', value: 3, series: [8, 6, 4, 3] },
     ] },
     { id: 'week', kind: 'bar-chart', title: '本周交付', values: [
-      { id: 'mon', label: '周一', value: 2 }, { id: 'tue', label: '周二', value: 4 },
-      { id: 'wed', label: '周三', value: 1 }, { id: 'thu', label: '周四', value: 3 },
-      { id: 'fri', label: '周五', value: 2 },
+      { id: 'mon', label: '周一', values: { 交付: 2 } }, { id: 'tue', label: '周二', values: { 交付: 4 } },
+      { id: 'wed', label: '周三', values: { 交付: 1 } }, { id: 'thu', label: '周四', values: { 交付: 3 } },
+      { id: 'fri', label: '周五', values: { 交付: 2 } },
     ] },
     { id: 'actions', kind: 'action-group', title: '操作', actions: [
       { id: 'review', label: '查看待复核项目', intent: 'secondary' },
@@ -27,14 +27,21 @@ function onAction({ action }: AgentActionEvent) {
 </script>
 
 <template>
-  <SAgentUI :document="document" @action="onAction" />
+  <SAgentUI class="agent-preview" :document="document" @action="onAction" />
   <p class="agent-status" role="status">{{ message }}</p>
 </template>
 
 <style scoped>
-:deep(.sy-kpi) {
-  --sy-kpi-surface: var(--paper);
-  box-shadow: inset 0 0 0 1px var(--line);
+.agent-preview :deep(.sy-kpi) {
+  --sy-kpi-surface: var(--surface);
+  box-shadow: none;
 }
+.agent-preview > :deep(.sy-chart-host), .agent-status:not(:empty) {
+  min-inline-size: 0;
+  padding: var(--site-module-inset);
+  border-radius: var(--site-panel-radius);
+  background: var(--surface);
+}
+.agent-preview > :deep(.sy-chart-host .sy-chart__plot) { background: transparent; }
 .agent-status:not(:empty) { margin-top: .75rem; color: var(--muted); }
 </style>

@@ -5,7 +5,8 @@ import { useNativeUI } from '../context'
 import { nativeTrend } from '../feedback-state'
 import { nativeFeedbackFormatter, type NativeProgressSize, type NativeTrendDirection } from '../feedback'
 import { useNativeMotion } from '../motion'
-import SNativeMotionText from './SNativeMotionText.vue'
+import { nativeIconGlyphs } from '../icon-glyphs'
+import SNativeMotionGlyph from './SNativeMotionGlyph.vue'
 import SNativeNumberValue from './SNativeNumberValue.vue'
 
 const props = withDefaults(defineProps<{
@@ -29,7 +30,7 @@ const props = withDefaults(defineProps<{
 defineSlots<{ indicator(props: { direction: NativeTrendDirection; color: string }): unknown }>()
 const { theme, direction } = useNativeUI()
 const trend = computed(() => props.direction ?? nativeTrend(props.value, props.neutralThreshold))
-const indicator = computed(() => trend.value === 'up' ? '↑' : trend.value === 'down' ? '↓' : '·')
+const indicator = computed(() => nativeIconGlyphs[trend.value === 'up' ? 'arrow-up' : trend.value === 'down' ? 'arrow-down' : 'dot'])
 const label = computed(() => trend.value === 'up' ? props.upLabel : trend.value === 'down' ? props.downLabel : props.flatLabel)
 const options = computed(() => props.formatOptions ?? { style: 'percent', maximumFractionDigits: 1, signDisplay: 'exceptZero' } as const)
 const formatter = computed(() => nativeFeedbackFormatter(props.locale, options.value))
@@ -66,7 +67,7 @@ watch(fill, value => {
     :accessibilityLiveRegion="announce ? AccessibilityLiveRegion.Polite : AccessibilityLiveRegion.None">
     <GridLayout :accessibilityHidden="true" verticalAlignment="middle">
       <slot name="indicator" :direction="trend" :color="ink">
-        <SNativeMotionText :value="indicator" :size="textSize" :color="ink" />
+        <SNativeMotionGlyph :text="indicator" :size="textSize" :cellWidth="textSize + 3" :color="ink" :numeric="false" vector />
       </slot>
     </GridLayout>
     <SNativeNumberValue col="1" :value="value" :format="format" :reserve="reserve" :reserveFor="reserveFor ?? -1" :prefix="prefix" :suffix="suffix"

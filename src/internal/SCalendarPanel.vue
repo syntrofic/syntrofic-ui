@@ -1,4 +1,5 @@
 <script setup lang="ts">
+import SIcon from '../components/SIcon.vue'
 import { computed, nextTick, ref, useTemplateRef, watch } from 'vue'
 import { toCalendarDate } from '@internationalized/date'
 import {
@@ -97,7 +98,7 @@ function jump(year: DateValue | DateValue[] | undefined) {
       :aria-hidden="yearOpen || undefined"
       :inert="yearOpen"
       :aria-label="navigationLabels?.previousMonth ?? 'Previous month'"
-    >‹</component>
+    ><SIcon name="chevron-left" /></component>
     <component :is="parts.heading" v-slot="{ headingValue }" class="sy-calendar__title">
       <button
         v-if="yearPicker"
@@ -118,7 +119,7 @@ function jump(year: DateValue | DateValue[] | undefined) {
       :aria-hidden="yearOpen || undefined"
       :inert="yearOpen"
       :aria-label="navigationLabels?.nextMonth ?? 'Next month'"
-    >›</component>
+    ><SIcon name="chevron-right" /></component>
   </component>
   <div ref="stack" class="sy-calendar__stack">
     <SFocusGroup

@@ -4,6 +4,7 @@ import { computed, useTemplateRef, watch } from 'nativescript-vue'
 import type { NativeCheckState, NativeChoiceKind } from '../control-state'
 import { useNativeUI } from '../context'
 import { useNativeMotion } from '../motion'
+import { nativeIconGlyphs } from '../icon-glyphs'
 import SNativeMotionGlyph from './SNativeMotionGlyph.vue'
 
 const props = defineProps<{ kind: NativeChoiceKind; state: NativeCheckState; invalid?: boolean }>()
@@ -69,8 +70,10 @@ watch([fill, offset, on], ([color, x, checked]) => {
     >
       <SNativeMotionGlyph
         v-if="kind === 'checkbox'"
-        :text="state === 'mixed' ? '−' : '✓'"
-        :size="13"
+        :text="state === 'mixed' ? nativeIconGlyphs.minus : nativeIconGlyphs.check"
+        :size="12"
+        :cellWidth="14"
+        vector
         :color="ink"
         :numeric="false"
       />

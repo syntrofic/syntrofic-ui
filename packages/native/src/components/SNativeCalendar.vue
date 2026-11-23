@@ -169,9 +169,9 @@ defineExpose({ show, focusDate })
         <SNativeMotionText :value="heading" :size="17" verticalAlignment="middle" />
       </SNativePressableFeedback>
       <SNativeMotionText v-else :col="rtl ? 2 : 0" :value="heading" :size="17" verticalAlignment="middle" />
-      <SNativeButton col="1" :label="rtl ? '›' : '‹'" :accessibilityLabel="previousMonthLabel" size="sm" variant="ghost" fullWidth
+      <SNativeButton col="1" :label="previousMonthLabel" :icon="rtl ? 'chevron-right' : 'chevron-left'" size="sm" variant="ghost" fullWidth
         :disabled="disabled || !nativeCalendarCanPage(period, -1, props)" @tap="page(-1)" />
-      <SNativeButton :col="rtl ? 0 : 2" :label="rtl ? '‹' : '›'" :accessibilityLabel="nextMonthLabel" size="sm" variant="ghost" fullWidth
+      <SNativeButton :col="rtl ? 0 : 2" :label="nextMonthLabel" :icon="rtl ? 'chevron-left' : 'chevron-right'" size="sm" variant="ghost" fullWidth
         :disabled="disabled || !nativeCalendarCanPage(period, 1, props)" @tap="page(1)" />
     </GridLayout>
     <SNativeReveal :open="yearOpen">

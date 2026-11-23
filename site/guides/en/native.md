@@ -29,6 +29,8 @@ const saved = ref(false)
 
 ## Run the examples
 
+`SNativeIcon` uses the same vector artwork as Vue and the website. Use `<SNativeIcon name="download" />` for the download icon. The Native package copies the font to the app’s `fonts` folder. With custom bundling, copy the package’s `fonts/SyntroficIcons.ttf` there. `provideNativeIcons` still accepts custom glyphs and variants. [Browse icons](/icons/)
+
 Build the Native package and start the sample on a device or simulator. Use the scene number shown on a component page to find the corresponding example.
 
 ```sh

@@ -57,7 +57,7 @@ defineExpose({ check, clear: () => choose(), show })
         </template>
         <template v-if="$slots.day" #day="day"><slot name="day" v-bind="day" /></template>
       </SNativeDatePopup>
-      <SNativeButton v-if="clearable" :col="rtl ? 0 : 1" label="×" :accessibilityLabel="clearLabel" variant="ghost"
+      <SNativeButton v-if="clearable" :col="rtl ? 0 : 1" :label="clearLabel" icon="close" variant="ghost"
         size="sm" :disabled="inactive || !date" fullWidth @tap="choose()" />
     </GridLayout>
     <SNativeDescription v-if="description" :text="description" marginTop="4" />

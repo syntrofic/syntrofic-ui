@@ -187,9 +187,12 @@ function move(direction: -1 | 1, event: MouseEvent) {
           @focus="focused = item.step.value" @click="select($event, item)">
           <span class="sy-stepper__marker" :data-custom="Boolean($slots.indicator) || undefined" aria-hidden="true">
             <slot name="indicator" v-bind="item">
-              <SIcon v-if="item.icon" :name="item.icon" size="sm" />
-              <SMotionText v-else-if="item.indicator === 'auto' || item.indicator === 'number'"
-                :value="item.indicator === 'auto' && item.status === 'complete' ? '✓' : String(item.index + 1)" />
+              <Transition name="sy-stepper-mark">
+                <SIcon v-if="item.icon || (item.indicator === 'auto' && item.status === 'complete')"
+                  class="sy-stepper__marker-content" :name="item.icon || 'check'" size="sm" />
+                <SMotionText v-else-if="item.indicator === 'auto' || item.indicator === 'number'"
+                  class="sy-stepper__marker-content" :value="String(item.index + 1)" />
+              </Transition>
             </slot>
           </span>
           <span class="sy-stepper__text">

@@ -48,7 +48,7 @@ defineExpose({ show, close })
         <template #default="controls"><slot v-bind="controls" /></template>
         <template v-if="$slots.footer" #footer="controls"><slot name="footer" v-bind="controls" /></template>
       </component>
-      <SNativeButton v-if="clearable" :col="rtl ? 0 : 1" label="×" :accessibilityLabel="clearLabel" size="sm"
+      <SNativeButton v-if="clearable" :col="rtl ? 0 : 1" :label="clearLabel" icon="close" size="sm"
         :disabled="disabled || !hasValue" variant="ghost" fullWidth @tap="emit('clear')" />
     </GridLayout>
     <SNativeDescription v-if="description" :text="description" marginTop="4" />

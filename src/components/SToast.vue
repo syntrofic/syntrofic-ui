@@ -1,4 +1,5 @@
 <script setup lang="ts">
+import SIcon from './SIcon.vue'
 import { computed } from 'vue'
 import { ToastAction, ToastClose, ToastDescription, ToastRoot, ToastTitle } from 'reka-ui'
 import type { ToastActionOptions, ToastObject } from 'reka-ui'
@@ -69,7 +70,7 @@ const type = computed(() => props.priority ?? (tone.value === 'danger' || tone.v
     <End v-if="content?.endContent !== undefined" />
     <ToastClose v-if="dismissible" as-child>
       <SButton size="sm" variant="ghost" class="sy-toast__close" :aria-label="dismissLabel" @click.capture="markManual">
-        <span class="sy-toast__close-icon" aria-hidden="true">×</span>
+        <SIcon class="sy-toast__close-icon" name="close" />
       </SButton>
     </ToastClose>
     </template>

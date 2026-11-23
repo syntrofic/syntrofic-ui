@@ -57,7 +57,7 @@ function clear() {
     </SPopover>
     <div v-else ref="inline" class="sy-table__filter-inline" :data-variant="variant">
       <STableFilterValue v-model="committed" :editor="editor" :config="config" :label="label" :disabled="disabled" />
-      <SButton v-if="active" variant="ghost" size="sm" :aria-label="`${config.labels?.clear ?? 'Clear'} · ${columnLabel}`" :disabled="disabled" @click="clear">×</SButton>
+      <SButton v-if="active" variant="ghost" size="sm" :aria-label="`${config.labels?.clear ?? 'Clear'} · ${columnLabel}`" :disabled="disabled" @click="clear"><SIcon name="close" /></SButton>
     </div>
   </template>
 </template>

@@ -153,9 +153,9 @@ watch([day, view], async ([current, mode], [previous, oldMode], cleanup) => {
         fill="transparent" @tap="expanded = !expanded">
         <SNativeMotionText :value="heading" :size="14" verticalAlignment="middle" />
       </SNativePressableFeedback>
-      <SNativeButton col="1" :label="rtl ? '›' : '‹'" :accessibilityLabel="previousLabel" :disabled="disabled"
+      <SNativeButton col="1" :label="previousLabel" :icon="rtl ? 'chevron-right' : 'chevron-left'" :disabled="disabled"
         size="sm" variant="ghost" fullWidth @tap="turn(-1)" />
-      <SNativeButton :col="rtl ? 0 : 2" :label="rtl ? '‹' : '›'" :accessibilityLabel="nextLabel" :disabled="disabled"
+      <SNativeButton :col="rtl ? 0 : 2" :label="nextLabel" :icon="rtl ? 'chevron-left' : 'chevron-right'" :disabled="disabled"
         size="sm" variant="ghost" fullWidth @tap="turn(1)" />
     </GridLayout>
     <SNativeReveal :open="expanded && view !== 'month'">

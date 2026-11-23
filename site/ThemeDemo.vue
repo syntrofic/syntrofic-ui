@@ -612,14 +612,16 @@ async function copy() {
       </div>
     </div>
     <SBrandTheme :theme="brand" :mode="theme" class="theme-preview" :style="tokens" role="region" aria-label="主题预览">
-      <h2>项目设置</h2>
-      <div class="theme-badges" aria-label="状态徽标">
-        <SBadge tone="accent">品牌</SBadge><SBadge tone="success">已确认</SBadge>
-        <SBadge tone="warning">待评审</SBadge><SBadge tone="danger">需处理</SBadge>
-      </div>
-      <div class="theme-field-grid">
-        <SInput label="项目名称" />
-        <SSelect v-model="audience" label="可见范围" :options="visibility" />
+      <div class="theme-settings">
+        <h2>项目设置</h2>
+        <div class="theme-badges" aria-label="状态徽标">
+          <SBadge tone="accent">品牌</SBadge><SBadge tone="success">已确认</SBadge>
+          <SBadge tone="warning">待评审</SBadge><SBadge tone="danger">需处理</SBadge>
+        </div>
+        <div class="theme-field-grid">
+          <SInput label="项目名称" />
+          <SSelect v-model="audience" label="可见范围" :options="visibility" />
+        </div>
       </div>
       <SDisclosure title="按钮状态配色" variant="plain" class="theme-preview-section">
         <div class="theme-samples">
@@ -1045,7 +1047,8 @@ async function copy() {
 .radius-control input { grid-column: 1 / -1; accent-color: var(--primary); }
 .theme-preview { background: var(--sy-canvas); color: var(--sy-text); border-radius: var(--sy-radius-md); }
 .theme-preview .sy-field, .theme-preview :deep(.sy-measure), .theme-code { width: 100%; }
-.theme-preview > h2 { font-size: 1.18rem; }
+.theme-settings { display: grid; gap: var(--sy-space-2); width: 100%; min-inline-size: 0; padding: var(--sy-space-3); border-radius: var(--sy-radius-md); background: var(--sy-surface-subtle); }
+.theme-settings > h2 { font-size: 1.18rem; }
 .theme-badges { display: flex; flex-wrap: wrap; gap: .45rem; }
 .theme-preview-section { width: 100%; min-width: 0; background: var(--sy-surface-subtle); }
 .theme-samples { display: grid; gap: var(--sy-space-2); }
@@ -1087,7 +1090,7 @@ async function copy() {
 .theme-demo .code-block { grid-column: 1 / -1; margin: 0; }
 .theme-demo .code-block code { display: block; }
 @media (prefers-reduced-motion: no-preference) {
-  .theme-controls, .theme-preview, .theme-preview-section, .theme-navigation-preview, .theme-code, .theme-code :deep(code span) {
+  .theme-controls, .theme-preview, .theme-settings, .theme-preview-section, .theme-navigation-preview, .theme-code, .theme-code :deep(code span) {
     transition: background-color var(--sy-motion-enter) var(--sy-ease-settle), color var(--sy-motion-enter) var(--sy-ease-settle);
   }
   .theme-navbar-preview { transition: inline-size var(--sy-motion-replace) var(--sy-ease-settle); }

@@ -3,19 +3,23 @@
 <head>
   <meta charset="utf-8">
   <meta name="viewport" content="width=device-width, initial-scale=1">
-  <meta name="color-scheme" content="light">
+  <meta name="color-scheme" content="light dark">
   <link rel="icon" type="image/svg+xml" href="/mark.svg">
   <!-- site-head -->
   <noscript><style>.island-placeholder[data-island-placeholder], [data-template-tools][inert] { display: none; }</style></noscript>
   <style>@media (prefers-reduced-motion: no-preference) { @view-transition { navigation: auto; } }</style>
   <script>
-    try {
-      const theme = localStorage.getItem('syntrofic-site-theme')
-      if (theme === 'light' || theme === 'dark') {
-        document.documentElement.dataset.syTheme = theme
-        document.querySelector('meta[name=color-scheme]').content = theme
-      }
-    } catch {}
+    {
+      let preference = 'system'
+      try {
+        const stored = localStorage.getItem('syntrofic-site-theme')
+        if (stored === 'light' || stored === 'dark') preference = stored
+      } catch {}
+      const theme = preference === 'system' ? (matchMedia('(prefers-color-scheme: dark)').matches ? 'dark' : 'light') : preference
+      document.documentElement.dataset.siteThemePreference = preference
+      document.documentElement.dataset.syTheme = theme
+      document.querySelector('meta[name=color-scheme]').content = theme
+    }
   </script>
   <script type="module" src="/runtime.ts"></script>
 </head>

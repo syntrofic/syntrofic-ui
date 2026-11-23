@@ -2,6 +2,7 @@
 import { AccessibilityRole } from '@nativescript/core'
 import { computed } from 'nativescript-vue'
 import { useNativeUI } from '../context'
+import SNativeIcon from './SNativeIcon.vue'
 
 const props = withDefaults(defineProps<{
   active?: boolean
@@ -32,9 +33,10 @@ const ink = computed(() => props.color ?? theme.value.colors.accent)
       :width="size"
       :height="size"
     />
-    <Label
+    <SNativeIcon
       v-else
-      text="…"
+      name="more-horizontal"
+      :size="Math.max(1, size - 4)"
       :opacity="active ? 1 : 0"
       :color="ink"
       :accessibilityHidden="true"

@@ -1,4 +1,5 @@
 <script setup lang="ts" generic="Multiple extends boolean = false">
+import SIcon from './SIcon.vue'
 import { useLayerCollisionPadding } from '../internal/layer-context'
 import {
   SelectContent, SelectGroup, SelectItem, SelectItemText, SelectLabel, SelectRoot,
@@ -276,7 +277,7 @@ const choicesProps = computed(() => ({
             :aria-hidden="!hasValue || undefined"
             :disabled="controlDisabled || !hasValue"
             @click="clear"
-          >×</SButton>
+          ><SIcon name="close" /></SButton>
         </component>
         <SelectContent
           v-if="!pickerPanel"

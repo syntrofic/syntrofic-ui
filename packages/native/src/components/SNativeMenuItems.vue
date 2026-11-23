@@ -4,9 +4,10 @@ import { computed, nextTick } from 'nativescript-vue'
 import type { NativeCollectionNavigation } from '../collection-keys'
 import { isSelected, type NativeCollectionKey, type NativeSelectionMode } from '../collection-state'
 import { useNativeUI } from '../context'
+import { nativeIconGlyphs } from '../icon-glyphs'
 import { adjacentMenuItem, type NativeMenuItem, type NativeMenuSection } from '../menu-state'
 import SNativeDescription from './SNativeDescription.vue'
-import SNativeMotionText from './SNativeMotionText.vue'
+import SNativeMotionGlyph from './SNativeMotionGlyph.vue'
 import SNativePressableFeedback from './SNativePressableFeedback.vue'
 import SNativeSeparator from './SNativeSeparator.vue'
 import SNativeText from './SNativeText.vue'
@@ -26,6 +27,13 @@ const rtl = computed(() => direction.value === 'rtl')
 const controls = new Map<NativeCollectionKey, InstanceType<typeof SNativePressableFeedback>>()
 const entries = computed(() => props.groups.flatMap(group => group.disabled ? [] : group.items))
 const presentation = computed(() => props.indicator !== 'none' || entries.value.some(item => Boolean(item.children?.length)))
+
+function indicatorGlyph(item: NativeMenuItem, group: NativeMenuSection) {
+  if (item.children?.length) return nativeIconGlyphs[rtl.value ? 'chevron-left' : 'chevron-right']
+  if (item.action || (group.selectionMode ?? props.selectionMode) === 'none' || !isSelected(props.selected, item.id)) return ''
+  if (props.indicator === 'none') return ''
+  return nativeIconGlyphs[props.indicator]
+}
 
 function record(id: NativeCollectionKey, instance: unknown) {
   if (instance) controls.set(id, instance as InstanceType<typeof SNativePressableFeedback>)
@@ -91,11 +99,13 @@ defineExpose({ focus })
             :accessibilityHidden="true"
             verticalAlignment="middle"
           >
-            <SNativeMotionText
-              :value="item.children?.length ? rtl ? '‹' : '›' : !item.action && (group.selectionMode ?? selectionMode) !== 'none' && isSelected(selected, item.id) ? indicator === 'dot' ? '•' : indicator === 'check' ? '✓' : '' : ''"
+            <SNativeMotionGlyph
+              :text="indicatorGlyph(item, group)"
               :color="theme.colors.accentText"
-              :reserve="1"
+              :cellWidth="20"
               :size="15"
+              :numeric="false"
+              vector
               horizontalAlignment="center"
             />
           </GridLayout>

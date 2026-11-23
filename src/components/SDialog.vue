@@ -8,6 +8,7 @@ export interface DialogPosition {
 </script>
 
 <script setup lang="ts">
+import SIcon from './SIcon.vue'
 import { computed, getCurrentInstance, nextTick, onBeforeUnmount, provide, shallowRef, useId, useTemplateRef, watch, watchPostEffect } from 'vue'
 import { Primitive } from 'reka-ui'
 import SButton from './SButton.vue'
@@ -304,7 +305,7 @@ useBackdropPress({
         </h2>
         <div v-if="$slots['header-end']" class="sy-dialog__header-action"><slot name="header-end" :close="close" /></div>
         <SButton v-if="showCloseButton" class="sy-dialog__close" size="sm" variant="ghost" @click="close">
-          <template #start><span class="sy-dialog__close-icon" aria-hidden="true">×</span></template>
+          <template #start><SIcon class="sy-dialog__close-icon" name="close" /></template>
           {{ dismissLabel }}
         </SButton>
         <p v-if="description || $slots.description" :id="`${id}-description`" class="sy-dialog__description"><slot name="description">{{ description }}</slot></p>

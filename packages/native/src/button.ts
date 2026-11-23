@@ -5,6 +5,7 @@ export type NativeButtonSize = 'sm' | 'md' | 'lg'
 
 export interface NativeButtonOptions {
   label: string
+  icon?: string
   accessibilityLabel?: string
   accessibilityRole?: AccessibilityRole
   accessibilityValue?: string

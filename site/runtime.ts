@@ -1,4 +1,5 @@
 import './style.css'
+import { installIconDirectory } from './icons-page'
 
 import { observeNavigationReflow } from '../src/internal/navigation-reflow'
 import { observeResize } from '../src/internal/resize-observer'
@@ -13,40 +14,62 @@ const root = document.documentElement
 installSiteModuleLoader()
 installSiteNavigation()
 installPreviewImages(document)
-const themeButton = document.querySelector<HTMLButtonElement>('[data-theme-toggle]')!
+installIconDirectory(document)
+const themeMenu = document.querySelector<HTMLDetailsElement>('.theme-menu')!
+const themeButton = themeMenu.querySelector<HTMLElement>('summary')!
+const themeChoices = themeMenu.querySelectorAll<HTMLInputElement>('input[name="site-theme"]')
+const colorScheme = document.querySelector<HTMLMetaElement>('meta[name="color-scheme"]')
+const prefersDark = matchMedia('(prefers-color-scheme: dark)')
 const themeStorageKey = 'syntrofic-site-theme'
-type SiteTheme = 'light' | 'dark'
-function updateThemeButton() {
-  const dark = root.dataset.syTheme === 'dark'
-  themeButton.setAttribute('aria-pressed', String(dark))
-  themeButton.title = dark ? '切换到浅色' : '切换到深色'
-  document.querySelector('meta[name="color-scheme"]')?.setAttribute('content', dark ? 'dark' : 'light')
+type SiteTheme = 'light' | 'dark' | 'system'
+function themePreference(value?: string | null): SiteTheme {
+  return value === 'light' || value === 'dark' ? value : 'system'
 }
-function applyTheme(theme: SiteTheme) {
-  root.dataset.syTheme = theme
-  updateThemeButton()
-}
-function syncStoredTheme(restoring = false, event?: StorageEvent) {
-  let theme: SiteTheme
-  try {
-    const storage = window.localStorage
-    if (event && event.storageArea !== storage) return
-    theme = storage.getItem(themeStorageKey) === 'dark' ? 'dark' : 'light'
-  } catch { return }
-  if (theme === (root.dataset.syTheme ?? 'light')) return
-  if (restoring) {
-    // Resume with the current palette on the first frame of the cached page.
+let preference = themePreference(root.dataset.siteThemePreference)
+function applyTheme(next: SiteTheme, restoring = false) {
+  const theme = next === 'system' ? (prefersDark.matches ? 'dark' : 'light') : next
+  if (restoring && theme !== root.dataset.syTheme) {
+    // Resume cached pages in the current palette without animating the old palette out.
     root.dataset.siteThemeRestoring = ''
     window.requestAnimationFrame(() => window.requestAnimationFrame(() => { delete root.dataset.siteThemeRestoring }))
   }
-  applyTheme(theme)
+  preference = next
+  root.dataset.siteThemePreference = next
+  root.dataset.syTheme = theme
+  colorScheme?.setAttribute('content', theme)
+  for (const choice of themeChoices) choice.checked = choice.value === next
 }
-themeButton.addEventListener('click', () => {
-  const theme = root.dataset.syTheme === 'dark' ? 'light' : 'dark'
-  applyTheme(theme)
-  try { localStorage.setItem(themeStorageKey, theme) } catch {}
+function syncStoredTheme(restoring = false, event?: StorageEvent) {
+  let next = preference
+  try {
+    const storage = window.localStorage
+    if (event && event.storageArea !== storage) return
+    next = themePreference(storage.getItem(themeStorageKey))
+  } catch {}
+  applyTheme(next, restoring)
+}
+themeMenu.addEventListener('change', event => {
+  if (!(event.target instanceof HTMLInputElement) || event.target.name !== 'site-theme') return
+  const next = themePreference(event.target.value)
+  applyTheme(next)
+  try {
+    if (next === 'system') localStorage.removeItem(themeStorageKey)
+    else localStorage.setItem(themeStorageKey, next)
+  } catch {}
 })
-updateThemeButton()
+themeMenu.addEventListener('toggle', () => themeButton.setAttribute('aria-expanded', String(themeMenu.open)))
+document.addEventListener('pointerdown', event => {
+  if (themeMenu.open && !themeMenu.contains(event.target as Node)) setSiteDisclosure(themeMenu, false)
+})
+document.addEventListener('keydown', event => {
+  if (event.defaultPrevented || event.key !== 'Escape' || !themeMenu.open) return
+  event.preventDefault()
+  setSiteDisclosure(themeMenu, false)
+  themeButton.focus({ preventScroll: true })
+})
+prefersDark.addEventListener('change', () => {
+  if (preference === 'system') applyTheme(preference)
+})
 syncStoredTheme()
 window.addEventListener('storage', event => {
   if (event.key === themeStorageKey || event.key === null) syncStoredTheme(false, event)

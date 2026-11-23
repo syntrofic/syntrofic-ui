@@ -1,4 +1,5 @@
 import { inject, provide, type InjectionKey } from 'nativescript-vue'
+import { nativeIconFont, nativeIconGlyphs } from './icon-glyphs'
 
 export interface NativeIconGlyph {
   glyph: string
@@ -9,14 +10,7 @@ export type NativeIconSet = Readonly<Record<string, string | NativeIconGlyph | u
 type Resolve = (name: string) => string | NativeIconGlyph | undefined
 const registry: InjectionKey<Resolve> = Symbol('Syntrofic Native Icons')
 
-const defaults = {
-  plus: '+', minus: '−', close: '×', check: '✓',
-  chevron: { glyph: '›', rtl: '‹' }, chevronDown: '⌄', chevronLeft: '‹', chevronRight: '›',
-  search: '⌕', info: 'ⓘ', menu: '☰', more: '⋯', moreHorizontal: '⋯',
-  arrowUp: '↑', arrowDown: '↓', arrowsUpDown: '↕', externalLink: '↗',
-  success: '✓', warning: '!', error: '×', file: '▤', calendar: '▦', stop: '■',
-} satisfies NativeIconSet
-export type NativeIconName = keyof typeof defaults
+export type NativeIconName = keyof typeof nativeIconGlyphs
 
 export function provideNativeIcons(icons: NativeIconSet | (() => NativeIconSet)) {
   const parent = inject(registry, undefined)
@@ -28,9 +22,10 @@ export function provideNativeIcons(icons: NativeIconSet | (() => NativeIconSet))
 export function useNativeIconGlyph() {
   const resolve = inject(registry, undefined)
   return (name: string, rtl: boolean, variant?: string) => {
-    const entry = resolve?.(name) ?? (Object.hasOwn(defaults, name) ? defaults[name as NativeIconName] : undefined)
-    if (typeof entry === 'string' || entry === undefined) return entry
-    const artwork: NativeIconGlyph = entry
-    return (variant ? artwork.variants?.[variant] : undefined) ?? (rtl ? artwork.rtl : undefined) ?? artwork.glyph
+    const entry = resolve?.(name)
+    if (typeof entry === 'string') return { glyph: entry }
+    if (entry) return { glyph: (variant ? entry.variants?.[variant] : undefined) ?? (rtl ? entry.rtl : undefined) ?? entry.glyph }
+    if (!Object.hasOwn(nativeIconGlyphs, name)) return
+    return { glyph: nativeIconGlyphs[name as NativeIconName], fontFamily: nativeIconFont, mirror: name === 'chevron' && rtl }
   }
 }

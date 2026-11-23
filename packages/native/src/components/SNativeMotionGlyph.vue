@@ -5,8 +5,9 @@ import { nativeTextStyle, useNativeUI } from '../context'
 import { useNativeMotion } from '../motion'
 import { centerNativeText } from '../text-alignment'
 import { nativeGraphemeWidth } from '../text-platform'
+import { nativeIconFont } from '../icon-glyphs'
 
-const props = withDefaults(defineProps<{ text: string; size: number; color: string; numeric: boolean; animated?: boolean; cellWidth?: number }>(), { animated: true })
+const props = withDefaults(defineProps<{ text: string; size: number; color: string; numeric: boolean; animated?: boolean; cellWidth?: number; vector?: boolean }>(), { animated: true })
 const { fontFamily } = useNativeUI()
 const runMotion = useNativeMotion()
 const active = useTemplateRef<{ nativeView: Label }>('active')
@@ -43,7 +44,7 @@ watch(() => props.text, text => {
     <Label
       ref="outgoing"
       :fontSize="size"
-      :style="nativeTextStyle(text, fontFamily)"
+      :style="nativeTextStyle(text, vector ? nativeIconFont : fontFamily)"
       :iosAccessibilityAdjustsFontSize="true"
       :color="color"
       :opacity="0"
@@ -56,7 +57,7 @@ watch(() => props.text, text => {
       ref="active"
       :text="initial"
       :fontSize="size"
-      :style="nativeTextStyle(text, fontFamily)"
+      :style="nativeTextStyle(text, vector ? nativeIconFont : fontFamily)"
       :iosAccessibilityAdjustsFontSize="true"
       :color="color"
       verticalAlignment="middle"

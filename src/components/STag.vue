@@ -1,4 +1,5 @@
 <script setup lang="ts">
+import SIcon from './SIcon.vue'
 withDefaults(defineProps<{
   label?: string
   selectable?: boolean
@@ -28,6 +29,6 @@ const emit = defineEmits<{ toggle: []; remove: [] }>()
       :aria-label="removeLabel ?? (label ? `Remove ${label}` : 'Remove tag')"
       :disabled="disabled"
       @click="emit('remove')"
-    ><span aria-hidden="true">×</span></button>
+    ><SIcon name="close" /></button>
   </span>
 </template>

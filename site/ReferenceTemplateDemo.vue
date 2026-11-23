@@ -69,8 +69,10 @@ const designCode = '<SButton>保存</SButton>\n<SButton variant="secondary">取�
 .reference-template, .reference-template__article, .reference-template__sample { display: grid; min-width: 0; gap: var(--sy-space-4); }
 .reference-template h3 { margin: 0; }
 .reference-template .sy-action-card { padding: var(--sy-space-4); }
-.reference-template .sy-banner { --sy-banner-bg: var(--sy-surface); border: 1px solid var(--sy-border); }
+.reference-template .sy-banner { --sy-banner-bg: var(--surface); }
 .reference-template :deep(.sy-banner__icon) { background: var(--sy-info-soft); color: var(--sy-info); }
-.reference-template__sample { align-items: start; justify-items: start; border: 1px solid var(--sy-border); padding: var(--sy-space-4); border-radius: var(--sy-radius-md); background: var(--sy-canvas); color: var(--sy-text); }
+.reference-template__sample { align-items: start; justify-items: start; padding: var(--sy-space-4); border-radius: var(--sy-radius-md); background: var(--surface); color: var(--sy-text); }
+.reference-template__article :deep(.sy-code-block) { --sy-syntax-background: var(--surface); }
+.reference-template__article :deep(.sy-code-block__header) { background: var(--soft); }
 .reference-template__article > a { justify-self: start; }
 </style>

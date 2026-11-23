@@ -5,6 +5,7 @@ import { useActionMeter } from '../action-motion'
 import { useNativeUI } from '../context'
 import type { NativeProgressSize } from '../feedback'
 import { nativeRatingFill, nativeRatingTouch, nativeRatingValue } from '../feedback-state'
+import SNativeIcon from './SNativeIcon.vue'
 import SNativeMotionText from './SNativeMotionText.vue'
 import SNativeSliderAdjuster from './SNativeSliderAdjuster.vue'
 import SNativeText from './SNativeText.vue'
@@ -81,11 +82,11 @@ defineExpose({ clear: () => select(0) })
         <StackLayout orientation="horizontal" direction="ltr" :accessibilityHidden="true" :isUserInteractionEnabled="false">
           <GridLayout v-for="index in marks" :key="index" :width="edge" :height="edge">
             <slot name="mark" :index="index" :fill="nativeRatingFill(display, index)" :filled="nativeRatingFill(display, index) === 1">
-              <Label text="☆" :fontSize="sizes[size]" :color="theme.colors.borderStrong" verticalAlignment="middle" horizontalAlignment="center" />
+              <SNativeIcon name="star-outline" :size="sizes[size]" :color="theme.colors.borderStrong" verticalAlignment="middle" horizontalAlignment="center" />
               <AbsoluteLayout :width="edge * nativeRatingFill(display, index)" :height="edge"
                 :horizontalAlignment="rtl ? 'right' : 'left'" :clipToBounds="true">
                 <GridLayout :left="rtl ? edge * (nativeRatingFill(display, index) - 1) : 0" :width="edge" :height="edge">
-                  <Label text="★" :fontSize="sizes[size]" :color="color ?? theme.colors.accentText" verticalAlignment="middle" horizontalAlignment="center" />
+                  <SNativeIcon name="star" :size="sizes[size]" :color="color ?? theme.colors.accentText" verticalAlignment="middle" horizontalAlignment="center" />
                 </GridLayout>
               </AbsoluteLayout>
             </slot>

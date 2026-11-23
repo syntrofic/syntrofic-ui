@@ -1,4 +1,5 @@
 <script setup lang="ts">
+import SIcon from './SIcon.vue'
 import {
   YearPickerRoot, YearPickerHeader, YearPickerHeading, YearPickerPrev, YearPickerNext,
   YearPickerGrid, YearPickerGridBody, YearPickerGridRow, YearPickerCell, YearPickerCellTrigger,
@@ -54,11 +55,11 @@ const placeholder = defineModel<DateValue>('placeholder')
     :is-year-unavailable="isYearUnavailable"
   >
     <YearPickerHeader class="sy-calendar__header">
-      <YearPickerPrev class="sy-field-action sy-calendar__previous" :aria-label="previousLabel">‹</YearPickerPrev>
+      <YearPickerPrev class="sy-field-action sy-calendar__previous" :aria-label="previousLabel"><SIcon name="chevron-left" /></YearPickerPrev>
       <YearPickerHeading v-slot="{ headingValue }" class="sy-calendar__title">
         <SMotionText :value="headingValue" motion="roll" />
       </YearPickerHeading>
-      <YearPickerNext class="sy-field-action sy-calendar__next" :aria-label="nextLabel">›</YearPickerNext>
+      <YearPickerNext class="sy-field-action sy-calendar__next" :aria-label="nextLabel"><SIcon name="chevron-right" /></YearPickerNext>
     </YearPickerHeader>
     <YearPickerGrid class="sy-calendar__grid">
       <YearPickerGridBody>

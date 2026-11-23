@@ -70,7 +70,7 @@ const result = computed(() => {
           class="sy-combo__action"
           :aria-label="clearLabel"
           :data-hidden="!text || undefined"
-        >×</ComboboxCancel>
+        ><SIcon name="close" /></ComboboxCancel>
         <component :is="statusIcon" v-if="statusIcon && variant === 'tooltip'" />
       </AutocompleteAnchor>
       <SCandidates :options="result" :loading="loading" :loading-text="loadingText" :empty-text="emptyText" use-label-for-value @select="emit('select', $event)">

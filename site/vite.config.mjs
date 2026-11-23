@@ -8,6 +8,7 @@ import { defineConfig } from 'vite'
 import { reducedMotionCss } from '../scripts/reduced-motion-css.mjs'
 import { blogFeed, blogIndex, englishBlogFeed, englishBlogIndex, englishSearchIndex, renderPage, routes, sitemap, searchIndex } from './pages.mjs'
 import { retryImports } from './retry-imports.mjs'
+import { iconDownloads } from './icons.mjs'
 
 const root = fileURLToPath(new URL('.', import.meta.url))
 const outDir = fileURLToPath(new URL('../dist-site/', import.meta.url))
@@ -18,6 +19,7 @@ const generated = new Map([
   ['/design-rules.md', readFileSync(new URL('./guides/design-rules.md', import.meta.url), 'utf8')],
   ['/en/design-rules.md', readFileSync(new URL('./guides/en/design-rules.md', import.meta.url), 'utf8')],
   ['/sitemap.xml', sitemap],
+  ...iconDownloads,
 ])
 
 function staticPages() {
@@ -31,12 +33,12 @@ function staticPages() {
       server.middlewares.use(async (request, response, next) => {
         const path = new URL(request.url ?? '/', 'http://localhost').pathname
         if (generated.has(path)) {
-          const contentType = path.endsWith('.md') ? 'text/markdown' : path.endsWith('.xml') ? 'application/xml' : 'application/json'
+          const contentType = path.endsWith('.svg') ? 'image/svg+xml' : path.endsWith('.md') ? 'text/markdown' : path.endsWith('.xml') ? 'application/xml' : 'application/json'
           response.setHeader('Content-Type', contentType + '; charset=utf-8')
           return response.end(generated.get(path))
         }
         const route = path.endsWith('/') ? path : path + '/'
-        if (!routes.has(route) && !/^\/(?:en\/|docs\/|templates\/)/.test(path)) return next()
+        if (!routes.has(route) && !/^\/(?:en\/|docs\/|templates\/|icons\/)/.test(path)) return next()
         const template = await readFile(join(root, 'index.html'), 'utf8')
         response.statusCode = routes.has(route) ? 200 : 404
         response.setHeader('Content-Type', 'text/html; charset=utf-8')
@@ -54,7 +56,11 @@ function staticPages() {
         await mkdir(dirname(file), { recursive: true })
         await writeFile(file, renderPage(template, route))
       }))
-      for (const [path, source] of generated) await writeFile(join(outDir, path), source)
+      await Promise.all([...generated].map(async ([path, source]) => {
+        const file = join(outDir, path)
+        await mkdir(dirname(file), { recursive: true })
+        await writeFile(file, source)
+      }))
       await cp(new URL('../LICENSES/', import.meta.url), join(outDir, 'licenses'), { recursive: true })
     },
   }

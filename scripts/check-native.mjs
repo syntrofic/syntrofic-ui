@@ -452,7 +452,7 @@ try {
   for (const platform of ['ios', 'android']) {
     pnpm([`bundle:${platform}`], consumer)
     const output = join(consumer, 'dist', platform)
-    for (const font of ['Arimo.ttf', 'NotoSansSC.ttf']) {
+    for (const font of ['Arimo.ttf', 'NotoSansSC.ttf', 'SyntroficIcons.ttf']) {
       const bundled = await readFile(join(output, 'fonts', font))
       assert(bundled.subarray(0, 4).equals(Buffer.from([0, 1, 0, 0])), `Invalid ${font} in ${platform} demo`)
     }

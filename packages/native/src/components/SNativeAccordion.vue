@@ -4,6 +4,7 @@ import { computed, useTemplateRef, watch } from 'nativescript-vue'
 import { isSelected, toggleCollectionSelection, type NativeAccordionItem, type NativeCollectionKey } from '../collection-state'
 import { useNativeUI } from '../context'
 import { useNativeMotion } from '../motion'
+import { nativeIconFont, nativeIconGlyphs } from '../icon-glyphs'
 import SNativeDescription from './SNativeDescription.vue'
 import SNativePressableFeedback from './SNativePressableFeedback.vue'
 import SNativeReveal from './SNativeReveal.vue'
@@ -81,7 +82,8 @@ function toggle(item: NativeAccordionItem) {
             <slot name="indicator" :item="item" :expanded="isSelected(expanded, item.id)">
               <Label
                 :ref="(view: unknown) => record(item.id, view)"
-                text="⌄"
+                :text="nativeIconGlyphs.chevronDown"
+                :fontFamily="nativeIconFont"
                 :rotate="initial.has(item.id) ? 180 : 0"
                 :color="theme.colors.textMuted"
                 :fontSize="17"

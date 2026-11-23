@@ -1,6 +1,6 @@
 import { expect, test, type Locator, type Page } from '@playwright/test'
 
-test.use({ baseURL: 'http://127.0.0.1:4188', viewport: { width: 1440, height: 820 } })
+test.use({ baseURL: process.env.SYNTROFIC_SITE_TEST_URL ?? 'http://127.0.0.1:4188', viewport: { width: 1440, height: 820 } })
 
 async function recordPageLayout(page: Page) {
   await page.evaluate(() => {
@@ -56,6 +56,8 @@ test('both homepages share alignment and expose localized search metadata', asyn
       '@type': 'WebSite', name: 'Syntrofic UI', url: origin + '/',
     })
     await expect(page.locator('body')).toHaveCSS('background-color', 'rgb(255, 255, 255)')
+    await expect(page.locator('.home-title')).toHaveCSS('background-color', 'rgb(248, 248, 248)')
+    await expect(page.locator('.hero-demo')).toHaveCSS('background-color', 'rgb(248, 248, 248)')
     await expect(page.locator('.home-platforms .resource-link').first()).toHaveCSS('background-color', 'rgb(248, 248, 248)')
     await expect(page.locator('.home-setup .code-block')).toHaveCSS('background-color', 'rgb(248, 248, 248)')
     await expect(page.locator('.home-setup .code-toolbar')).toHaveCSS('background-color', 'rgb(245, 245, 245)')
@@ -79,6 +81,58 @@ test('both homepages share alignment and expose localized search metadata', asyn
       if (index > 0) expect(item.top).toBeGreaterThan(narrow[index - 1]!.top)
     }
     await expect.poll(() => page.evaluate(() => document.documentElement.scrollWidth - document.documentElement.clientWidth)).toBeLessThanOrEqual(0)
+  }
+})
+
+test('the site follows system appearance before hydration and honors manual choices', async ({ page }) => {
+  await page.emulateMedia({ colorScheme: 'dark' })
+  const blockRuntime = /\/(?:assets\/index-[^/]+\.js|runtime\.ts)(?:\?.*)?$/
+  await page.route(blockRuntime, route => route.abort())
+  await page.goto('/')
+  const root = page.locator('html')
+  const image = page.locator('.template-preview img').first()
+  await expect(root).toHaveAttribute('data-site-theme-preference', 'system')
+  await expect(root).toHaveCSS('background-color', 'rgb(29, 30, 31)')
+  await expect(image).toHaveCSS('filter', 'brightness(0.72)')
+  await expect(page.locator('header .brand img')).toHaveCSS('filter', 'none')
+
+  await page.unroute(blockRuntime)
+  await page.reload()
+  const menu = page.getByRole('button', { name: '切换明暗主题' })
+  await menu.press('Enter')
+  await expect(page.getByRole('radio', { name: '跟随系统' })).toBeChecked()
+  await page.getByRole('radio', { name: '浅色', exact: true }).check()
+  await expect(root).toHaveCSS('background-color', 'rgb(255, 255, 255)')
+  await expect(image).toHaveCSS('filter', 'none')
+  await page.reload()
+  await expect(root).toHaveAttribute('data-site-theme-preference', 'light')
+  await menu.press('Enter')
+  await expect(page.getByRole('radio', { name: '浅色', exact: true })).toBeChecked()
+  await page.getByRole('radio', { name: '跟随系统' }).check()
+  await expect(root).toHaveAttribute('data-sy-theme', 'dark')
+  await page.emulateMedia({ colorScheme: 'light' })
+  await expect(root).toHaveAttribute('data-sy-theme', 'light')
+  await page.keyboard.press('Escape')
+  await expect(menu).toBeFocused()
+  await expect(menu).toHaveAttribute('aria-expanded', 'false')
+})
+
+test('functional example surfaces sit directly on the site canvas', async ({ page }) => {
+  for (const [path, panel] of [
+    ['/docs/vue/components/button/', '.demo-body[data-preview-surface]'],
+    ['/docs/standard-design/', '.design-motion-demo .demo-body'],
+    ['/templates/dashboard-comparison/', '.sy-dashboard-template__metrics .sy-kpi'],
+    ['/templates/table-page/', '.table-template__filter'],
+    ['/templates/checkout-wizard/', '.sy-form-wizard__form'],
+    ['/templates/documentation-design/', '.reference-template__sample'],
+    ['/templates/documentation-technical/', '.reference-template__article .sy-code-block'],
+    ['/themes/', '.theme-settings'],
+    ['/agent/', '.agent-preview > .sy-chart-host'],
+  ]) {
+    await page.goto(path)
+    await expect(page.locator(panel).first()).toHaveCSS('background-color', 'rgb(248, 248, 248)')
+    await expect(page.locator('main')).toHaveCSS('background-color', 'rgba(0, 0, 0, 0)')
+    await expect(page.locator('body')).toHaveCSS('background-color', 'rgb(255, 255, 255)')
   }
 })
 

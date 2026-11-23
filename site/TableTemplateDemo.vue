@@ -191,8 +191,8 @@ function history(row: DeliveryRow) {
     </header>
 
     <template v-if="kind === 'table' || kind === 'table-page'">
-      <SMetadataList v-if="kind === 'table-page'" :items="facts" orientation="horizontal" layout="inline" label-width="max-content" />
-      <div class="table-template__actions">
+      <SMetadataList v-if="kind === 'table-page'" class="table-template__facts" :items="facts" orientation="horizontal" layout="inline" label-width="max-content" />
+      <div class="table-template__actions table-template__filter">
         <SSegment v-if="kind === 'table-page'" v-model="scope" :items="statuses" label="团队范围" />
         <SPopover>
           <template #trigger><SButton variant="secondary" size="sm">显示列</SButton></template>
@@ -337,6 +337,11 @@ function history(row: DeliveryRow) {
 }
 .table-template :is(h2, h3, p) { margin: 0; }
 .table-template__actions { display: flex; align-items: end; justify-content: space-between; flex-wrap: wrap; gap: var(--sy-space-2); }
+.table-template__facts :deep(.sy-metadata__entry), .table-template__filter {
+  background: var(--surface);
+  border-radius: var(--sy-radius-md);
+}
+.table-template__filter { padding: var(--site-inset); }
 .table-template__table-wrap { min-inline-size: 0; }
 .table-template__selection { display: grid; grid-template-rows: 0fr; opacity: 0; }
 .table-template__selection[data-expanded] { grid-template-rows: 1fr; opacity: 1; }

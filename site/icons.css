@@ -1,0 +1,49 @@
+.icon-directory-tools {
+  display: flex;
+  align-items: center;
+  flex-wrap: wrap;
+  gap: .5rem;
+  padding: var(--site-inset);
+  margin-block-end: .65rem;
+  border-radius: var(--site-panel-radius);
+  background: var(--surface);
+}
+.icon-directory-tools .filter-label { flex: 1 1 13rem; min-inline-size: 0; }
+.icon-directory-category select {
+  min-block-size: 2.5rem;
+  max-inline-size: 100%;
+  padding: .35rem .6rem;
+  border: 0;
+  border-radius: var(--sy-radius-field, 9px);
+  background: var(--soft);
+  color: var(--ink);
+}
+.icon-directory-tools output { margin-inline-start: auto; padding-inline: .5rem; color: var(--muted); font-variant-numeric: tabular-nums; }
+.icon-directory-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fill, minmax(min(100%, 12.5rem), 1fr));
+  gap: .5rem;
+  margin: 0;
+  padding: 0;
+  list-style: none;
+}
+.icon-directory-card {
+  display: grid;
+  grid-template-columns: 1.65rem minmax(0, 1fr) auto;
+  align-items: center;
+  gap: .45rem;
+  padding: var(--site-inset);
+  min-block-size: 3.65rem;
+  border-radius: var(--site-panel-radius);
+  background: var(--surface);
+}
+.icon-directory-preview { display: grid; place-items: center; color: var(--primary); }
+.icon-directory-preview svg { inline-size: 1.5rem; block-size: 1.5rem; }
+.icon-directory-name { display: grid; line-height: 1.2; overflow-wrap: anywhere; }
+.icon-directory-name strong { font-size: .9rem; }
+.icon-directory-name code { color: var(--muted); font: .75rem var(--mono); }
+.icon-directory-download { display: grid; place-items: center; min-block-size: 2rem; padding-inline: .35rem; border-radius: 999px; color: var(--primary); font-size: .78rem; font-weight: 650; }
+.icon-directory-download:is(:hover, :focus-visible) { background: var(--surface-hover); }
+@media (pointer: coarse) {
+  .icon-directory-download { min-inline-size: 2.75rem; min-block-size: 2.75rem; }
+}

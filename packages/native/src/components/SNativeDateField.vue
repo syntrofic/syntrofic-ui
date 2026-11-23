@@ -152,11 +152,11 @@ defineExpose({ check: commit, clear, show, focus: () => fields.get(order.value[0
           :options="nativePopupCalendar(props)" :disabled="inactive" :close-on-select="closeOnSelect" :done-label="doneLabel"
           :overlay="overlay" :detents="detents" anchor-align="end" @select="choose" @opened="emit('opened')" @closed="emit('closed', $event)" @error="emit('popupError', $event)">
           <template #trigger="{ visible }">
-            <SNativeButton ref="trigger" label="▦" :accessibilityLabel="pickerLabel" :disabled="inactive"
+            <SNativeButton ref="trigger" :label="pickerLabel" icon="calendar" :disabled="inactive"
               :pressed="visible" size="sm" variant="ghost" width="44" @tap="show" />
           </template>
         </SNativeDatePopup>
-        <SNativeButton v-if="clearable" label="×" :accessibilityLabel="clearLabel"
+        <SNativeButton v-if="clearable" :label="clearLabel" icon="close"
           :disabled="inactive || blank" size="sm" variant="ghost" width="44" @tap="clear" />
       </template>
     </SNativeInputGroup>

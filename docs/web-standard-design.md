@@ -33,6 +33,10 @@ SClickableCard 的 `label` 命名主体操作。传入 `href` 使用链接语义
 
 通过 `provideIcons` 可为当前 Vue 子树设置语义或命名空间图标。SIcon 和 `useIcon` 从最近的图标配置中查找名称，再回退到内置图标。
 
+Syntrofic 图标采用 24 × 24 网格、单色平面轮廓、圆角与一致的笔画宽度。使用同级短横线名称，例如 `<SIcon name="arrow-right" />`。官网和 Native 从同一份矢量稿派生展示资源。图标若单独承载含义，设置 `label`。放在已有标签的按钮旁时，沿用按钮标签。[图标目录](https://ui.syntrofic.com/icons/)
+
+修改 `src/icons/artwork.ts` 后，用 Node 22.18 及以上与 FontTools 4.60.2 运行 `python scripts/build-icon-font.py`。把生成的 Native 字体与字形映射随原稿一起提交。`--check` 校验生成物，官网构建直接从原稿生成 SVG 下载文件。
+
 SAvatar 的 `status` 与 `statusLabel` 提供视觉状态和读屏名称。SAvatarGroupOverflow 可显示头像组的剩余人数，开启 `interactive` 后可接收键盘和指针操作。SListItem 可渲染链接或操作，保留独立的前置内容与末尾动作。
 
 SInfoTip 在悬停或聚焦时预览指标与权限说明。点击、触按或按 Enter 和空格可固定提示，Esc、再次按下或移开焦点可关闭。用 `v-model:open` 控制固定状态。SHoverCard 可在段落中解释术语，也可承载可操作的链接和成员预览。可通过 `defaultOpen` 初始化可见状态，或用 `useHoverCard` 自行绑定触发和渲染。

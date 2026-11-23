@@ -32,6 +32,6 @@ const emit = defineEmits<{ activate: [event: MouseEvent]; remove: [event: MouseE
       :disabled="disabled"
       :aria-label="removeLabel ?? (label ? `Remove ${label}` : 'Remove tag')"
       @click.stop="emit('remove', $event)"
-    ><span aria-hidden="true">×</span></button>
+    ><SIcon name="close" /></button>
   </span>
 </template>

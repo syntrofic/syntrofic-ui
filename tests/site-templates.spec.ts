@@ -1,7 +1,7 @@
 import { expect, test, type Page } from '@playwright/test'
 import { standardTemplates } from '../site/template-catalog.mjs'
 
-test.use({ baseURL: process.env.SYNTROFIC_SITE_TEST_URL ?? 'http://127.0.0.1:4188', colorScheme: 'dark' })
+test.use({ baseURL: process.env.SYNTROFIC_SITE_TEST_URL ?? 'http://127.0.0.1:4188', colorScheme: 'light' })
 
 test('the block catalogue filters existing demos and opens an interactive checkout block', async ({ page }) => {
   await page.setViewportSize({ width: 360, height: 840 })
@@ -424,6 +424,7 @@ test('the official homepage uses existing controls and links to complete page pr
     ['.sample-card', 'rgb(248, 248, 248)'], ['.template-preview__picture', 'rgb(255, 255, 255)'],
     ['.home-platforms .resource-link', 'rgb(248, 248, 248)'], ['.template-preview', 'rgb(248, 248, 248)'],
     ['.template-preview__media', 'rgb(245, 245, 245)'],
+    ['.home-title', 'rgb(248, 248, 248)'], ['.hero-demo', 'rgb(248, 248, 248)'],
   ]) {
     const surfaces = page.locator(selector)
     await expect(surfaces.first()).toHaveCSS('background-color', base)
@@ -433,10 +434,10 @@ test('the official homepage uses existing controls and links to complete page pr
     }), base)).toBe(true)
   }
   const demo = page.getByRole('region', { name: '交付工作台互动示例' })
-  await expect(demo).toHaveCSS('background-color', 'rgb(255, 255, 255)')
-  await expect(demo.locator('.task-card')).toHaveCSS('background-color', 'rgb(248, 248, 248)')
+  await expect(demo).toHaveCSS('background-color', 'rgba(0, 0, 0, 0)')
+  await expect(demo.locator('.task-card')).toHaveCSS('background-color', 'rgb(245, 245, 245)')
   await expect(page.locator('.sample-stage').first()).toHaveCSS('min-height', '68px')
-  await expect(demo.locator('.sy-chart__plot')).toHaveCSS('background-color', 'rgb(255, 255, 255)')
+  await expect(demo.locator('.sy-chart__plot')).toHaveCSS('background-color', 'rgba(0, 0, 0, 0)')
   await expect(demo.locator('.sy-chart__line')).toHaveCSS('fill', 'none')
   await demo.getByRole('button', { name: '本月' }).click()
   await expect(demo.getByRole('button', { name: '本月' })).toHaveAttribute('aria-pressed', 'true')
@@ -525,9 +526,10 @@ test('the homepage layers quiet panels on a white canvas while loading and after
     }
   }
   await expect(page.locator('.hero-fallback')).toBeVisible()
-  const quiet = '.sample-card, .home-platforms a, .home-resources a, .template-preview, .home-setup .code-block'
+  const quiet = '.home-title, .hero-demo, .sample-card, .home-platforms a, .home-resources a, .template-preview, .home-setup .code-block'
   const nested = '.template-preview__media, .home-setup .code-toolbar'
-  await expectPaint(`${chrome}, .hero-fallback`, white)
+  await expectPaint(chrome, white)
+  await expectPaint('.hero-fallback', 'rgba(0, 0, 0, 0)')
   await expectPaint(quiet, 'rgb(248, 248, 248)')
   await expectPaint(nested, 'rgb(245, 245, 245)')
   await expect(page.locator('.catalog-strip small, .hero-platform, .hero-description, .sample-caption p, .template-preview__copy p')).toHaveCount(0)
@@ -535,10 +537,10 @@ test('the homepage layers quiet panels on a white canvas while loading and after
   await page.unroute('**/assets/*.js')
   await page.reload()
   await expect(page.locator('.demo-composition')).toBeVisible()
-  await expectPaint(`${chrome}, .demo-composition`, white)
+  await expectPaint(chrome, white)
+  await expectPaint('.demo-composition, .demo-composition .sy-chart__plot', 'rgba(0, 0, 0, 0)')
   await expectPaint(quiet, 'rgb(248, 248, 248)')
   await expectPaint(nested, 'rgb(245, 245, 245)')
-  await expect(page.locator('.demo-composition .sy-chart__plot')).toHaveCSS('background-color', white)
 })
 
 test('mobile navigation and website search remain accessible on a white canvas', async ({ page }) => {
@@ -591,13 +593,13 @@ for (const id of ['dashboard', ...standardTemplates.map(template => template.id)
   })
 }
 
-test('dashboard cards and charts stay white while data keeps its semantic colors', async ({ page }) => {
+test('dashboard cards use neutral surfaces while data keeps its semantic colors', async ({ page }) => {
   for (const id of ['dashboard', 'dashboard-alert-rail', 'dashboard-progress', 'dashboard-scorecard']) {
     const stage = await openTemplate(page, id)
     const cards = stage.locator('.sy-kpi')
-    await expect(cards.first()).toHaveCSS('background-color', 'rgb(255, 255, 255)')
+    await expect(cards.first()).toHaveCSS('background-color', 'rgb(248, 248, 248)')
     expect(await cards.evaluateAll(elements => elements.map(element => getComputedStyle(element).backgroundColor)))
-      .toEqual(Array(await cards.count()).fill('rgb(255, 255, 255)'))
+      .toEqual(Array(await cards.count()).fill('rgb(248, 248, 248)'))
     await expect(stage.locator('.sy-chart__plot').first()).toHaveCSS('background-color', 'rgb(255, 255, 255)')
     if (id === 'dashboard-progress') {
       const risk = cards.getByText('有风险事项', { exact: true }).locator('..')
@@ -611,17 +613,17 @@ test('dashboard cards and charts stay white while data keeps its semantic colors
   }
 })
 
-test('documentation callouts and theme showcase panels open on white', async ({ page }) => {
+test('documentation callouts and theme showcase panels use quiet surfaces', async ({ page }) => {
   for (const id of ['documentation', 'documentation-technical']) {
     const stage = await openTemplate(page, id)
     const banner = stage.locator('.sy-banner').first()
-    await expect(banner.locator('.sy-banner__header')).toHaveCSS('background-color', 'rgb(255, 255, 255)')
+    await expect(banner.locator('.sy-banner__header')).toHaveCSS('background-color', 'rgb(248, 248, 248)')
     await expect(banner.locator('.sy-banner__icon')).toHaveCSS('background-color', 'rgb(233, 237, 244)')
   }
   const store = await openTemplate(page, 'theme-showcase')
   await expect(store.locator('.collection-template__card').first()).toHaveCSS('background-color', 'rgb(248, 248, 248)')
   await store.getByRole('button', { name: '活动', exact: true }).click()
-  await expect(store.locator('.sy-kpi').first()).toHaveCSS('background-color', 'rgb(255, 255, 255)')
+  await expect(store.locator('.sy-kpi').first()).toHaveCSS('background-color', 'rgb(248, 248, 248)')
   await expect(store.locator('.sy-dashboard-template__rail')).toHaveCSS('background-color', 'rgb(248, 248, 248)')
 })
 
@@ -663,33 +665,34 @@ test('navigation stack preview uses compact white surfaces on mobile', async ({ 
 
 test('large example surfaces keep a white or neutral fill and use color as an accent', async ({ page }) => {
   const white = 'rgb(255, 255, 255)'
+  const gray = 'rgb(248, 248, 248)'
 
   await page.goto('/agent/')
   const metrics = page.locator('[data-island="agent"] .sy-kpi')
   await expect(metrics).toHaveCount(2)
-  for (const metric of await metrics.all()) await expect(metric).toHaveCSS('background-color', white)
+  for (const metric of await metrics.all()) await expect(metric).toHaveCSS('background-color', gray)
 
   await page.goto('/docs/vue/components/alert/')
   const warning = page.locator('.demo-body .sy-alert[data-tone="warning"]').first()
-  await expect(warning).toHaveCSS('background-color', white)
+  await expect(warning).toHaveCSS('background-color', gray)
   await expect(warning).toHaveCSS('border-inline-start-width', '0px')
 
-  for (const [component, selector] of [
-    ['skeleton', '.sy-surface.review__block'],
-    ['map', '.sy-map'],
-    ['kpi', '.sy-kpi'],
-    ['widget', '.sy-widget'],
-    ['banner', '.sy-banner__header'],
-    ['navigation-stack', '.sy-navigation-stack > header'],
-    ['comment-composer', '.sy-comment-composer__quote'],
-    ['brand-theme', '.theme-scope-card'],
-    ['timeline', '.review-timeline__history .sy-timeline__content'],
+  for (const [component, selector, fill] of [
+    ['skeleton', '.sy-surface.review__block', gray],
+    ['map', '.sy-map', gray],
+    ['kpi', '.sy-kpi', gray],
+    ['widget', '.sy-widget', gray],
+    ['banner', '.sy-banner__header', gray],
+    ['navigation-stack', '.sy-navigation-stack > header', white],
+    ['comment-composer', '.sy-comment-composer__quote', white],
+    ['brand-theme', '.theme-scope-card', white],
+    ['timeline', '.review-timeline__history .sy-timeline__content', white],
   ]) {
     await page.goto(`/docs/vue/components/${component}/`)
-    await expect(page.locator(`.demo-body ${selector}`).first()).toHaveCSS('background-color', white)
+    await expect(page.locator(`.demo-body ${selector}`).first()).toHaveCSS('background-color', fill)
   }
   await page.goto('/docs/vue/components/carousel/')
-  await expect(page.locator('.demo-body .review-gallery__palette').first()).toHaveCSS('background-color', white)
+  await expect(page.locator('.demo-body .review-gallery__palette').first()).toHaveCSS('background-color', gray)
   const swatch = page.locator('.review-gallery__color-field').first()
   expect(await swatch.evaluate(element => getComputedStyle(element, '::before').backgroundColor)).toBe('rgb(201, 212, 197)')
 
