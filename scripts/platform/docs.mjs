@@ -8,6 +8,7 @@ import { installedAt, packageId, projectAt, projectPackages } from './project-di
 const guides = [
   ['getting-started', 'Vue 3 入门', 'vue.md'], ['native', 'NativeScript Vue', 'native.md'],
   ['standard-design', '标准设计', 'standard-design.md'], ['theme', '主题与样式', 'theming.md'], ['releases', '版本记录', 'releases.md'],
+  ['design-rules', 'Syntrofic UI 设计规范', 'design-rules.md'], ['design-rules/en', 'Syntrofic UI design rules', 'en/design-rules.md'],
   ['cli', 'CLI 与集成工具', 'tools.md'],
 ]
 const slug = text => text.normalize('NFKC').toLowerCase().replace(/[^\p{L}\p{N}]+/gu, '-').replace(/^-|-$/g, '')

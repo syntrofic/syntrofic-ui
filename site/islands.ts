@@ -2,7 +2,6 @@ import { createApp, h, nextTick, Suspense } from 'vue'
 import type { Component } from 'vue'
 import { settleInitialStyles } from '../src/internal/initial-styles'
 import '../src/styles/index.css'
-import { replaceSiteContent } from './motion'
 import { templateDemos } from './template-demos'
 
 const demos: Record<string, () => Promise<{ default: Component }>> = {
@@ -51,18 +50,16 @@ export async function mount(island: HTMLElement, index: number, report: (error: 
         if (failed || island.dataset.islandState === 'ready') return
         const active = island.ownerDocument.activeElement
         const restoreFocus = active && previous.some(node => node.contains(active))
-        replaceSiteContent(island, previous, () => {
-          for (const node of previous) node.parentNode?.removeChild(node)
-          pending.dataset.islandHost = 'ready'
-          pending.removeAttribute('aria-hidden')
-          pending.inert = false
-          island.dataset.islandState = 'ready'
-          island.removeAttribute('aria-busy')
-          if (restoreFocus) {
-            island.tabIndex = -1
-            island.focus({ preventScroll: true })
-          }
-        })
+        for (const node of previous) node.parentNode?.removeChild(node)
+        pending.dataset.islandHost = 'ready'
+        pending.removeAttribute('aria-hidden')
+        pending.inert = false
+        island.dataset.islandState = 'ready'
+        island.removeAttribute('aria-busy')
+        if (restoreFocus) {
+          island.tabIndex = -1
+          island.focus({ preventScroll: true })
+        }
         settleInitialStyles(pending)
       })
     }

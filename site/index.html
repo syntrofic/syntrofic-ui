@@ -16,62 +16,6 @@
         document.querySelector('meta[name=color-scheme]').content = theme
       }
     } catch {}
-    {
-      const root = document.documentElement
-      const reduced = matchMedia('(prefers-reduced-motion: reduce)')
-      const timing = performance.getEntriesByType('navigation')[0]
-      const referrer = document.referrer && new URL(document.referrer)
-      let linkedArrival = false
-      try {
-        linkedArrival = sessionStorage.getItem('syntrofic-site-arrival') === location.href
-        sessionStorage.removeItem('syntrofic-site-arrival')
-      } catch {}
-      const sameSite = timing?.type === 'navigate' && referrer?.origin === location.origin &&
-        (referrer.pathname !== location.pathname || referrer.search !== location.search)
-      const kind = timing?.type === 'back_forward' ? 'history' : linkedArrival || sameSite ? 'link' : undefined
-      let arrival = { kind, native: false, browser: false }
-      const clearArrival = () => { delete root.dataset.siteArrival }
-      function showArrival(current) {
-        if (current !== arrival || current.browser || reduced.matches) return
-        const kind = current.native ? 'native' : current.kind
-        if (kind) root.dataset.siteArrival = kind
-        else clearArrival()
-      }
-      // Fade the live content before its first paint. A native transition can move the navigation marker separately.
-      showArrival(arrival)
-      window.addEventListener('pagereveal', event => {
-        if (!event.viewTransition) return
-        const current = arrival
-        current.native = true
-        showArrival(current)
-        event.viewTransition.ready.catch(() => {
-          current.native = false
-          showArrival(current)
-        })
-      })
-      window.addEventListener('pageshow', event => {
-        if (!event.persisted) return
-        const current = arrival
-        current.kind = 'history'
-        requestAnimationFrame(() => showArrival(current))
-      })
-      window.addEventListener('pagehide', () => {
-        arrival = { kind: undefined, native: false, browser: false }
-        clearArrival()
-      })
-      function browserMotion(event) {
-        if (event.hasUAVisualTransition !== true) return
-        arrival.browser = true
-        clearArrival()
-      }
-      window.addEventListener('popstate', browserMotion, true)
-      window.navigation?.addEventListener('navigate', browserMotion, true)
-      reduced.addEventListener('change', event => {
-        if (!event.matches) return
-        arrival.kind = undefined
-        clearArrival()
-      })
-    }
   </script>
   <script type="module" src="/runtime.ts"></script>
 </head>

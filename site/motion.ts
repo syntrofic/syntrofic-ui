@@ -179,18 +179,6 @@ export function changeSiteHeight(element: HTMLElement, update: () => Animation |
   return anchor ?? expansion
 }
 
-function previewSurfaces(nodes: readonly Node[]) {
-  return nodes.flatMap(node => {
-    if (!(node instanceof HTMLElement) || node.matches('[data-site-departure], [data-island-host="pending"], [data-theme-host="pending"]')) return []
-    return node.dataset.islandHost === 'ready' ? [...node.children].filter((item): item is HTMLElement => item instanceof HTMLElement) : [node]
-  })
-}
-
-export function replaceSiteContent(element: HTMLElement, previous: readonly Node[], update: () => void,
-  arrivals = () => previewSurfaces([...element.children])) {
-  changeSiteHeight(element, () => changeSiteItems(previewSurfaces(previous), update, arrivals, { departures: true, layer: element }))
-}
-
 export function setSiteDisclosure(details: HTMLDetailsElement, open: boolean, animate = true) {
   const shell = details.parentElement
   const panel = details.querySelector<HTMLElement>(':scope > [data-site-disclosure-panel]')
@@ -230,11 +218,11 @@ export function showIslandError(island: HTMLElement, retry: () => void, restoreF
     button.removeAttribute('aria-disabled')
     setSiteText(button.querySelector<HTMLElement>('[data-site-action-label]')!, '重新加载示例', anchor)
     if (refresh.hidden) {
-      replaceSiteContent(island, [], () => { refresh.hidden = false }, () => [refresh])
+      changeSiteHeight(island, () => changeSiteItems([], () => { refresh.hidden = false }, () => [refresh], { layer: island }))
     }
     return
   }
-  replaceSiteContent(island, [...island.childNodes], () => {
+  changeSiteHeight(island, () => {
     const message = document.createElement('div')
     const status = document.createElement('span')
     const retryButton = document.createElement('button')
@@ -263,17 +251,15 @@ export function showIslandError(island: HTMLElement, retry: () => void, restoreF
     message.append(status, retryButton, refresh)
     island.replaceChildren(message)
     if (restoreFocus) retryButton.focus({ preventScroll: true })
+    return null
   })
 }
 
 export function installSiteNavigation() {
-  const browser = window as Window & Partial<Record<'PageSwapEvent' | 'PageRevealEvent', unknown>> & { navigation?: EventTarget }
-  const native = typeof browser.PageSwapEvent === 'function' && typeof browser.PageRevealEvent === 'function'
+  const browser = window as Window & { navigation?: EventTarget }
   const root = document.documentElement
-  const main = document.querySelector<HTMLElement>('main#main:not(.docs-layout), main#main > .docs-content')
   const status = document.querySelector<HTMLElement>('[data-site-navigation-status]')
-  if (!main || !status) return
-  const channel = animator(main)
+  if (!status) return
   let pending: { href: string } | undefined
   let notice: ReturnType<typeof setTimeout> | undefined
   let anchorDestination: string | undefined
@@ -290,9 +276,6 @@ export function installSiteNavigation() {
     const top = window.scrollY
     // A distinct position also replaces asynchronous scrolls when a no-op would be coalesced.
     window.scrollTo({ left: window.scrollX, top: top >= 1 ? top - 1 : 1, behavior: 'instant' })
-  }
-  const rememberArrival = (href: string) => {
-    try { sessionStorage.setItem('syntrofic-site-arrival', href) } catch {}
   }
   const clearNotice = () => {
     pending = undefined
@@ -311,18 +294,9 @@ export function installSiteNavigation() {
     }, 180)
     return current
   }
-  function cancelNavigation() {
-    if (!pending) return
-    try {
-      if (sessionStorage.getItem('syntrofic-site-arrival') === pending.href) sessionStorage.removeItem('syntrofic-site-arrival')
-    } catch {}
-    clearNotice()
-    channel.cancel('page-exit')
-  }
   window.addEventListener('pagehide', () => {
     clearNotice()
     clearAnchorScroll()
-    channel.cancel('page-exit')
   })
   document.addEventListener('scrollend', event => {
     if (event.target !== document || !anchorDestination) return
@@ -352,17 +326,17 @@ export function installSiteNavigation() {
       destination?: { url: string; sameDocument: boolean }; signal?: AbortSignal; navigationType?: string; downloadRequest?: string | null
     }
     if (!destination || !signal) return
-    if (pending && pending.href !== destination.url) cancelNavigation()
+    if (pending && pending.href !== destination.url) clearNotice()
     if (destination.sameDocument || navigationType === 'reload' || downloadRequest != null || new URL(destination.url).origin !== location.origin) return
     const current = pending ?? startNotice(destination.url)
     const onAbort = () => {
-      if (pending === current) cancelNavigation()
+      if (pending === current) clearNotice()
     }
     if (signal.aborted) onAbort()
     else signal.addEventListener('abort', onAbort, { once: true })
   })
   document.addEventListener('keydown', event => {
-    if (event.key === 'Escape' && !event.defaultPrevented && !document.querySelector('.search-dialog[open]')) cancelNavigation()
+    if (pending && event.key === 'Escape' && !event.defaultPrevented && !document.querySelector('.search-dialog[open]')) clearNotice()
   })
   document.addEventListener('click', event => {
     if (event.defaultPrevented || event.button !== 0 || event.altKey || event.shiftKey || event.metaKey || event.ctrlKey) return
@@ -381,19 +355,6 @@ export function installSiteNavigation() {
       }
       return
     }
-    const current = startNotice(next.href)
-    if (prefersReducedMotion(main) || typeof main.animate !== 'function') return
-    if (native || anchor.relList.contains('noreferrer') || anchor.hasAttribute('referrerpolicy') || anchor.hasAttribute('ping')) {
-      rememberArrival(next.href)
-      return
-    }
-    event.preventDefault()
-    const animation = channel.animate('page-exit', [{ opacity: 1 }, { opacity: .94 }],
-      { role: 'exit', duration: 145, fill: 'forwards' })
-    void animation.finished.then(() => {
-      if (pending !== current) return
-      rememberArrival(next.href)
-      location.assign(next.href)
-    }, () => {})
+    startNotice(next.href)
   })
 }

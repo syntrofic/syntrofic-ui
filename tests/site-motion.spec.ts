@@ -1071,26 +1071,17 @@ for (const reducedMotion of ['no-preference', 'reduce'] as const) {
       await demo.evaluate(node => {
         const ready = new MutationObserver(() => {
           if (node.getAttribute('data-island-state') !== 'ready') return
-          const height = node.getAnimations().find(animation =>
-            (animation.effect as KeyframeEffect | null)?.getKeyframes().some(frame => frame.height))
-          const host = node.querySelector('[data-island-host="ready"]')
-          const reveal = [...(host?.children ?? [])].flatMap(child => child.getAnimations()).find(animation =>
-            (animation.effect as KeyframeEffect | null)?.getKeyframes().some(frame => frame.opacity))
-          const departure = node.querySelector(':scope > [data-site-departure]')
-          const fade = departure?.getAnimations()[0]
-          node.setAttribute('data-test-height-easing', height?.effect?.getTiming().easing ?? 'none')
-          node.setAttribute('data-test-ready-effects-aligned', String(Boolean(height && reveal && fade &&
-            height.startTime === reveal.startTime && reveal.startTime === fade.startTime)))
-          node.setAttribute('data-test-anchored-exit', String(Boolean(departure?.hasAttribute('inert') &&
-            departure.getAttribute('aria-hidden') === 'true' && getComputedStyle(departure).position === 'absolute')))
+          const host = node.querySelector('[data-island-host="ready"]')!
+          const frames = [node, ...host.children].flatMap(element => element.getAnimations())
+          node.setAttribute('data-test-ready-effects', String(frames.length))
+          node.setAttribute('data-test-departing-frame', String(Boolean(node.querySelector('[data-site-departure]'))))
           ready.disconnect()
         })
         ready.observe(node, { attributes: true, attributeFilter: ['data-island-state'] })
       })
       release()
-      await expect(demo).toHaveAttribute('data-test-height-easing', reducedMotion === 'reduce' ? 'none' : /cubic-bezier/)
-      await expect(demo).toHaveAttribute('data-test-ready-effects-aligned', String(reducedMotion !== 'reduce'))
-      await expect(demo).toHaveAttribute('data-test-anchored-exit', String(reducedMotion !== 'reduce'))
+      await expect(demo).toHaveAttribute('data-test-ready-effects', '0')
+      await expect(demo).toHaveAttribute('data-test-departing-frame', 'false')
       await expect(demo).not.toHaveAttribute('aria-busy', 'true')
       await expect(demo.getByText('示例加载中…')).toHaveCount(0)
       await expect(demo.getByText('双向滑动记录', { exact: true })).toBeVisible()
@@ -1241,87 +1232,34 @@ test('retrying a failed preview stylesheet restores the styled example', async (
   expect(await style.evaluate(node => Boolean((node as HTMLLinkElement).sheet))).toBe(true)
 })
 
-function forcePageFallback() {
-  Object.defineProperty(window, 'PageSwapEvent', { value: undefined, configurable: true })
-  Object.defineProperty(window, 'PageRevealEvent', { value: undefined, configurable: true })
+function skipNativeViewTransition() {
   window.addEventListener('pagereveal', event => {
     ;(event as Event & { viewTransition?: { skipTransition(): void } }).viewTransition?.skipTransition()
   })
 }
 
-for (const reduced of [false, true]) {
-  test(`fallback site navigation ${reduced ? 'skips animation with reduced motion' : 'animates both pages'}`, async ({ page }) => {
-    await page.addInitScript(forcePageFallback)
-    if (reduced) await page.emulateMedia({ reducedMotion: 'reduce' })
+for (const reducedMotion of ['no-preference', 'reduce'] as const) {
+  test(`site navigation keeps both page bodies static with ${reducedMotion}`, async ({ page }) => {
+    await page.addInitScript(skipNativeViewTransition)
+    await page.emulateMedia({ reducedMotion })
     await page.goto('/')
     const link = page.locator('.topnav a[href="/templates/"]')
-    if (reduced) {
-      await link.click()
-    } else {
-      expect(await link.evaluate(node => {
-        (node as HTMLAnchorElement).click()
-        return document.querySelector('main#main')?.getAnimations().some(animation => {
-          const effect = animation.effect as KeyframeEffect | null
-          const frames = effect?.getKeyframes()
-          return animation.playState !== 'finished' && frames?.every(frame => 'opacity' in frame && !('translate' in frame || 'transform' in frame))
-        })
-      })).toBe(true)
-    }
+    expect(await link.evaluate(node => {
+      (node as HTMLAnchorElement).click()
+      return document.querySelector('main#main')?.getAnimations().length
+    })).toBe(0)
     await expect(page).toHaveURL('/templates/')
-    await page.waitForLoadState('domcontentloaded')
     const main = page.locator('main#main')
     await expect(main).toBeVisible()
-    await expect(main).toHaveCSS('animation-name', reduced ? 'none' : 'site-page-in')
+    await expect(main).toHaveCSS('animation-name', 'none')
+    await expect(main).toHaveCSS('opacity', '1')
     await expect(main).toHaveCSS('transform', 'none')
     await expect(main).toHaveCSS('translate', 'none')
-    const marker = page.locator('.topnav [aria-current="page"] .topnav-indicator')
-    await expect(marker).toHaveCSS('animation-name', reduced ? 'none' : 'site-nav-current-in')
-    if (!reduced) await expect(marker).toHaveCSS('animation-timing-function', /cubic-bezier/)
-    expect(await page.evaluate(() => sessionStorage.getItem('syntrofic-site-arrival'))).toBeNull()
-    if (reduced) {
-      await page.goBack({ waitUntil: 'commit' })
-      await expect(main).toHaveCSS('animation-name', 'none')
-      await expect(page.locator('html')).not.toHaveAttribute('data-site-arrival')
-    }
   })
 }
 
-test('a cached site page yields its return transition when browser history has animated it', async ({ page }) => {
-  await page.goto('/docs/')
-  const samples = await page.evaluate(async () => {
-    const root = document.documentElement
-    const hide = () => window.dispatchEvent(new PageTransitionEvent('pagehide', { persisted: true }))
-    const restore = () => window.dispatchEvent(new PageTransitionEvent('pageshow', { persisted: true }))
-    const frame = () => new Promise(requestAnimationFrame)
-    const marked = () => root.hasAttribute('data-site-arrival')
-    hide()
-    restore()
-    const history = new Event('popstate')
-    Object.defineProperty(history, 'hasUAVisualTransition', { value: true })
-    window.dispatchEvent(history)
-    await frame()
-    const browserReturn = marked()
-    hide()
-    restore()
-    const reveal = new Event('pagereveal')
-    Object.defineProperty(reveal, 'viewTransition', { value: { ready: Promise.resolve() } })
-    window.dispatchEvent(reveal)
-    await frame()
-    const nativeReturn = root.dataset.siteArrival
-    hide()
-    restore()
-    await frame()
-    const computed = getComputedStyle(document.querySelector('.docs-content')!)
-    return { browserReturn, nativeReturn, siteReturn: computed.animationName, easing: computed.animationTimingFunction }
-  })
-  expect(samples.browserReturn).toBe(false)
-  expect(samples.nativeReturn).toBe('native')
-  expect(samples.siteReturn).toBe('site-history-in')
-  expect(samples.easing).toMatch(/cubic-bezier/)
-})
-
-test('browser back and forward replay the page motion while keeping the original scroll position', async ({ page }) => {
-  await page.addInitScript(forcePageFallback)
+test('browser back and forward keep the page static and restore the original scroll position', async ({ page }) => {
+  await page.addInitScript(skipNativeViewTransition)
   await page.goto('/docs/vue/components/')
   await page.evaluate(async () => {
     await document.fonts.ready
@@ -1334,16 +1272,16 @@ test('browser back and forward replay the page motion while keeping the original
   await expect(page).toHaveURL('/templates/')
   await page.goBack({ waitUntil: 'commit' })
   await expect(page).toHaveURL('/docs/vue/components/')
-  await expect(page.locator('.docs-content')).toHaveCSS('animation-name', 'site-history-in')
+  await expect(page.locator('.docs-content')).toHaveCSS('animation-name', 'none')
   await expect(page.locator('.docs-content')).toHaveCSS('transform', 'none')
   await expect.poll(() => page.evaluate(async top => { await document.fonts.ready; return Math.abs(scrollY - top) }, originalTop)).toBeLessThanOrEqual(2)
   await page.goForward({ waitUntil: 'commit' })
   await expect(page).toHaveURL('/templates/')
-  await expect(page.locator('main#main')).toHaveCSS('animation-name', 'site-history-in')
+  await expect(page.locator('main#main')).toHaveCSS('animation-name', 'none')
 })
 
-test('navigation that changes only the query still animates the departure and the destination', async ({ page }) => {
-  await page.addInitScript(forcePageFallback)
+test('navigation that changes only the query keeps both page bodies static', async ({ page }) => {
+  await page.addInitScript(skipNativeViewTransition)
   await page.goto('/templates/')
   expect(await page.locator('main#main').evaluate(main => {
     const link = document.createElement('a')
@@ -1351,14 +1289,14 @@ test('navigation that changes only the query still animates the departure and th
     main.append(link)
     link.click()
     return main.getAnimations().some(effect => effect.playState === 'running')
-  })).toBe(true)
+  })).toBe(false)
   await expect(page).toHaveURL('/templates/?category=form')
-  await expect(page.locator('main#main')).toHaveCSS('animation-name', 'site-page-in')
+  await expect(page.locator('main#main')).toHaveCSS('animation-name', 'none')
   await page.reload()
   await expect(page.locator('main#main')).toHaveCSS('animation-name', 'none')
 })
 
-test('cross-document navigation fades content in place and only snapshots the navigation marker', async ({ page, browserName }) => {
+test('cross-document navigation only snapshots the navigation marker', async ({ page, browserName }) => {
   await page.addInitScript(() => {
     window.addEventListener('pagereveal', event => {
       const transition = (event as Event & { viewTransition?: { ready: Promise<void> } }).viewTransition
@@ -1377,7 +1315,7 @@ test('cross-document navigation fades content in place and only snapshots the na
   await page.locator('.topnav a[href="/templates/"]').click()
   await expect(page).toHaveURL('/templates/')
   const main = page.locator('main#main')
-  await expect(main).toHaveCSS('animation-name', 'site-page-in')
+  await expect(main).toHaveCSS('animation-name', 'none')
   await expect(main).toHaveCSS('transform', 'none')
   await expect(main).toHaveCSS('translate', 'none')
   if (browserName === 'chromium' || await page.locator('html[data-test-native-arrival]').count()) {
@@ -1493,7 +1431,7 @@ for (const reducedMotion of ['no-preference', 'reduce'] as const) {
       expect(progress.label).toBe('正在加载页面…')
       expect(progress.name).toBe(reducedMotion === 'reduce' ? 'none' : 'site-route-load')
       if (reducedMotion !== 'reduce') expect(progress.easing).toMatch(/cubic-bezier/)
-      expect(progress.opacity).toBeGreaterThanOrEqual(.89)
+      expect(progress.opacity).toBe(1)
       release()
       await expect(page).toHaveURL('/templates/')
       await expect(page.locator('html')).not.toHaveAttribute('data-site-navigation', 'pending')

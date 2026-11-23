@@ -473,7 +473,7 @@ function createSite(english) {
       </section>
       <section class="docs-index-section" aria-labelledby="docs-resources">
         <h2 id="docs-resources">设计与开发</h2>
-        <div class="docs-entry">${resourceLink('/docs/standard-design/', '标准设计', 'cube')}${resourceLink('/docs/theming/', '主题与样式', 'palette')}
+        <div class="docs-entry">${resourceLink('/docs/standard-design/', '标准设计', 'cube')}${resourceLink('/docs/design-rules/', '设计规范', 'form')}${resourceLink('/docs/theming/', '主题与样式', 'palette')}
           ${resourceLink('/docs/tools/', 'CLI 与 MCP', 'code')}${resourceLink('/docs/releases/', '更新记录', 'spark')}</div>
       </section>`)
   }

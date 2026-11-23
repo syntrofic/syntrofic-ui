@@ -34,7 +34,9 @@ async function agentGuidance(directory) {
   return [
     '## Syntrofic UI',
     '',
-    '- Read `syntrofic docs standard-design` for the white canvas, semantic tokens and motion guidelines.',
+    '- Follow `syntrofic docs design-rules/en` or `syntrofic docs design-rules` for the canvas, radius, density, and motion rules.',
+    '- Use a white light-mode canvas, subtle local surfaces, and the library’s role-specific radius defaults. Leave page and template shells unframed.',
+    '- Render large shells in their final positions on the first visible frame. Ease state changes only within affected content.',
     '- Run `syntrofic component <name> --props` to inspect components and `syntrofic template list` for runnable layouts.',
     '- Preserve keyboard access, readable state announcements and reduced-motion behavior.',
     ...contributions.map(item => '- Read integration guidance with `syntrofic docs ' + item.route + '`.'),

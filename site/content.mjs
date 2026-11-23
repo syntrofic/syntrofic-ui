@@ -113,6 +113,7 @@ export const guides = [
   { path: webInstallPath, title: 'Vue 快速开始', summary: '安装组件包、引入样式并在 Vue 3 或 Nuxt 中使用。', file: 'vue' },
   { path: nativeInstallPath, title: 'Native 快速开始', summary: '为 NativeScript-Vue 应用添加 Syntrofic UI。', file: 'native' },
   { path: '/docs/standard-design/', title: '标准设计', summary: '白色底色、组件与动效规范，以及 Astryx 对标清单。', file: 'standard-design' },
+  { path: '/docs/design-rules/', title: '设计规范', summary: '供项目和 AI 直接引用的颜色、圆角、排版和动效规则。', file: 'design-rules' },
   { path: '/docs/theming/', title: '主题与样式', summary: '语义 Token、明暗模式、局部主题和样式包。', file: 'theming' },
   { path: '/docs/tools/', title: 'CLI 与 MCP', summary: '初始化、搜索组件、导出参考资料和连接 MCP。', file: 'tools' },
   { path: '/docs/releases/', title: '更新记录', summary: '查看 Syntrofic UI 的开发预览版本。', file: 'releases' },

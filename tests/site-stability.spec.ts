@@ -40,6 +40,37 @@ async function clickAtCenter(page: Page, control: Locator) {
   await page.mouse.click(target.x + target.width / 2, target.y + target.height / 2)
 }
 
+test('the dashboard template mounts directly on the canvas without an entering frame', async ({ page }) => {
+  await page.emulateMedia({ reducedMotion: 'no-preference' })
+  let release = () => {}
+  const pending = new Promise<void>(resolve => { release = resolve })
+  await page.route('**/OperationsTemplateDemo-*.js', async route => {
+    await pending
+    await route.continue()
+  })
+  try {
+    await page.goto('/templates/dashboard-comparison/', { waitUntil: 'commit' })
+    const stage = page.locator('[data-template="dashboard-comparison"]')
+    await expect(stage).toHaveAttribute('data-island-state', 'loading')
+    await expect(stage).toHaveCSS('background-color', 'rgba(0, 0, 0, 0)')
+    await expect(page.locator('body')).toHaveCSS('background-color', 'rgb(255, 255, 255)')
+    await stage.evaluate(node => {
+      const observer = new MutationObserver(() => {
+        if (node.getAttribute('data-island-state') !== 'ready') return
+        const dashboard = node.querySelector('.sy-dashboard-template')!
+        const effects = [node.closest('main')!, node, dashboard].flatMap(element => element.getAnimations())
+        node.setAttribute('data-test-frame-animations', String(effects.length))
+        observer.disconnect()
+      })
+      observer.observe(node, { attributes: true, attributeFilter: ['data-island-state'] })
+    })
+    release()
+    await expect(stage.getByRole('region', { name: '团队交付对比', exact: true })).toBeVisible()
+    await expect(stage).toHaveAttribute('data-test-frame-animations', '0')
+    await expect(stage.locator('[data-island-placeholder], [data-site-departure]')).toHaveCount(0)
+  } finally { release() }
+})
+
 test('dashboard selects and site search keep the viewport in place during open and close', async ({ page }, info) => {
   await page.goto('/templates/dashboard-comparison/')
   const stage = page.locator('[data-template="dashboard-comparison"]')

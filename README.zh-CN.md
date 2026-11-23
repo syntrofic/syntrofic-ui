@@ -6,6 +6,8 @@ Syntrofic UI 是面向 Vue 3 和 NativeScript-Vue 的 MIT 开源组件库，包�
 
 [官网](https://ui.syntrofic.com/) · [Vue 组件](https://ui.syntrofic.com/docs/vue/components/) · [Native 组件](https://ui.syntrofic.com/docs/native/components/) · [模板](https://ui.syntrofic.com/templates/) · [标准设计](https://ui.syntrofic.com/docs/standard-design/)
 
+按[设计规范](site/guides/design-rules.md)复刻白底、圆角和交互默认值。运行 `pnpm exec syntrofic init --features agents` 可把设计约束写入项目的 AI 工作说明。
+
 ## Vue
 
 ```sh

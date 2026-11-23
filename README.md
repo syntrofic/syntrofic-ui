@@ -6,6 +6,8 @@ Syntrofic UI is an MIT-licensed component library for Vue 3 and NativeScript-Vue
 
 [Website](https://ui.syntrofic.com/en/) · [Vue components](https://ui.syntrofic.com/en/docs/vue/components/) · [Native components](https://ui.syntrofic.com/en/docs/native/components/) · [Templates](https://ui.syntrofic.com/en/templates/) · [Standard design](https://ui.syntrofic.com/en/docs/standard-design/)
 
+Use the [design rules](site/guides/en/design-rules.md) to reproduce the library’s visual and interaction defaults. Run `pnpm exec syntrofic init --features agents` to add the rules to a project's agent instructions.
+
 ## Vue
 
 ```sh

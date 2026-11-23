@@ -1,3 +1,4 @@
+import { readFileSync } from 'node:fs'
 import { cp, mkdir, readFile, writeFile } from 'node:fs/promises'
 import { dirname, join } from 'node:path'
 import { fileURLToPath } from 'node:url'
@@ -14,6 +15,8 @@ const generated = new Map([
   ['/search-index.json', searchIndex], ['/en/search-index.json', englishSearchIndex],
   ['/blog/feed.json', blogIndex], ['/en/blog/feed.json', englishBlogIndex],
   ['/blog/feed.xml', blogFeed], ['/en/blog/feed.xml', englishBlogFeed],
+  ['/design-rules.md', readFileSync(new URL('./guides/design-rules.md', import.meta.url), 'utf8')],
+  ['/en/design-rules.md', readFileSync(new URL('./guides/en/design-rules.md', import.meta.url), 'utf8')],
   ['/sitemap.xml', sitemap],
 ])
 
@@ -28,8 +31,8 @@ function staticPages() {
       server.middlewares.use(async (request, response, next) => {
         const path = new URL(request.url ?? '/', 'http://localhost').pathname
         if (generated.has(path)) {
-          const xml = path.endsWith('.xml')
-          response.setHeader('Content-Type', (xml ? 'application/xml' : 'application/json') + '; charset=utf-8')
+          const contentType = path.endsWith('.md') ? 'text/markdown' : path.endsWith('.xml') ? 'application/xml' : 'application/json'
+          response.setHeader('Content-Type', contentType + '; charset=utf-8')
           return response.end(generated.get(path))
         }
         const route = path.endsWith('/') ? path : path + '/'

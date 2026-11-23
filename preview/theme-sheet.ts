@@ -3,7 +3,7 @@ import SBrandTheme from '../src/components/SBrandTheme.vue'
 import { settleInitialStyles } from '../src/internal/initial-styles'
 import type { BrandMode, BrandTheme } from '../src/platform/theme-workspace'
 import { templateDemos } from '../site/template-demos'
-import { replaceSiteContent, setSiteDisclosure, setSiteText } from '../site/motion'
+import { setSiteDisclosure, setSiteText } from '../site/motion'
 import ReviewExample from './ReviewExample.vue'
 import ThemeOverlaySpecimens from './ThemeOverlaySpecimens.vue'
 import './review.css'
@@ -65,12 +65,10 @@ if (source?.textContent) {
         button.addEventListener('click', () => { void visit(detail, true) })
         failure.append(status, button)
         try {
-          replaceSiteContent(canvas, [...canvas.childNodes], () => {
-            canvas.replaceChildren(failure)
-            canvas.dataset.ready = 'failed'
-            canvas.removeAttribute('aria-busy')
-            if (detail.open && restore) button.focus({ preventScroll: true })
-          })
+          canvas.replaceChildren(failure)
+          canvas.dataset.ready = 'failed'
+          canvas.removeAttribute('aria-busy')
+          if (detail.open && restore) button.focus({ preventScroll: true })
         } finally { app?.unmount() }
       })
     }
@@ -90,15 +88,13 @@ if (source?.textContent) {
         void nextTick(() => {
           if (failed || canvas.dataset.ready !== 'pending') return
           const restore = returnFocus && previous.some(node => node.contains(document.activeElement))
-          replaceSiteContent(canvas, previous, () => {
-            for (const node of previous) node.parentNode?.removeChild(node)
-            host.dataset.themeHost = 'ready'
-            host.inert = false
-            host.removeAttribute('aria-hidden')
-            canvas.dataset.ready = 'true'
-            canvas.removeAttribute('aria-busy')
-            if (detail.open && restore) canvas.focus({ preventScroll: true })
-          })
+          for (const node of previous) node.parentNode?.removeChild(node)
+          host.dataset.themeHost = 'ready'
+          host.inert = false
+          host.removeAttribute('aria-hidden')
+          canvas.dataset.ready = 'true'
+          canvas.removeAttribute('aria-busy')
+          if (detail.open && restore) canvas.focus({ preventScroll: true })
           settleInitialStyles(host)
         })
       }
