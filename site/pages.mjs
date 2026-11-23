@@ -177,10 +177,13 @@ function createSite(english) {
           <h1 id="home-title"><span class="platform-word" data-platform="vue">Vue</span> 与 <span class="platform-word" data-platform="native">Native</span><br>界面组件库</h1>
           <div class="home-actions">${button(webInstallPath, '快速开始')}${button('/docs/standard-design/', '标准设计', true)}</div>
         </div>
-        <nav class="home-platforms" aria-label="按平台浏览组件">
-          ${resourceLink(vuePath, 'Vue 组件', 'vue')}
-          ${resourceLink(nativePath, 'Native 组件', 'native')}
-        </nav>
+        <div class="home-setup">
+          ${code(`git clone ${repository}.git`, english ? 'Get the source' : '获取源码')}
+          <nav class="home-platforms" aria-label="按平台浏览组件">
+            ${resourceLink(vuePath, 'Vue 组件', 'vue')}
+            ${resourceLink(nativePath, 'Native 组件', 'native')}
+          </nav>
+        </div>
       </section>
       ${playground()}
       <section class="home-section" aria-labelledby="home-templates-title">

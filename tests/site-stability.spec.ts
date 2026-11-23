@@ -56,7 +56,9 @@ test('both homepages share alignment and expose localized search metadata', asyn
       '@type': 'WebSite', name: 'Syntrofic UI', url: origin + '/',
     })
     await expect(page.locator('body')).toHaveCSS('background-color', 'rgb(255, 255, 255)')
-    await expect(page.locator('.home-platforms .resource-link').first()).toHaveCSS('background-color', 'rgba(0, 0, 0, 0)')
+    await expect(page.locator('.home-platforms .resource-link').first()).toHaveCSS('background-color', 'rgb(248, 248, 248)')
+    await expect(page.locator('.home-setup .code-block')).toHaveCSS('background-color', 'rgb(248, 248, 248)')
+    await expect(page.locator('.home-setup .code-toolbar')).toHaveCSS('background-color', 'rgb(245, 245, 245)')
     const columns = await page.locator('.home-title, .home-platforms, .hero-demo, .sample-grid').evaluateAll(elements =>
       elements.map(element => element.getBoundingClientRect().left))
     expect(Math.abs(columns[0]! - columns[2]!)).toBeLessThan(.5)

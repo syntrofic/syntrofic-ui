@@ -422,7 +422,8 @@ test('the official homepage uses existing controls and links to complete page pr
   await expect(page.locator('.hero-demo')).toHaveCSS('background-image', 'none')
   for (const [selector, base] of [
     ['.sample-card', 'rgb(248, 248, 248)'], ['.template-preview__picture', 'rgb(255, 255, 255)'],
-    ['.home-platforms .resource-link', 'rgba(0, 0, 0, 0)'], ['.template-preview', 'rgba(0, 0, 0, 0)'],
+    ['.home-platforms .resource-link', 'rgb(248, 248, 248)'], ['.template-preview', 'rgb(248, 248, 248)'],
+    ['.template-preview__media', 'rgb(245, 245, 245)'],
   ]) {
     const surfaces = page.locator(selector)
     await expect(surfaces.first()).toHaveCSS('background-color', base)
@@ -524,11 +525,11 @@ test('the homepage layers quiet panels on a white canvas while loading and after
     }
   }
   await expect(page.locator('.hero-fallback')).toBeVisible()
-  const quiet = '.sample-card'
-  const canvasLinks = '.home-platforms a, .home-resources a, .template-preview'
+  const quiet = '.sample-card, .home-platforms a, .home-resources a, .template-preview, .home-setup .code-block'
+  const nested = '.template-preview__media, .home-setup .code-toolbar'
   await expectPaint(`${chrome}, .hero-fallback`, white)
   await expectPaint(quiet, 'rgb(248, 248, 248)')
-  await expectPaint(canvasLinks, 'rgba(0, 0, 0, 0)')
+  await expectPaint(nested, 'rgb(245, 245, 245)')
   await expect(page.locator('.catalog-strip small, .hero-platform, .hero-description, .sample-caption p, .template-preview__copy p')).toHaveCount(0)
 
   await page.unroute('**/assets/*.js')
@@ -536,7 +537,7 @@ test('the homepage layers quiet panels on a white canvas while loading and after
   await expect(page.locator('.demo-composition')).toBeVisible()
   await expectPaint(`${chrome}, .demo-composition`, white)
   await expectPaint(quiet, 'rgb(248, 248, 248)')
-  await expectPaint(canvasLinks, 'rgba(0, 0, 0, 0)')
+  await expectPaint(nested, 'rgb(245, 245, 245)')
   await expect(page.locator('.demo-composition .sy-chart__plot')).toHaveCSS('background-color', white)
 })
 

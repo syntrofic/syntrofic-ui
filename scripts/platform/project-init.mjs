@@ -36,6 +36,7 @@ async function agentGuidance(directory) {
     '',
     '- Follow `syntrofic docs design-rules/en` or `syntrofic docs design-rules` for the canvas, radius, density, and motion rules.',
     '- Use a white light-mode canvas, subtle local surfaces, and the library’s role-specific radius defaults. Leave page and template shells unframed.',
+    '- Use one tinted layout surface for most sections and a second to distinguish a meaningful child area. Limit nested layout fills to two levels above the page canvas.',
     '- Render large shells in their final positions on the first visible frame. Ease state changes only within affected content.',
     '- Run `syntrofic component <name> --props` to inspect components and `syntrofic template list` for runnable layouts.',
     '- Keep keyboard focus visible inside each control. Use a single inset outline for composite fields. Preserve readable state announcements and reduced-motion behavior.',
