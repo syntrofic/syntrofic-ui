@@ -211,22 +211,43 @@
   --docs-rail-space: calc(100dvh - var(--site-header-offset) - var(--site-footer-offset));
   --docs-start-gap: clamp(.375rem, (var(--docs-rail-space) - 4.5rem) / 3, 1rem);
   --docs-end-gap: calc(2 * var(--docs-start-gap));
+  /* The rails must fit between the sticky header and the footer. */
+  --docs-rail-limit: calc(var(--docs-rail-space) - var(--docs-start-gap) - var(--docs-end-gap) - 1px);
   display: grid;
   grid-template-columns: minmax(9rem, 12rem) minmax(0, 1fr) minmax(7rem, 9.5rem);
   gap: clamp(.8rem, 2vw, 1.7rem);
   min-height: 66vh;
   padding-block: var(--docs-start-gap) var(--docs-end-gap);
 }
-.docs-nav, .page-toc {
+.docs-rail, .page-toc {
   position: sticky;
   inset-block-start: calc(var(--site-header-offset) + var(--docs-start-gap));
   align-self: start;
-  /* A minimum height would push the sticky rail above its inset near the footer. */
-  max-block-size: calc(var(--docs-rail-space) - var(--docs-start-gap) - var(--docs-end-gap) - 1px);
+}
+.docs-rail {
+  --docs-scroll-inset: .25rem;
+  padding: var(--docs-scroll-inset);
+  overflow: clip;
+  border-radius: var(--site-panel-radius);
+  background: var(--surface);
+}
+.docs-nav, .page-toc {
   overflow: auto;
   scrollbar-width: thin;
 }
-.docs-nav { scrollbar-gutter: stable both-edges; border-radius: var(--site-panel-radius); background: var(--surface); }
+.page-toc { max-block-size: var(--docs-rail-limit); }
+.docs-nav {
+  --docs-scroll-thumb: color-mix(in srgb, var(--muted) 40%, var(--surface));
+  max-block-size: max(0px, calc(var(--docs-rail-limit) - 2 * var(--docs-scroll-inset)));
+  scrollbar-gutter: stable both-edges;
+  scrollbar-color: var(--docs-scroll-thumb) transparent;
+}
+.docs-nav:is(:hover, :focus-within) { --docs-scroll-thumb: color-mix(in srgb, var(--muted) 62%, var(--surface)); }
+@supports not (scrollbar-color: auto) {
+  .docs-nav::-webkit-scrollbar { width: 6px; }
+  .docs-nav::-webkit-scrollbar-track { background: transparent; }
+  .docs-nav::-webkit-scrollbar-thumb { background: var(--docs-scroll-thumb); border-radius: 999px; }
+}
 .docs-nav summary { display: none; }
 :is(.docs-nav, .design-coverage-frame) [data-site-disclosure] > summary::after {
   content: '';
@@ -240,6 +261,7 @@
 }
 :is(.docs-nav, .design-coverage-frame) [data-site-disclosure][open] > summary::after { transform: translateY(2px) rotate(225deg); }
 .docs-nav nav, .page-toc nav { display: grid; justify-items: stretch; gap: .125rem; padding: var(--site-inset); }
+.docs-nav nav { padding: calc(var(--site-inset) - var(--docs-scroll-inset)); }
 .docs-nav h2 { font-size: .875rem; padding: .4rem .5rem .23rem; font-weight: 715; }
 .docs-nav h2:not(:first-child) { margin-top: .4rem; }
 .docs-nav a, .page-toc a { font-size: .875rem; color: var(--muted); border-radius: 9px; padding: .34rem .5rem; overflow-wrap: anywhere; }
@@ -450,7 +472,7 @@
   :root[data-site-anchor-scroll] { scroll-behavior: smooth; }
   :root, body, .topbar, .topnav a, .repo-link, .icon-button, .search-button, .pill, .strip-icon, .docs-nav a,
   .hero-demo, .feature-stage, .feature-card, .component-card, .template-card, .template-preview__media,
-  .resource-link, .page-neighbors a, .docs-nav, .demo-frame, .code-block, .code-toolbar, .site-footer {
+  .resource-link, .page-neighbors a, .docs-rail, .demo-frame, .code-block, .code-toolbar, .site-footer {
     transition: background-color var(--site-enter) var(--site-ease), color var(--site-enter) var(--site-ease);
   }
   .template-preview { transition: background-color var(--site-enter) var(--site-ease); }
@@ -534,7 +556,8 @@
 @media (max-width: 710px), (max-height: 12rem) {
   .docs-layout { grid-template-columns: minmax(0, 1fr); align-content: start; padding-block-start: .65rem; gap: .65rem; }
   .page-toc { display: none; }
-  .docs-nav { position: relative; inset-block-start: auto; max-block-size: none; overflow: visible; }
+  .docs-rail { position: relative; inset-block-start: auto; padding: 0; overflow: visible; }
+  .docs-nav { max-block-size: none; overflow: visible; }
   .docs-nav summary { display: flex; align-items: center; gap: .65rem; padding: .55rem .7rem; color: var(--muted); font-size: .95rem; }
   .docs-nav nav { display: flex; flex-wrap: wrap; align-items: center; padding: 0 .4rem .5rem; }
   .docs-nav nav h2 { display: none; }

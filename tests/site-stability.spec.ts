@@ -109,6 +109,31 @@ test('the compact table detail sheet keeps the document in place through open an
   await verify()
 })
 
+test('documentation rail keeps equal insets with or without a scrollbar', async ({ page }) => {
+  await page.setViewportSize({ width: 1240, height: 740 })
+  const rail = page.locator('.docs-rail')
+  const pane = rail.locator('.docs-nav')
+  const insets = () => pane.getByRole('link', { name: '文档总览', exact: true }).evaluate(link => {
+    const shell = link.closest('.docs-rail')!.getBoundingClientRect()
+    const row = link.getBoundingClientRect()
+    return { start: row.left - shell.left, end: shell.right - row.right }
+  })
+
+  await page.goto('/docs/releases/')
+  const short = await insets()
+  expect(await pane.evaluate(node => node.scrollHeight <= node.clientHeight)).toBe(true)
+  expect(short.start).toBeCloseTo(short.end, 0)
+  await expect(rail).toHaveCSS('background-color', 'rgb(248, 248, 248)')
+  await expect(pane).toHaveCSS('background-color', 'rgba(0, 0, 0, 0)')
+  await expect(pane).toHaveCSS('scrollbar-color', /(?:transparent|rgba\(0, 0, 0, 0\))$/)
+
+  await page.goto('/docs/vue/components/checkbox/')
+  const long = await insets()
+  expect(await pane.evaluate(node => node.scrollHeight > node.clientHeight)).toBe(true)
+  expect(long.start).toBeCloseTo(long.end, 0)
+  expect(long.start).toBeCloseTo(short.start, 0)
+})
+
 test('component navigation keeps the left rail scroll and clicked link on the same row', async ({ page }, info) => {
   await page.setViewportSize({ width: 1240, height: 740 })
   await page.addInitScript(() => {

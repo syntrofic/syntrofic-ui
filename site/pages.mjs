@@ -203,7 +203,7 @@ function createSite(english) {
     const platform = entry?.native || path === nativePath || path === nativeInstallPath
     const pairs = entry ? components.filter(item => item.native === entry.native && item.category === entry.category) : []
     const scope = (english ? 'en:' : '') + (entry ? (platform ? 'native:' : 'vue:') + entry.category : 'docs')
-    return `<aside class="docs-nav" data-docs-scope="${escape(scope)}"><details data-site-disclosure open><summary>文档导航</summary>
+    return `<aside class="docs-rail"><div class="docs-nav" data-docs-scope="${escape(scope)}"><details data-site-disclosure open><summary>文档导航</summary>
       <nav data-site-disclosure-panel aria-label="文档导航"><h2>开始使用</h2>
         <a href="/docs/"${path === '/docs/' ? ' aria-current="page"' : ''}>文档总览</a>
         ${guides.map(guide => `<a href="${guide.path}"${path === guide.path ? ' aria-current="page"' : ''}>${guide.title}</a>`).join('')}
@@ -212,10 +212,10 @@ function createSite(english) {
         <a href="${nativePath}"${path === nativePath ? ' aria-current="page"' : ''}>Native 组件</a>
         ${entry ? `<h2>${platform ? 'Native' : 'Vue'} · ${categories[entry.category]}</h2>${pairs.map(item => `<a href="${item.path}"${path === item.path ? ' aria-current="page"' : ''}>${escape(item.name)}</a>`).join('')}` : ''}
       </nav>
-    </details></aside>
+    </details></div></aside>
     <script>
       {
-        const pane = document.currentScript.previousElementSibling
+        const pane = document.currentScript.previousElementSibling.querySelector('.docs-nav')
         const scope = 'syntrofic-docs-nav:' + pane.dataset.docsScope
         let entry
         try {
