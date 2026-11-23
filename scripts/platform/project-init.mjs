@@ -38,7 +38,7 @@ async function agentGuidance(directory) {
     '- Use a white light-mode canvas, subtle local surfaces, and the library’s role-specific radius defaults. Leave page and template shells unframed.',
     '- Render large shells in their final positions on the first visible frame. Ease state changes only within affected content.',
     '- Run `syntrofic component <name> --props` to inspect components and `syntrofic template list` for runnable layouts.',
-    '- Preserve keyboard access, readable state announcements and reduced-motion behavior.',
+    '- Keep keyboard focus visible inside each control. Use a single inset outline for composite fields. Preserve readable state announcements and reduced-motion behavior.',
     ...contributions.map(item => '- Read integration guidance with `syntrofic docs ' + item.route + '`.'),
   ].join('\n')
 }

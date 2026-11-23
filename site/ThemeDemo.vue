@@ -1040,7 +1040,7 @@ async function copy() {
 .theme-controls fieldset { padding: 0; border: 0; margin: 0; }
 .swatches { display: flex; gap: var(--sy-space-2); margin-top: var(--sy-space-1); flex-wrap: wrap; }
 .swatches button { width: 2rem; height: 2rem; border: 2px solid transparent; border-radius: 50%; background: var(--swatch); }
-.swatches button[aria-pressed="true"] { outline: 2px solid var(--ink); outline-offset: 2px; }
+.swatches button[aria-pressed="true"] { outline: 2px solid var(--ink); outline-offset: -2px; }
 .radius-control { display: grid; grid-template-columns: 1fr auto; gap: .25rem; }
 .radius-control input { grid-column: 1 / -1; accent-color: var(--primary); }
 .theme-preview { background: var(--sy-canvas); color: var(--sy-text); border-radius: var(--sy-radius-md); }

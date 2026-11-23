@@ -153,7 +153,7 @@ function addReaction(choice: EmojiChoice) {
 
 <style scoped>
 .hook-press-card { justify-self: start; padding: .75rem 1rem; min-block-size: 3rem; border: 1px solid var(--sy-border); border-radius: var(--sy-radius-md); background: var(--sy-canvas); color: inherit; cursor: pointer; font: inherit; }
-.hook-press-card:focus-visible { outline: 2px solid var(--sy-focus); outline-offset: 3px; }
+.hook-press-card:focus-visible { outline: 2px solid var(--sy-focus); outline-offset: -2px; }
 .review-touch-press { max-block-size: 5rem; max-inline-size: 16rem; overflow: auto; }
 .review-touch-press button {
   padding: 8px 12px;

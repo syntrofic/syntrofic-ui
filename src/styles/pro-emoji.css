@@ -13,7 +13,7 @@
   .sy-rating[data-disabled] { opacity: .55; }
   .sy-rating__row { display: inline-flex; flex-wrap: wrap; border-radius: var(--sy-radius-sm) / calc(var(--sy-radius-sm) * .78); }
   .sy-rating[data-interactive] .sy-rating__cell { cursor: pointer; }
-  .sy-rating__input:focus-visible + .sy-rating__row { outline: 2px solid var(--sy-focus); outline-offset: 3px; }
+  .sy-rating__input:focus-visible + .sy-rating__row { outline: 2px solid var(--sy-focus); outline-offset: -2px; }
   .sy-rating__cell {
     display: inline-grid;
     inline-size: var(--sy-rating-cell);

@@ -70,7 +70,7 @@
   }
   .sy-input-group[data-size='sm'] { --sy-input-group-height: var(--sy-control-height-sm, 34px); }
   .sy-input-group[data-size='lg'] { --sy-input-group-height: var(--sy-control-height-lg, 50px); }
-  .sy-input-group:focus-within { outline: 2px solid var(--sy-focus); outline-offset: 2px; }
+  .sy-input-group:focus-within { outline: 2px solid var(--sy-focus); outline-offset: -2px; }
   .sy-focus-group[data-active] .sy-input-group:has([data-sy-focus-target]:focus) { outline: none; }
   .sy-input-group__control { flex: 1; min-width: 0; }
   .sy-input-group__control .sy-field__control {
@@ -110,7 +110,7 @@
   }
   .sy-choice__input:checked + .sy-radio__ring { border-color: var(--sy-accent); }
   .sy-choice:not([data-loading]) > .sy-choice__input:checked + .sy-radio__ring::after { scale: 1; }
-  .sy-choice__input:focus-visible + .sy-radio__ring { outline: 2px solid var(--sy-focus); outline-offset: 3px; }
+  .sy-choice__input:focus-visible + .sy-radio__ring { outline: 2px solid var(--sy-focus); outline-offset: -2px; }
 
   .sy-surface {
     box-sizing: border-box;
@@ -224,7 +224,7 @@
   button.sy-chip__body:not(:disabled):hover { opacity: .8; }
   button.sy-chip__body:not(:disabled):active { scale: .96; }
   button.sy-chip__body:disabled { cursor: not-allowed; }
-  .sy-chip__body:focus-visible { outline: 2px solid currentColor; outline-offset: 2px; }
+  .sy-chip__body:focus-visible { outline: 2px solid currentColor; outline-offset: -2px; }
   .sy-chip__remove {
     min-width: 20px;
     min-height: 22px;
@@ -246,7 +246,7 @@
     background: color-mix(in oklab, currentColor 18%, transparent);
     scale: .87;
   }
-  .sy-chip__remove:focus-visible { outline: 2px solid currentColor; }
+  .sy-chip__remove:focus-visible { outline: 2px solid currentColor; outline-offset: -2px; }
   .sy-chip__remove:disabled { opacity: .55; cursor: not-allowed; }
 
   .sy-avatar {

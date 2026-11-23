@@ -51,7 +51,7 @@
   .sy-cell-slider .sy-measure__value { min-inline-size: 6ch; text-align: end; font-weight: 500; }
   .sy-cell-color__trigger { display: flex; align-items: center; justify-content: space-between; gap: 8px; cursor: pointer; }
   .sy-cell-color__trigger:disabled { opacity: .6; cursor: not-allowed; }
-  .sy-cell-color__trigger:focus-visible { outline: 2px solid var(--sy-focus); outline-offset: 3px; }
+  .sy-cell-color__trigger:focus-visible { outline: 2px solid var(--sy-focus); outline-offset: -2px; }
   .sy-cell-color__value { display: inline-flex; align-items: center; gap: 8px; color: var(--sy-text-muted); font-variant-numeric: tabular-nums; }
   .sy-cell-color__panel {
     display: grid;

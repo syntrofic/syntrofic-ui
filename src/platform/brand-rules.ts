@@ -795,6 +795,8 @@ export function brandRuleDeclarations(rule: BrandComponentRule) {
     [property === 'font-size' && target.textSize ? target.textSize.token : property, value]))
   const color = values.get('color')
   const gap = values.get('gap')
+  const focusWidth = rule.target === 'input-focus-ring' && values.get('outline-width')
+  if (focusWidth) values.set('outline-offset', `calc(-1 * ${focusWidth})`)
   if (rule.target === 'toggle-button-group' && gap) values.set('--sy-toggle-group-gap', gap)
   if (rule.target === 'checkbox-indicator') {
     for (const [property, value] of values) {

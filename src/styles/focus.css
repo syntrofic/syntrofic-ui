@@ -2,7 +2,6 @@
   .sy-focus-group { position: relative; min-inline-size: 0; }
   .sy-focus-group[data-active] [data-sy-focus-target]:focus-visible { outline-color: transparent; }
   .sy-focus-group__ring {
-    --sy-focus-scale: 1.055;
     position: absolute;
     inset: 0 auto auto 0;
     z-index: 1;
@@ -10,18 +9,16 @@
     inline-size: var(--sy-focus-width, 0px);
     block-size: var(--sy-focus-height, 0px);
     outline: 2px solid var(--sy-focus);
-    outline-offset: 2px;
+    outline-offset: -2px;
     border-radius: var(--sy-focus-radius, var(--sy-radius-md));
     translate: var(--sy-focus-x, 0px) var(--sy-focus-y, 0px);
-    scale: var(--sy-focus-scale);
     opacity: 0;
     pointer-events: none;
-    transition: opacity var(--sy-motion-exit) var(--sy-ease-exit), scale var(--sy-motion-exit) var(--sy-ease-exit);
+    transition: opacity var(--sy-motion-exit) var(--sy-ease-exit);
   }
   .sy-focus-group[data-active] > .sy-focus-group__ring {
-    --sy-focus-scale: 1;
     opacity: 1;
-    transition: opacity var(--sy-motion-enter) var(--sy-ease-settle), scale var(--sy-motion-enter) var(--sy-ease-settle);
+    transition: opacity var(--sy-motion-enter) var(--sy-ease-settle);
   }
   .sy-focus-group[data-active][data-moving] > .sy-focus-group__ring {
     transition:
@@ -35,7 +32,6 @@
     .sy-focus-group > .sy-focus-group__ring,
     .sy-focus-group[data-active] > .sy-focus-group__ring,
     .sy-focus-group[data-active][data-moving] > .sy-focus-group__ring {
-      scale: 1;
       transition: opacity 80ms ease-out;
     }
   }

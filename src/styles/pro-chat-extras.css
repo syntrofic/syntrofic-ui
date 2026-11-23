@@ -44,7 +44,7 @@
   }
   button.sy-chat-source__pill, a.sy-chat-source__pill { cursor: pointer; }
   :where(a, button).sy-chat-source__pill:hover { background: var(--sy-accent-soft); color: var(--sy-accent-text); }
-  .sy-chat-source__pill:focus-visible { outline: 2px solid var(--sy-focus); outline-offset: 1px; }
+  .sy-chat-source__pill:focus-visible { outline: 2px solid var(--sy-focus); outline-offset: -2px; }
   .sy-chat-source__title { min-inline-size: 0; overflow: hidden; text-overflow: ellipsis; white-space: nowrap; }
   .sy-chat-source[data-variant='number'] .sy-chat-source__pill {
     min-inline-size: 1.5em; min-block-size: 1.5em; justify-content: center; padding: 1px 4px;

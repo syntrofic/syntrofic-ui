@@ -50,7 +50,7 @@
     border: var(--sy-border-width) solid var(--sy-border); border-radius: var(--sy-radius-sm); background: var(--sy-surface); color: var(--sy-text);
     font: inherit;
   }
-  .sy-pagination__entry input:focus-visible, .sy-pagination__dot:focus-visible { outline: 2px solid var(--sy-focus); outline-offset: 2px; }
+  .sy-pagination__entry input:focus-visible, .sy-pagination__dot:focus-visible { outline: 2px solid var(--sy-focus); outline-offset: -2px; }
   .sy-pagination__dot {
     display: grid; place-items: center; min-inline-size: 26px; min-block-size: 30px; padding: 0;
     border: 0; border-radius: var(--sy-radius-sm); background: transparent; cursor: pointer;

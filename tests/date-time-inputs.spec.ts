@@ -7,6 +7,9 @@ test('static input group affixes focus an independently labeled and described fi
   await expect(amount).toHaveAccessibleDescription('按美元记录，可输入两位小数。')
   await price.getByText('USD', { exact: true }).click()
   await expect(amount).toBeFocused()
+  await expect(price).toHaveCSS('outline-width', '2px')
+  await expect(price).toHaveCSS('outline-offset', '-2px')
+  await expect(price).toHaveCSS('--sy-field-ring-paint', 'transparent')
   await amount.fill('19.50')
   await expect(amount).toHaveValue('19.50')
 

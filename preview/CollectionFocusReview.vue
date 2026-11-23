@@ -107,7 +107,7 @@ const treeRef = tree.treeRef
 .focus-review__swatches { display: grid; gap: .3rem; max-inline-size: 25rem; padding: .25rem; }
 .focus-review__swatches [role='row'] { display: grid; grid-template-columns: repeat(8, minmax(0, 1fr)); gap: .3rem; }
 .focus-review__swatches button { inline-size: 100%; aspect-ratio: 1; border: 0; border-radius: var(--sy-radius-sm); display: block; cursor: pointer; }
-.focus-review__swatches button:is(:focus-visible, [aria-pressed='true']) { outline: 2px solid var(--sy-focus); outline-offset: 1px; }
+.focus-review__swatches button:is(:focus-visible, [aria-pressed='true']) { outline: 2px solid var(--sy-focus); outline-offset: -2px; }
 .focus-review__tree [role='treeitem'] { padding: 5px 8px; border-radius: var(--sy-radius-sm); }
 .focus-review__tree [aria-level='2'] { margin-inline-start: 1rem; }
 .focus-review__tree [role='treeitem']:focus-visible { outline: 2px solid var(--sy-focus); outline-offset: -2px; }

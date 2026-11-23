@@ -167,7 +167,7 @@
   button.sy-stepper__control:enabled { cursor: pointer; }
   button.sy-stepper__control:enabled:hover { background: var(--sy-surface-muted); }
   button.sy-stepper__control:disabled { cursor: not-allowed; }
-  button.sy-stepper__control:focus-visible { outline: 2px solid var(--sy-focus); outline-offset: 2px; }
+  button.sy-stepper__control:focus-visible { outline: 2px solid var(--sy-focus); outline-offset: -2px; }
   .sy-stepper__step[data-unreachable]:not([data-status='current']) .sy-stepper__control { color: var(--sy-text-muted); }
   .sy-stepper__marker {
     z-index: 1;
@@ -262,7 +262,7 @@
 
   .sy-context-menu { min-inline-size: 0; }
   .sy-context-menu__trigger { border-radius: var(--sy-radius-md) / calc(var(--sy-radius-md) * .78); }
-  .sy-context-menu__trigger:focus-visible { outline: 2px solid var(--sy-focus); outline-offset: 3px; }
+  .sy-context-menu__trigger:focus-visible { outline: 2px solid var(--sy-focus); outline-offset: -2px; }
   .sy-context-menu__panel {
     max-block-size: min(20rem, var(--reka-context-menu-content-available-height, calc(100dvh - 24px)));
     overflow-y: auto;

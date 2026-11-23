@@ -182,7 +182,7 @@ const ProductOverlay = defineComponent({
 .media-review__fill :deep(.sy-image > *) { block-size: 100%; inline-size: 100%; border-radius: 0; }
 .media-review__opener { border: 0; padding: 0; background: transparent; font: inherit; text-align: start; cursor: pointer; min-inline-size: 0; }
 .media-review__opener > span { display: block; }
-.media-review__opener:focus-visible, .media-review__strip:focus-visible { outline: 2px solid var(--sy-focus); outline-offset: 2px; }
+.media-review__opener:focus-visible, .media-review__strip:focus-visible { outline: 2px solid var(--sy-focus); outline-offset: -2px; }
 .media-review__overlay-actions { display: flex; flex-wrap: wrap; align-items: center; gap: var(--sy-space-1); }
 .media-review__strip :deep(.sy-overlay__content[data-scrim='dark']) { background: linear-gradient(transparent, rgb(17 23 20 / 90%) 45%); }
 .media-review__strip :deep(.sy-overlay__content[data-scrim='light']) { background: linear-gradient(transparent, rgb(255 255 255 / 91%) 45%); }

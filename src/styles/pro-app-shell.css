@@ -203,7 +203,7 @@
 
   .sy-shell-resize:is(:hover, :focus-visible, :active) { background: var(--sy-accent-soft); }
   .sy-shell-resize[data-resize-axis='vertical'] { cursor: row-resize; }
-  .sy-shell-resize:focus-visible { outline: 2px solid var(--sy-focus); }
+  .sy-shell-resize:focus-visible { outline: 2px solid var(--sy-focus); outline-offset: -2px; }
 
   .sy-navbar {
     --sy-navbar-height: 48px;

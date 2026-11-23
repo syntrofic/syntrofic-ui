@@ -24,7 +24,7 @@
   .sy-field-action:where(:hover, :active):not(:disabled) { background: var(--sy-surface-muted); color: var(--sy-text); }
   .sy-field-action:focus-visible, .sy-calendar__heading-button:focus-visible {
     outline: 2px solid var(--sy-focus);
-    outline-offset: 1px;
+    outline-offset: -2px;
   }
   .sy-field-action:disabled { opacity: .5; cursor: default; }
 
@@ -115,7 +115,7 @@
   .sy-date-control { --sy-date-control-height: var(--sy-control-height-md, 42px); min-block-size: var(--sy-date-control-height); }
   .sy-stepped-field:focus-within, .sy-date-control:focus-within {
     outline: 2px solid var(--sy-focus);
-    outline-offset: 2px;
+    outline-offset: -2px;
   }
   .sy-field[data-invalid='true'] :is(.sy-input-group, .sy-stepped-field, .sy-date-control),
   .sy-date-control[data-invalid], .sy-date-control:has(.sy-date-control__field[data-invalid]) {

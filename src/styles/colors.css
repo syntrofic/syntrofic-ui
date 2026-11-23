@@ -41,7 +41,7 @@
   }
   .sy-color-area__board:has(input:focus-visible) .sy-color-area__thumb {
     outline: 2px solid var(--sy-focus);
-    outline-offset: 2px;
+    outline-offset: -2px;
   }
   .sy-color-area[data-disabled] .sy-color-area__board { opacity: .65; cursor: default; }
 
@@ -123,7 +123,7 @@
   .sy-color-swatch-picker__item[data-disabled] { opacity: .55; cursor: default; }
   .sy-color-swatch-picker__item[data-highlighted]:not([data-disabled]),
   .sy-color-swatch-picker__item[data-state='checked'] { background: var(--sy-accent-soft); }
-  .sy-color-swatch-picker__item:focus-visible { outline: 2px solid var(--sy-focus); outline-offset: 1px; }
+  .sy-color-swatch-picker__item:focus-visible { outline: 2px solid var(--sy-focus); outline-offset: -2px; }
   .sy-color-swatch-picker__indicator {
     position: absolute;
     inset: 3px auto auto 3px;

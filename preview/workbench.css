@@ -19,7 +19,7 @@ body { min-width: 240px; }
   min-height: 56px;
 }
 .workbench__brand { color: inherit; text-decoration: none; font-weight: 680; font-size: 15px; }
-.workbench__brand:focus-visible { outline: 2px solid var(--sy-focus); outline-offset: 4px; }
+.workbench__brand:focus-visible { outline: 2px solid var(--sy-focus); outline-offset: -2px; }
 .workbench__links { display: flex; align-items: center; gap: 12px; }
 .workbench__links a { color: var(--sy-text-muted); }
 .workbench__main { display: grid; gap: 12px; padding-block-start: 12px; }

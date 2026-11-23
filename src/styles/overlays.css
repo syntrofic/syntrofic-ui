@@ -247,7 +247,7 @@
   .sy-toast[data-swipe='move'] { transition: none; }
   .sy-toast[data-swipe='end'] { translate: var(--reka-toast-swipe-end-x, 0px)
       calc(var(--reka-toast-swipe-end-y, 0px) + var(--sy-toast-motion-sign) * var(--sy-toast-lift)); }
-  .sy-toast:focus-visible { outline: 2px solid var(--sy-focus); outline-offset: 2px; }
+  .sy-toast:focus-visible { outline: 2px solid var(--sy-focus); outline-offset: -2px; }
   .sy-toast__copy { flex: 1; min-inline-size: 0; overflow: hidden; }
   .sy-toast__title { overflow: hidden; text-overflow: ellipsis; font-size: .875rem; font-weight: 650; }
   .sy-toast__description { margin: 2px 0 0; line-height: 1.4; font-size: .9375rem; }

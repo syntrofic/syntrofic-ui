@@ -75,7 +75,7 @@ function keepFilePosition(element: Element) {
 .reveal-review__row { display: flex; flex-wrap: wrap; align-items: center; gap: var(--sy-space-2); min-block-size: 42px; }
 .reveal-review__nested { background: var(--sy-canvas); border-radius: var(--sy-radius-sm); padding: var(--sy-space-2); }
 .reveal-review__marker { display: inline-grid; place-items: center; inline-size: 20px; block-size: 20px; border-radius: 7px; background: var(--sy-accent-soft); }
-.reveal-review__files { position: relative; display: grid; gap: var(--sy-space-1); outline-offset: 2px; }
+.reveal-review__files { position: relative; display: grid; gap: var(--sy-space-1); outline-offset: -2px; }
 .reveal-review__file { display: flex; align-items: center; justify-content: space-between; box-sizing: border-box; gap: var(--sy-space-1); flex-wrap: wrap; padding: .25rem .5rem; border: 1px solid var(--sy-border); border-radius: var(--sy-radius-sm); }
 .reveal-review-file-enter-active, .reveal-review-file-leave-active, .reveal-review-file-move { transition: transform var(--sy-motion-replace) var(--sy-ease-settle), opacity var(--sy-motion-replace) var(--sy-ease-settle); }
 .reveal-review-file-leave-active { position: absolute; inset-inline-start: 0; pointer-events: none; }

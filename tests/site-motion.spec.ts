@@ -995,11 +995,21 @@ test('homepage control placeholders leave room for the loaded controls on neutra
   })
   await page.goto('/', { waitUntil: 'domcontentloaded' })
   const sample = page.locator('.sample-stage[data-component="W.input"]')
+  const cards = page.locator('.sample-grid > .sample-card')
   const skeleton = sample.locator('.sample-placeholder')
+  const expectCardSurfaces = async () => {
+    await expect(page.locator('body')).toHaveCSS('background-color', 'rgb(255, 255, 255)')
+    await expect(page.locator('.sample-grid')).toHaveCSS('background-color', 'rgba(0, 0, 0, 0)')
+    await expect(cards).toHaveCount(6)
+    for (const card of await cards.all()) {
+      await expect(card).toHaveCSS('background-color', 'rgb(248, 248, 248)')
+      await expect(card).toHaveCSS('border-width', '0px')
+    }
+  }
   try {
     await sample.scrollIntoViewIfNeeded()
     await expect(sample).toHaveAttribute('aria-busy', 'true')
-    await expect(sample.locator('..')).toHaveCSS('background-color', 'rgba(0, 0, 0, 0)')
+    await expectCardSurfaces()
     await expect(skeleton).toHaveAttribute('aria-hidden', 'true')
     await expect(skeleton.locator('span').first()).toHaveCSS('animation-play-state', 'running')
     const height = (await sample.boundingBox())!.height
@@ -1007,7 +1017,14 @@ test('homepage control placeholders leave room for the loaded controls on neutra
     await expect(sample.getByRole('textbox', { name: '项目名称' })).toBeVisible()
     await expect(skeleton).toHaveCount(0)
     await expect(sample).not.toHaveAttribute('aria-busy', 'true')
+    await expectCardSurfaces()
     expect((await sample.boundingBox())!.height).toBeCloseTo(height)
+    await page.setViewportSize({ width: 360, height: 820 })
+    await expectCardSurfaces()
+    expect(await cards.evaluateAll(elements => elements.every(element => {
+      const { left, right } = element.getBoundingClientRect()
+      return left >= 0 && right <= document.documentElement.clientWidth
+    }))).toBe(true)
   } finally { release() }
 })
 
@@ -3238,9 +3255,11 @@ test('the theme lab animates independent focus rings by status and mode without 
   await normal.press('Tab')
   await expect(invalid).toBeFocused()
   await expect(invalid).toHaveCSS('outline-width', '3px')
+  await expect(invalid).toHaveCSS('outline-offset', '-3px')
   await expect(invalid).toHaveCSS('outline-color', 'rgb(150, 54, 48)')
   await invalid.press('Tab')
   await expect(grouped).toBeFocused()
+  await expect(fields.locator('.sy-input-group')).toHaveCSS('outline-offset', '-2px')
   await expect(fields.locator('.sy-input-group')).toHaveCSS('outline-color', 'rgb(54, 89, 117)')
   await normal.focus()
   await dark.evaluate(node => node.click())

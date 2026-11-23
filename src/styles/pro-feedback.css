@@ -21,7 +21,7 @@
   .sy-trend-chip { transition: background-color var(--sy-duration) var(--sy-ease-settle), color var(--sy-duration) var(--sy-ease-settle); }
 
   .sy-pressable-feedback { position: relative; isolation: isolate; }
-  .sy-pressable-feedback:focus-visible { outline: 2px solid var(--sy-focus); outline-offset: 3px; }
+  .sy-pressable-feedback:focus-visible { outline: 2px solid var(--sy-focus); outline-offset: -2px; }
   .sy-pressable-feedback[aria-disabled='true'] { opacity: .52; cursor: not-allowed; }
   .sy-pressable-feedback[data-effect='highlight']::after,
   .sy-pressable-feedback[data-effect='ripple']::after {

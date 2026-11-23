@@ -41,7 +41,7 @@
     transition: background-color var(--sy-motion-replace) var(--sy-ease-settle);
   }
   .sy-chat-attachment[data-status='error'] { --sy-attachment-surface: var(--sy-danger-soft); }
-  .sy-chat-attachment:focus-visible { outline: 2px solid var(--sy-focus); outline-offset: 1px; }
+  .sy-chat-attachment:focus-visible { outline: 2px solid var(--sy-focus); outline-offset: -2px; }
   .sy-chat-attachment__preview {
     position: relative;
     display: grid;
@@ -283,7 +283,7 @@
   .sy-chat-metadata__item[data-status='sending'] .sy-chat-metadata__icon { animation: sy-chat-pulse 1.5s var(--sy-ease-settle) infinite; }
   .sy-chat-tokenized-text { white-space: pre-wrap; overflow-wrap: anywhere; }
   .sy-chat-tokenized-text .sy-badge { vertical-align: baseline; }
-  .sy-chat-message:focus-visible { outline: 2px solid var(--sy-focus); outline-offset: 2px; border-radius: var(--sy-radius-sm) / calc(var(--sy-radius-sm) * .78); }
+  .sy-chat-message:focus-visible { outline: 2px solid var(--sy-focus); outline-offset: -2px; border-radius: var(--sy-radius-sm) / calc(var(--sy-radius-sm) * .78); }
 
   @media (prefers-reduced-motion: reduce) {
     .sy-chat-loader__dots > i, .sy-chat-loader__pulse, .sy-chat-metadata__item[data-status='sending'] .sy-chat-metadata__icon { animation: none; }

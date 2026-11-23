@@ -250,9 +250,8 @@
   }
   :where(.sy-table__scroll, .sy-table__sort):focus-visible {
     outline: 2px solid var(--sy-focus);
-    outline-offset: 2px;
+    outline-offset: -2px;
   }
-  .sy-table__scroll:focus-visible { outline-offset: -2px; }
 
   .sy-table__grid .sy-table__empty { padding-block: 20px; color: var(--sy-text-muted); text-align: center; }
   .sy-table[data-column-layout='fixed'] .sy-table__message {

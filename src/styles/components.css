@@ -21,12 +21,20 @@
     --sy-field-outline-transition: outline-color var(--sy-duration) var(--sy-ease-settle),
       outline-width var(--sy-duration) var(--sy-ease-settle), outline-offset var(--sy-duration) var(--sy-ease-settle);
     outline: 0 solid transparent;
+    outline-offset: -2px;
   }
 
-  :where(.sy-button):focus-visible,
+  :where(.sy-button):focus-visible {
+    outline: 2px solid var(--sy-button-current-foreground);
+    outline-offset: -2px;
+  }
   .sy-choice__input:focus-visible + :where(.sy-checkbox__box, .sy-switch__track) {
     outline: 2px solid var(--sy-focus);
-    outline-offset: 3px;
+    outline-offset: -2px;
+  }
+  .sy-choice__input:focus-visible:is(:checked, :indeterminate) + .sy-checkbox__box,
+  .sy-choice__input:focus-visible:checked + .sy-switch__track {
+    outline-color: var(--sy-accent-on);
   }
   :where(.sy-field__control):focus-visible {
     outline: 2px solid var(--sy-focus);
@@ -403,13 +411,13 @@
     --sy-field-ring-paint: transparent;
     box-shadow: inset 0 0 0 var(--sy-border-width) var(--sy-field-ring-paint) var(--sy-field-resting-shadow,);
   }
-  :where(.sy-field__control:not(.sy-input-group *, .sy-combo > *, :focus-visible), .sy-input-group, .sy-stepped-field, .sy-date-control, .sy-combo,
-    .sy-complex-select__trigger, .sy-base-typeahead__input, .sy-drop-zone__area):hover:not(
+  :where(.sy-field__control:not(.sy-input-group *, .sy-combo > *), .sy-input-group, .sy-stepped-field, .sy-date-control, .sy-combo,
+    .sy-complex-select__trigger, .sy-base-typeahead__input, .sy-drop-zone__area):where(:not(:focus-within), .sy-drop-zone__area):hover:not(
       :disabled, [aria-disabled='true'], [data-disabled], :where(.sy-field[data-disabled], .sy-drop-zone[data-disabled]) *) {
     --sy-field-ring-paint: var(--sy-field-hover-ring-color);
   }
-  :where(.sy-field__control:not(.sy-input-group *, .sy-combo > *, :focus-visible), .sy-input-group, .sy-stepped-field, .sy-date-control, .sy-combo,
-    .sy-complex-select__trigger, .sy-base-typeahead__input, .sy-drop-zone__area):is(
+  :where(.sy-field__control:not(.sy-input-group *, .sy-combo > *), .sy-input-group, .sy-stepped-field, .sy-date-control, .sy-combo,
+    .sy-complex-select__trigger, .sy-base-typeahead__input, .sy-drop-zone__area):where(:not(:focus-within), .sy-drop-zone__area):is(
       [aria-invalid='true'], [data-invalid], :where(.sy-field[data-invalid='true']) > *):hover:not(:disabled, [aria-disabled='true'], [data-disabled]) {
     --sy-field-ring-paint: var(--sy-danger);
   }

@@ -152,7 +152,7 @@ const native = useResizable(() => ({
   transition: background-color var(--sy-duration) var(--sy-ease-settle);
 }
 .resizable-tools-review__native-handle:is(:hover, :focus-visible, [data-dragging]):not([aria-disabled]) { background: var(--sy-accent-soft); }
-.resizable-tools-review__native-handle:focus-visible { outline: 2px solid var(--sy-focus); }
+.resizable-tools-review__native-handle:focus-visible { outline: 2px solid var(--sy-focus); outline-offset: -2px; }
 .resizable-tools-review__native-handle[aria-disabled] { cursor: default; }
 .resizable-tools-review__native-mark { width: 3px; height: 20px; border-radius: var(--sy-radius-pill); background: var(--sy-border-strong); }
 .resizable-tools-review__native-main { display: grid; place-items: center; min-width: 0; padding: var(--sy-space-2); }

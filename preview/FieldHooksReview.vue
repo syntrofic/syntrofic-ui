@@ -70,7 +70,7 @@ function validate() {
   border-radius: var(--sy-radius-md);
   transition: border-color var(--sy-duration) var(--sy-ease-settle), box-shadow var(--sy-duration) var(--sy-ease-settle);
 }
-.field-hooks__wrapper:focus-within { border-color: var(--sy-focus); box-shadow: 0 0 0 1px var(--sy-focus); }
+.field-hooks__wrapper:focus-within { border-color: var(--sy-focus); box-shadow: inset 0 0 0 1px var(--sy-focus); }
 .field-hooks__wrapper[data-invalid] { border-color: var(--sy-danger); }
 .field-hooks__wrapper input { flex: 1 1 auto; min-inline-size: 0; border: 0; background: transparent; color: inherit; font: inherit; padding: .4rem .15rem; outline: none; }
 .field-hooks__wrapper input::-webkit-search-cancel-button { display: none; }

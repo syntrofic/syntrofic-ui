@@ -75,7 +75,7 @@ onBeforeUnmount(() => { if (timer) clearTimeout(timer) })
 <style scoped>
 .rac-review { inline-size: min(100%, 22rem); }
 .rac-review__viewport { inline-size: 100%; border-radius: 8px; background: var(--sy-surface-muted); }
-.rac-review__viewport:focus-visible { outline: 2px solid var(--sy-focus); }
+.rac-review__viewport:focus-visible { outline: 2px solid var(--sy-focus); outline-offset: -2px; }
 .rac-review__scroll { block-size: 100px; overflow: auto; }
 .rac-review__scroll ul { position: relative; padding: 0; margin: 0; list-style: none; }
 .rac-review__scroll li { position: absolute; inset-inline: 0; padding-inline: 8px; line-height: 27px; font-size: .875rem; }
