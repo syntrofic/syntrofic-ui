@@ -1,0 +1,10 @@
+[
+  {
+    "id": "release-notes",
+    "label": "发布说明",
+    "resolved": true,
+    "messages": [
+      { "id": "archive-1", "author": "许宁", "text": "已为新增的组件示例补齐发布说明。", "createdAt": "2026-11-18T10:15:00Z" }
+    ]
+  }
+]

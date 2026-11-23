@@ -1,0 +1,33 @@
+<!doctype html>
+<html lang="zh-CN">
+<meta charset="utf-8">
+<style>
+  body{background:var(--figma-color-bg);color:var(--figma-color-text);font:13px system-ui,sans-serif;padding:16px}
+  input,button{margin:8px 0}
+  pre{white-space:pre-wrap}
+</style>
+<main>
+  <h2>Syntrofic 主题变量</h2>
+  <label>打开主题或组件套件 JSON <input id="file" type="file" accept=".json"></label><br>
+  <button id="sync" disabled>同步至 Figma</button>
+  <pre id="log" role="status"></pre>
+</main>
+<script>
+  const file = document.querySelector('#file')
+  const button = document.querySelector('#sync')
+  const log = document.querySelector('#log')
+  file.addEventListener('change', () => { button.disabled = !file.files.length })
+  button.addEventListener('click', async () => {
+    try {
+      const theme = JSON.parse(await file.files[0].text())
+      parent.postMessage({ pluginMessage:{ type:'sync',theme } }, '*')
+      log.textContent = '正在同步'
+    } catch { log.textContent = '无法读取主题文件' }
+  })
+  onmessage = event => {
+    const message = event.data.pluginMessage
+    if (!message) return
+    log.textContent = message.type === 'done' ? ['已同步 ' + message.count + ' 项', ...message.notes].join('\n') : message.message
+  }
+</script>
+</html>

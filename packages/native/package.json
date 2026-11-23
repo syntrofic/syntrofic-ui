@@ -1,0 +1,41 @@
+{
+  "name": "@syntrofic/ui-native",
+  "version": "0.1.0",
+  "license": "MIT",
+  "description": "Syntrofic UI controls for NativeScript-Vue",
+  "type": "module",
+  "files": ["dist", "fonts", "nativescript.webpack.js"],
+  "types": "./dist/index.d.ts",
+  "exports": {
+    ".": { "types": "./dist/index.d.ts", "import": "./dist/index.js", "default": "./dist/index.js" },
+    "./package.json": "./package.json",
+    "./theme": { "types": "./dist/theme.d.ts", "import": "./dist/theme.js", "default": "./dist/theme.js" },
+    "./radio": { "types": "./dist/radio.d.ts", "import": "./dist/radio.js", "default": "./dist/radio.js" },
+    "./sub-menu": { "types": "./dist/sub-menu.d.ts", "import": "./dist/sub-menu.js", "default": "./dist/sub-menu.js" },
+    "./glass-view": { "types": "./dist/glass-view.d.ts", "import": "./dist/glass-view.js", "default": "./dist/glass-view.js" },
+    "./theme-background": { "types": "./dist/theme-background.d.ts", "import": "./dist/theme-background.js", "default": "./dist/theme-background.js" }
+  },
+  "scripts": {
+    "typecheck": "vue-tsc --noEmit",
+    "build": "node ../../scripts/sync-native-theme.mjs --check && node ../../scripts/sync-native-charts.mjs --check && vite build && vue-tsc -p tsconfig.build.json",
+    "prepack": "pnpm build"
+  },
+  "peerDependencies": {
+    "@nativescript/core": "^9.1.0",
+    "nativescript-vue": "^3.1.3"
+  },
+  "devDependencies": {
+    "@nativescript/core": "9.1.4",
+    "@vitejs/plugin-vue": "6.0.11",
+    "@vue/compiler-sfc": "3.5.45",
+    "nativescript-vue": "3.1.3",
+    "typescript": "~5.9.3",
+    "vite": "8.3.8",
+    "vue-tsc": "3.3.14"
+  },
+  "dependencies": {
+    "@internationalized/date": "3.12.4",
+    "@nativescript-community/ui-bottomsheet": "1.6.5",
+    "libphonenumber-js": "1.13.17"
+  }
+}

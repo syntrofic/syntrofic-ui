@@ -1,0 +1,7 @@
+packages:
+  - 'packages/*'
+  - 'apps/*'
+allowBuilds:
+  '@nativescript/core': true
+  '@parcel/watcher': false
+  core-js-pure: false

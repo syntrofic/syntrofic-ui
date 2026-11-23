@@ -1,0 +1,8 @@
+[
+  { "id": "zhou", "label": "周昱", "description": "项目负责人", "group": "产品设计", "disabled": true, "disabledMessage": "项目负责人始终保留", "reorderable": false },
+  { "id": "xu", "label": "许然", "description": "动效与原型", "group": "产品设计" },
+  { "id": "lin", "label": "林舟", "description": "界面设计", "group": "产品设计" },
+  { "id": "liu", "label": "刘珂", "description": "前端开发", "group": "工程与文档" },
+  { "id": "chen", "label": "陈安", "description": "组件文档", "group": "工程与文档" },
+  { "id": "du", "label": "杜青", "description": "外部协作", "group": "工程与文档", "disabled": true, "disabledMessage": "尚未获得项目权限" }
+]

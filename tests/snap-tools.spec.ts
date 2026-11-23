@@ -1,0 +1,33 @@
+import { expect, test } from '@playwright/test'
+
+test('the snap hook sorts stops, preserves the painted position on changes and uses the latest callback', async ({ page }) => {
+  await page.goto('/?component=W.motion')
+  const sample = page.getByRole('region', { name: '像素吸附工具' })
+  const marker = sample.getByRole('img', { name: '拖动指示块' })
+  const track = sample.locator('.snap-tools-review__track')
+  await sample.getByRole('button', { name: '吸附末位' }).click()
+  await expect(sample.locator('output')).toHaveText('标准间距 · 位置 3')
+  await expect(marker).toHaveCSS('translate', '96px')
+  await sample.getByRole('button', { name: '调整吸附间距' }).click()
+  await expect(marker).toHaveCSS('translate', '96px')
+  await expect(sample.locator('output')).toHaveText('标准间距 · 位置 3')
+  await sample.getByRole('button', { name: '吸附中位' }).press('Enter')
+  await expect(sample.locator('output')).toHaveText('宽间距 · 位置 2')
+  await expect(marker).toHaveCSS('translate', '64px')
+  await sample.getByRole('button', { name: '切换拖动方向' }).click()
+  await expect(marker).toHaveCSS('translate', '64px')
+  await sample.getByRole('button', { name: '吸附末位' }).press('Enter')
+  await expect(sample.locator('output')).toHaveText('宽间距 · 位置 3')
+  await expect(marker).toHaveCSS('translate', '64px 128px')
+  await expect(track).toBeVisible()
+})
+
+test('reduced motion reaches a keyboard stop without a travel animation', async ({ page }) => {
+  await page.emulateMedia({ reducedMotion: 'reduce' })
+  await page.goto('/?component=W.motion')
+  const sample = page.getByRole('region', { name: '像素吸附工具' })
+  await sample.getByRole('button', { name: '吸附末位' }).press('Enter')
+  const marker = sample.getByRole('img', { name: '拖动指示块' })
+  await expect(marker).toHaveCSS('translate', '96px')
+  expect(await marker.evaluate(node => node.getAnimations().length)).toBe(0)
+})

@@ -1,0 +1,25 @@
+{
+  "name": "@syntrofic/native-demo",
+  "private": true,
+  "version": "0.1.0",
+  "main": "src/app.ts",
+  "scripts": {
+    "typecheck": "vue-tsc --noEmit",
+    "bundle:ios": "webpack --env ios --env production --output-path ./dist/ios",
+    "bundle:android": "webpack --env android --env production --output-path ./dist/android",
+    "ios": "pnpm dlx nativescript@9.1.2 run ios",
+    "android": "pnpm dlx nativescript@9.1.2 run android"
+  },
+  "dependencies": {
+    "@syntrofic/ui-native": "workspace:*",
+    "@nativescript/core": "9.1.4",
+    "nativescript-vue": "3.1.3"
+  },
+  "devDependencies": {
+    "@nativescript/webpack": "5.0.41",
+    "typescript": "~5.9.3",
+    "vue-tsc": "3.3.14",
+    "webpack": "5.112.2",
+    "webpack-cli": "6.0.1"
+  }
+}

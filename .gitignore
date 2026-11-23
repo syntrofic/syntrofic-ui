@@ -1,0 +1,13 @@
+node_modules/
+/dist/
+/dist-preview/
+/dist-site/
+/playwright-report/
+/test-results/
+/*.tgz
+/.DS_Store
+/secret/
+/apps/native-demo/dist/
+/apps/native-demo/platforms/
+/apps/native-demo/hooks/
+/packages/native/dist/

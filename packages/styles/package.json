@@ -1,0 +1,21 @@
+{
+  "name": "@syntrofic/ui-styles",
+  "version": "0.1.0",
+  "license": "MIT",
+  "description": "Syntrofic UI tokens and framework-independent CSS",
+  "type": "module",
+  "files": ["dist"],
+  "sideEffects": ["**/*.css"],
+  "exports": {
+    ".": "./dist/style.css",
+    "./style.css": "./dist/style.css",
+    "./cdn.css": "./dist/style.css",
+    "./tokens.css": "./dist/tokens.css",
+    "./tailwind.css": "./dist/tailwind.css",
+    "./components/*": "./dist/components/*"
+  },
+  "scripts": {
+    "build": "node ./build.mjs",
+    "prepack": "pnpm build"
+  }
+}

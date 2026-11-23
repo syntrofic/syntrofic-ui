@@ -1,0 +1,5 @@
+[
+  { "id": "identity", "title": "品牌资源", "owner": "林舟", "files": 4, "stage": "归档", "registered": "2026-11-19" },
+  { "id": "review", "title": "组件评审", "owner": "周昱", "files": 12, "stage": "评审", "registered": "2026-11-20" },
+  { "id": "handoff", "title": "交付记录", "owner": "林舟", "files": 6, "stage": "发布", "registered": "2026-11-21" }
+]

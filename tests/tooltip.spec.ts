@@ -1,0 +1,56 @@
+import { expect, test } from '@playwright/test'
+
+test('headless tooltips support hover, keyboard dismissal and controlled triggers', async ({ page }) => {
+  await page.goto('/?component=W.tooltip')
+  const review = page.getByRole('region', { name: '自定义提示行为' })
+  const trigger = review.getByRole('button', { name: '发布保留规则' })
+  const tooltip = review.getByRole('tooltip')
+  await expect(tooltip).toHaveCount(0)
+  await trigger.hover()
+  await expect(tooltip).toHaveText('默认保留最近三次发布。')
+  await expect(trigger).toHaveAccessibleDescription('默认保留最近三次发布。')
+  await page.mouse.move(2, 2)
+  await expect(tooltip).toHaveCount(0)
+  await trigger.focus()
+  await expect(tooltip).toBeVisible()
+  await page.keyboard.press('Escape')
+  await expect(tooltip).toHaveCount(0)
+  await expect(trigger).toBeFocused()
+
+  const controlled = review.getByRole('button', { name: '控制附加说明' })
+  await controlled.focus()
+  await expect(review.locator('output')).toHaveText('请求显示提示')
+  await expect(tooltip).toHaveCount(0)
+  await controlled.press('Enter')
+  await expect(tooltip).toHaveText('附加说明由外部状态控制。')
+  await page.keyboard.press('Escape')
+  await expect(tooltip).toHaveCount(0)
+  await expect(controlled).toBeFocused()
+})
+
+test('headless tooltips can be held with an explicit command and dismissed from outside', async ({ page }) => {
+  await page.goto('/?component=W.tooltip')
+  const review = page.getByRole('region', { name: '自定义提示行为' })
+  const trigger = review.getByRole('button', { name: '查看负责规则' })
+  await trigger.press('Enter')
+  await expect(trigger).toHaveAttribute('aria-expanded', 'true')
+  await expect(review.getByRole('tooltip')).toHaveText('负责人可随时更改。')
+  await expect(page.getByRole('status').filter({ hasText: '负责人可随时更改。' })).toBeAttached()
+  await page.mouse.click(2, 2)
+  await expect(review.getByRole('tooltip')).toHaveCount(0)
+  await expect(trigger).toHaveAttribute('aria-expanded', 'false')
+})
+
+test.describe('touch tooltips', () => {
+  test.use({ hasTouch: true })
+
+  test('a touch-only tooltip can be toggled with repeat taps', async ({ page }) => {
+    await page.goto('/?component=W.tooltip')
+    const review = page.getByRole('region', { name: '自定义提示行为' })
+    const trigger = review.getByRole('button', { name: '发布保留规则' })
+    await trigger.tap()
+    await expect(review.getByRole('tooltip')).toHaveText('默认保留最近三次发布。')
+    await trigger.tap()
+    await expect(review.getByRole('tooltip')).toHaveCount(0)
+  })
+})

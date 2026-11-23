@@ -1,0 +1,5 @@
+export { default, default as SMarkdown } from './components/SMarkdown.vue'
+export { default as SStreamMarkdown } from './components/SStreamMarkdown.vue'
+export { useStreamingText } from './internal/streaming-text'
+export type { StreamingTextOptions, StreamingTextSpeed } from './internal/streaming-text'
+export type { MarkdownDisplayOptions } from './internal/markdown-content'

@@ -1,0 +1,6 @@
+[
+  { "id": "archive-start", "timestamp": "10:06:01", "level": "info", "source": "build", "message": "已读取归档配置" },
+  { "id": "archive-icons", "timestamp": "10:06:03", "level": "debug", "source": "assets", "message": "已打包本地图标" },
+  { "id": "archive-preview", "timestamp": "10:06:06", "level": "warn", "source": "visual", "message": "预览图校验失败，已重新生成", "detail": "重试 1 / 2\n预览图已重新生成并校验通过。" },
+  { "id": "archive-finish", "timestamp": "10:06:09", "level": "info", "source": "build", "message": "归档构建已完成" }
+]

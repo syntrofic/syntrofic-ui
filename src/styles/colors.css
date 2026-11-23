@@ -1,0 +1,156 @@
+@layer syntrofic.components {
+  :where(.sy-color-picker, .sy-color-area, .sy-color-slider, .sy-color-swatch-picker) {
+    color: var(--sy-text);
+    font-family: var(--sy-font);
+  }
+  :where(.sy-color-area, .sy-color-slider, .sy-color-swatch) {
+    --sy-color-check: var(--sy-border);
+    --sy-color-check-base: var(--sy-surface);
+    --sy-color-check-pattern: conic-gradient(var(--sy-color-check) 25%, var(--sy-color-check-base) 0 50%, var(--sy-color-check) 0 75%, var(--sy-color-check-base) 0);
+  }
+
+  .sy-color-area__board {
+    position: relative;
+    min-inline-size: 0;
+    block-size: var(--sy-color-area-height, 134px);
+    border-radius: var(--sy-radius-md) / calc(var(--sy-radius-md) * .78);
+    touch-action: none;
+    cursor: crosshair;
+  }
+  .sy-color-area__spectrum {
+    position: absolute;
+    inset: 0;
+    border-radius: inherit;
+    background-color: var(--sy-surface-muted);
+  }
+  .sy-color-area__thumb {
+    position: absolute;
+    inset: var(--sy-color-y) auto auto var(--sy-color-x);
+    box-sizing: border-box;
+    inline-size: 16px;
+    block-size: 16px;
+    border: 2px solid #fff;
+    outline: 1px solid #292b28;
+    border-radius: 50%;
+    translate: -50% -50%;
+    background: var(--sy-color-value);
+    pointer-events: none;
+  }
+  .sy-color-area__board:not([data-dragging]) .sy-color-area__thumb {
+    transition: left var(--sy-duration) var(--sy-ease-settle), top var(--sy-duration) var(--sy-ease-settle);
+  }
+  .sy-color-area__board:has(input:focus-visible) .sy-color-area__thumb {
+    outline: 2px solid var(--sy-focus);
+    outline-offset: 2px;
+  }
+  .sy-color-area[data-disabled] .sy-color-area__board { opacity: .65; cursor: default; }
+
+  .sy-color-slider { min-inline-size: 0; padding-inline: 4px; }
+  .sy-color-slider__control { block-size: 28px; margin-inline: 3px; }
+  .sy-color-slider__ramp { block-size: 9px; background: var(--sy-channel-ramp); }
+  .sy-color-slider__ramp[data-alpha] {
+    background: var(--sy-channel-ramp), var(--sy-color-check-pattern);
+    background-size: 100% 100%, 8px 8px;
+  }
+  .sy-color-slider__thumb { border-color: #fff; background: var(--sy-color-thumb); outline: 1px solid #41443d; }
+  .sy-color-slider[data-orientation='vertical'] .sy-color-slider__ramp { inline-size: 9px; }
+  .sy-color-slider[data-disabled] { opacity: .65; }
+
+  .sy-color-input-group[data-invalid] { border-color: var(--sy-danger); }
+  .sy-color-input-group[data-disabled] { border-color: var(--sy-border); }
+  .sy-color-field__text { font-variant-numeric: tabular-nums; }
+  .sy-color-field__validation {
+    display: grid;
+    grid-template-rows: 0fr;
+    margin-block-start: -4px;
+    transition: grid-template-rows var(--sy-duration) var(--sy-ease-settle), margin-block-start var(--sy-duration) var(--sy-ease-settle);
+  }
+  .sy-color-field__validation[data-show] { grid-template-rows: 1fr; margin-block-start: 0; }
+  .sy-color-field__validation > div { overflow: hidden; min-block-size: 0; }
+
+  .sy-color-swatch {
+    position: relative;
+    display: inline-grid;
+    flex: none;
+    place-items: center;
+    box-sizing: border-box;
+    vertical-align: middle;
+    inline-size: var(--sy-swatch-size, 31px);
+    block-size: var(--sy-swatch-size, 31px);
+    overflow: hidden;
+    isolation: isolate;
+    border: var(--sy-border-width) solid color-mix(in srgb, var(--sy-border-strong) 38%, transparent);
+    border-radius: var(--sy-radius-sm) / calc(var(--sy-radius-sm) * .78);
+    background: var(--sy-color-check-base);
+  }
+  .sy-color-swatch[data-size='xs'] { --sy-swatch-size: 15px; border-radius: 5px; }
+  .sy-color-swatch[data-size='sm'] { --sy-swatch-size: 24px; }
+  .sy-color-swatch[data-size='lg'] { --sy-swatch-size: 38px; }
+  .sy-color-swatch[data-size='xl'] { --sy-swatch-size: 46px; }
+  .sy-color-swatch[data-shape='circle'] { border-radius: 50%; }
+  .sy-color-swatch[data-transparent] { background-image: var(--sy-color-check-pattern); background-size: 8px 8px; }
+  .sy-color-swatch::before {
+    position: absolute;
+    inset: 0;
+    z-index: -1;
+    background-color: var(--sy-swatch-color);
+    transition: background-color var(--sy-duration) var(--sy-ease-settle);
+    content: '';
+  }
+  .sy-color-swatch[data-empty]::before {
+    background: linear-gradient(135deg, transparent 45%, var(--sy-border-strong) 46% 54%, transparent 55%);
+  }
+
+  .sy-color-swatch-picker { inline-size: fit-content; max-inline-size: 100%; }
+  .sy-color-swatch-picker__items {
+    display: flex;
+    flex-wrap: wrap;
+    align-items: center;
+    gap: 5px;
+    outline: none;
+  }
+  .sy-color-swatch-picker__items[data-layout='stack'] { flex-direction: column; align-items: stretch; }
+  .sy-color-swatch-picker__item {
+    display: flex;
+    position: relative;
+    align-items: center;
+    gap: 7px;
+    min-inline-size: 0;
+    padding: 3px;
+    border-radius: var(--sy-radius-sm) / calc(var(--sy-radius-sm) * .78);
+    cursor: pointer;
+  }
+  .sy-color-swatch-picker__item[data-disabled] { opacity: .55; cursor: default; }
+  .sy-color-swatch-picker__item[data-highlighted]:not([data-disabled]),
+  .sy-color-swatch-picker__item[data-state='checked'] { background: var(--sy-accent-soft); }
+  .sy-color-swatch-picker__item:focus-visible { outline: 2px solid var(--sy-focus); outline-offset: 1px; }
+  .sy-color-swatch-picker__indicator {
+    position: absolute;
+    inset: 3px auto auto 3px;
+    inline-size: 8px;
+    block-size: 8px;
+    border-radius: 50%;
+    background: var(--sy-accent);
+    translate: -1px -1px;
+    scale: .15;
+    opacity: 0;
+    transform-origin: 50% 50%;
+    transition: scale var(--sy-motion-replace) var(--sy-ease-settle), opacity var(--sy-duration) var(--sy-ease-settle);
+  }
+  .sy-color-swatch-picker__indicator[data-checked] { scale: 1; opacity: 1; }
+  .sy-color-swatch-picker__label { font-size: .875rem; padding-inline-end: 5px; }
+
+  .sy-color-picker__panel {
+    display: grid;
+    gap: 6px;
+    box-sizing: border-box;
+    inline-size: min(252px, calc(100vw - 56px));
+    min-inline-size: 0;
+  }
+  .sy-color-picker__panel > .sy-color-area { padding-inline: 4px; }
+  .sy-color-picker__done { justify-self: end; }
+
+  @media (forced-colors: active) {
+    .sy-color-area__spectrum, .sy-color-area__thumb, .sy-color-swatch, .sy-color-slider__ramp, .sy-color-slider__thumb { forced-color-adjust: none; }
+  }
+}

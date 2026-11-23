@@ -1,0 +1,321 @@
+import type { CartesianChartProps, ChartAxis, ChartDatum, ChartMargin, ChartMark, ChartPoint, ChartRange, ChartReference, ChartSeries, ChartValue, ChartXScale, ChartXValue } from './types'
+import { clamp, cleanValue, domainFor, finite, fraction, numberAt, seriesColor, validDomain } from './values'
+
+export interface Series extends ChartSeries {
+  mark: ChartMark
+  axis: ChartAxis
+  color: string
+}
+export interface Cell { raw: ChartValue; low: number; high: number }
+export interface SeriesCells { series: Series; cells: (Cell | null)[] }
+export interface CartesianData {
+  series: SeriesCells[]
+  domains: Record<ChartAxis, ChartRange>
+  hasRightAxis: boolean
+}
+
+export function calculateSeries(data: readonly ChartDatum[], specs: readonly ChartSeries[], mode: ChartMark | 'mixed',
+  domains: Pick<CartesianChartProps, 'domain' | 'rightDomain' | 'yBaseline'>): CartesianData {
+  const active = specs.map((series, index): Series => ({
+    ...series, mark: mode === 'mixed' ? series.mark ?? 'line' : mode,
+    axis: series.axis ?? 'left', color: series.color ?? seriesColor(index),
+  }))
+  const totals = new Map<string, { positive: number; negative: number }[]>()
+  const raw: Record<ChartAxis, number[]> = { left: [], right: [] }
+  const zero: Record<ChartAxis, boolean> = { left: false, right: false }
+  const series = active.map((item): SeriesCells => {
+    const baseline = item.mark === 'area' || item.mark === 'bar'
+    const interval = item.mark === 'band' || item.mark === 'errorBar'
+    const stack = baseline && item.stack !== undefined ? JSON.stringify([item.axis, item.mark, item.stack]) : undefined
+    if (stack !== undefined && !totals.has(stack)) totals.set(stack, [])
+    const lanes = stack === undefined ? undefined : totals.get(stack)
+    const cells = data.map((row, index): Cell | null => {
+      const value = cleanValue(row.values[item.key])
+      if (value === null) return null
+      if (typeof value !== 'number') {
+        if (!interval && item.mark !== 'area') return null
+        raw[item.axis].push(...value)
+        return { raw: value, low: value[0], high: value[1] }
+      }
+      if (interval) return null
+      let base = 0
+      if (lanes) {
+        const lane = value < 0 ? 'negative' : 'positive'
+        const group = lanes[index] ??= { positive: 0, negative: 0 }
+        base = group[lane]
+        const sum = base + value
+        group[lane] = finite(sum) ? sum : Math.sign(value) * Number.MAX_VALUE
+      }
+      const end = lanes?.[index][value < 0 ? 'negative' : 'positive'] ?? value
+      raw[item.axis].push(end)
+      if (baseline && (lanes || domains.yBaseline !== 'data')) {
+        raw[item.axis].push(base)
+        zero[item.axis] = true
+      }
+      return { raw: value, low: base, high: end }
+    })
+    return { series: item, cells }
+  })
+  function resolveDomain(axis: ChartAxis, explicit?: ChartRange): ChartRange {
+    const domain = domainFor(raw[axis], explicit, zero[axis])
+    if (validDomain(explicit) || domains.yBaseline !== 'zero') return domain
+    const edge = Math.max(Math.abs(domain[0]), Math.abs(domain[1]))
+    return [-edge, edge]
+  }
+  return { series, hasRightAxis: active.some(item => item.axis === 'right'),
+    domains: { left: resolveDomain('left', domains.domain), right: resolveDomain('right', domains.rightDomain) } }
+}
+
+export interface PlotArea { left: number; right: number; top: number; bottom: number; horizontal: boolean; reverse: boolean }
+
+export function chartArea(width: number, height: number, options: {
+  axes: boolean; right: boolean; horizontal: boolean; reverse: boolean; margin?: Partial<ChartMargin>
+}): PlotArea {
+  const leading = !options.axes ? 10 : options.horizontal ? Math.min(86, width * .27) : width < 360 ? 39 : 51
+  const trailing = options.axes && options.right && !options.horizontal ? (width < 360 ? 39 : 49) : 11
+  const margin = options.margin
+  const left = clamp(numberAt(margin?.left, options.reverse ? trailing : leading), 0, Math.max(0, width - 1))
+  const right = width - clamp(numberAt(margin?.right, options.reverse ? leading : trailing), 0, Math.max(0, width - left - 1))
+  const top = clamp(numberAt(margin?.top, options.axes ? 14 : 9), 0, Math.max(0, height - 1))
+  const bottom = height - clamp(numberAt(margin?.bottom, options.axes ? (options.horizontal && options.right ? 45 : 25) : 9), 0, Math.max(0, height - top - 1))
+  return { left, right, top, bottom, horizontal: options.horizontal, reverse: options.reverse }
+}
+
+function categoryCoordinate(area: PlotArea, ratio: number, inset = 0) {
+  const start = area.horizontal ? area.top : area.reverse ? area.right : area.left
+  const end = area.horizontal ? area.bottom : area.reverse ? area.left : area.right
+  const offset = Math.sign(end - start) * Math.min(inset, Math.abs(end - start) / 3)
+  return start + offset + (end - start - offset * 2) * ratio
+}
+
+export function categoryPosition(area: PlotArea, index: number, count: number, centered: boolean) {
+  return categoryCoordinate(area, count <= 1 ? .5 : centered ? (index + .5) / count : index / (count - 1))
+}
+
+function xNumber(value: ChartXValue | undefined, time: boolean) {
+  if (value instanceof Date) return value.valueOf()
+  if (typeof value !== 'string') return value
+  const text = value.trim()
+  if (!text) return undefined
+  const numeric = Number(text)
+  return finite(numeric) || !time || !/^\d{4}-\d{2}-\d{2}/.test(text) ? numeric : Date.parse(text)
+}
+
+export function chartCategories(rows: readonly ChartDatum[], setting: ChartXScale | undefined, explicit: ChartRange | undefined) {
+  const time = setting === 'time' || (setting === undefined && rows.some(row => row.x instanceof Date))
+  const values = rows.flatMap(row => {
+    const value = xNumber(row.x, time)
+    return finite(value) && (!time || Math.abs(value) <= 8.64e15) ? [{ row, value }] : []
+  })
+  const categorical = setting === 'category' || (setting === undefined && rows.length > 0 && (
+    rows.every(row => row.x === undefined) || rows.some(row => typeof row.x === 'string' && !finite(xNumber(row.x, time)))
+  ))
+  if (categorical || !(setting || values.length || validDomain(explicit))) return { rows, time: false, values: [], domain: undefined }
+  const exact = validDomain(explicit) && (!time || explicit.every(value => Math.abs(value) <= 8.64e15)) ? explicit : undefined
+  const domain = domainFor(values.map(entry => entry.value), exact)
+  const visible = values.filter(({ value }) => value >= domain[0] && value <= domain[1]).sort((a, b) => a.value - b.value)
+  return { rows: visible.map(entry => entry.row), time, values: visible.map(entry => entry.value), domain }
+}
+
+export function continuousPosition(area: PlotArea, domain: ChartRange, value: ChartXValue, time: boolean, inset: number) {
+  const number = xNumber(value, time)
+  return finite(number) ? categoryCoordinate(area, clamp(fraction(number, domain), 0, 1), inset) : undefined
+}
+
+export function chartXProjection(data: ReturnType<typeof chartCategories>, model: CartesianData, area: PlotArea) {
+  const domain = data.domain
+  if (!domain) return
+  const span = area.horizontal ? area.bottom - area.top : area.right - area.left
+  const inset = model.series.reduce((largest, { series }) => {
+    if (series.mark === 'dot' || series.dots) return Math.max(largest, numberAt(series.radius, 2.5) + 2)
+    if (series.mark === 'errorBar') return Math.max(largest, numberAt(series.capWidth, 8) / 2)
+    if (series.mark === 'bar') return Math.max(largest, Math.min(38, span * .31 / Math.max(1, data.values.length)))
+    return largest
+  }, 0)
+  const project = (value: ChartXValue) => continuousPosition(area, domain, value, data.time, inset)
+  const positions = data.values.map(value => project(value)!)
+  return { domain, time: data.time, project, positions, position: (index: number) => positions[index] }
+}
+
+export function formatCategoryTime(value: number, domain: ChartRange, locale?: string, timeZone = 'UTC') {
+  const duration = domain[1] - domain[0]
+  const clock = duration < 86_400_000
+  const options: Intl.DateTimeFormatOptions = clock
+    ? { hour: 'numeric', minute: '2-digit', second: duration < 5 * 60_000 ? '2-digit' : undefined }
+    : { month: 'short', day: duration < 32 * 86_400_000 ? 'numeric' : undefined, year: duration >= 180 * 86_400_000 ? 'numeric' : undefined }
+  const date = new Date(clamp(value, -8.64e15, 8.64e15))
+  try { return new Intl.DateTimeFormat(locale, { ...options, timeZone }).format(date) }
+  catch { return new Intl.DateTimeFormat(locale, { ...options, timeZone: 'UTC' }).format(date) }
+}
+
+export function valuePosition(area: PlotArea, domain: ChartRange, value: number) {
+  const ratio = clamp(fraction(value, domain), 0, 1)
+  if (!area.horizontal) return area.bottom - (area.bottom - area.top) * ratio
+  return area.reverse ? area.right - (area.right - area.left) * ratio : area.left + (area.right - area.left) * ratio
+}
+
+export function chartPoint(area: PlotArea, category: number, value: number): ChartPoint {
+  return area.horizontal ? { x: value, y: category } : { x: category, y: value }
+}
+
+export function renderChartReferences(references: readonly ChartReference[], rows: readonly ChartDatum[], area: PlotArea,
+  domains: Record<ChartAxis, ChartRange>, centered: boolean, x?: {
+    domain: ChartRange; time: boolean; position: (index: number) => number; project: (value: ChartXValue) => number | undefined
+  }) {
+  return references.flatMap((mark, index) => {
+    const category = mark.category
+    let vertical = area.horizontal
+    let position: number
+    let boundary: number | undefined
+    if (category !== undefined) {
+      const at = typeof category === 'number' ? category : rows.findIndex(row => row.id === category || row.label === category)
+      if (!Number.isInteger(at) || at < 0 || at >= rows.length) return []
+      position = x?.position(at) ?? categoryPosition(area, at, rows.length, centered)
+      vertical = !vertical
+    } else if (mark.x !== undefined) {
+      if (!x) return []
+      const start = xNumber(mark.x, x.time)
+      const end = mark.endX === undefined ? undefined : xNumber(mark.endX, x.time)
+      if (!finite(start) || (mark.endX !== undefined && !finite(end))) return []
+      const [low, high] = [Math.min(start, end ?? start), Math.max(start, end ?? start)]
+      if (high < x.domain[0] || low > x.domain[1]) return []
+      position = x.project(low)!
+      if (end !== undefined) boundary = x.project(high)
+      vertical = !vertical
+    } else {
+      const domain = domains[mark.axis ?? 'left']
+      if (!finite(mark.value)) return []
+      if (finite(mark.endValue)) {
+        const [min, max] = [Math.min(mark.value, mark.endValue), Math.max(mark.value, mark.endValue)]
+        if (max < domain[0] || min > domain[1]) return []
+        position = valuePosition(area, domain, min)
+        boundary = valuePosition(area, domain, max)
+      } else {
+        if (mark.value < domain[0] || mark.value > domain[1]) return []
+        position = valuePosition(area, domain, mark.value)
+      }
+    }
+    const low = Math.min(position, boundary ?? position)
+    const span = Math.abs(position - (boundary ?? position))
+    const rect = boundary === undefined ? undefined : vertical
+      ? { x: low, y: area.top, width: span, height: area.bottom - area.top }
+      : { x: area.left, y: low, width: area.right - area.left, height: span }
+    const line = vertical ? { x1: position, x2: position, y1: area.top, y2: area.bottom }
+      : { x1: area.left, x2: area.right, y1: position, y2: position }
+    const atEnd = mark.labelPosition === 'end'
+    const rightSide = vertical ? low > (area.left + area.right) / 2 : atEnd !== area.reverse
+    return [{ ...mark, index, rect, line, strokeWidth: Math.max(0, numberAt(mark.strokeWidth, 1)), opacity: clamp(numberAt(mark.opacity, .14), 0, 1),
+      text: { x: vertical ? low + (rightSide ? -4 : 4) : rightSide ? area.right - 4 : area.left + 4,
+        y: vertical ? atEnd ? area.bottom - 4 : area.top + 11 : clamp(low - 4, area.top + 11, area.bottom - 4),
+        anchor: rightSide ? 'end' : 'start' },
+    }]
+  })
+}
+
+export function pathFor(points: readonly ChartPoint[], curve: ChartSeries['curve'] = 'linear', move = 'M', horizontal = false) {
+  if (!points.length) return ''
+  let path = `${move}${points[0].x},${points[0].y}`
+  for (let index = 1; index < points.length; index++) {
+    const from = points[index - 1]
+    const to = points[index]
+    const middleX = (from.x + to.x) / 2
+    const middleY = (from.y + to.y) / 2
+    if (curve === 'step') {
+      path += horizontal ? `V${middleY} H${to.x} V${to.y}` : `H${middleX} V${to.y} H${to.x}`
+    } else if (curve === 'smooth') {
+      path += horizontal
+        ? `C${from.x},${middleY} ${to.x},${middleY} ${to.x},${to.y}`
+        : `C${middleX},${from.y} ${middleX},${to.y} ${to.x},${to.y}`
+    } else path += `L${to.x},${to.y}`
+  }
+  return path
+}
+
+export interface ChartBar { index: number; x: number; y: number; width: number; height: number; radius: number }
+export interface RenderSeries {
+  series: Series
+  line: string
+  area: string
+  points: { index: number; point: ChartPoint; dot: boolean; radius: number }[]
+  bars: ChartBar[]
+  whiskers: { index: number; path: string }[]
+  strokeWidth: number
+  fillOpacity: number
+}
+
+function groupKey(series: Series) {
+  return JSON.stringify([series.axis, series.stack ?? series.key, series.stack !== undefined])
+}
+
+export function renderCartesian(data: CartesianData, area: PlotArea, count: number, positions?: readonly number[]): RenderSeries[] {
+  const bars = data.series.filter(entry => entry.series.mark === 'bar')
+  const groups = [...new Set(bars.map(({ series }) => groupKey(series)))]
+  let band = (area.horizontal ? area.bottom - area.top : area.right - area.left) / Math.max(1, count)
+  positions?.forEach((position, index) => {
+    const distance = index ? Math.abs(position - positions[index - 1]) : 0
+    if (distance > 0) band = Math.min(band, distance)
+  })
+  const available = Math.min(88, band * .7)
+  const width = available / Math.max(1, groups.length)
+  return data.series.map(({ series, cells }) => {
+    const value = (raw: number) => valuePosition(area, data.domains[series.axis], raw)
+    const category = (index: number) => positions?.[index] ?? categoryPosition(area, index, count, bars.length > 0)
+    const segments: { upper: ChartPoint[]; lower: ChartPoint[] }[] = []
+    const rectangles: ChartBar[] = []
+    const dots: RenderSeries['points'] = []
+    const whiskers: RenderSeries['whiskers'] = []
+    let segment = { upper: [] as ChartPoint[], lower: [] as ChartPoint[] }
+    const anchor = bars.find(entry => entry.series.key === series.alignToBar)?.series
+    const barGroup = groups.indexOf(groupKey(anchor ?? series))
+    const shift = barGroup < 0 ? 0 : (barGroup + .5) * width - available / 2
+    const offset = area.reverse && !area.horizontal ? -shift : shift
+    const radius = Math.max(0, numberAt(series.mark === 'dot' ? series.radius : undefined, 2.5))
+    const cap = Math.max(0, numberAt(series.capWidth, 8)) / 2
+    cells.forEach((cell, index) => {
+      if (!cell) {
+        if (!series.connectNulls) segment = { upper: [], lower: [] }
+        return
+      }
+      const center = category(index)
+      const point = chartPoint(area, center, value(cell.high))
+      if (series.mark === 'bar') {
+        const from = value(cell.low)
+        const to = value(cell.high)
+        const start = center + offset
+        rectangles.push({
+          index, x: area.horizontal ? Math.min(from, to) : start - width * .43,
+          y: area.horizontal ? start - width * .43 : Math.min(from, to),
+          width: area.horizontal ? Math.abs(to - from) : width * .86,
+          height: area.horizontal ? width * .86 : Math.abs(to - from),
+          radius: Math.max(0, numberAt(series.radius, series.stack === undefined ? 4 : 1)),
+        })
+        return
+      }
+      if (series.mark === 'errorBar') {
+        const place = center + offset
+        const ends = [value(cell.low), value(cell.high)]
+        const stem = pathFor(ends.map(end => chartPoint(area, place, end)))
+        const caps = cap > 0 ? ends.map(end => pathFor([chartPoint(area, place - cap, end), chartPoint(area, place + cap, end)])) : []
+        whiskers.push({ index, path: [stem, ...caps].join(' ') })
+        return
+      }
+      if (!segment.upper.length) segments.push(segment)
+      segment.upper.push(point)
+      segment.lower.push(chartPoint(area, center, value(cell.low)))
+      dots.push({ index, point, dot: series.mark === 'dot' || Boolean(series.dots), radius })
+    })
+    let at = 0
+    for (const segment of segments) {
+      if (segment.upper.length === 1 && series.mark !== 'band') dots[at].dot = true
+      at += segment.upper.length
+    }
+    return {
+      series, bars: rectangles, points: series.mark === 'band' ? [] : dots, whiskers,
+      strokeWidth: Math.max(0, numberAt(series.strokeWidth, 1.5)),
+      fillOpacity: clamp(numberAt(series.opacity, series.mark === 'band' ? .15 : .24), 0, 1),
+      line: series.mark === 'line' || series.mark === 'area' ? segments.map(part => pathFor(part.upper, series.curve, 'M', area.horizontal)).join(' ') : '',
+      area: series.mark === 'area' || series.mark === 'band' ? segments.filter(part => part.upper.length > 1).map(part =>
+        pathFor(part.upper, series.curve, 'M', area.horizontal) + pathFor([...part.lower].reverse(), series.curve, 'L', area.horizontal) + 'Z').join(' ') : '',
+    }
+  })
+}

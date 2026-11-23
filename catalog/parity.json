@@ -1,0 +1,3887 @@
+{
+  "baseline": "2026-11-20",
+  "sources": {
+    "web": "https://kb.syntrofic.com/?id=20261120144948-e2kfm2r",
+    "native": "https://kb.syntrofic.com/?id=20261120144949-i6ct2z4",
+    "platform": "https://kb.syntrofic.com/?id=20261120144948-sg0k6ju",
+    "packages": "https://kb.syntrofic.com/?id=20261120145415-60p3nqk",
+    "astryx": "https://github.com/meta/astryx/tree/00c318190dc79442e184382e1283dbad9561369d"
+  },
+  "components": [
+    {
+      "id": "W.button",
+      "track": "web",
+      "category": "Buttons",
+      "name": "Button",
+      "upstream": "https://heroui.com/en/docs/react/components/button",
+      "milestone": "M1",
+      "criteria": "主要、次要、危险等动作层级，加载、禁用、图标与键盘按压"
+    },
+    {
+      "id": "W.button-group",
+      "track": "web",
+      "category": "Buttons",
+      "name": "ButtonGroup",
+      "upstream": "https://heroui.com/en/docs/react/components/button-group",
+      "milestone": "M1",
+      "criteria": "水平或垂直排列一组按钮，保持边界和焦点顺序"
+    },
+    {
+      "id": "W.close-button",
+      "track": "web",
+      "category": "Buttons",
+      "name": "CloseButton",
+      "upstream": "https://heroui.com/en/docs/react/components/close-button",
+      "milestone": "M1",
+      "criteria": "为关闭动作提供可访问名称、触达区和焦点态"
+    },
+    {
+      "id": "W.toggle-button",
+      "track": "web",
+      "category": "Buttons",
+      "name": "ToggleButton",
+      "upstream": "https://heroui.com/en/docs/react/components/toggle-button",
+      "milestone": "M2",
+      "criteria": "用按压态表示开关式动作，支持键盘切换"
+    },
+    {
+      "id": "W.toggle-button-group",
+      "track": "web",
+      "category": "Buttons",
+      "name": "ToggleButtonGroup",
+      "upstream": "https://heroui.com/en/docs/react/components/toggle-button-group",
+      "milestone": "M2",
+      "criteria": "单选或多选的一组切换动作，方向键与组语义一致"
+    },
+    {
+      "id": "W.checkbox",
+      "track": "web",
+      "category": "Forms",
+      "name": "Checkbox",
+      "upstream": "https://heroui.com/en/docs/react/components/checkbox",
+      "milestone": "M1",
+      "criteria": "勾选、半选和禁用，关联标签及提交值"
+    },
+    {
+      "id": "W.checkbox-group",
+      "track": "web",
+      "category": "Forms",
+      "name": "CheckboxGroup",
+      "upstream": "https://heroui.com/en/docs/react/components/checkbox-group",
+      "milestone": "M1",
+      "criteria": "分组复选值，支持组选项验证和错误提示"
+    },
+    {
+      "id": "W.description",
+      "track": "web",
+      "category": "Forms",
+      "name": "Description",
+      "upstream": "https://heroui.com/en/docs/react/components/description",
+      "milestone": "M1",
+      "criteria": "把说明内容与对应字段或控件的可访问描述关联"
+    },
+    {
+      "id": "W.error-message",
+      "track": "web",
+      "category": "Forms",
+      "name": "ErrorMessage",
+      "upstream": "https://heroui.com/en/docs/react/components/error-message",
+      "milestone": "M1",
+      "criteria": "在组件或表单层渲染可关联的错误消息"
+    },
+    {
+      "id": "W.field-error",
+      "track": "web",
+      "category": "Forms",
+      "name": "FieldError",
+      "upstream": "https://heroui.com/en/docs/react/components/field-error",
+      "milestone": "M1",
+      "criteria": "展示字段校验结果，支持关联字段及动态更新"
+    },
+    {
+      "id": "W.fieldset",
+      "track": "web",
+      "category": "Forms",
+      "name": "Fieldset",
+      "upstream": "https://heroui.com/en/docs/react/components/fieldset",
+      "milestone": "M1",
+      "criteria": "字段分组含标题、说明与整体禁用语义"
+    },
+    {
+      "id": "W.form",
+      "track": "web",
+      "category": "Forms",
+      "name": "Form",
+      "upstream": "https://heroui.com/en/docs/react/components/form",
+      "milestone": "M1",
+      "criteria": "统一字段提交与校验，覆盖浏览器提交、重置及自定义错误"
+    },
+    {
+      "id": "W.input",
+      "track": "web",
+      "category": "Forms",
+      "name": "Input",
+      "upstream": "https://heroui.com/en/docs/react/components/input",
+      "milestone": "M1",
+      "criteria": "文本输入与原生属性，验证中文 IME 与自动填充"
+    },
+    {
+      "id": "W.input-group",
+      "track": "web",
+      "category": "Forms",
+      "name": "InputGroup",
+      "upstream": "https://heroui.com/en/docs/react/components/input-group",
+      "milestone": "M1",
+      "criteria": "将输入框、图标、前后缀和内嵌操作组成共享焦点的字段"
+    },
+    {
+      "id": "W.input-otp",
+      "track": "web",
+      "category": "Forms",
+      "name": "InputOTP",
+      "upstream": "https://heroui.com/en/docs/react/components/input-otp",
+      "milestone": "M2",
+      "criteria": "多格验证码输入，支持粘贴、退格和移位"
+    },
+    {
+      "id": "W.label",
+      "track": "web",
+      "category": "Forms",
+      "name": "Label",
+      "upstream": "https://heroui.com/en/docs/react/components/label",
+      "milestone": "M1",
+      "criteria": "关联字段和标签，点击标签能聚焦或切换控件"
+    },
+    {
+      "id": "W.number-field",
+      "track": "web",
+      "category": "Forms",
+      "name": "NumberField",
+      "upstream": "https://heroui.com/en/docs/react/components/number-field",
+      "milestone": "M2",
+      "criteria": "数值格式、边界和步进，区分编辑态输入和提交值"
+    },
+    {
+      "id": "W.radio-group",
+      "track": "web",
+      "category": "Forms",
+      "name": "RadioGroup",
+      "upstream": "https://heroui.com/en/docs/react/components/radio-group",
+      "milestone": "M1",
+      "criteria": "互斥选项和键盘导航，支持组级校验及禁用"
+    },
+    {
+      "id": "W.search-field",
+      "track": "web",
+      "category": "Forms",
+      "name": "SearchField",
+      "upstream": "https://heroui.com/en/docs/react/components/search-field",
+      "milestone": "M2",
+      "criteria": "搜索、清除和提交，兼容输入法和键盘快捷操作"
+    },
+    {
+      "id": "W.text-area",
+      "track": "web",
+      "category": "Forms",
+      "name": "TextArea",
+      "upstream": "https://heroui.com/en/docs/react/components/text-area",
+      "milestone": "M1",
+      "criteria": "多行编辑，覆盖尺寸调整或自增长以及错误态"
+    },
+    {
+      "id": "W.text-field",
+      "track": "web",
+      "category": "Forms",
+      "name": "TextField",
+      "upstream": "https://heroui.com/en/docs/react/components/text-field",
+      "milestone": "M1",
+      "criteria": "将标签、输入、帮助说明和错误拼成完整字段"
+    },
+    {
+      "id": "W.calendar",
+      "track": "web",
+      "category": "Date and Time",
+      "name": "Calendar",
+      "upstream": "https://heroui.com/en/docs/react/components/calendar",
+      "milestone": "M2",
+      "criteria": "浏览月、周及日视图并选择日期，验证翻页跨度、本地化、不可用日和方向键"
+    },
+    {
+      "id": "W.date-field",
+      "track": "web",
+      "category": "Date and Time",
+      "name": "DateField",
+      "upstream": "https://heroui.com/en/docs/react/components/date-field",
+      "milestone": "M2",
+      "criteria": "按本地格式分段编辑日期，验证范围和空值"
+    },
+    {
+      "id": "W.date-picker",
+      "track": "web",
+      "category": "Date and Time",
+      "name": "DatePicker",
+      "upstream": "https://heroui.com/en/docs/react/components/date-picker",
+      "milestone": "M2",
+      "criteria": "组合日期字段与月、周、日历视图，完成输入、选择和关闭回焦"
+    },
+    {
+      "id": "W.date-range-picker",
+      "track": "web",
+      "category": "Date and Time",
+      "name": "DateRangePicker",
+      "upstream": "https://heroui.com/en/docs/react/components/date-range-picker",
+      "milestone": "M2",
+      "criteria": "组合起止字段和月、周、日历视图，确认跨页选择、关闭回焦及边界校验"
+    },
+    {
+      "id": "W.range-calendar",
+      "track": "web",
+      "category": "Date and Time",
+      "name": "RangeCalendar",
+      "upstream": "https://heroui.com/en/docs/react/components/range-calendar",
+      "milestone": "M2",
+      "criteria": "在月、周及日视图选取起止日，覆盖跨页、随起点变化的不可用日与区间预览"
+    },
+    {
+      "id": "W.time-field",
+      "track": "web",
+      "category": "Date and Time",
+      "name": "TimeField",
+      "upstream": "https://heroui.com/en/docs/react/components/time-field",
+      "milestone": "M2",
+      "criteria": "分段时间输入，适配小时制和可选精度"
+    },
+    {
+      "id": "W.accordion",
+      "track": "web",
+      "category": "Navigation",
+      "name": "Accordion",
+      "upstream": "https://heroui.com/en/docs/react/components/accordion",
+      "milestone": "M2",
+      "criteria": "可单开或多开折叠面板，覆盖标题焦点和状态语义"
+    },
+    {
+      "id": "W.breadcrumbs",
+      "track": "web",
+      "category": "Navigation",
+      "name": "Breadcrumbs",
+      "upstream": "https://heroui.com/en/docs/react/components/breadcrumbs",
+      "milestone": "M2",
+      "criteria": "为路径提供可导航层级、当前页语义和窄屏展示"
+    },
+    {
+      "id": "W.disclosure",
+      "track": "web",
+      "category": "Navigation",
+      "name": "Disclosure",
+      "upstream": "https://heroui.com/en/docs/react/components/disclosure",
+      "milestone": "M2",
+      "criteria": "单个区域展开收起并同步读屏状态"
+    },
+    {
+      "id": "W.disclosure-group",
+      "track": "web",
+      "category": "Navigation",
+      "name": "DisclosureGroup",
+      "upstream": "https://heroui.com/en/docs/react/components/disclosure-group",
+      "milestone": "M2",
+      "criteria": "多个折叠区域的互斥或并行展开管理"
+    },
+    {
+      "id": "W.link",
+      "track": "web",
+      "category": "Navigation",
+      "name": "Link",
+      "upstream": "https://heroui.com/en/docs/react/components/link",
+      "milestone": "M2",
+      "criteria": "统一跳转、外链和禁用表现，保留锚点语义"
+    },
+    {
+      "id": "W.pagination",
+      "track": "web",
+      "category": "Navigation",
+      "name": "Pagination",
+      "upstream": "https://heroui.com/en/docs/react/components/pagination",
+      "milestone": "M2",
+      "criteria": "首尾页、上一页、下一页及省略区间的跳转"
+    },
+    {
+      "id": "W.tabs",
+      "track": "web",
+      "category": "Navigation",
+      "name": "Tabs",
+      "upstream": "https://heroui.com/en/docs/react/components/tabs",
+      "milestone": "M1",
+      "criteria": "关联标签与面板，覆盖焦点策略、方向、选中和延迟挂载"
+    },
+    {
+      "id": "W.alert-dialog",
+      "track": "web",
+      "category": "Overlays",
+      "name": "AlertDialog",
+      "upstream": "https://heroui.com/en/docs/react/components/alert-dialog",
+      "milestone": "M2",
+      "criteria": "阻塞性确认，处理危险操作、取消、焦点锁及返回"
+    },
+    {
+      "id": "W.drawer",
+      "track": "web",
+      "category": "Overlays",
+      "name": "Drawer",
+      "upstream": "https://heroui.com/en/docs/react/components/drawer",
+      "milestone": "M2",
+      "criteria": "多方向抽屉、覆盖层和拖动关闭，检查视口变化"
+    },
+    {
+      "id": "W.modal",
+      "track": "web",
+      "category": "Overlays",
+      "name": "Modal",
+      "upstream": "https://heroui.com/en/docs/react/components/modal",
+      "milestone": "M1",
+      "criteria": "模态 Portal、背景和关闭策略，验证滚动锁定和焦点栈"
+    },
+    {
+      "id": "W.popover",
+      "track": "web",
+      "category": "Overlays",
+      "name": "Popover",
+      "upstream": "https://heroui.com/en/docs/react/components/popover",
+      "milestone": "M2",
+      "criteria": "依锚点定位，边缘避让、外部关闭和嵌套焦点管理"
+    },
+    {
+      "id": "W.sheet",
+      "track": "web",
+      "category": "Overlays",
+      "name": "Sheet",
+      "upstream": "https://heroui.com/en/docs/react/components/sheet",
+      "milestone": "M2",
+      "criteria": "拖动面板、四向位置、吸附点、嵌套及受控开关"
+    },
+    {
+      "id": "W.toast",
+      "track": "web",
+      "category": "Overlays",
+      "name": "Toast",
+      "upstream": "https://heroui.com/en/docs/react/components/toast",
+      "milestone": "M2",
+      "criteria": "通知队列、自动消失、操作、级别语义和定时暂停"
+    },
+    {
+      "id": "W.tooltip",
+      "track": "web",
+      "category": "Overlays",
+      "name": "Tooltip",
+      "upstream": "https://heroui.com/en/docs/react/components/tooltip",
+      "milestone": "M1",
+      "criteria": "悬停或焦点触发，覆盖延时、位置和 Escape 关闭"
+    },
+    {
+      "id": "W.dropdown",
+      "track": "web",
+      "category": "Collections",
+      "name": "Dropdown",
+      "upstream": "https://heroui.com/en/docs/react/components/dropdown",
+      "milestone": "M2",
+      "criteria": "可分组的菜单选择、多选、子菜单和焦点管理"
+    },
+    {
+      "id": "W.list-box",
+      "track": "web",
+      "category": "Collections",
+      "name": "ListBox",
+      "upstream": "https://heroui.com/en/docs/react/components/list-box",
+      "milestone": "M2",
+      "criteria": "单选、多选、禁用、预输入查找与长列表交互"
+    },
+    {
+      "id": "W.tag-group",
+      "track": "web",
+      "category": "Collections",
+      "name": "TagGroup",
+      "upstream": "https://heroui.com/en/docs/react/components/tag-group",
+      "milestone": "M2",
+      "criteria": "编辑或删除标签，支持组内键盘导航"
+    },
+    {
+      "id": "W.slider",
+      "track": "web",
+      "category": "Controls",
+      "name": "Slider",
+      "upstream": "https://heroui.com/en/docs/react/components/slider",
+      "milestone": "M2",
+      "criteria": "单值或范围拖拽，支持步进、标记和键盘操作"
+    },
+    {
+      "id": "W.switch",
+      "track": "web",
+      "category": "Controls",
+      "name": "Switch",
+      "upstream": "https://heroui.com/en/docs/react/components/switch",
+      "milestone": "M1",
+      "criteria": "布尔切换，支持受控、禁用、标签与表单联动"
+    },
+    {
+      "id": "W.alert",
+      "track": "web",
+      "category": "Feedback",
+      "name": "Alert",
+      "upstream": "https://heroui.com/en/docs/react/components/alert",
+      "milestone": "M1",
+      "criteria": "状态信息与可选动作，匹配正确的通知语义"
+    },
+    {
+      "id": "W.meter",
+      "track": "web",
+      "category": "Feedback",
+      "name": "Meter",
+      "upstream": "https://heroui.com/en/docs/react/components/meter",
+      "milestone": "M2",
+      "criteria": "带范围和标签的数量度量，区分读数与进度"
+    },
+    {
+      "id": "W.progress-bar",
+      "track": "web",
+      "category": "Feedback",
+      "name": "ProgressBar",
+      "upstream": "https://heroui.com/en/docs/react/components/progress-bar",
+      "milestone": "M2",
+      "criteria": "有界或不确定的线性进度，暴露正确进度语义"
+    },
+    {
+      "id": "W.progress-circle",
+      "track": "web",
+      "category": "Feedback",
+      "name": "ProgressCircle",
+      "upstream": "https://heroui.com/en/docs/react/components/progress-circle",
+      "milestone": "M2",
+      "criteria": "环形进度的数值和不确定态，适配尺寸与读屏"
+    },
+    {
+      "id": "W.skeleton",
+      "track": "web",
+      "category": "Feedback",
+      "name": "Skeleton",
+      "upstream": "https://heroui.com/en/docs/react/components/skeleton",
+      "milestone": "M1",
+      "criteria": "占位与加载状态切换，覆盖形状和动效偏好"
+    },
+    {
+      "id": "W.spinner",
+      "track": "web",
+      "category": "Feedback",
+      "name": "Spinner",
+      "upstream": "https://heroui.com/en/docs/react/components/spinner",
+      "milestone": "M1",
+      "criteria": "异步等待指示，包含可访问描述和尺寸变体"
+    },
+    {
+      "id": "W.card",
+      "track": "web",
+      "category": "Layout",
+      "name": "Card",
+      "upstream": "https://heroui.com/en/docs/react/components/card",
+      "milestone": "M1",
+      "criteria": "组合标题、内容、媒体与操作区，支持各区独立样式"
+    },
+    {
+      "id": "W.separator",
+      "track": "web",
+      "category": "Layout",
+      "name": "Separator",
+      "upstream": "https://heroui.com/en/docs/react/components/separator",
+      "milestone": "M1",
+      "criteria": "水平或垂直分隔，按用途提供语义或纯装饰"
+    },
+    {
+      "id": "W.surface",
+      "track": "web",
+      "category": "Layout",
+      "name": "Surface",
+      "upstream": "https://heroui.com/en/docs/react/components/surface",
+      "milestone": "M1",
+      "criteria": "提供不同层级的背景、边界和文字对比"
+    },
+    {
+      "id": "W.toolbar",
+      "track": "web",
+      "category": "Layout",
+      "name": "Toolbar",
+      "upstream": "https://heroui.com/en/docs/react/components/toolbar",
+      "milestone": "M2",
+      "criteria": "组织相关操作，维持方向、分组和键盘焦点规则"
+    },
+    {
+      "id": "W.avatar",
+      "track": "web",
+      "category": "Media",
+      "name": "Avatar",
+      "upstream": "https://heroui.com/en/docs/react/components/avatar",
+      "milestone": "M1",
+      "criteria": "图片替代文本、加载状态与失败回退"
+    },
+    {
+      "id": "W.avatar-group",
+      "track": "web",
+      "category": "Media",
+      "name": "AvatarGroup",
+      "upstream": "https://heroui.com/en/docs/react/components/avatar-group",
+      "milestone": "M2",
+      "criteria": "重叠分组、可见数限制和溢出计数"
+    },
+    {
+      "id": "W.autocomplete",
+      "track": "web",
+      "category": "Pickers",
+      "name": "Autocomplete",
+      "upstream": "https://heroui.com/en/docs/react/components/autocomplete",
+      "milestone": "M2",
+      "criteria": "文本查询与候选导航，支持空结果、异步及明确的选中项"
+    },
+    {
+      "id": "W.combo-box",
+      "track": "web",
+      "category": "Pickers",
+      "name": "ComboBox",
+      "upstream": "https://heroui.com/en/docs/react/components/combo-box",
+      "milestone": "M2",
+      "criteria": "输入与列表选择联动，处理过滤、键盘、清空和受控状态"
+    },
+    {
+      "id": "W.select",
+      "track": "web",
+      "category": "Pickers",
+      "name": "Select",
+      "upstream": "https://heroui.com/en/docs/react/components/select",
+      "milestone": "M2",
+      "criteria": "单选、多选、占位及清空，验证键盘和弹出层焦点"
+    },
+    {
+      "id": "W.kbd",
+      "track": "web",
+      "category": "Typography",
+      "name": "Kbd",
+      "upstream": "https://heroui.com/en/docs/react/components/kbd",
+      "milestone": "M2",
+      "criteria": "展示快捷键及组合键，保持文本可读"
+    },
+    {
+      "id": "W.typography",
+      "track": "web",
+      "category": "Typography",
+      "name": "Typography",
+      "upstream": "https://heroui.com/en/docs/react/components/typography",
+      "milestone": "M2",
+      "criteria": "标题和正文的语义标签、层级及排版样式"
+    },
+    {
+      "id": "W.badge",
+      "track": "web",
+      "category": "Data Display",
+      "name": "Badge",
+      "upstream": "https://heroui.com/en/docs/react/components/badge",
+      "milestone": "M1",
+      "criteria": "表达数量、状态或叠放提示，支持短文本与可访问含义"
+    },
+    {
+      "id": "W.chip",
+      "track": "web",
+      "category": "Data Display",
+      "name": "Chip",
+      "upstream": "https://heroui.com/en/docs/react/components/chip",
+      "milestone": "M1",
+      "criteria": "紧凑状态或分类标签，覆盖视觉状态与组合展示"
+    },
+    {
+      "id": "W.table",
+      "track": "web",
+      "category": "Data Display",
+      "name": "Table",
+      "upstream": "https://heroui.com/en/docs/react/components/table",
+      "milestone": "M2",
+      "criteria": "结构化表格和行列语义，按平台核对排序、选择及滚动能力"
+    },
+    {
+      "id": "W.color-area",
+      "track": "web",
+      "category": "Colors",
+      "name": "ColorArea",
+      "upstream": "https://heroui.com/en/docs/react/components/color-area",
+      "milestone": "M2",
+      "criteria": "二维调色区域支持拖动、键盘与通道值"
+    },
+    {
+      "id": "W.color-field",
+      "track": "web",
+      "category": "Colors",
+      "name": "ColorField",
+      "upstream": "https://heroui.com/en/docs/react/components/color-field",
+      "milestone": "M2",
+      "criteria": "用文字或分段字段编辑颜色，处理格式与无效值"
+    },
+    {
+      "id": "W.color-picker",
+      "track": "web",
+      "category": "Colors",
+      "name": "ColorPicker",
+      "upstream": "https://heroui.com/en/docs/react/components/color-picker",
+      "milestone": "M2",
+      "criteria": "组合取色、预览和通道输入，支持透明度与键盘"
+    },
+    {
+      "id": "W.color-slider",
+      "track": "web",
+      "category": "Colors",
+      "name": "ColorSlider",
+      "upstream": "https://heroui.com/en/docs/react/components/color-slider",
+      "milestone": "M2",
+      "criteria": "按通道或透明度调整颜色，支持键盘与可访问标签"
+    },
+    {
+      "id": "W.color-swatch",
+      "track": "web",
+      "category": "Colors",
+      "name": "ColorSwatch",
+      "upstream": "https://heroui.com/en/docs/react/components/color-swatch",
+      "milestone": "M2",
+      "criteria": "展示单个颜色及透明度，提供文本识别途径"
+    },
+    {
+      "id": "W.color-swatch-picker",
+      "track": "web",
+      "category": "Colors",
+      "name": "ColorSwatchPicker",
+      "upstream": "https://heroui.com/en/docs/react/components/color-swatch-picker",
+      "milestone": "M2",
+      "criteria": "在一组颜色样本中选择，验证键盘和选中色语义"
+    },
+    {
+      "id": "W.scroll-shadow",
+      "track": "web",
+      "category": "Utilities",
+      "name": "ScrollShadow",
+      "upstream": "https://heroui.com/en/docs/react/components/scroll-shadow",
+      "milestone": "M2",
+      "criteria": "按滚动位置提示可滚动内容及边缘，处理横纵方向"
+    },
+    {
+      "id": "W.aspect-ratio",
+      "track": "web",
+      "category": "Layout",
+      "name": "AspectRatio",
+      "upstream": "https://github.com/meta/astryx/blob/00c318190dc79442e184382e1283dbad9561369d/packages/core/src/AspectRatio/AspectRatio.doc.mjs",
+      "milestone": "Astryx",
+      "criteria": "以声明式比例容纳媒体，支持裁切、留白和椭圆外形。"
+    },
+    {
+      "id": "W.stack",
+      "track": "web",
+      "category": "Layout",
+      "name": "Stack",
+      "upstream": "https://github.com/meta/astryx/blob/00c318190dc79442e184382e1283dbad9561369d/packages/core/src/Stack/Stack.doc.mjs",
+      "milestone": "Astryx",
+      "criteria": "沿水平或垂直轴排列内容，配置对齐、间距和换行。"
+    },
+    {
+      "id": "W.grid",
+      "track": "web",
+      "category": "Layout",
+      "name": "Grid",
+      "upstream": "https://github.com/meta/astryx/blob/00c318190dc79442e184382e1283dbad9561369d/packages/core/src/Grid/Grid.doc.mjs",
+      "milestone": "Astryx",
+      "criteria": "使用固定列数、CSS 列轨或随容器自动调整的列数。"
+    },
+    {
+      "id": "W.blockquote",
+      "track": "web",
+      "category": "Typography",
+      "name": "Blockquote",
+      "upstream": "https://github.com/meta/astryx/blob/00c318190dc79442e184382e1283dbad9561369d/packages/core/src/Blockquote/Blockquote.doc.mjs",
+      "milestone": "Astryx",
+      "criteria": "标出引文与出处，边界随书写方向调整。"
+    },
+    {
+      "id": "W.metadata-list",
+      "track": "web",
+      "category": "Data Display",
+      "name": "MetadataList",
+      "upstream": "https://github.com/meta/astryx/blob/00c318190dc79442e184382e1283dbad9561369d/packages/core/src/MetadataList/MetadataList.doc.mjs",
+      "milestone": "Astryx",
+      "criteria": "显示成对的字段和数据，支持自定义内容及折叠。"
+    },
+    {
+      "id": "W.status-dot",
+      "track": "web",
+      "category": "Feedback",
+      "name": "StatusDot",
+      "upstream": "https://github.com/meta/astryx/blob/00c318190dc79442e184382e1283dbad9561369d/packages/core/src/StatusDot/StatusDot.doc.mjs",
+      "milestone": "Astryx",
+      "criteria": "用语义色、可访问名称和可选的短脉冲提示状态。"
+    },
+    {
+      "id": "W.info-tip",
+      "track": "web",
+      "category": "Overlays",
+      "name": "InfoTip",
+      "upstream": "https://github.com/meta/astryx/blob/00c318190dc79442e184382e1283dbad9561369d/packages/core/src/InfoTip/InfoTip.doc.mjs",
+      "milestone": "Astryx",
+      "criteria": "通过带名称的帮助按钮打开补充信息。"
+    },
+    {
+      "id": "W.clickable-card",
+      "track": "web",
+      "category": "Data Display",
+      "name": "ClickableCard",
+      "upstream": "https://github.com/meta/astryx/blob/00c318190dc79442e184382e1283dbad9561369d/packages/core/src/ClickableCard/ClickableCard.doc.mjs",
+      "milestone": "Astryx",
+      "criteria": "卡片主体带链接或操作，卡片内的交互控件可独立使用。"
+    },
+    {
+      "id": "W.selectable-card",
+      "track": "web",
+      "category": "Controls",
+      "name": "SelectableCard",
+      "upstream": "https://github.com/meta/astryx/blob/00c318190dc79442e184382e1283dbad9561369d/packages/core/src/SelectableCard/SelectableCard.doc.mjs",
+      "milestone": "Astryx",
+      "criteria": "整卡复选、键盘切换和原生表单提交。"
+    },
+    {
+      "id": "W.banner",
+      "track": "web",
+      "category": "Feedback",
+      "name": "Banner",
+      "upstream": "https://github.com/meta/astryx/blob/00c318190dc79442e184382e1283dbad9561369d/packages/core/src/Banner/Banner.doc.mjs",
+      "milestone": "Astryx",
+      "criteria": "常驻状态提示，支持操作、关闭和展开详情。"
+    },
+    {
+      "id": "W.overlay",
+      "track": "web",
+      "category": "Overlays",
+      "name": "Overlay",
+      "upstream": "https://github.com/meta/astryx/blob/00c318190dc79442e184382e1283dbad9561369d/packages/core/src/Overlay/Overlay.doc.mjs",
+      "milestone": "Astryx",
+      "criteria": "在内容上显示可控的遮罩和操作，支持悬停与键盘聚焦。"
+    },
+    {
+      "id": "W.scrollable-area",
+      "track": "web",
+      "category": "Layout",
+      "name": "ScrollableArea",
+      "upstream": "https://github.com/meta/astryx/blob/00c318190dc79442e184382e1283dbad9561369d/packages/core/src/ScrollableArea/ScrollableArea.doc.mjs",
+      "milestone": "Astryx",
+      "criteria": "按逻辑轴滚动，可在溢出时用键盘访问，并限制滚动链。"
+    },
+    {
+      "id": "W.timer",
+      "track": "web",
+      "category": "Date and Time",
+      "name": "Timer",
+      "upstream": "https://github.com/meta/astryx/blob/00c318190dc79442e184382e1283dbad9561369d/packages/core/src/Timer/Timer.doc.mjs",
+      "milestone": "Astryx",
+      "criteria": "以本地化时长或时钟格式显示实时已用时间。"
+    },
+    {
+      "id": "W.timestamp",
+      "track": "web",
+      "category": "Date and Time",
+      "name": "Timestamp",
+      "upstream": "https://github.com/meta/astryx/blob/00c318190dc79442e184382e1283dbad9561369d/packages/core/src/Timestamp/Timestamp.doc.mjs",
+      "milestone": "Astryx",
+      "criteria": "显示绝对或相对时间，支持时区、详情和复制。"
+    },
+    {
+      "id": "W.thumbnail",
+      "track": "web",
+      "category": "Media",
+      "name": "Thumbnail",
+      "upstream": "https://github.com/meta/astryx/blob/00c318190dc79442e184382e1283dbad9561369d/packages/core/src/Thumbnail/Thumbnail.doc.mjs",
+      "milestone": "Astryx",
+      "criteria": "统一媒体预览的比例、选择、移除和加载状态。"
+    },
+    {
+      "id": "W.lightbox",
+      "track": "web",
+      "category": "Media",
+      "name": "Lightbox",
+      "upstream": "https://github.com/meta/astryx/blob/00c318190dc79442e184382e1283dbad9561369d/packages/core/src/Lightbox/Lightbox.doc.mjs",
+      "milestone": "Astryx",
+      "criteria": "通过键盘或手势浏览图片和视频，支持图注与图片缩放。"
+    },
+    {
+      "id": "W.date-time-input",
+      "track": "web",
+      "category": "Date and Time",
+      "name": "DateTimeInput",
+      "upstream": "https://github.com/meta/astryx/blob/00c318190dc79442e184382e1283dbad9561369d/packages/core/src/DateTimeInput/DateTimeInput.doc.mjs",
+      "milestone": "Astryx",
+      "criteria": "用分段输入和日历选择日期及时间。"
+    },
+    {
+      "id": "W.file-input",
+      "track": "web",
+      "category": "Forms",
+      "name": "FileInput",
+      "upstream": "https://github.com/meta/astryx/blob/00c318190dc79442e184382e1283dbad9561369d/packages/core/src/FileInput/FileInput.doc.mjs",
+      "milestone": "Astryx",
+      "criteria": "使用紧凑文件选择、拖放、大小与类型校验及上传状态。"
+    },
+    {
+      "id": "W.tokenizer",
+      "track": "web",
+      "category": "Forms",
+      "name": "Tokenizer",
+      "upstream": "https://github.com/meta/astryx/blob/00c318190dc79442e184382e1283dbad9561369d/packages/core/src/Tokenizer/Tokenizer.doc.mjs",
+      "milestone": "Astryx",
+      "criteria": "通过自动补全添加和移除多选令牌，并可提交表单。"
+    },
+    {
+      "id": "W.power-search",
+      "track": "web",
+      "category": "Forms",
+      "name": "PowerSearch",
+      "upstream": "https://github.com/meta/astryx/blob/00c318190dc79442e184382e1283dbad9561369d/packages/core/src/PowerSearch/PowerSearch.doc.mjs",
+      "milestone": "Astryx",
+      "criteria": "编辑结构化字段、条件、值及关键词，由调用方执行查询。"
+    },
+    {
+      "id": "W.overflow-list",
+      "track": "web",
+      "category": "Collections",
+      "name": "OverflowList",
+      "upstream": "https://github.com/meta/astryx/blob/00c318190dc79442e184382e1283dbad9561369d/packages/core/src/OverflowList/OverflowList.doc.mjs",
+      "milestone": "Astryx",
+      "criteria": "按容器宽度重排列表，把超出的选项收纳到可交互浮层。"
+    },
+    {
+      "id": "W.snap-paging",
+      "track": "web",
+      "category": "Navigation",
+      "name": "SnapPaging",
+      "upstream": "https://github.com/meta/astryx/blob/00c318190dc79442e184382e1283dbad9561369d/packages/core/src/SnapPaging/SnapPaging.doc.mjs",
+      "milestone": "Astryx",
+      "criteria": "用原生滚动、键盘和按钮在面板间分页。"
+    },
+    {
+      "id": "W.swipe-actions",
+      "track": "web",
+      "category": "Navigation",
+      "name": "SwipeActions",
+      "upstream": "https://github.com/meta/astryx/blob/00c318190dc79442e184382e1283dbad9561369d/packages/core/src/Swipe/createSwipe.ts",
+      "milestone": "Astryx",
+      "criteria": "通过滑动或按钮打开行操作，支持键盘和书写方向。"
+    },
+    {
+      "id": "W.transfer-list",
+      "track": "web",
+      "category": "Collections",
+      "name": "TransferList",
+      "upstream": "https://github.com/meta/astryx/blob/00c318190dc79442e184382e1283dbad9561369d/packages/lab/src/TransferList/TransferList.doc.mjs",
+      "milestone": "Astryx",
+      "criteria": "支持分组筛选、单项和批量穿梭、已选排序，以及立即提交或确认后应用的弹出选择器。"
+    },
+    {
+      "id": "W.navigation-stack",
+      "track": "web",
+      "category": "Navigation",
+      "name": "NavigationStack",
+      "upstream": "https://github.com/meta/astryx/blob/00c318190dc79442e184382e1283dbad9561369d/packages/lab/src/NavigationStack/NavigationStack.doc.mjs",
+      "milestone": "Astryx",
+      "criteria": "支持分层导航、内容区拖动返回、逐页滚动恢复、大标题切换和触发控件焦点恢复。"
+    },
+    {
+      "id": "W.tour",
+      "track": "web",
+      "category": "Overlays",
+      "name": "Tour",
+      "upstream": "https://github.com/meta/astryx/blob/00c318190dc79442e184382e1283dbad9561369d/packages/lab/src/Tour/Tour.doc.mjs",
+      "milestone": "Astryx",
+      "criteria": "在分步弹窗中解释目标元素，并提供前进、返回和完成操作。"
+    },
+    {
+      "id": "W.log-stream",
+      "track": "web",
+      "category": "Data Display",
+      "name": "LogStream",
+      "upstream": "https://github.com/meta/astryx/blob/00c318190dc79442e184382e1283dbad9561369d/packages/lab/src/LogStream/LogStream.doc.mjs",
+      "milestone": "Astryx",
+      "criteria": "显示时间、级别、来源和可展开详情，支持暂停跟随、跳转到最新日志和设置保留数量。"
+    },
+    {
+      "id": "W.icon",
+      "track": "web",
+      "category": "Media",
+      "name": "Icon",
+      "upstream": "https://github.com/meta/astryx/blob/00c318190dc79442e184382e1283dbad9561369d/packages/core/src/Icon/Icon.doc.mjs",
+      "milestone": "Astryx",
+      "criteria": "用可继承颜色的图标表达操作，支持 RTL 镜像和自定义路径。"
+    },
+    {
+      "id": "W.nav-icon",
+      "track": "web",
+      "category": "Navigation",
+      "name": "NavIcon",
+      "upstream": "https://github.com/meta/astryx/blob/00c318190dc79442e184382e1283dbad9561369d/packages/core/src/NavIcon/NavIcon.doc.mjs",
+      "milestone": "Astryx",
+      "criteria": "用圆形主题容器显示内置图标或插槽内容，支持读屏名称。"
+    },
+    {
+      "id": "W.nav-menu",
+      "track": "web",
+      "category": "Navigation",
+      "name": "NavHeadingMenu",
+      "upstream": "https://github.com/meta/astryx/blob/00c318190dc79442e184382e1283dbad9561369d/packages/core/src/NavMenu/NavMenu.doc.mjs",
+      "milestone": "Astryx",
+      "criteria": "支持方向键循环、首尾跳转和按名称定位。禁用项可聚焦，且不可激活。"
+    },
+    {
+      "id": "W.top-nav-menu",
+      "track": "web",
+      "category": "Navigation",
+      "name": "TopNavMenu",
+      "upstream": "https://github.com/meta/astryx/blob/00c318190dc79442e184382e1283dbad9561369d/packages/core/src/TopNav/TopNavMenu.doc.mjs",
+      "milestone": "Astryx",
+      "criteria": "支持悬停延迟、键盘和触屏打开、富文本菜单项及按输入方式关闭。"
+    },
+    {
+      "id": "W.mobile-nav",
+      "track": "web",
+      "category": "Navigation",
+      "name": "MobileNav",
+      "upstream": "https://github.com/meta/astryx/blob/00c318190dc79442e184382e1283dbad9561369d/packages/core/src/MobileNav/MobileNav.doc.mjs",
+      "milestone": "Astryx",
+      "criteria": "提供限制宽度的模态抽屉、方向适配、自定义页头、关闭后的焦点恢复及应用布局开关。"
+    },
+    {
+      "id": "W.side-nav-heading",
+      "track": "web",
+      "category": "Navigation",
+      "name": "SideNavHeading",
+      "upstream": "https://github.com/meta/astryx/blob/00c318190dc79442e184382e1283dbad9561369d/packages/core/src/SideNav/SideNavHeading.doc.mjs",
+      "milestone": "Astryx",
+      "criteria": "为标题链接、辅助链接、尾部动作及弹出菜单分配独立的操作区，支持收起为图标。"
+    },
+    {
+      "id": "W.side-nav-item",
+      "track": "web",
+      "category": "Navigation",
+      "name": "SideNavItem",
+      "upstream": "https://github.com/meta/astryx/blob/00c318190dc79442e184382e1283dbad9561369d/packages/core/src/SideNav/SideNavItem.doc.mjs",
+      "milestone": "Astryx",
+      "criteria": "提供选中图标、折叠子项、内容尾部和与主要目的地独立的按钮。"
+    },
+    {
+      "id": "W.side-nav-section",
+      "track": "web",
+      "category": "Navigation",
+      "name": "SideNavSection",
+      "upstream": "https://github.com/meta/astryx/blob/00c318190dc79442e184382e1283dbad9561369d/packages/core/src/SideNav/SideNavSection.doc.mjs",
+      "milestone": "Astryx",
+      "criteria": "分组可带标题、说明和尾部操作，隐藏标题时保留辅助技术名称。"
+    },
+    {
+      "id": "W.tab-menu",
+      "track": "web",
+      "category": "Navigation",
+      "name": "TabMenu",
+      "upstream": "https://github.com/meta/astryx/blob/00c318190dc79442e184382e1283dbad9561369d/packages/core/src/TabList/TabMenu.doc.mjs",
+      "milestone": "Astryx",
+      "criteria": "在选项卡菜单内选择溢出面板，触发按钮显示选中标题并接收宿主属性。"
+    },
+    {
+      "id": "W.layout",
+      "track": "web",
+      "category": "Layout",
+      "name": "Layout",
+      "upstream": "https://github.com/meta/astryx/blob/00c318190dc79442e184382e1283dbad9561369d/packages/core/src/Layout/Layout.doc.mjs",
+      "milestone": "Astryx",
+      "criteria": "布局可控制宽度、间距和分隔线。隐藏面板后释放空间，存在溢出时区域可独立滚动。"
+    },
+    {
+      "id": "W.section",
+      "track": "web",
+      "category": "Layout",
+      "name": "Section",
+      "upstream": "https://github.com/meta/astryx/blob/00c318190dc79442e184382e1283dbad9561369d/packages/core/src/Section/Section.doc.mjs",
+      "milestone": "Astryx",
+      "criteria": "支持宽高限制、逻辑边间距、分隔线、透明面及区域名称，并将内边距传给子区域。"
+    },
+    {
+      "id": "W.form-layout",
+      "track": "web",
+      "category": "Layout",
+      "name": "FormLayout",
+      "upstream": "https://github.com/meta/astryx/blob/00c318190dc79442e184382e1283dbad9561369d/packages/core/src/FormLayout/FormLayout.doc.mjs",
+      "milestone": "Astryx",
+      "criteria": "字段支持垂直、并排和左侧标签布局，可嵌套，在窄容器内收成单列并保留输入状态。"
+    },
+    {
+      "id": "W.field-status",
+      "track": "web",
+      "category": "Form Controls",
+      "name": "FieldStatus",
+      "upstream": "https://github.com/meta/astryx/blob/00c318190dc79442e184382e1283dbad9561369d/packages/core/src/FieldStatus/FieldStatus.doc.mjs",
+      "milestone": "Astryx",
+      "criteria": "字段可用附着或独立状态，错误高优先级播报并关联控件，重复内容仅保留一次。"
+    },
+    {
+      "id": "W.top-nav-mega-menu",
+      "track": "web",
+      "category": "Navigation",
+      "name": "TopNavMegaMenu",
+      "upstream": "https://github.com/meta/astryx/blob/00c318190dc79442e184382e1283dbad9561369d/packages/core/src/TopNav/TopNavMegaMenu.doc.mjs",
+      "milestone": "Astryx",
+      "criteria": "同一组导航条目支持桌面全宽悬浮和移动端内嵌展开，并提供推荐内容与焦点恢复。"
+    },
+    {
+      "id": "W.outline",
+      "track": "web",
+      "category": "Navigation",
+      "name": "Outline",
+      "upstream": "https://github.com/meta/astryx/blob/00c318190dc79442e184382e1283dbad9561369d/packages/core/src/Outline/Outline.doc.mjs",
+      "milestone": "Astryx",
+      "criteria": "具有滑动定位指示器，支持自定义滚动容器、目标偏移、链接更新与成对的导航事件。"
+    },
+    {
+      "id": "W.selector-option",
+      "track": "web",
+      "category": "Form Controls",
+      "name": "SelectorOption",
+      "upstream": "https://github.com/meta/astryx/blob/00c318190dc79442e184382e1283dbad9561369d/packages/core/src/Selector/SelectorOption.doc.mjs",
+      "milestone": "Astryx",
+      "criteria": "选项内容包含标题、图标、说明和可替换的尾部，键盘选择保留文字名称。"
+    },
+    {
+      "id": "W.typeahead-item",
+      "track": "web",
+      "category": "Form Controls",
+      "name": "TypeaheadItem",
+      "upstream": "https://github.com/meta/astryx/blob/00c318190dc79442e184382e1283dbad9561369d/packages/core/src/Typeahead/TypeaheadItem.doc.mjs",
+      "milestone": "Astryx",
+      "criteria": "搜索建议支持分组、头像、图标、说明与禁用状态，可通过插槽重用。"
+    },
+    {
+      "id": "W.complex-selector",
+      "track": "web",
+      "category": "Form Controls",
+      "name": "ComplexSelector",
+      "upstream": "https://github.com/meta/astryx/blob/00c318190dc79442e184382e1283dbad9561369d/packages/core/src/ComplexSelector/ComplexSelector.doc.mjs",
+      "milestone": "Astryx",
+      "criteria": "提供自定义浮层与触发器，支持异步选择、失败回退、状态消息、禁用解释和焦点恢复。"
+    },
+    {
+      "id": "W.text",
+      "track": "web",
+      "category": "Content",
+      "name": "Text",
+      "upstream": "https://github.com/meta/astryx/blob/00c318190dc79442e184382e1283dbad9561369d/packages/core/src/Text/Text.doc.mjs",
+      "milestone": "Astryx",
+      "criteria": "提供语义文本、尺寸和字重、可访问标题级别及截断说明。"
+    },
+    {
+      "id": "W.command-input",
+      "track": "web",
+      "category": "Form Controls",
+      "name": "CommandPaletteInput",
+      "upstream": "https://github.com/meta/astryx/blob/00c318190dc79442e184382e1283dbad9561369d/packages/core/src/CommandPalette/CommandPaletteInput.doc.mjs",
+      "milestone": "Astryx",
+      "criteria": "具备独立搜索及命令列表语义，可继承筛选状态、显示延迟加载指示，内联面板保留现有焦点。"
+    },
+    {
+      "id": "W.chat-composer-drawer",
+      "track": "web",
+      "category": "AI",
+      "name": "ChatComposerDrawer",
+      "upstream": "https://github.com/meta/astryx/blob/00c318190dc79442e184382e1283dbad9561369d/packages/core/src/Chat/ChatComposerDrawer.doc.mjs",
+      "milestone": "Astryx",
+      "criteria": "在对话输入上方显示可折叠内容，自定义计数摘要，并隐藏已收起的嵌套键盘操作。"
+    },
+    {
+      "id": "W.chat-composer-token",
+      "track": "web",
+      "category": "AI",
+      "name": "ChatComposerTokenElement",
+      "upstream": "https://github.com/meta/astryx/blob/00c318190dc79442e184382e1283dbad9561369d/packages/core/src/Chat/ChatComposerTokenElement.doc.mjs",
+      "milestone": "Astryx",
+      "criteria": "提供可自定义的令牌标签与图标，并使用与编辑器相同的序列化属性。"
+    },
+    {
+      "id": "W.chat-composer-input",
+      "track": "web",
+      "category": "AI",
+      "name": "ChatComposerInput",
+      "upstream": "https://github.com/meta/astryx/blob/00c318190dc79442e184382e1283dbad9561369d/packages/core/src/Chat/ChatComposerInput.doc.mjs",
+      "milestone": "Astryx",
+      "criteria": "支持异步搜索、令牌和历史、文件粘贴与拖入、长文本摘要及输入法安全的提交。"
+    },
+    {
+      "id": "W.tree-list",
+      "track": "web",
+      "category": "Navigation",
+      "name": "TreeList",
+      "upstream": "https://github.com/meta/astryx/blob/00c318190dc79442e184382e1283dbad9561369d/packages/core/src/TreeList/TreeList.doc.mjs",
+      "milestone": "Astryx",
+      "criteria": "用递归数据组织可展开层级，具有键盘导航、链接、密度、引导线及联动布局动画。"
+    },
+    {
+      "id": "W.item",
+      "track": "web",
+      "category": "Collections",
+      "name": "Item",
+      "upstream": "https://github.com/meta/astryx/blob/00c318190dc79442e184382e1283dbad9561369d/packages/core/src/Item/Item.doc.mjs",
+      "milestone": "Astryx",
+      "criteria": "通用条目支持标签、行内描述、链接、委托给内部控件的点击及独立尾部操作。"
+    },
+    {
+      "id": "W.chat-reaction-bar",
+      "track": "web",
+      "category": "AI",
+      "name": "ChatReactionBar",
+      "upstream": "https://github.com/meta/astryx/blob/00c318190dc79442e184382e1283dbad9561369d/packages/lab/src/Chat/ChatReactionBar.doc.mjs",
+      "milestone": "Astryx",
+      "criteria": "显示可切换的回应与计数，支持从弹出的表情选择器添加回应。"
+    },
+    {
+      "id": "W.comment-composer",
+      "track": "web",
+      "category": "AI",
+      "name": "CommentComposer",
+      "upstream": "https://github.com/meta/astryx/blob/00c318190dc79442e184382e1283dbad9561369d/packages/lab/src/Comments/CommentComposer.doc.mjs",
+      "milestone": "Astryx",
+      "criteria": "评论支持引用、提及和命令、图片附件、表情、错误重试与受控提交。"
+    },
+    {
+      "id": "W.comment-thread",
+      "track": "web",
+      "category": "AI",
+      "name": "CommentThread",
+      "upstream": "https://github.com/meta/astryx/blob/00c318190dc79442e184382e1283dbad9561369d/packages/lab/src/Comments/CommentThread.doc.mjs",
+      "milestone": "Astryx",
+      "criteria": "支持引用状态、未读回复、协作者输入、编辑与删除、版本历史异步重试和草稿关闭提示。"
+    },
+    {
+      "id": "W.indicator",
+      "track": "web",
+      "category": "Feedback",
+      "name": "Indicator",
+      "upstream": "https://github.com/meta/astryx/blob/00c318190dc79442e184382e1283dbad9561369d/packages/core/src/Indicator/Indicator.doc.mjs",
+      "milestone": "Astryx",
+      "criteria": "展示关闭、开启、半选和禁用的复选及单选指示状态。"
+    },
+    {
+      "id": "W.visually-hidden",
+      "track": "web",
+      "category": "Utilities",
+      "name": "VisuallyHidden",
+      "upstream": "https://github.com/meta/astryx/blob/00c318190dc79442e184382e1283dbad9561369d/packages/core/src/VisuallyHidden/VisuallyHidden.doc.mjs",
+      "milestone": "Astryx",
+      "criteria": "保留辅助技术可读的内容，可在键盘聚焦时恢复显示。"
+    },
+    {
+      "id": "W.chat-dictation-button",
+      "track": "web",
+      "category": "AI",
+      "name": "ChatDictationButton",
+      "upstream": "https://github.com/meta/astryx/blob/00c318190dc79442e184382e1283dbad9561369d/packages/core/src/Chat/ChatDictationButton.doc.mjs",
+      "milestone": "Astryx",
+      "criteria": "通过浏览器语音识别提交阶段性或最终转写。"
+    },
+    {
+      "id": "W.mega-menu",
+      "track": "web",
+      "category": "Navigation",
+      "name": "MegaMenu",
+      "upstream": "https://github.com/meta/astryx/blob/00c318190dc79442e184382e1283dbad9561369d/packages/core/src/TopNav/TopNavMegaMenu.doc.mjs",
+      "milestone": "Astryx",
+      "criteria": "在响应式导航浮层中呈现链接分组、说明和推荐卡片。"
+    },
+    {
+      "id": "W.code-editor",
+      "track": "web",
+      "category": "Forms",
+      "name": "CodeEditor",
+      "upstream": "https://github.com/meta/astryx/blob/00c318190dc79442e184382e1283dbad9561369d/packages/lab/src/CodeEditor/CodeEditor.doc.mjs",
+      "milestone": "Astryx",
+      "criteria": "用原生文本域编辑代码，支持语法高亮、缩进及表单字段。"
+    },
+    {
+      "id": "W.diff-viewer",
+      "track": "web",
+      "category": "Data Display",
+      "name": "DiffViewer",
+      "upstream": "https://github.com/meta/astryx/blob/00c318190dc79442e184382e1283dbad9561369d/packages/lab/src/DiffViewer/DiffViewer.doc.mjs",
+      "milestone": "Astryx",
+      "criteria": "以颜色和行号展示增删，支持折叠未修改的上下文。"
+    },
+    {
+      "id": "W.comments",
+      "track": "web",
+      "category": "Data Display",
+      "name": "Comments",
+      "upstream": "https://github.com/meta/astryx/blob/00c318190dc79442e184382e1283dbad9561369d/packages/lab/src/Comments/Comments.doc.mjs",
+      "milestone": "Astryx",
+      "criteria": "评论线程与活动同序显示，支持宿主联动选中、折叠时保留草稿、分页加载与重试、发布回复及解决和重新打开。"
+    },
+    {
+      "id": "W.candlestick-chart",
+      "track": "web",
+      "category": "Charts",
+      "name": "CandlestickChart",
+      "upstream": "https://github.com/meta/astryx/blob/00c318190dc79442e184382e1283dbad9561369d/packages/lab/src/Chart/ChartCandlestick.doc.mjs",
+      "milestone": "Astryx",
+      "criteria": "以蜡烛显示开高低收，提供键盘检查及数据表。"
+    },
+    {
+      "id": "W.vega-chart",
+      "track": "web",
+      "category": "Charts",
+      "name": "VegaChart",
+      "upstream": "https://github.com/meta/astryx/blob/00c318190dc79442e184382e1283dbad9561369d/packages/vega/src/VegaChart.doc.mjs",
+      "milestone": "Astryx",
+      "criteria": "加载 Vega 或 Vega-Lite 规范，支持 SVG 与 Canvas 渲染和语义配色。"
+    },
+    {
+      "id": "W.sankey-chart",
+      "track": "web",
+      "category": "Charts",
+      "name": "SankeyChart",
+      "upstream": "https://github.com/meta/astryx/blob/00c318190dc79442e184382e1283dbad9561369d/packages/lab/src/Sankey/SankeyChart.doc.mjs",
+      "milestone": "Astryx",
+      "criteria": "以流带展示有向数据关系，支持节点检查和数据表。"
+    },
+    {
+      "id": "W.spatial-chart",
+      "track": "web",
+      "category": "Charts",
+      "name": "SpatialChart",
+      "upstream": "https://github.com/meta/astryx/blob/00c318190dc79442e184382e1283dbad9561369d/packages/lab/src/ThreeD/ThreeDChart.doc.mjs",
+      "milestone": "Astryx",
+      "criteria": "通过 WebGL 绘制散点、柱形和曲面，支持旋转、缩放和数据表。"
+    },
+    {
+      "id": "W.comment-pin",
+      "track": "web",
+      "category": "AI",
+      "name": "CommentPin",
+      "upstream": "https://github.com/meta/astryx/blob/00c318190dc79442e184382e1283dbad9561369d/packages/lab/src/CommentPin/CommentPin.doc.mjs",
+      "milestone": "Astryx",
+      "criteria": "显示评论参与人、讨论数量及未读状态，支持切换当前批注。"
+    },
+    {
+      "id": "W.webgl-chart",
+      "track": "web",
+      "category": "Charts",
+      "name": "WebGLChart",
+      "upstream": "https://github.com/meta/astryx/blob/00c318190dc79442e184382e1283dbad9561369d/packages/lab/src/Chart/ChartDotGL.doc.mjs",
+      "milestone": "Astryx",
+      "criteria": "绘制密集散点、热力单元及滚动折线，提供点位检查与数据回退。"
+    },
+    {
+      "id": "W.motion",
+      "track": "web",
+      "category": "Utilities",
+      "name": "Motion",
+      "upstream": "https://github.com/meta/astryx/blob/00c318190dc79442e184382e1283dbad9561369d/packages/core/src/hooks/useAnimatedLayout.doc.mjs",
+      "milestone": "Astryx",
+      "criteria": "演示通道隔离、按压反馈和列表位置过渡。"
+    },
+    {
+      "id": "W.internationalization-provider",
+      "track": "web",
+      "category": "Utilities",
+      "name": "Internationalization Provider",
+      "upstream": "https://github.com/meta/astryx/blob/00c318190dc79442e184382e1283dbad9561369d/packages/core/src/i18n/InternationalizationProvider.doc.mjs",
+      "milestone": "Astryx",
+      "criteria": "支持语言包、消息覆盖、左右阅读方向及不同历法下的日期输入。"
+    },
+    {
+      "id": "W.brand-theme",
+      "track": "web",
+      "category": "Utilities",
+      "name": "Brand Theme",
+      "upstream": "https://github.com/meta/astryx/blob/00c318190dc79442e184382e1283dbad9561369d/packages/core/src/theme/Theme.doc.mjs",
+      "milestone": "Astryx",
+      "criteria": "在局部应用、嵌套和切换主题，读取最近的主题名称和解析后的样式变量。"
+    },
+    {
+      "id": "W.interaction-tools",
+      "track": "web",
+      "category": "Utilities",
+      "name": "Interaction Utilities",
+      "upstream": "https://github.com/meta/astryx/blob/00c318190dc79442e184382e1283dbad9561369d/packages/core/src/hooks/useHotkeys.doc.mjs",
+      "milestone": "Astryx",
+      "criteria": "处理全局键盘快捷键、筛选结果播报与剪贴板反馈。"
+    },
+    {
+      "id": "WP.emoji-reaction-button",
+      "track": "web-pro",
+      "category": "Feedback",
+      "name": "Emoji Reaction Button",
+      "upstream": "https://heroui.pro/docs/react/components/emoji-reaction-button",
+      "milestone": "M4",
+      "criteria": "打开表情选择并添加、选中或撤回反应。Pro 目录标注 4 个示例变体。"
+    },
+    {
+      "id": "WP.number-value",
+      "track": "web-pro",
+      "category": "Feedback",
+      "name": "Number Value",
+      "upstream": "https://heroui.pro/docs/react/components/number-value",
+      "milestone": "M4",
+      "criteria": "数值、单位和格式化变化，避免动画干扰读数。Pro 目录标注 8 个示例变体。"
+    },
+    {
+      "id": "WP.pressable-feedback",
+      "track": "web-pro",
+      "category": "Feedback",
+      "name": "Pressable Feedback",
+      "upstream": "https://heroui.pro/docs/react/components/pressable-feedback",
+      "milestone": "M4",
+      "criteria": "为可按压区域提供状态反馈与减少动态效果支持。Pro 目录标注 17 个示例变体。"
+    },
+    {
+      "id": "WP.rating",
+      "track": "web-pro",
+      "category": "Feedback",
+      "name": "Rating",
+      "upstream": "https://heroui.pro/docs/react/components/rating",
+      "milestone": "M4",
+      "criteria": "评展示与可交互评分，支持步进、键盘和只读。Pro 目录标注 12 个示例变体。"
+    },
+    {
+      "id": "WP.trend-chip",
+      "track": "web-pro",
+      "category": "Feedback",
+      "name": "Trend Chip",
+      "upstream": "https://heroui.pro/docs/react/components/trend-chip",
+      "milestone": "M4",
+      "criteria": "呈现上升、下降、持平状态及数字或单位。Pro 目录标注 6 个示例变体。"
+    },
+    {
+      "id": "WP.cell-color-picker",
+      "track": "web-pro",
+      "category": "Forms",
+      "name": "Cell Color Picker",
+      "upstream": "https://heroui.pro/docs/react/components/cell-color-picker",
+      "milestone": "M4",
+      "criteria": "单元格内快速选色，确认或撤销后保留正确值。Pro 目录标注 6 个示例变体。"
+    },
+    {
+      "id": "WP.cell-select",
+      "track": "web-pro",
+      "category": "Forms",
+      "name": "Cell Select",
+      "upstream": "https://heroui.pro/docs/react/components/cell-select",
+      "milestone": "M4",
+      "criteria": "表格单元格选项编辑，支持提交、取消和焦点回位。Pro 目录标注 7 个示例变体。"
+    },
+    {
+      "id": "WP.cell-slider",
+      "track": "web-pro",
+      "category": "Forms",
+      "name": "Cell Slider",
+      "upstream": "https://heroui.pro/docs/react/components/cell-slider",
+      "milestone": "M4",
+      "criteria": "通过拖动或键盘调整单元格数值，有边界和提交状态。Pro 目录标注 7 个示例变体。"
+    },
+    {
+      "id": "WP.cell-switch",
+      "track": "web-pro",
+      "category": "Forms",
+      "name": "Cell Switch",
+      "upstream": "https://heroui.pro/docs/react/components/cell-switch",
+      "milestone": "M4",
+      "criteria": "切换单元格布尔值，处理禁用、回调与编辑焦点。Pro 目录标注 7 个示例变体。"
+    },
+    {
+      "id": "WP.checkbox-button-group",
+      "track": "web-pro",
+      "category": "Forms",
+      "name": "Checkbox Button Group",
+      "upstream": "https://heroui.pro/docs/react/components/checkbox-button-group",
+      "milestone": "M4",
+      "criteria": "以按钮呈现复选组，累积多项状态及组级校验。Pro 目录标注 11 个示例变体。"
+    },
+    {
+      "id": "WP.drop-zone",
+      "track": "web-pro",
+      "category": "Forms",
+      "name": "Drop Zone",
+      "upstream": "https://heroui.pro/docs/react/components/drop-zone",
+      "milestone": "M4",
+      "criteria": "文件拖放及键盘选取，处理接受类型、多个文件和拒绝回调。Pro 目录标注 9 个示例变体。"
+    },
+    {
+      "id": "WP.inline-select",
+      "track": "web-pro",
+      "category": "Forms",
+      "name": "Inline Select",
+      "upstream": "https://heroui.pro/docs/react/components/inline-select",
+      "milestone": "M4",
+      "criteria": "行内紧凑切换选项，适合表单或数据行中的局部编辑。Pro 目录标注 5 个示例变体。"
+    },
+    {
+      "id": "WP.native-select",
+      "track": "web-pro",
+      "category": "Forms",
+      "name": "Native Select",
+      "upstream": "https://heroui.pro/docs/react/components/native-select",
+      "milestone": "M4",
+      "criteria": "原生下拉组件呈现系统选择行为，兼容表单与标签。Pro 目录标注 12 个示例变体。"
+    },
+    {
+      "id": "WP.number-stepper",
+      "track": "web-pro",
+      "category": "Forms",
+      "name": "Number Stepper",
+      "upstream": "https://heroui.pro/docs/react/components/number-stepper",
+      "milestone": "M4",
+      "criteria": "紧凑增减按钮与长按，边界值不可继续修改。Pro 目录标注 13 个示例变体。"
+    },
+    {
+      "id": "WP.radio-button-group",
+      "track": "web-pro",
+      "category": "Forms",
+      "name": "Radio Button Group",
+      "upstream": "https://heroui.pro/docs/react/components/radio-button-group",
+      "milestone": "M4",
+      "criteria": "用互斥按钮展示可选项并同步选中值。Pro 目录标注 12 个示例变体。"
+    },
+    {
+      "id": "WP.rich-text-editor",
+      "track": "web-pro",
+      "category": "Forms",
+      "name": "Rich Text Editor",
+      "upstream": "https://heroui.pro/docs/react/components/rich-text-editor",
+      "milestone": "M4",
+      "criteria": "基础富文本、格式栏和内容序列化，覆盖历史及粘贴。Pro 目录标注 8 个示例变体。"
+    },
+    {
+      "id": "WP.app-layout",
+      "track": "web-pro",
+      "category": "Navigation",
+      "name": "AppLayout",
+      "upstream": "https://heroui.pro/docs/react/components/app-layout",
+      "milestone": "M4",
+      "criteria": "组合顶栏、侧栏和主内容，按视口切换布局和导航。Pro 目录标注 14 个示例变体。"
+    },
+    {
+      "id": "WP.command",
+      "track": "web-pro",
+      "category": "Navigation",
+      "name": "Command",
+      "upstream": "https://heroui.pro/docs/react/components/command",
+      "milestone": "M4",
+      "criteria": "弹出命令面板，支持分组检索、快捷键、选择与取消。Pro 目录标注 9 个示例变体。"
+    },
+    {
+      "id": "WP.context-menu",
+      "track": "web-pro",
+      "category": "Navigation",
+      "name": "Context Menu",
+      "upstream": "https://heroui.pro/docs/react/components/context-menu",
+      "milestone": "M4",
+      "criteria": "鼠标、键盘或触屏触发上下文菜单，检查子菜单和焦点回位。Pro 目录标注 7 个示例变体。"
+    },
+    {
+      "id": "WP.navbar",
+      "track": "web-pro",
+      "category": "Navigation",
+      "name": "Navbar",
+      "upstream": "https://heroui.pro/docs/react/components/navbar",
+      "milestone": "M4",
+      "criteria": "响应式页头导航，处理当前路由、移动展开和键盘路径。Pro 目录标注 7 个示例变体。"
+    },
+    {
+      "id": "WP.segment",
+      "track": "web-pro",
+      "category": "Navigation",
+      "name": "Segment",
+      "upstream": "https://heroui.pro/docs/react/components/segment",
+      "milestone": "M4",
+      "criteria": "紧凑分段选择，统一受控值、焦点和切换动画。Pro 目录标注 11 个示例变体。"
+    },
+    {
+      "id": "WP.sidebar",
+      "track": "web-pro",
+      "category": "Navigation",
+      "name": "Sidebar",
+      "upstream": "https://heroui.pro/docs/react/components/sidebar",
+      "milestone": "M4",
+      "criteria": "侧栏导航的宽窄、折叠、分组、活动项及移动端遮罩。Pro 目录标注 16 个示例变体。"
+    },
+    {
+      "id": "WP.stepper",
+      "track": "web-pro",
+      "category": "Navigation",
+      "name": "Stepper",
+      "upstream": "https://heroui.pro/docs/react/components/stepper",
+      "milestone": "M4",
+      "criteria": "按步骤展示当前、完成和不可达状态，验证前后切换。Pro 目录标注 19 个示例变体。"
+    },
+    {
+      "id": "WP.emoji-picker",
+      "track": "web-pro",
+      "category": "Overlays",
+      "name": "Emoji Picker",
+      "upstream": "https://heroui.pro/docs/react/components/emoji-picker",
+      "milestone": "M4",
+      "criteria": "分类、检索和选取表情，检查键盘和回调。Pro 目录标注 4 个示例变体。"
+    },
+    {
+      "id": "WP.resizable",
+      "track": "web-pro",
+      "category": "Layout",
+      "name": "Resizable",
+      "upstream": "https://heroui.pro/docs/react/components/resizable",
+      "milestone": "M4",
+      "criteria": "面板拖动与键盘调整，维护约束和尺寸持久化。Pro 目录标注 7 个示例变体。"
+    },
+    {
+      "id": "WP.action-bar",
+      "track": "web-pro",
+      "category": "Data Display",
+      "name": "Action Bar",
+      "upstream": "https://heroui.pro/docs/react/components/action-bar",
+      "milestone": "M4",
+      "criteria": "响应选中条目数显示批量操作与退出选择。Pro 目录标注 2 个示例变体。"
+    },
+    {
+      "id": "WP.agenda",
+      "track": "web-pro",
+      "category": "Data Display",
+      "name": "Agenda",
+      "upstream": "https://heroui.pro/docs/react/components/agenda",
+      "milestone": "M4",
+      "criteria": "按日期组织日程，覆盖空日、跨日和选中项。Pro 目录标注 1 个示例变体。"
+    },
+    {
+      "id": "WP.carousel",
+      "track": "web-pro",
+      "category": "Data Display",
+      "name": "Carousel",
+      "upstream": "https://heroui.pro/docs/react/components/carousel",
+      "milestone": "M4",
+      "criteria": "滑动轮播、分页、键盘导航及用户控制的自动播放。Pro 目录标注 6 个示例变体。"
+    },
+    {
+      "id": "WP.data-grid",
+      "track": "web-pro",
+      "category": "Data Display",
+      "name": "Data Grid",
+      "upstream": "https://heroui.pro/docs/react/components/data-grid",
+      "milestone": "M4",
+      "criteria": "列定义、排序、筛选、行选择、虚拟化及单元格交互。Pro 目录标注 14 个示例变体。"
+    },
+    {
+      "id": "WP.empty-state",
+      "track": "web-pro",
+      "category": "Data Display",
+      "name": "Empty State",
+      "upstream": "https://heroui.pro/docs/react/components/empty-state",
+      "milestone": "M4",
+      "criteria": "为空、无结果、错误或初始状态提供内容与下一步动作。Pro 目录标注 8 个示例变体。"
+    },
+    {
+      "id": "WP.file-tree",
+      "track": "web-pro",
+      "category": "Data Display",
+      "name": "File Tree",
+      "upstream": "https://heroui.pro/docs/react/components/file-tree",
+      "milestone": "M4",
+      "criteria": "文件夹展开、多级树键盘、选择与条目操作。Pro 目录标注 11 个示例变体。"
+    },
+    {
+      "id": "WP.floating-toc",
+      "track": "web-pro",
+      "category": "Data Display",
+      "name": "Floating TOC",
+      "upstream": "https://heroui.pro/docs/react/components/floating-toc",
+      "milestone": "M4",
+      "criteria": "滚动时跟踪当前标题，点击定位并处理移动布局。Pro 目录标注 10 个示例变体。"
+    },
+    {
+      "id": "WP.holo-card",
+      "track": "web-pro",
+      "category": "Data Display",
+      "name": "Holo Card",
+      "upstream": "https://heroui.pro/docs/react/components/holo-card",
+      "milestone": "M4",
+      "criteria": "具有指针或触摸驱动的卡片视觉反馈，提供静态呈现。Pro 目录标注 8 个示例变体。"
+    },
+    {
+      "id": "WP.hover-card",
+      "track": "web-pro",
+      "category": "Data Display",
+      "name": "Hover Card",
+      "upstream": "https://heroui.pro/docs/react/components/hover-card",
+      "milestone": "M4",
+      "criteria": "延时预览、焦点交互和指针在触发区与卡片间的过渡。Pro 目录标注 6 个示例变体。"
+    },
+    {
+      "id": "WP.item-card",
+      "track": "web-pro",
+      "category": "Data Display",
+      "name": "Item Card",
+      "upstream": "https://heroui.pro/docs/react/components/item-card",
+      "milestone": "M4",
+      "criteria": "可组合的资源卡片，含内容、状态与就地操作。Pro 目录标注 12 个示例变体。"
+    },
+    {
+      "id": "WP.item-card-group",
+      "track": "web-pro",
+      "category": "Data Display",
+      "name": "Item Card Group",
+      "upstream": "https://heroui.pro/docs/react/components/item-card-group",
+      "milestone": "M4",
+      "criteria": "组织资源卡片，处理栅格、分组和统一操作。Pro 目录标注 12 个示例变体。"
+    },
+    {
+      "id": "WP.kanban",
+      "track": "web-pro",
+      "category": "Data Display",
+      "name": "Kanban",
+      "upstream": "https://heroui.pro/docs/react/components/kanban",
+      "milestone": "M4",
+      "criteria": "多列卡片移动、排序及上报，提供键盘操作通路。Pro 目录标注 4 个示例变体。"
+    },
+    {
+      "id": "WP.kpi",
+      "track": "web-pro",
+      "category": "Data Display",
+      "name": "KPI",
+      "upstream": "https://heroui.pro/docs/react/components/kpi",
+      "milestone": "M4",
+      "criteria": "展示业务指标、趋势、对比和必要上下文。Pro 目录标注 9 个示例变体。"
+    },
+    {
+      "id": "WP.kpi-group",
+      "track": "web-pro",
+      "category": "Data Display",
+      "name": "KPI Group",
+      "upstream": "https://heroui.pro/docs/react/components/kpi-group",
+      "milestone": "M4",
+      "criteria": "将指标按对比或分组布局展示并保持体例一致。Pro 目录标注 3 个示例变体。"
+    },
+    {
+      "id": "WP.list-view",
+      "track": "web-pro",
+      "category": "Data Display",
+      "name": "List View",
+      "upstream": "https://heroui.pro/docs/react/components/list-view",
+      "milestone": "M4",
+      "criteria": "按行展示资源，处理选择、分组和空态。Pro 目录标注 5 个示例变体。"
+    },
+    {
+      "id": "WP.map",
+      "track": "web-pro",
+      "category": "Data Display",
+      "name": "Map",
+      "upstream": "https://heroui.pro/docs/react/components/map",
+      "milestone": "M4",
+      "criteria": "地图加载、标记、图层或弹出信息与交互降级。Pro 目录标注 10 个示例变体。"
+    },
+    {
+      "id": "WP.timeline",
+      "track": "web-pro",
+      "category": "Data Display",
+      "name": "Timeline",
+      "upstream": "https://heroui.pro/docs/react/components/timeline",
+      "milestone": "M4",
+      "criteria": "按时间或步骤表示事件，覆盖状态与方向。Pro 目录标注 8 个示例变体。"
+    },
+    {
+      "id": "WP.widget",
+      "track": "web-pro",
+      "category": "Data Display",
+      "name": "Widget",
+      "upstream": "https://heroui.pro/docs/react/components/widget",
+      "milestone": "M4",
+      "criteria": "组合仪表盘小部件的标题、内容、工具与反馈态。Pro 目录标注 8 个示例变体。"
+    },
+    {
+      "id": "WP.area-chart",
+      "track": "web-pro",
+      "category": "Charts",
+      "name": "Area Chart",
+      "upstream": "https://heroui.pro/docs/react/components/area-chart",
+      "milestone": "M4",
+      "criteria": "面积时间序列、堆叠与提示信息，提供非图形摘要。Pro 目录标注 6 个示例变体。"
+    },
+    {
+      "id": "WP.bar-chart",
+      "track": "web-pro",
+      "category": "Charts",
+      "name": "Bar Chart",
+      "upstream": "https://heroui.pro/docs/react/components/bar-chart",
+      "milestone": "M4",
+      "criteria": "分类柱图、横纵和堆叠表现，颜色与文字并用。Pro 目录标注 8 个示例变体。"
+    },
+    {
+      "id": "WP.chart-tooltip",
+      "track": "web-pro",
+      "category": "Charts",
+      "name": "Chart Tooltip",
+      "upstream": "https://heroui.pro/docs/react/components/chart-tooltip",
+      "milestone": "M4",
+      "criteria": "按数据项与系列展示可读值、单位和键盘触发信息。Pro 目录标注 7 个示例变体。"
+    },
+    {
+      "id": "WP.composed-chart",
+      "track": "web-pro",
+      "category": "Charts",
+      "name": "Composed Chart",
+      "upstream": "https://heroui.pro/docs/react/components/composed-chart",
+      "milestone": "M4",
+      "criteria": "混合线、柱、面积及坐标轴，验证图例和数据映射。Pro 目录标注 5 个示例变体。"
+    },
+    {
+      "id": "WP.line-chart",
+      "track": "web-pro",
+      "category": "Charts",
+      "name": "Line Chart",
+      "upstream": "https://heroui.pro/docs/react/components/line-chart",
+      "milestone": "M4",
+      "criteria": "折线趋势、多序列与缺失值，具备提示和摘要。Pro 目录标注 10 个示例变体。"
+    },
+    {
+      "id": "WP.pie-chart",
+      "track": "web-pro",
+      "category": "Charts",
+      "name": "Pie Chart",
+      "upstream": "https://heroui.pro/docs/react/components/pie-chart",
+      "milestone": "M4",
+      "criteria": "扇区占比及提示，覆盖极小值、全空和总值。Pro 目录标注 7 个示例变体。"
+    },
+    {
+      "id": "WP.radar-chart",
+      "track": "web-pro",
+      "category": "Charts",
+      "name": "Radar Chart",
+      "upstream": "https://heroui.pro/docs/react/components/radar-chart",
+      "milestone": "M4",
+      "criteria": "多维多系列比较，处理尺度、图例和可读摘要。Pro 目录标注 5 个示例变体。"
+    },
+    {
+      "id": "WP.radial-chart",
+      "track": "web-pro",
+      "category": "Charts",
+      "name": "Radial Chart",
+      "upstream": "https://heroui.pro/docs/react/components/radial-chart",
+      "milestone": "M4",
+      "criteria": "径向量值或分组，校准起止角、边界及标签。Pro 目录标注 5 个示例变体。"
+    },
+    {
+      "id": "WP.chain-of-thought",
+      "track": "web-pro",
+      "category": "AI",
+      "name": "Chain Of Thought",
+      "upstream": "https://heroui.pro/docs/react/components/chain-of-thought",
+      "milestone": "M4",
+      "criteria": "可折叠展示面向用户的步骤或进度摘要。Pro 目录标注 4 个示例变体。"
+    },
+    {
+      "id": "WP.chat-attachment",
+      "track": "web-pro",
+      "category": "AI",
+      "name": "Chat Attachment",
+      "upstream": "https://heroui.pro/docs/react/components/chat-attachment",
+      "milestone": "M4",
+      "criteria": "附件预览、上传状态、移除与失败反馈。Pro 目录标注 3 个示例变体。"
+    },
+    {
+      "id": "WP.chat-conversation",
+      "track": "web-pro",
+      "category": "AI",
+      "name": "Chat Conversation",
+      "upstream": "https://heroui.pro/docs/react/components/chat-conversation",
+      "milestone": "M4",
+      "criteria": "消息流、自动滚动和回到底部，兼容流式渲染。Pro 目录标注 3 个示例变体。"
+    },
+    {
+      "id": "WP.chat-list-view",
+      "track": "web-pro",
+      "category": "AI",
+      "name": "Chat List View",
+      "upstream": "https://heroui.pro/docs/react/components/chat-list-view",
+      "milestone": "M4",
+      "criteria": "会话列表、选中、分组与空态切换。Pro 目录标注 2 个示例变体。"
+    },
+    {
+      "id": "WP.chat-loader",
+      "track": "web-pro",
+      "category": "AI",
+      "name": "Chat Loader",
+      "upstream": "https://heroui.pro/docs/react/components/chat-loader",
+      "milestone": "M4",
+      "criteria": "消息生成中或工具等待的可访问状态。Pro 目录标注 1 个示例变体。"
+    },
+    {
+      "id": "WP.chat-message",
+      "track": "web-pro",
+      "category": "AI",
+      "name": "Chat Message",
+      "upstream": "https://heroui.pro/docs/react/components/chat-message",
+      "milestone": "M4",
+      "criteria": "不同角色、流式内容、错误和消息布局。Pro 目录标注 3 个示例变体。"
+    },
+    {
+      "id": "WP.chat-message-actions",
+      "track": "web-pro",
+      "category": "AI",
+      "name": "Chat Message Actions",
+      "upstream": "https://heroui.pro/docs/react/components/chat-message-actions",
+      "milestone": "M4",
+      "criteria": "复制、反馈或重试等消息操作及可访问名称。Pro 目录标注 3 个示例变体。"
+    },
+    {
+      "id": "WP.chat-source",
+      "track": "web-pro",
+      "category": "AI",
+      "name": "Chat Source",
+      "upstream": "https://heroui.pro/docs/react/components/chat-source",
+      "milestone": "M4",
+      "criteria": "展示引用来源，覆盖多引用与链接操作。Pro 目录标注 5 个示例变体。"
+    },
+    {
+      "id": "WP.chat-tool",
+      "track": "web-pro",
+      "category": "AI",
+      "name": "Chat Tool",
+      "upstream": "https://heroui.pro/docs/react/components/chat-tool",
+      "milestone": "M4",
+      "criteria": "呈现工具调用进度、结果、失败和确认。Pro 目录标注 6 个示例变体。"
+    },
+    {
+      "id": "WP.code-block",
+      "track": "web-pro",
+      "category": "AI",
+      "name": "Code Block",
+      "upstream": "https://heroui.pro/docs/react/components/code-block",
+      "milestone": "M4",
+      "criteria": "代码高亮、复制、长行滚动及语言标注。Pro 目录标注 1 个示例变体。"
+    },
+    {
+      "id": "WP.markdown",
+      "track": "web-pro",
+      "category": "AI",
+      "name": "Markdown",
+      "upstream": "https://heroui.pro/docs/react/components/markdown",
+      "milestone": "M4",
+      "criteria": "渲染富文本、表格、列表和代码，清理不安全 HTML。Pro 目录标注 3 个示例变体。"
+    },
+    {
+      "id": "WP.prompt-input",
+      "track": "web-pro",
+      "category": "AI",
+      "name": "Prompt Input",
+      "upstream": "https://heroui.pro/docs/react/components/prompt-input",
+      "milestone": "M4",
+      "criteria": "输入、附件、停流和发送，验证 IME 与快捷键。Pro 目录标注 9 个示例变体。"
+    },
+    {
+      "id": "WP.prompt-suggestion",
+      "track": "web-pro",
+      "category": "AI",
+      "name": "Prompt Suggestion",
+      "upstream": "https://heroui.pro/docs/react/components/prompt-suggestion",
+      "milestone": "M4",
+      "criteria": "展示可触发的建议问题及分组状态。Pro 目录标注 2 个示例变体。"
+    },
+    {
+      "id": "WP.text-shimmer",
+      "track": "web-pro",
+      "category": "AI",
+      "name": "Text Shimmer",
+      "upstream": "https://heroui.pro/docs/react/components/text-shimmer",
+      "milestone": "M4",
+      "criteria": "以轻量动效表达输出进行中，支持减少动态效果。Pro 目录标注 1 个示例变体。"
+    },
+    {
+      "id": "N.button",
+      "track": "native",
+      "category": "Buttons",
+      "name": "Button",
+      "upstream": "https://heroui.com/en/docs/native/components/button",
+      "milestone": "M3",
+      "criteria": "主要、次要、危险等动作层级，加载、禁用、图标与键盘按压"
+    },
+    {
+      "id": "N.close-button",
+      "track": "native",
+      "category": "Buttons",
+      "name": "CloseButton",
+      "upstream": "https://heroui.com/en/docs/native/components/close-button",
+      "milestone": "M3",
+      "criteria": "为关闭动作提供可访问名称、触达区和焦点态"
+    },
+    {
+      "id": "N.link-button",
+      "track": "native",
+      "category": "Buttons",
+      "name": "LinkButton",
+      "upstream": "https://heroui.com/en/docs/native/components/link-button",
+      "milestone": "M3",
+      "criteria": "按钮外观与链接跳转语义，保留深链接的返回行为"
+    },
+    {
+      "id": "N.checkbox",
+      "track": "native",
+      "category": "Forms",
+      "name": "Checkbox",
+      "upstream": "https://heroui.com/en/docs/native/components/checkbox",
+      "milestone": "M3",
+      "criteria": "勾选、半选和禁用，关联标签及提交值"
+    },
+    {
+      "id": "N.control-field",
+      "track": "native",
+      "category": "Forms",
+      "name": "ControlField",
+      "upstream": "https://heroui.com/en/docs/native/components/control-field",
+      "milestone": "M3",
+      "criteria": "将开关或选择控件与说明、错误和点击区组合"
+    },
+    {
+      "id": "N.description",
+      "track": "native",
+      "category": "Forms",
+      "name": "Description",
+      "upstream": "https://heroui.com/en/docs/native/components/description",
+      "milestone": "M3",
+      "criteria": "把说明内容与对应字段或控件的可访问描述关联"
+    },
+    {
+      "id": "N.field-error",
+      "track": "native",
+      "category": "Forms",
+      "name": "FieldError",
+      "upstream": "https://heroui.com/en/docs/native/components/field-error",
+      "milestone": "M3",
+      "criteria": "展示字段校验结果，支持关联字段及动态更新"
+    },
+    {
+      "id": "N.input",
+      "track": "native",
+      "category": "Forms",
+      "name": "Input",
+      "upstream": "https://heroui.com/en/docs/native/components/input",
+      "milestone": "M3",
+      "criteria": "文本输入与原生属性，验证中文 IME 与自动填充"
+    },
+    {
+      "id": "N.input-group",
+      "track": "native",
+      "category": "Forms",
+      "name": "InputGroup",
+      "upstream": "https://heroui.com/en/docs/native/components/input-group",
+      "milestone": "M3",
+      "criteria": "将输入框、图标、前后缀和内嵌操作组成共享焦点的字段"
+    },
+    {
+      "id": "N.input-otp",
+      "track": "native",
+      "category": "Forms",
+      "name": "InputOTP",
+      "upstream": "https://heroui.com/en/docs/native/components/input-otp",
+      "milestone": "M3",
+      "criteria": "多格验证码输入，支持粘贴、退格和移位"
+    },
+    {
+      "id": "N.label",
+      "track": "native",
+      "category": "Forms",
+      "name": "Label",
+      "upstream": "https://heroui.com/en/docs/native/components/label",
+      "milestone": "M3",
+      "criteria": "关联字段和标签，点击标签能聚焦或切换控件"
+    },
+    {
+      "id": "N.radio-group",
+      "track": "native",
+      "category": "Forms",
+      "name": "RadioGroup",
+      "upstream": "https://heroui.com/en/docs/native/components/radio-group",
+      "milestone": "M3",
+      "criteria": "互斥选项和键盘导航，支持组级校验及禁用"
+    },
+    {
+      "id": "N.search-field",
+      "track": "native",
+      "category": "Forms",
+      "name": "SearchField",
+      "upstream": "https://heroui.com/en/docs/native/components/search-field",
+      "milestone": "M3",
+      "criteria": "搜索、清除和提交，兼容输入法和键盘快捷操作"
+    },
+    {
+      "id": "N.select",
+      "track": "native",
+      "category": "Forms",
+      "name": "Select",
+      "upstream": "https://heroui.com/en/docs/native/components/select",
+      "milestone": "M3",
+      "criteria": "单选、多选、占位及清空，验证锚点或原生底部面板呈现、键盘和焦点"
+    },
+    {
+      "id": "N.text-area",
+      "track": "native",
+      "category": "Forms",
+      "name": "TextArea",
+      "upstream": "https://heroui.com/en/docs/native/components/text-area",
+      "milestone": "M3",
+      "criteria": "多行编辑，覆盖尺寸调整或自增长以及错误态"
+    },
+    {
+      "id": "N.text-field",
+      "track": "native",
+      "category": "Forms",
+      "name": "TextField",
+      "upstream": "https://heroui.com/en/docs/native/components/text-field",
+      "milestone": "M3",
+      "criteria": "将标签、输入、帮助说明和错误拼成完整字段"
+    },
+    {
+      "id": "N.accordion",
+      "track": "native",
+      "category": "Navigation",
+      "name": "Accordion",
+      "upstream": "https://heroui.com/en/docs/native/components/accordion",
+      "milestone": "M3",
+      "criteria": "可单开或多开折叠面板，覆盖标题焦点和状态语义"
+    },
+    {
+      "id": "N.list-group",
+      "track": "native",
+      "category": "Navigation",
+      "name": "ListGroup",
+      "upstream": "https://heroui.com/en/docs/native/components/list-group",
+      "milestone": "M3",
+      "criteria": "将列表条目及其说明、图标和尾部动作分组"
+    },
+    {
+      "id": "N.tabs",
+      "track": "native",
+      "category": "Navigation",
+      "name": "Tabs",
+      "upstream": "https://heroui.com/en/docs/native/components/tabs",
+      "milestone": "M3",
+      "criteria": "关联标签与面板，覆盖焦点策略、方向、选中和延迟挂载"
+    },
+    {
+      "id": "N.bottom-sheet",
+      "track": "native",
+      "category": "Overlays",
+      "name": "BottomSheet",
+      "upstream": "https://heroui.com/en/docs/native/components/bottom-sheet",
+      "milestone": "M3",
+      "criteria": "使用 iOS 和 Android 原生面板，支持命令打开、变高、关闭和堆栈，按内容或比例吸附，可固定头尾并协调正文滚动、拖动、键盘和安全区"
+    },
+    {
+      "id": "N.dialog",
+      "track": "native",
+      "category": "Overlays",
+      "name": "Dialog",
+      "upstream": "https://heroui.com/en/docs/native/components/dialog",
+      "milestone": "M3",
+      "criteria": "多入口打开和关闭，屏蔽背景交互并恢复焦点"
+    },
+    {
+      "id": "N.popover",
+      "track": "native",
+      "category": "Overlays",
+      "name": "Popover",
+      "upstream": "https://heroui.com/en/docs/native/components/popover",
+      "milestone": "M3",
+      "criteria": "支持锚点与原生底部面板两种呈现，验证边缘避让、外部关闭和嵌套焦点"
+    },
+    {
+      "id": "N.toast",
+      "track": "native",
+      "category": "Overlays",
+      "name": "Toast",
+      "upstream": "https://heroui.com/en/docs/native/components/toast",
+      "milestone": "M3",
+      "criteria": "通知队列、最大可见数量、连续入队、自动消失、操作、级别语义和计时暂停"
+    },
+    {
+      "id": "N.menu",
+      "track": "native",
+      "category": "Collections",
+      "name": "Menu",
+      "upstream": "https://heroui.com/en/docs/native/components/menu",
+      "milestone": "M3",
+      "criteria": "动作与选择菜单支持锚点或原生底部面板，验证长按、禁用及系统返回"
+    },
+    {
+      "id": "N.tag-group",
+      "track": "native",
+      "category": "Collections",
+      "name": "TagGroup",
+      "upstream": "https://heroui.com/en/docs/native/components/tag-group",
+      "milestone": "M3",
+      "criteria": "编辑或删除标签，支持组内键盘导航"
+    },
+    {
+      "id": "N.slider",
+      "track": "native",
+      "category": "Controls",
+      "name": "Slider",
+      "upstream": "https://heroui.com/en/docs/native/components/slider",
+      "milestone": "M3",
+      "criteria": "单值或范围拖拽，支持步进、标记和键盘操作"
+    },
+    {
+      "id": "N.switch",
+      "track": "native",
+      "category": "Controls",
+      "name": "Switch",
+      "upstream": "https://heroui.com/en/docs/native/components/switch",
+      "milestone": "M3",
+      "criteria": "布尔切换，支持受控、禁用、标签与表单联动"
+    },
+    {
+      "id": "N.alert",
+      "track": "native",
+      "category": "Feedback",
+      "name": "Alert",
+      "upstream": "https://heroui.com/en/docs/native/components/alert",
+      "milestone": "M3",
+      "criteria": "状态信息与可选动作，匹配正确的通知语义"
+    },
+    {
+      "id": "N.skeleton",
+      "track": "native",
+      "category": "Feedback",
+      "name": "Skeleton",
+      "upstream": "https://heroui.com/en/docs/native/components/skeleton",
+      "milestone": "M3",
+      "criteria": "占位与加载状态切换，覆盖形状和动效偏好"
+    },
+    {
+      "id": "N.skeleton-group",
+      "track": "native",
+      "category": "Feedback",
+      "name": "SkeletonGroup",
+      "upstream": "https://heroui.com/en/docs/native/components/skeleton-group",
+      "milestone": "M3",
+      "criteria": "统一协调多个占位的加载切换"
+    },
+    {
+      "id": "N.spinner",
+      "track": "native",
+      "category": "Feedback",
+      "name": "Spinner",
+      "upstream": "https://heroui.com/en/docs/native/components/spinner",
+      "milestone": "M3",
+      "criteria": "异步等待指示，包含可访问描述和尺寸变体"
+    },
+    {
+      "id": "N.card",
+      "track": "native",
+      "category": "Layout",
+      "name": "Card",
+      "upstream": "https://heroui.com/en/docs/native/components/card",
+      "milestone": "M3",
+      "criteria": "组合标题、内容、媒体与操作区，支持各区独立样式"
+    },
+    {
+      "id": "N.separator",
+      "track": "native",
+      "category": "Layout",
+      "name": "Separator",
+      "upstream": "https://heroui.com/en/docs/native/components/separator",
+      "milestone": "M3",
+      "criteria": "水平或垂直分隔，按用途提供语义或纯装饰"
+    },
+    {
+      "id": "N.surface",
+      "track": "native",
+      "category": "Layout",
+      "name": "Surface",
+      "upstream": "https://heroui.com/en/docs/native/components/surface",
+      "milestone": "M3",
+      "criteria": "提供不同层级的背景、边界和文字对比"
+    },
+    {
+      "id": "N.avatar",
+      "track": "native",
+      "category": "Media",
+      "name": "Avatar",
+      "upstream": "https://heroui.com/en/docs/native/components/avatar",
+      "milestone": "M3",
+      "criteria": "图片替代文本、加载状态与失败回退"
+    },
+    {
+      "id": "N.text",
+      "track": "native",
+      "category": "Typography",
+      "name": "Typography",
+      "upstream": "https://heroui.com/en/docs/native/components/text",
+      "milestone": "M3",
+      "criteria": "语义文本、级别和动态字体适配"
+    },
+    {
+      "id": "N.chip",
+      "track": "native",
+      "category": "Data Display",
+      "name": "Chip",
+      "upstream": "https://heroui.com/en/docs/native/components/chip",
+      "milestone": "M3",
+      "criteria": "紧凑状态或分类标签，覆盖视觉状态与组合展示"
+    },
+    {
+      "id": "N.pressable-feedback",
+      "track": "native",
+      "category": "Utilities",
+      "name": "PressableFeedback",
+      "upstream": "https://heroui.com/en/docs/native/components/pressable-feedback",
+      "milestone": "M3",
+      "criteria": "为可按压区域提供状态反馈与减少动态效果支持"
+    },
+    {
+      "id": "N.scroll-shadow",
+      "track": "native",
+      "category": "Utilities",
+      "name": "ScrollShadow",
+      "upstream": "https://heroui.com/en/docs/native/components/scroll-shadow",
+      "milestone": "M3",
+      "criteria": "按滚动位置显示横向或纵向渐变边缘提示，覆盖减少动效偏好"
+    },
+    {
+      "id": "NP.fab",
+      "track": "native-pro",
+      "category": "Buttons",
+      "name": "FAB",
+      "upstream": "https://heroui.pro/docs/native/components/fab",
+      "milestone": "M5",
+      "criteria": "浮动主操作，适配安全区及展开状态"
+    },
+    {
+      "id": "NP.morph-button",
+      "track": "native-pro",
+      "category": "Buttons",
+      "name": "MorphButton",
+      "upstream": "https://heroui.pro/docs/native/components/morph-button",
+      "milestone": "M5",
+      "criteria": "按操作状态平滑变换按钮内容，支持减少动态效果"
+    },
+    {
+      "id": "NP.progress-button",
+      "track": "native-pro",
+      "category": "Buttons",
+      "name": "ProgressButton",
+      "upstream": "https://heroui.pro/docs/native/components/progress-button",
+      "milestone": "M5",
+      "criteria": "在操作过程中显示有界进度，处理成功与失败终态"
+    },
+    {
+      "id": "NP.slide-button",
+      "track": "native-pro",
+      "category": "Buttons",
+      "name": "SlideButton",
+      "upstream": "https://heroui.pro/docs/native/components/slide-button",
+      "milestone": "M5",
+      "criteria": "拖动达到阈值后确认，取消能复位，提供无障碍操作入口"
+    },
+    {
+      "id": "NP.social-auth-button",
+      "track": "native-pro",
+      "category": "Buttons",
+      "name": "SocialAuthButton",
+      "upstream": "https://heroui.pro/docs/native/components/social-auth-button",
+      "milestone": "M5",
+      "criteria": "呈现认证服务标识并报告认证流程的进行和错误状态"
+    },
+    {
+      "id": "NP.toggle-button",
+      "track": "native-pro",
+      "category": "Buttons",
+      "name": "ToggleButton",
+      "upstream": "https://heroui.pro/docs/native/components/toggle-button",
+      "milestone": "M5",
+      "criteria": "用按压态表示开关式动作，支持键盘切换"
+    },
+    {
+      "id": "NP.toggle-button-group",
+      "track": "native-pro",
+      "category": "Buttons",
+      "name": "ToggleButtonGroup",
+      "upstream": "https://heroui.pro/docs/native/components/toggle-button-group",
+      "milestone": "M5",
+      "criteria": "单选或多选的一组切换动作，方向键与组语义一致"
+    },
+    {
+      "id": "NP.autocomplete",
+      "track": "native-pro",
+      "category": "Forms",
+      "name": "Autocomplete",
+      "upstream": "https://heroui.pro/docs/native/components/autocomplete",
+      "milestone": "M5",
+      "criteria": "文本查询与候选导航，支持空结果、异步及明确的选中项"
+    },
+    {
+      "id": "NP.combo-box",
+      "track": "native-pro",
+      "category": "Forms",
+      "name": "ComboBox",
+      "upstream": "https://heroui.pro/docs/native/components/combo-box",
+      "milestone": "M5",
+      "criteria": "输入与列表选择联动，处理过滤、键盘、清空和受控状态"
+    },
+    {
+      "id": "NP.number-field",
+      "track": "native-pro",
+      "category": "Forms",
+      "name": "NumberField",
+      "upstream": "https://heroui.pro/docs/native/components/number-field",
+      "milestone": "M5",
+      "criteria": "数值格式、边界和步进，区分编辑态输入和提交值"
+    },
+    {
+      "id": "NP.number-pad",
+      "track": "native-pro",
+      "category": "Forms",
+      "name": "NumberPad",
+      "upstream": "https://heroui.pro/docs/native/components/number-pad",
+      "milestone": "M5",
+      "criteria": "数字键盘输入、删除和小数语义，处理按键禁用"
+    },
+    {
+      "id": "NP.number-stepper",
+      "track": "native-pro",
+      "category": "Forms",
+      "name": "Number Stepper",
+      "upstream": "https://heroui.pro/docs/native/components/number-stepper",
+      "milestone": "M5",
+      "criteria": "紧凑增减按钮与长按，边界值不可继续修改"
+    },
+    {
+      "id": "NP.phone-number-field",
+      "track": "native-pro",
+      "category": "Forms",
+      "name": "PhoneNumberField",
+      "upstream": "https://heroui.pro/docs/native/components/phone-number-field",
+      "milestone": "M5",
+      "criteria": "国家或区号选择、格式化输入与号码校验"
+    },
+    {
+      "id": "NP.radio-button-group",
+      "track": "native-pro",
+      "category": "Forms",
+      "name": "RadioButtonGroup",
+      "upstream": "https://heroui.pro/docs/native/components/radio-button-group",
+      "milestone": "M5",
+      "criteria": "用互斥按钮展示可选项并同步选中值"
+    },
+    {
+      "id": "NP.wheel-picker",
+      "track": "native-pro",
+      "category": "Forms",
+      "name": "WheelPicker",
+      "upstream": "https://heroui.pro/docs/native/components/wheel-picker",
+      "milestone": "M5",
+      "criteria": "惯性滚轮选择一项，校验吸附、选项朗读与禁用"
+    },
+    {
+      "id": "NP.wheel-picker-group",
+      "track": "native-pro",
+      "category": "Forms",
+      "name": "WheelPickerGroup",
+      "upstream": "https://heroui.pro/docs/native/components/wheel-picker-group",
+      "milestone": "M5",
+      "criteria": "多滚轮组合，每列可独立更新并导出联合值"
+    },
+    {
+      "id": "NP.agenda",
+      "track": "native-pro",
+      "category": "Date and Time",
+      "name": "Agenda",
+      "upstream": "https://heroui.pro/docs/native/components/agenda",
+      "milestone": "M5",
+      "criteria": "按日期组织日程，覆盖空日、跨日和选中项"
+    },
+    {
+      "id": "NP.calendar",
+      "track": "native-pro",
+      "category": "Date and Time",
+      "name": "Calendar",
+      "upstream": "https://heroui.pro/docs/native/components/calendar",
+      "milestone": "M5",
+      "criteria": "浏览年月并选择日期，处理本地化、不可用日及方向键"
+    },
+    {
+      "id": "NP.date-field",
+      "track": "native-pro",
+      "category": "Date and Time",
+      "name": "DateField",
+      "upstream": "https://heroui.pro/docs/native/components/date-field",
+      "milestone": "M5",
+      "criteria": "按本地格式分段编辑日期，验证范围和空值"
+    },
+    {
+      "id": "NP.date-picker",
+      "track": "native-pro",
+      "category": "Date and Time",
+      "name": "DatePicker",
+      "upstream": "https://heroui.pro/docs/native/components/date-picker",
+      "milestone": "M5",
+      "criteria": "组合日期字段与日历，完成输入、选择和关闭回位"
+    },
+    {
+      "id": "NP.date-range-picker",
+      "track": "native-pro",
+      "category": "Date and Time",
+      "name": "DateRangePicker",
+      "upstream": "https://heroui.pro/docs/native/components/date-range-picker",
+      "milestone": "M5",
+      "criteria": "组合起止字段和区间选择，确认跨月及边界校验"
+    },
+    {
+      "id": "NP.date-time-picker",
+      "track": "native-pro",
+      "category": "Date and Time",
+      "name": "DateTimePicker",
+      "upstream": "https://heroui.pro/docs/native/components/date-time-picker",
+      "milestone": "M5",
+      "criteria": "联合选择日期和时间，验证输入或删除部分字段的状态"
+    },
+    {
+      "id": "NP.range-calendar",
+      "track": "native-pro",
+      "category": "Date and Time",
+      "name": "RangeCalendar",
+      "upstream": "https://heroui.pro/docs/native/components/range-calendar",
+      "milestone": "M5",
+      "criteria": "在日历选取起止日，覆盖跨月、不可用日与区间预览"
+    },
+    {
+      "id": "NP.time-picker",
+      "track": "native-pro",
+      "category": "Date and Time",
+      "name": "TimePicker",
+      "upstream": "https://heroui.pro/docs/native/components/time-picker",
+      "milestone": "M5",
+      "criteria": "从时间选择器提交时间，校验分钟步进与小时制"
+    },
+    {
+      "id": "NP.wheel-date-time-picker",
+      "track": "native-pro",
+      "category": "Date and Time",
+      "name": "WheelDateTimePicker",
+      "upstream": "https://heroui.pro/docs/native/components/wheel-date-time-picker",
+      "milestone": "M5",
+      "criteria": "用滚轮选择日期和时间，校验各列联动及非法日期归一"
+    },
+    {
+      "id": "NP.wheel-time-picker",
+      "track": "native-pro",
+      "category": "Date and Time",
+      "name": "WheelTimePicker",
+      "upstream": "https://heroui.pro/docs/native/components/wheel-time-picker",
+      "milestone": "M5",
+      "criteria": "小时与分钟滚轮，处理 12 小时制和精度"
+    },
+    {
+      "id": "NP.morph-tabs",
+      "track": "native-pro",
+      "category": "Navigation",
+      "name": "MorphTabs",
+      "upstream": "https://heroui.pro/docs/native/components/morph-tabs",
+      "milestone": "M5",
+      "criteria": "为标签间切换提供可访问的形态过渡，支持减少动态效果"
+    },
+    {
+      "id": "NP.segment",
+      "track": "native-pro",
+      "category": "Navigation",
+      "name": "Segment",
+      "upstream": "https://heroui.pro/docs/native/components/segment",
+      "milestone": "M5",
+      "criteria": "紧凑分段选择，统一受控值、焦点和切换动画"
+    },
+    {
+      "id": "NP.split-view",
+      "track": "native-pro",
+      "category": "Navigation",
+      "name": "SplitView",
+      "upstream": "https://heroui.pro/docs/native/components/split-view",
+      "milestone": "M5",
+      "criteria": "移动端详情或双栏布局切换，维持选择与返回状态"
+    },
+    {
+      "id": "NP.stepper",
+      "track": "native-pro",
+      "category": "Navigation",
+      "name": "Stepper",
+      "upstream": "https://heroui.pro/docs/native/components/stepper",
+      "milestone": "M5",
+      "criteria": "按步骤展示当前、完成和不可达状态，验证前后切换"
+    },
+    {
+      "id": "NP.swipeable-tabs",
+      "track": "native-pro",
+      "category": "Navigation",
+      "name": "SwipeableTabs",
+      "upstream": "https://heroui.pro/docs/native/components/swipeable-tabs",
+      "milestone": "M5",
+      "criteria": "手势和点击同步切页，处理嵌套滚动和边缘滑动"
+    },
+    {
+      "id": "NP.number-value",
+      "track": "native-pro",
+      "category": "Feedback",
+      "name": "NumberValue",
+      "upstream": "https://heroui.pro/docs/native/components/number-value",
+      "milestone": "M5",
+      "criteria": "数值、单位和格式化变化，避免动画干扰读数"
+    },
+    {
+      "id": "NP.progress-bar",
+      "track": "native-pro",
+      "category": "Feedback",
+      "name": "ProgressBar",
+      "upstream": "https://heroui.pro/docs/native/components/progress-bar",
+      "milestone": "M5",
+      "criteria": "有界或不确定的线性进度，暴露正确进度语义"
+    },
+    {
+      "id": "NP.progress-circle",
+      "track": "native-pro",
+      "category": "Feedback",
+      "name": "ProgressCircle",
+      "upstream": "https://heroui.pro/docs/native/components/progress-circle",
+      "milestone": "M5",
+      "criteria": "环形进度的数值和不确定态，适配尺寸与读屏"
+    },
+    {
+      "id": "NP.rating",
+      "track": "native-pro",
+      "category": "Feedback",
+      "name": "Rating",
+      "upstream": "https://heroui.pro/docs/native/components/rating",
+      "milestone": "M5",
+      "criteria": "评展示与可交互评分，支持步进、键盘和只读"
+    },
+    {
+      "id": "NP.trend-chip",
+      "track": "native-pro",
+      "category": "Feedback",
+      "name": "TrendChip",
+      "upstream": "https://heroui.pro/docs/native/components/trend-chip",
+      "milestone": "M5",
+      "criteria": "呈现上升、下降、持平状态及数字或单位"
+    },
+    {
+      "id": "NP.badge",
+      "track": "native-pro",
+      "category": "Data Display",
+      "name": "Badge",
+      "upstream": "https://heroui.pro/docs/native/components/badge",
+      "milestone": "M5",
+      "criteria": "表达数量、状态或叠放提示，支持短文本与可访问含义"
+    },
+    {
+      "id": "NP.carousel",
+      "track": "native-pro",
+      "category": "Data Display",
+      "name": "Carousel",
+      "upstream": "https://heroui.pro/docs/native/components/carousel",
+      "milestone": "M5",
+      "criteria": "滑动轮播、分页、键盘导航及用户控制的自动播放"
+    },
+    {
+      "id": "NP.empty-state",
+      "track": "native-pro",
+      "category": "Data Display",
+      "name": "EmptyState",
+      "upstream": "https://heroui.pro/docs/native/components/empty-state",
+      "milestone": "M5",
+      "criteria": "为空、无结果、错误或初始状态提供内容与下一步动作"
+    },
+    {
+      "id": "NP.flip-card",
+      "track": "native-pro",
+      "category": "Data Display",
+      "name": "FlipCard",
+      "upstream": "https://heroui.pro/docs/native/components/flip-card",
+      "milestone": "M5",
+      "criteria": "卡片正反面切换，验证焦点、手势和减少动态效果"
+    },
+    {
+      "id": "NP.swipeable-row",
+      "track": "native-pro",
+      "category": "Data Display",
+      "name": "SwipeableRow",
+      "upstream": "https://heroui.pro/docs/native/components/swipeable-row",
+      "milestone": "M5",
+      "criteria": "滑动露出行操作，处理阈值、取消和读屏替代入口"
+    },
+    {
+      "id": "NP.table",
+      "track": "native-pro",
+      "category": "Data Display",
+      "name": "Table",
+      "upstream": "https://heroui.pro/docs/native/components/table",
+      "milestone": "M5",
+      "criteria": "结构化表格和行列语义，按平台核对排序、选择及滚动能力"
+    },
+    {
+      "id": "NP.timeline",
+      "track": "native-pro",
+      "category": "Data Display",
+      "name": "Timeline",
+      "upstream": "https://heroui.pro/docs/native/components/timeline",
+      "milestone": "M5",
+      "criteria": "按时间或步骤表示事件，覆盖状态与方向"
+    },
+    {
+      "id": "NP.widget",
+      "track": "native-pro",
+      "category": "Data Display",
+      "name": "Widget",
+      "upstream": "https://heroui.pro/docs/native/components/widget",
+      "milestone": "M5",
+      "criteria": "组合仪表盘小部件的标题、内容、工具与反馈态"
+    },
+    {
+      "id": "NP.area-chart",
+      "track": "native-pro",
+      "category": "Charts",
+      "name": "AreaChart",
+      "upstream": "https://heroui.pro/docs/native/components/area-chart",
+      "milestone": "M5",
+      "criteria": "面积时间序列、堆叠与提示信息，提供非图形摘要"
+    },
+    {
+      "id": "NP.bar-chart",
+      "track": "native-pro",
+      "category": "Charts",
+      "name": "BarChart",
+      "upstream": "https://heroui.pro/docs/native/components/bar-chart",
+      "milestone": "M5",
+      "criteria": "分类柱图、横纵和堆叠表现，颜色与文字并用"
+    },
+    {
+      "id": "NP.composed-chart",
+      "track": "native-pro",
+      "category": "Charts",
+      "name": "ComposedChart",
+      "upstream": "https://heroui.pro/docs/native/components/composed-chart",
+      "milestone": "M5",
+      "criteria": "混合线、柱、面积及坐标轴，验证图例和数据映射"
+    },
+    {
+      "id": "NP.line-chart",
+      "track": "native-pro",
+      "category": "Charts",
+      "name": "LineChart",
+      "upstream": "https://heroui.pro/docs/native/components/line-chart",
+      "milestone": "M5",
+      "criteria": "折线趋势、多序列与缺失值，具备提示和摘要"
+    },
+    {
+      "id": "NP.live-chart",
+      "track": "native-pro",
+      "category": "Charts",
+      "name": "LiveChart",
+      "upstream": "https://heroui.pro/docs/native/components/live-chart",
+      "milestone": "M5",
+      "criteria": "流式刷新数据，处理时间窗、停流和重连"
+    },
+    {
+      "id": "NP.pie-chart",
+      "track": "native-pro",
+      "category": "Charts",
+      "name": "PieChart",
+      "upstream": "https://heroui.pro/docs/native/components/pie-chart",
+      "milestone": "M5",
+      "criteria": "扇区占比及提示，覆盖极小值、全空和总值"
+    },
+    {
+      "id": "NP.radar-chart",
+      "track": "native-pro",
+      "category": "Charts",
+      "name": "RadarChart",
+      "upstream": "https://heroui.pro/docs/native/components/radar-chart",
+      "milestone": "M5",
+      "criteria": "多维多系列比较，处理尺度、图例和可读摘要"
+    },
+    {
+      "id": "NP.radial-chart",
+      "track": "native-pro",
+      "category": "Charts",
+      "name": "RadialChart",
+      "upstream": "https://heroui.pro/docs/native/components/radial-chart",
+      "milestone": "M5",
+      "criteria": "径向量值或分组，校准起止角、边界及标签"
+    },
+    {
+      "id": "NP.stacked-meter",
+      "track": "native-pro",
+      "category": "Charts",
+      "name": "StackedMeter",
+      "upstream": "https://heroui.pro/docs/native/components/stacked-meter",
+      "milestone": "M5",
+      "criteria": "分段展示构成比例、图例及总量"
+    },
+    {
+      "id": "N.icon",
+      "track": "native",
+      "category": "Media",
+      "name": "Icon",
+      "upstream": "https://github.com/meta/astryx/blob/00c318190dc79442e184382e1283dbad9561369d/packages/native/src/components/Icon.ts",
+      "milestone": "Astryx",
+      "criteria": "原生图标支持主题色、显示方向及辅助技术名称。"
+    },
+    {
+      "id": "N.thumbnail",
+      "track": "native",
+      "category": "Media",
+      "name": "Thumbnail",
+      "upstream": "https://github.com/meta/astryx/blob/00c318190dc79442e184382e1283dbad9561369d/packages/native/src/components/Thumbnail.ts",
+      "milestone": "Astryx",
+      "criteria": "原生缩略图支持点击、移除、加载和辅助技术名称。"
+    },
+    {
+      "id": "N.item",
+      "track": "native",
+      "category": "Collections",
+      "name": "Item",
+      "upstream": "https://github.com/meta/astryx/blob/00c318190dc79442e184382e1283dbad9561369d/packages/native/src/components/Item.ts",
+      "milestone": "Astryx",
+      "criteria": "原生条目支持紧凑与宽松布局、行级按压、选中状态和独立尾部操作。"
+    }
+  ],
+  "packageExports": [
+    {
+      "id": "W.export.calendar-year-picker",
+      "track": "web",
+      "name": "./calendar-year-picker",
+      "source": "https://kb.syntrofic.com/?id=20261120145415-60p3nqk",
+      "milestone": "M2",
+      "criteria": "Calendar/RangeCalendar 可组合的年份选择，联动日历和边界。"
+    },
+    {
+      "id": "W.export.color-input-group",
+      "track": "web",
+      "name": "./color-input-group",
+      "source": "https://kb.syntrofic.com/?id=20261120145415-60p3nqk",
+      "milestone": "M2",
+      "criteria": "颜色输入、前后缀和字段校验可独立组合。"
+    },
+    {
+      "id": "W.export.date-input-group",
+      "track": "web",
+      "name": "./date-input-group",
+      "source": "https://kb.syntrofic.com/?id=20261120145415-60p3nqk",
+      "milestone": "M2",
+      "criteria": "分段日期输入和前后缀，用于日期及区间字段。"
+    },
+    {
+      "id": "W.export.empty-state",
+      "track": "web",
+      "name": "./empty-state",
+      "source": "https://kb.syntrofic.com/?id=20261120145415-60p3nqk",
+      "milestone": "M2 / M4",
+      "criteria": "Web 核心表格或集合的基础空态，与 Pro 的丰富 Empty State 各有示例与入口，可共享底层。"
+    },
+    {
+      "id": "W.export.header",
+      "track": "web",
+      "name": "./header",
+      "source": "https://kb.syntrofic.com/?id=20261120145415-60p3nqk",
+      "milestone": "M2",
+      "criteria": "集合分组的标题槽，支持列表和菜单分组。"
+    },
+    {
+      "id": "W.export.list-box-item",
+      "track": "web",
+      "name": "./list-box-item",
+      "source": "https://kb.syntrofic.com/?id=20261120145415-60p3nqk",
+      "milestone": "M2",
+      "criteria": "列表项禁用、选择反馈、键盘焦点和指示器。"
+    },
+    {
+      "id": "W.export.list-box-section",
+      "track": "web",
+      "name": "./list-box-section",
+      "source": "https://kb.syntrofic.com/?id=20261120145415-60p3nqk",
+      "milestone": "M2",
+      "criteria": "ListBox 分组与组标题，验证组内导航。"
+    },
+    {
+      "id": "W.export.menu",
+      "track": "web",
+      "name": "./menu",
+      "source": "https://kb.syntrofic.com/?id=20261120145415-60p3nqk",
+      "milestone": "M2",
+      "criteria": "公开菜单容器和复合子部件，可供 Dropdown 之外使用。"
+    },
+    {
+      "id": "W.export.menu-item",
+      "track": "web",
+      "name": "./menu-item",
+      "source": "https://kb.syntrofic.com/?id=20261120145415-60p3nqk",
+      "milestone": "M2",
+      "criteria": "菜单命令、选中指示、子菜单指示和禁用。"
+    },
+    {
+      "id": "W.export.menu-section",
+      "track": "web",
+      "name": "./menu-section",
+      "source": "https://kb.syntrofic.com/?id=20261120145415-60p3nqk",
+      "milestone": "M2",
+      "criteria": "菜单分组、标题和键盘路径。"
+    },
+    {
+      "id": "W.export.rac",
+      "track": "web",
+      "name": "./rac",
+      "source": "https://kb.syntrofic.com/?id=20261120145415-60p3nqk",
+      "milestone": "M2",
+      "criteria": "对应的 Vue 辅助入口覆盖 locale/RTL、过滤、本地化脚本、虚拟列表/表格布局、集合、加载更多、路由、Pressable/Focusable、浮层/披露状态及颜色解析。API 采用 Vue/TS 类型。"
+    },
+    {
+      "id": "W.export.radio",
+      "track": "web",
+      "name": "./radio",
+      "source": "https://kb.syntrofic.com/?id=20261120145415-60p3nqk",
+      "milestone": "M1",
+      "criteria": "Radio 独立的控制、内容和指示器部件，可放入 RadioGroup。"
+    },
+    {
+      "id": "W.export.switch-group",
+      "track": "web",
+      "name": "./switch-group",
+      "source": "https://kb.syntrofic.com/?id=20261120145415-60p3nqk",
+      "milestone": "M1",
+      "criteria": "分组布局和组语义，保留各开关状态与可访问名称。"
+    },
+    {
+      "id": "W.export.tag",
+      "track": "web",
+      "name": "./tag",
+      "source": "https://kb.syntrofic.com/?id=20261120145415-60p3nqk",
+      "milestone": "M2",
+      "criteria": "可选、可移除的 Tag，验证移除按钮与组内回焦。"
+    },
+    {
+      "id": "N.export.glass-view",
+      "track": "native",
+      "name": "./glass-view",
+      "source": "https://kb.syntrofic.com/?id=20261120145415-60p3nqk",
+      "milestone": "M3–M5",
+      "criteria": "支持的设备上显示玻璃层，旧系统及另一平台提供平稳背景降级。"
+    },
+    {
+      "id": "N.export.radio",
+      "track": "native",
+      "name": "./radio",
+      "source": "https://kb.syntrofic.com/?id=20261120145415-60p3nqk",
+      "milestone": "M3",
+      "criteria": "可焦点和可触达的 Radio 部件，配合 RadioGroup。"
+    },
+    {
+      "id": "N.export.sub-menu",
+      "track": "native",
+      "name": "./sub-menu",
+      "source": "https://kb.syntrofic.com/?id=20261120145415-60p3nqk",
+      "milestone": "M3",
+      "criteria": "子菜单的打开、关闭、返回与父菜单焦点恢复。"
+    },
+    {
+      "id": "N.export.theme-background",
+      "track": "native",
+      "name": "./theme-background",
+      "source": "https://kb.syntrofic.com/?id=20261120145415-60p3nqk",
+      "milestone": "M3–M5",
+      "criteria": "原生主题背景层和条件渲染，验证明暗和平台降级。"
+    }
+  ],
+  "platform": [
+    {
+      "id": "DS-01",
+      "name": "CSS 变量、语义色、组件变体与状态、CSS 层、BEM 类、基础尺度、明暗模式和自定义品牌主题",
+      "source": "https://kb.syntrofic.com/?id=20261120144948-sg0k6ju",
+      "milestone": "M1",
+      "criteria": "自有 token 与 CSS 命名，支持浅色、深色、系统偏好、容器级主题、状态和尺寸，分别验证文字对比、表面层级和焦点。"
+    },
+    {
+      "id": "DS-02",
+      "name": "独立样式包、按组件导入、预构建 CSS、CDN 入口、变体函数，及去默认样式的用法",
+      "source": "https://kb.syntrofic.com/?id=20261120144948-sg0k6ju",
+      "milestone": "M1–M2",
+      "criteria": "发布 tokens、样式和 Vue 行为，支援全部及按需引入、普通 HTML 和 Tailwind 适配，单组件生产包做体积回归。"
+    },
+    {
+      "id": "DS-03",
+      "name": "组合式 API、自定义结构、状态选择器、可定制动效及减少动态效果",
+      "source": "https://kb.syntrofic.com/?id=20261120144948-sg0k6ju",
+      "milestone": "M1–M3",
+      "criteria": "对应 Vue 子组件、命名插槽和受控状态。记录 `data-state`、样式部件与 CSS 可覆盖边界。覆盖系统级、主题级和组件级动态设置。"
+    },
+    {
+      "id": "DS-04",
+      "name": "公开 Theme Builder、颜色及字号圆角等配置、实时预览与 CSS 导出",
+      "source": "https://kb.syntrofic.com/?id=20261120144948-sg0k6ju",
+      "milestone": "M2",
+      "criteria": "独立主题编辑页，切换浅深模式、改语义值、预览组件及标准页面，同一输入重复导出得到相同产物。"
+    },
+    {
+      "id": "DS-05",
+      "name": "Native Provider、轻量 Provider、Portal 和 PortalHost、Toast、全局文本与输入配置、安全区、RTL 和动效设置",
+      "source": "https://kb.syntrofic.com/?id=20261120144948-sg0k6ju",
+      "milestone": "M3",
+      "criteria": "原生配置与无障碍适配分层，支持按需入口及 iOS/Android 真机预览与脚手架。"
+    },
+    {
+      "id": "DS-06",
+      "name": "免费和 Pro Figma Kit、Native Kit、Auto Layout、变量、模式、组件结构和变体",
+      "source": "https://kb.syntrofic.com/?id=20261120144948-sg0k6ju",
+      "milestone": "M2–M6",
+      "criteria": "自有 Figma 资源覆盖各发行线，设计组件的 ID、变量和代码清单逐项映射，检查样式、尺寸和状态。"
+    },
+    {
+      "id": "DS-07",
+      "name": "Default、Brutalism、Glass、Mouve 等主题方向，含字体、阴影、圆角和组件覆盖的浅深模式",
+      "source": "https://kb.syntrofic.com/?id=20261120144948-sg0k6ju",
+      "milestone": "M4–M6",
+      "criteria": "默认主题加对应设计方向的原创高级主题，Web 与 Native 支持各自可用的 token；检查主题级组件覆盖和页面效果。"
+    },
+    {
+      "id": "DS-08",
+      "name": "保存品牌设计系统、从网站提取品牌或从空白建立，管理品牌语气、字体、图标及图片",
+      "source": "https://kb.syntrofic.com/?id=20261120144948-sg0k6ju",
+      "milestone": "M6",
+      "criteria": "账号下可创建、复制和管理品牌资产，导入建议经确认后写入，保留来源、版本和字体授权信息。"
+    },
+    {
+      "id": "DS-09",
+      "name": "编辑颜色、字体、半径、间距、边框、阴影和组件 CSS，支持明暗、Web 和 Native 预览、组件检查、手机二维码预览",
+      "source": "https://kb.syntrofic.com/?id=20261120144948-sg0k6ju",
+      "milestone": "M6",
+      "criteria": "同一主题修订出两端预览，Web 组件级覆盖有可检查入口，Native 预览给出有效 token 范围。"
+    },
+    {
+      "id": "DS-10",
+      "name": "编辑器 Agent，可读草稿、抽取品牌、应用 patch，支持自动保存、撤销、重做",
+      "source": "https://kb.syntrofic.com/?id=20261120144948-sg0k6ju",
+      "milestone": "M6–M7",
+      "criteria": "AI 建议与手工编辑用同一 patch/版本协议，检测并发冲突和保存错误，可回退和恢复。"
+    },
+    {
+      "id": "DS-11",
+      "name": "Web CSS、Native CSS、`DESIGN.md`、`PRODUCT.md`、Figma Sync 插件，MCP 可取 manifest 和指定导出物",
+      "source": "https://kb.syntrofic.com/?id=20261120144948-sg0k6ju",
+      "milestone": "M6",
+      "criteria": "同一修订生成四类导出，插件同步受支持的变量并报告需手动处理的字体或阴影，MCP 按用户权限读指定输出。"
+    },
+    {
+      "id": "DX-01",
+      "name": "Quick Start、框架接入、组件预览与源码示例、部件结构、API、主题手册、类型提示",
+      "source": "https://kb.syntrofic.com/?id=20261120144948-sg0k6ju",
+      "milestone": "M1–M3",
+      "criteria": "Vue/Vite、Nuxt SSR、无框架独立样式指南，完整的组件目录、搜索、预览、复制示例及 props、events、slots 与状态说明。"
+    },
+    {
+      "id": "DX-02",
+      "name": "版本记录、迁移文档及迁移 Agent 工具、组件级升级指南、旧命名迁移工具",
+      "source": "https://kb.syntrofic.com/?id=20261120144948-sg0k6ju",
+      "milestone": "M2、M4",
+      "criteria": "每版 changelog、弃用周期、可执行迁移检查、示例项目和迁移文档。为 HeroUI v2/v3 到 Vue 提供能力与 API 映射，标注需手工重写的 JSX 和平台 API。"
+    },
+    {
+      "id": "DX-03",
+      "name": "Web CLI 初始化、安装、卸载、升级、列表、信息、查文档、诊断、输出 `AGENTS.md` 和 `DESIGN.md`，及 Native 脚手架",
+      "source": "https://kb.syntrofic.com/?id=20261120144948-sg0k6ju",
+      "milestone": "M2–M3",
+      "criteria": "自研 CLI 覆盖这些命令族，机器可读输出、非交互调用、包管理器适配、重跑和失败处理。含原生示例安装、真机启动和按需包入口。"
+    },
+    {
+      "id": "DX-04",
+      "name": "React / Native 文档 MCP、Agent Skills、`llms.txt`、full / components / patterns、Markdown 和公开 Docs Agent API / OpenAPI",
+      "source": "https://kb.syntrofic.com/?id=20261120144948-sg0k6ju",
+      "milestone": "M2–M3",
+      "criteria": "用统一组件清单生成 Web 与 Native 文档和机器入口，测试条目覆盖、按版本查询、组件文档、可公开源码、CSS、token 与错误语义。"
+    },
+    {
+      "id": "DX-05",
+      "name": "Pro Web/Native 的组件文档、主题、设计准则 Skill、Pro MCP 与原生侧工具",
+      "source": "https://kb.syntrofic.com/?id=20261120144948-sg0k6ju",
+      "milestone": "M4–M7",
+      "criteria": "提供统一搜索，区分公开和授权资源。支持可查询 CSS、变体、主题、设计系统 manifest/导出、Chat 快照及选定文件，所有工具按授权对象检查。"
+    },
+    {
+      "id": "DX-06",
+      "name": "Pro 登录、授权安装、组件与模板下载、缓存、非交互 CI 安装、token 分离",
+      "source": "https://kb.syntrofic.com/?id=20261120144948-sg0k6ju",
+      "milestone": "M4–M5",
+      "criteria": "包和模板通路支持个人令牌与 CI 令牌、吊销、版本锁定、缓存和安装验证。可从干净项目构建，失效令牌和超期版本有明确错误。"
+    },
+    {
+      "id": "DX-07",
+      "name": "个人和团队授权、Web/Mobile/Bundle 权益、保留已授权版本、更新窗口、座位、邀请、账单角色、用量与下载额度、AI 用量额度",
+      "source": "https://kb.syntrofic.com/?id=20261120144948-sg0k6ju",
+      "milestone": "M4–M7",
+      "criteria": "用自有权益模型支持同类业务规则，测试续期、取消、个人到团队、团队成员移除、CI 轮换和配额归属。价格、渠道和实际是否收费由项目方确定。"
+    },
+    {
+      "id": "DX-08",
+      "name": "开源贡献、问题与讨论、社区、Showcase、路线图、发布说明、优先支持及企业能力",
+      "source": "https://kb.syntrofic.com/?id=20261120144948-sg0k6ju",
+      "milestone": "M2–M9",
+      "criteria": "交付文档站、作品展示、问题回报、公共路线和维护流程。企业覆盖 SSO、审计、权限治理、定制集成和支持入口，具体服务承诺另行设定。"
+    },
+    {
+      "id": "DX-09",
+      "name": "Tailwind Variants 独立工具，类型化变体、默认规则、复合变体、插槽、覆盖、继承、响应式和类名冲突处理",
+      "source": "https://kb.syntrofic.com/?id=20261120144948-sg0k6ju",
+      "milestone": "M2",
+      "criteria": "交付可单独使用的 TS 变体配方入口，验证默认与轻量构建、覆盖优先级、Tailwind 适配、配置、文档、迁移、示例、`llms.txt` 与 MCP。Agent Skill 按官方规划项登记。"
+    },
+    {
+      "id": "T-W1",
+      "name": "Dashboard",
+      "source": "https://kb.syntrofic.com/?id=20261120144948-sg0k6ju",
+      "milestone": "M4",
+      "criteria": "分析首页、订单、跟踪、设置和帮助，可从仪表盘进入详情，在窄屏保持表格和筛选可用。"
+    },
+    {
+      "id": "T-W2",
+      "name": "Mail",
+      "source": "https://kb.syntrofic.com/?id=20261120144948-sg0k6ju",
+      "milestone": "M4",
+      "criteria": "邮箱文件夹、主题线程与撰写，可用键盘打开线程并保存或发送模拟草稿。"
+    },
+    {
+      "id": "T-W3",
+      "name": "Chat",
+      "source": "https://kb.syntrofic.com/?id=20261120144948-sg0k6ju",
+      "milestone": "M4",
+      "criteria": "AI 会话、资料库与探索页，展示流式消息、切换会话与工具输出。"
+    },
+    {
+      "id": "T-W4",
+      "name": "CRM",
+      "source": "https://kb.syntrofic.com/?id=20261120144948-sg0k6ju",
+      "milestone": "M4",
+      "criteria": "商机管线及筛选、账户健康、公司详情，演示从管线钻取账户。"
+    },
+    {
+      "id": "T-W5",
+      "name": "Finances",
+      "source": "https://kb.syntrofic.com/?id=20261120144948-sg0k6ju",
+      "milestone": "M4",
+      "criteria": "组合概览、支出分析、交易列表和详情，覆盖空态与区间筛选。"
+    },
+    {
+      "id": "T-N1",
+      "name": "Crypto Wallet",
+      "source": "https://kb.syntrofic.com/?id=20261120144948-sg0k6ju",
+      "milestone": "M5",
+      "criteria": "资产组合、行情图与触压十字线、资产详情、交易筛选及收发演示。模板使用模拟资产与模拟交易。"
+    },
+    {
+      "id": "T-N2",
+      "name": "Fitness App",
+      "source": "https://kb.syntrofic.com/?id=20261120144948-sg0k6ju",
+      "milestone": "M5",
+      "criteria": "活动圆环、今日指标、计划库、训练中记录组数、训练总结及历史。"
+    },
+    {
+      "id": "B-01",
+      "name": "自然语言创建 UI，在预览中反复调整，经生成版本输出文件",
+      "source": "https://kb.syntrofic.com/?id=20261120144948-sg0k6ju",
+      "milestone": "M7",
+      "criteria": "生成可构建的 Vue 3 + TS 项目，展示进度、失败及停止，保留成功生成的版本与预览。"
+    },
+    {
+      "id": "B-02",
+      "name": "启动时或在会话中选择品牌设计系统，跟进新的主题修订，支持会话独立改动",
+      "source": "https://kb.syntrofic.com/?id=20261120144948-sg0k6ju",
+      "milestone": "M7",
+      "criteria": "会话固定到可重现的主题版本，显式同步新修订。会话内样式与保存的品牌配置各有清晰所有权。"
+    },
+    {
+      "id": "B-03",
+      "name": "下载或复制生成结果，经带授权的 MCP 取文件清单和指定快照文件",
+      "source": "https://kb.syntrofic.com/?id=20261120144948-sg0k6ju",
+      "milestone": "M7",
+      "criteria": "导出固定版本的文件和建议导入路径，按权限及路径验证，提供可启动的依赖与说明，支持在自己的项目里合并变更。"
+    },
+    {
+      "id": "B-04",
+      "name": "Pro 用量权益",
+      "source": "https://kb.syntrofic.com/?id=20261120144948-sg0k6ju",
+      "milestone": "M7",
+      "criteria": "工作区额度、消耗记账、失败/取消结算策略与使用记录。Beta 或受限能力的实际界面待有权限时核验。"
+    },
+    {
+      "id": "A-01",
+      "name": "JS loader、框架 SDK、浮动或可拉伸侧栏、欢迎页、外观、主题、字体、响应动作及导出",
+      "source": "https://kb.syntrofic.com/?id=20261120144948-sg0k6ju",
+      "milestone": "M8",
+      "criteria": "Vue SDK 和原生 JS 嵌入，独立测试普通 HTML、Vue 和 Nuxt；嵌入可配置外观并支持可访问开关。"
+    },
+    {
+      "id": "A-02",
+      "name": "工作区与 Agent 管理、系统提示、模型、流式运行、停止、持久化对话和文件附件、语音输入、网络搜索",
+      "source": "https://kb.syntrofic.com/?id=20261120144948-sg0k6ju",
+      "milestone": "M8",
+      "criteria": "同一用户会话追踪开始、完成、错误和取消，进行断流恢复与配额验证。模型、搜索、转写和存储通过独立适配接口接入。"
+    },
+    {
+      "id": "A-03",
+      "name": "URL 和文件知识库、解析和索引状态、客户端工具、服务端工具、MCP 和 Skills",
+      "source": "https://kb.syntrofic.com/?id=20261120144948-sg0k6ju",
+      "milestone": "M8",
+      "criteria": "URL、文件的权限与索引生命周期可查，浏览器工具在宿主应用权限下运行，外部工具连接可验证、撤回和限权。"
+    },
+    {
+      "id": "A-04",
+      "name": "分级操作审批、浏览器身份令牌、用户识别、API key、限定作用域",
+      "source": "https://kb.syntrofic.com/?id=20261120144948-sg0k6ju",
+      "milestone": "M8",
+      "criteria": "短期签名令牌绑定用户、Agent 和站点。工具输入、目标和权限在执行前验证，写入操作支持确认、拒绝、幂等和审计。"
+    },
+    {
+      "id": "A-05",
+      "name": "数据可视化、信息展示、表单、动作和运行编排式组合的生成 UI",
+      "source": "https://kb.syntrofic.com/?id=20261120144948-sg0k6ju",
+      "milestone": "M8",
+      "criteria": "模型输出版本化 JSON，经 schema 验证后渲染注册组件，覆盖下表各契约及公开可访问样例。宿主自定义渲染扩展按上游规划项单独实现。"
+    },
+    {
+      "id": "A-06",
+      "name": "使用量、用户、会话、运行日志、可用性、签名 Webhook、Agent 管理 API、API 文档和 MCP/Skill",
+      "source": "https://kb.syntrofic.com/?id=20261120144948-sg0k6ju",
+      "milestone": "M8",
+      "criteria": "监控能追踪同一运行，事件可签名、去重、测试及失败重试，能够在权限内配置 Agent、知识库、连接与 Webhook。"
+    },
+    {
+      "id": "A-07",
+      "name": "官方 13 个产品示例",
+      "source": "https://kb.syntrofic.com/?id=20261120144948-sg0k6ju",
+      "milestone": "M8",
+      "criteria": "交付地图旅行、商业银行、协作文档、白板、可编辑表格、加密资产与外汇、行程规划、店铺运营、购物、邮件、美食探索、健康和客服。各场景使用自有数据，验证图表、表单、只读工具与需批准的写工具。"
+    },
+    {
+      "id": "S-01",
+      "name": "Up Next、邮件、日历、支持、任务、笔记、工作台搜索和快捷操作",
+      "source": "https://kb.syntrofic.com/?id=20261120144948-sg0k6ju",
+      "milestone": "M9",
+      "criteria": "一个收件和待办工作台串起当日会议信息、待回复项与跟进任务，列表和快捷键支持快速操作。"
+    },
+    {
+      "id": "S-02",
+      "name": "Gmail / Google Workspace、Google Calendar、Google Contacts、Plain、Granola、Cal.com 及连接器身份授权",
+      "source": "https://kb.syntrofic.com/?id=20261120144948-sg0k6ju",
+      "milestone": "M9",
+      "criteria": "分别接入邮件、日历、联系人、支持工单、会议笔记、预订时段。使用测试账号验证连接、权限撤回、增量同步、续期和失败诊断。"
+    },
+    {
+      "id": "S-03",
+      "name": "邮件摘要、AI 草稿、撰写、定时发送、撤销发送、稍后提醒、未回复跟进、会话旁日程",
+      "source": "https://kb.syntrofic.com/?id=20261120144948-sg0k6ju",
+      "milestone": "M9",
+      "criteria": "演示读线程到草稿、确认、延迟发送和撤销，发送和其它外部动作留下执行记录。"
+    },
+    {
+      "id": "S-04",
+      "name": "会前资料、日程变更建议、会议后任务、共同上下文和记忆",
+      "source": "https://kb.syntrofic.com/?id=20261120144948-sg0k6ju",
+      "milestone": "M9",
+      "criteria": "从会议邀请匹配相关历史，形成带来源的会前简报，用户批准后更新外部日程，并记录后续任务。"
+    },
+    {
+      "id": "S-05",
+      "name": "CRM、自动提取联系人及公司、商机分阶段、更新历史与撤销，融资管线和跟进草稿",
+      "source": "https://kb.syntrofic.com/?id=20261120144948-sg0k6ju",
+      "milestone": "M9",
+      "criteria": "在自有数据里演示公司、联系人、商机和投资机构关系，更新有据可查且可撤销。"
+    },
+    {
+      "id": "S-06",
+      "name": "Remote MCP，第三方 Agent 读取工作空间、工具逐项允许/确认/禁止、活动审计",
+      "source": "https://kb.syntrofic.com/?id=20261120144948-sg0k6ju",
+      "milestone": "M9",
+      "criteria": "在外部 MCP 客户端走完 OAuth、按工具限权、审批、失败和撤回路径。检查跨租户隔离、同意记录及存储范围。"
+    },
+    {
+      "id": "S-07",
+      "name": "自带托管 AI、模型分流、使用额度、Free / Plus / Pro / Team、应用更新记录和下载",
+      "source": "https://kb.syntrofic.com/?id=20261120144948-sg0k6ju",
+      "milestone": "M9",
+      "criteria": "应用端与服务端职责分离，模型与订阅权益按能力验收。账号能看到权限、用量、变更和可用版本。"
+    },
+    {
+      "id": "S-08",
+      "name": "桌面更新记录中的长尾能力",
+      "source": "https://kb.syntrofic.com/?id=20261120144948-sg0k6ju",
+      "milestone": "M9",
+      "criteria": "覆盖邮件多账号、验证邮件聚合、标签、VIP、规则页签、签名与订阅、回复短语、邮件打开状态与用户同意、打印/导出、命令菜单、日历提醒与可预约时间、客服指派、任务看板、笔记文件夹、系统通知及主题。"
+    },
+    {
+      "id": "S-09",
+      "name": "iPhone App、后台邮件分类、Team 成员与角色、共享支持收件箱和统一账单",
+      "source": "https://kb.syntrofic.com/?id=20261120144948-sg0k6ju",
+      "milestone": "M9 后续",
+      "criteria": "保留为公开规划能力，纳入 M9 的后续里程碑。各项需要独立终端或多人协作演示。"
+    },
+    {
+      "id": "legacy-component.code",
+      "name": "Code",
+      "source": "https://kb.syntrofic.com/?id=20261120144948-sg0k6ju",
+      "milestone": "M2",
+      "criteria": "提供 Vue 等效组件和迁移用例。"
+    },
+    {
+      "id": "legacy-component.image",
+      "name": "Image",
+      "source": "https://kb.syntrofic.com/?id=20261120144948-sg0k6ju",
+      "milestone": "M2",
+      "criteria": "提供 Vue 等效组件和迁移用例。"
+    },
+    {
+      "id": "legacy-component.snippet",
+      "name": "Snippet",
+      "source": "https://kb.syntrofic.com/?id=20261120144948-sg0k6ju",
+      "milestone": "M2",
+      "criteria": "提供 Vue 等效组件和迁移用例。"
+    },
+    {
+      "id": "legacy-component.spacer",
+      "name": "Spacer",
+      "source": "https://kb.syntrofic.com/?id=20261120144948-sg0k6ju",
+      "milestone": "M2",
+      "criteria": "提供 Vue 等效组件和迁移用例。"
+    },
+    {
+      "id": "legacy-component.user",
+      "name": "User",
+      "source": "https://kb.syntrofic.com/?id=20261120144948-sg0k6ju",
+      "milestone": "M2",
+      "criteria": "提供 Vue 等效组件和迁移用例。"
+    }
+  ],
+  "agentUI": [
+    {
+      "id": "agent-ui.dashboard",
+      "name": "Dashboard",
+      "upstream": "https://heroui.pro/docs/agents/components/data-visualization",
+      "milestone": "M8"
+    },
+    {
+      "id": "agent-ui.kpi-grid",
+      "name": "KPI Grid",
+      "upstream": "https://heroui.pro/docs/agents/components/data-visualization",
+      "milestone": "M8"
+    },
+    {
+      "id": "agent-ui.metric-grid",
+      "name": "Metric Grid",
+      "upstream": "https://heroui.pro/docs/agents/components/data-visualization",
+      "milestone": "M8"
+    },
+    {
+      "id": "agent-ui.line-chart",
+      "name": "Line Chart",
+      "upstream": "https://heroui.pro/docs/agents/components/data-visualization",
+      "milestone": "M8"
+    },
+    {
+      "id": "agent-ui.area-chart",
+      "name": "Area Chart",
+      "upstream": "https://heroui.pro/docs/agents/components/data-visualization",
+      "milestone": "M8"
+    },
+    {
+      "id": "agent-ui.bar-chart",
+      "name": "Bar Chart",
+      "upstream": "https://heroui.pro/docs/agents/components/data-visualization",
+      "milestone": "M8"
+    },
+    {
+      "id": "agent-ui.composed-chart",
+      "name": "Composed Chart",
+      "upstream": "https://heroui.pro/docs/agents/components/data-visualization",
+      "milestone": "M8"
+    },
+    {
+      "id": "agent-ui.candlestick-chart",
+      "name": "Candlestick Chart",
+      "upstream": "https://heroui.pro/docs/agents/components/data-visualization",
+      "milestone": "M8"
+    },
+    {
+      "id": "agent-ui.pie-chart",
+      "name": "Pie Chart",
+      "upstream": "https://heroui.pro/docs/agents/components/data-visualization",
+      "milestone": "M8"
+    },
+    {
+      "id": "agent-ui.donut-chart",
+      "name": "Donut Chart",
+      "upstream": "https://heroui.pro/docs/agents/components/data-visualization",
+      "milestone": "M8"
+    },
+    {
+      "id": "agent-ui.funnel-chart",
+      "name": "Funnel Chart",
+      "upstream": "https://heroui.pro/docs/agents/components/data-visualization",
+      "milestone": "M8"
+    },
+    {
+      "id": "agent-ui.radar-chart",
+      "name": "Radar Chart",
+      "upstream": "https://heroui.pro/docs/agents/components/data-visualization",
+      "milestone": "M8"
+    },
+    {
+      "id": "agent-ui.radial-chart",
+      "name": "Radial Chart",
+      "upstream": "https://heroui.pro/docs/agents/components/data-visualization",
+      "milestone": "M8"
+    },
+    {
+      "id": "agent-ui.gauge-chart",
+      "name": "Gauge Chart",
+      "upstream": "https://heroui.pro/docs/agents/components/data-visualization",
+      "milestone": "M8"
+    },
+    {
+      "id": "agent-ui.sunburst-chart",
+      "name": "Sunburst Chart",
+      "upstream": "https://heroui.pro/docs/agents/components/data-visualization",
+      "milestone": "M8"
+    },
+    {
+      "id": "agent-ui.sankey-chart",
+      "name": "Sankey Chart",
+      "upstream": "https://heroui.pro/docs/agents/components/data-visualization",
+      "milestone": "M8"
+    },
+    {
+      "id": "agent-ui.scatter-chart",
+      "name": "Scatter Chart",
+      "upstream": "https://heroui.pro/docs/agents/components/data-visualization",
+      "milestone": "M8"
+    },
+    {
+      "id": "agent-ui.heatmap",
+      "name": "Heatmap",
+      "upstream": "https://heroui.pro/docs/agents/components/data-visualization",
+      "milestone": "M8"
+    },
+    {
+      "id": "agent-ui.data-table",
+      "name": "Data Table",
+      "upstream": "https://heroui.pro/docs/agents/components/data-visualization",
+      "milestone": "M8"
+    },
+    {
+      "id": "agent-ui.comparison-list",
+      "name": "Comparison List",
+      "upstream": "https://heroui.pro/docs/agents/components/data-visualization",
+      "milestone": "M8"
+    },
+    {
+      "id": "agent-ui.meter-list",
+      "name": "Meter List",
+      "upstream": "https://heroui.pro/docs/agents/components/data-visualization",
+      "milestone": "M8"
+    },
+    {
+      "id": "agent-ui.card",
+      "name": "Card",
+      "upstream": "https://heroui.pro/docs/agents/components/display-information",
+      "milestone": "M8"
+    },
+    {
+      "id": "agent-ui.text",
+      "name": "Text",
+      "upstream": "https://heroui.pro/docs/agents/components/display-information",
+      "milestone": "M8"
+    },
+    {
+      "id": "agent-ui.callout",
+      "name": "Callout",
+      "upstream": "https://heroui.pro/docs/agents/components/display-information",
+      "milestone": "M8"
+    },
+    {
+      "id": "agent-ui.image",
+      "name": "Image",
+      "upstream": "https://heroui.pro/docs/agents/components/display-information",
+      "milestone": "M8"
+    },
+    {
+      "id": "agent-ui.tag-list",
+      "name": "Tag List",
+      "upstream": "https://heroui.pro/docs/agents/components/display-information",
+      "milestone": "M8"
+    },
+    {
+      "id": "agent-ui.list",
+      "name": "List",
+      "upstream": "https://heroui.pro/docs/agents/components/display-information",
+      "milestone": "M8"
+    },
+    {
+      "id": "agent-ui.list-block",
+      "name": "List Block",
+      "upstream": "https://heroui.pro/docs/agents/components/display-information",
+      "milestone": "M8"
+    },
+    {
+      "id": "agent-ui.accordion",
+      "name": "Accordion",
+      "upstream": "https://heroui.pro/docs/agents/components/display-information",
+      "milestone": "M8"
+    },
+    {
+      "id": "agent-ui.steps",
+      "name": "Steps",
+      "upstream": "https://heroui.pro/docs/agents/components/display-information",
+      "milestone": "M8"
+    },
+    {
+      "id": "agent-ui.code-block",
+      "name": "Code Block",
+      "upstream": "https://heroui.pro/docs/agents/components/display-information",
+      "milestone": "M8"
+    },
+    {
+      "id": "agent-ui.diagram",
+      "name": "Diagram",
+      "upstream": "https://heroui.pro/docs/agents/components/display-information",
+      "milestone": "M8"
+    },
+    {
+      "id": "agent-ui.tabs",
+      "name": "Tabs",
+      "upstream": "https://heroui.pro/docs/agents/components/display-information",
+      "milestone": "M8"
+    },
+    {
+      "id": "agent-ui.generated-composition",
+      "name": "Generated Composition",
+      "upstream": "https://heroui.pro/docs/agents/components/display-information",
+      "milestone": "M8"
+    },
+    {
+      "id": "agent-ui.product-card",
+      "name": "Product Card",
+      "upstream": "https://heroui.pro/docs/agents/components/display-information",
+      "milestone": "M8"
+    },
+    {
+      "id": "agent-ui.record-card",
+      "name": "Record Card",
+      "upstream": "https://heroui.pro/docs/agents/components/display-information",
+      "milestone": "M8"
+    },
+    {
+      "id": "agent-ui.item-card",
+      "name": "Item Card",
+      "upstream": "https://heroui.pro/docs/agents/components/display-information",
+      "milestone": "M8"
+    },
+    {
+      "id": "agent-ui.item-card-group",
+      "name": "Item Card Group",
+      "upstream": "https://heroui.pro/docs/agents/components/display-information",
+      "milestone": "M8"
+    },
+    {
+      "id": "agent-ui.product-signals",
+      "name": "Product Signals",
+      "upstream": "https://heroui.pro/docs/agents/components/display-information",
+      "milestone": "M8"
+    },
+    {
+      "id": "agent-ui.composition-api",
+      "name": "Composition API",
+      "upstream": "https://heroui.pro/docs/agents/components/display-information",
+      "milestone": "M8"
+    },
+    {
+      "id": "agent-ui.map",
+      "name": "Map",
+      "upstream": "https://heroui.pro/docs/agents/components/display-information",
+      "milestone": "M8"
+    },
+    {
+      "id": "agent-ui.row",
+      "name": "Row",
+      "upstream": "https://heroui.pro/docs/agents/components/display-information",
+      "milestone": "M8"
+    },
+    {
+      "id": "agent-ui.column",
+      "name": "Column",
+      "upstream": "https://heroui.pro/docs/agents/components/display-information",
+      "milestone": "M8"
+    },
+    {
+      "id": "agent-ui.grid",
+      "name": "Grid",
+      "upstream": "https://heroui.pro/docs/agents/components/display-information",
+      "milestone": "M8"
+    },
+    {
+      "id": "agent-ui.spacer",
+      "name": "Spacer",
+      "upstream": "https://heroui.pro/docs/agents/components/display-information",
+      "milestone": "M8"
+    },
+    {
+      "id": "agent-ui.divider",
+      "name": "Divider",
+      "upstream": "https://heroui.pro/docs/agents/components/display-information",
+      "milestone": "M8"
+    },
+    {
+      "id": "agent-ui.heading",
+      "name": "Heading",
+      "upstream": "https://heroui.pro/docs/agents/components/display-information",
+      "milestone": "M8"
+    },
+    {
+      "id": "agent-ui.badge",
+      "name": "Badge",
+      "upstream": "https://heroui.pro/docs/agents/components/display-information",
+      "milestone": "M8"
+    },
+    {
+      "id": "agent-ui.icon",
+      "name": "Icon",
+      "upstream": "https://heroui.pro/docs/agents/components/display-information",
+      "milestone": "M8"
+    },
+    {
+      "id": "agent-ui.rating",
+      "name": "Rating",
+      "upstream": "https://heroui.pro/docs/agents/components/display-information",
+      "milestone": "M8"
+    },
+    {
+      "id": "agent-ui.progress",
+      "name": "Progress",
+      "upstream": "https://heroui.pro/docs/agents/components/display-information",
+      "milestone": "M8"
+    },
+    {
+      "id": "agent-ui.form",
+      "name": "Form",
+      "upstream": "https://heroui.pro/docs/agents/components/form-elements",
+      "milestone": "M8"
+    },
+    {
+      "id": "agent-ui.switch-group",
+      "name": "Switch Group",
+      "upstream": "https://heroui.pro/docs/agents/components/form-elements",
+      "milestone": "M8"
+    },
+    {
+      "id": "agent-ui.toggle-group",
+      "name": "Toggle Group",
+      "upstream": "https://heroui.pro/docs/agents/components/form-elements",
+      "milestone": "M8"
+    },
+    {
+      "id": "agent-ui.action-group",
+      "name": "Action Group",
+      "upstream": "https://heroui.pro/docs/agents/components/actions",
+      "milestone": "M8"
+    },
+    {
+      "id": "agent-ui.follow-up",
+      "name": "Follow-up",
+      "upstream": "https://heroui.pro/docs/agents/components/actions",
+      "milestone": "M8"
+    },
+    {
+      "id": "agent-ui.button",
+      "name": "Button",
+      "upstream": "https://heroui.pro/docs/agents/components/actions",
+      "milestone": "M8"
+    }
+  ],
+  "legacyBlocks": [
+    {
+      "id": "legacy-block.charts.bars-and-circles",
+      "category": "Charts",
+      "name": "Bars And Circles",
+      "upstream": "https://v2.heroui.pro/components/charts/Bars-and-Circles",
+      "milestone": "M4–M5",
+      "examples": 10
+    },
+    {
+      "id": "legacy-block.charts.graphs",
+      "category": "Charts",
+      "name": "Graphs",
+      "upstream": "https://v2.heroui.pro/components/charts/Graphs",
+      "milestone": "M4–M5",
+      "examples": 2
+    },
+    {
+      "id": "legacy-block.charts.kpi-stats",
+      "category": "Charts",
+      "name": "KPI Stats",
+      "upstream": "https://v2.heroui.pro/components/charts/KPI-stats",
+      "milestone": "M4–M5",
+      "examples": 9
+    },
+    {
+      "id": "legacy-block.application.calendar",
+      "category": "Application",
+      "name": "Calendar",
+      "upstream": "https://v2.heroui.pro/components/application/calendar",
+      "milestone": "M4–M5",
+      "examples": 3
+    },
+    {
+      "id": "legacy-block.application.authentication",
+      "category": "Application",
+      "name": "Authentication",
+      "upstream": "https://v2.heroui.pro/components/application/authentication",
+      "milestone": "M4–M5",
+      "examples": 24
+    },
+    {
+      "id": "legacy-block.application.cards",
+      "category": "Application",
+      "name": "Cards",
+      "upstream": "https://v2.heroui.pro/components/application/cards",
+      "milestone": "M4–M5",
+      "examples": 20
+    },
+    {
+      "id": "legacy-block.application.command-menus",
+      "category": "Application",
+      "name": "Command Menus",
+      "upstream": "https://v2.heroui.pro/components/application/command-menus",
+      "milestone": "M4–M5",
+      "examples": 1
+    },
+    {
+      "id": "legacy-block.application.layouts",
+      "category": "Application",
+      "name": "Layouts",
+      "upstream": "https://v2.heroui.pro/components/application/layouts",
+      "milestone": "M4–M5",
+      "examples": 2
+    },
+    {
+      "id": "legacy-block.application.navigation-headers",
+      "category": "Application",
+      "name": "Navigation Headers",
+      "upstream": "https://v2.heroui.pro/components/application/navigation-headers",
+      "milestone": "M4–M5",
+      "examples": 5
+    },
+    {
+      "id": "legacy-block.application.scrolling-banners",
+      "category": "Application",
+      "name": "Scrolling Banners",
+      "upstream": "https://v2.heroui.pro/components/application/scrolling-banners",
+      "milestone": "M4–M5",
+      "examples": 5
+    },
+    {
+      "id": "legacy-block.application.sidebars",
+      "category": "Application",
+      "name": "Sidebars",
+      "upstream": "https://v2.heroui.pro/components/application/sidebars",
+      "milestone": "M4–M5",
+      "examples": 19
+    },
+    {
+      "id": "legacy-block.application.tables",
+      "category": "Application",
+      "name": "Tables",
+      "upstream": "https://v2.heroui.pro/components/application/tables",
+      "milestone": "M4–M5",
+      "examples": 1
+    },
+    {
+      "id": "legacy-block.application.feedbacks",
+      "category": "Application",
+      "name": "Feedbacks",
+      "upstream": "https://v2.heroui.pro/components/application/feedbacks",
+      "milestone": "M4–M5",
+      "examples": 4
+    },
+    {
+      "id": "legacy-block.application.forms",
+      "category": "Application",
+      "name": "Forms",
+      "upstream": "https://v2.heroui.pro/components/application/forms",
+      "milestone": "M4–M5",
+      "examples": 1
+    },
+    {
+      "id": "legacy-block.application.navbars",
+      "category": "Application",
+      "name": "Navbars",
+      "upstream": "https://v2.heroui.pro/components/application/navbars",
+      "milestone": "M4–M5",
+      "examples": 3
+    },
+    {
+      "id": "legacy-block.application.steppers",
+      "category": "Application",
+      "name": "Steppers",
+      "upstream": "https://v2.heroui.pro/components/application/steppers",
+      "milestone": "M4–M5",
+      "examples": 7
+    },
+    {
+      "id": "legacy-block.ai.prompt-containers",
+      "category": "Ai",
+      "name": "Prompt Containers",
+      "upstream": "https://v2.heroui.pro/components/ai/prompt-containers",
+      "milestone": "M4–M5",
+      "examples": 10
+    },
+    {
+      "id": "legacy-block.ai.playgrounds",
+      "category": "Ai",
+      "name": "Playgrounds",
+      "upstream": "https://v2.heroui.pro/components/ai/playgrounds",
+      "milestone": "M4–M5",
+      "examples": 1
+    },
+    {
+      "id": "legacy-block.ai.features",
+      "category": "Ai",
+      "name": "Features",
+      "upstream": "https://v2.heroui.pro/components/ai/features",
+      "milestone": "M4–M5",
+      "examples": 2
+    },
+    {
+      "id": "legacy-block.ai.prompt-inputs",
+      "category": "Ai",
+      "name": "Prompt Inputs",
+      "upstream": "https://v2.heroui.pro/components/ai/prompt-inputs",
+      "milestone": "M4–M5",
+      "examples": 11
+    },
+    {
+      "id": "legacy-block.ai.messages",
+      "category": "Ai",
+      "name": "Messages",
+      "upstream": "https://v2.heroui.pro/components/ai/messages",
+      "milestone": "M4–M5",
+      "examples": 6
+    },
+    {
+      "id": "legacy-block.marketing.faqs",
+      "category": "Marketing",
+      "name": "Faqs",
+      "upstream": "https://v2.heroui.pro/components/marketing/faqs",
+      "milestone": "M4–M5",
+      "examples": 4
+    },
+    {
+      "id": "legacy-block.marketing.pricing",
+      "category": "Marketing",
+      "name": "Pricing",
+      "upstream": "https://v2.heroui.pro/components/marketing/pricing",
+      "milestone": "M4–M5",
+      "examples": 8
+    },
+    {
+      "id": "legacy-block.marketing.footers",
+      "category": "Marketing",
+      "name": "Footers",
+      "upstream": "https://v2.heroui.pro/components/marketing/footers",
+      "milestone": "M4–M5",
+      "examples": 4
+    },
+    {
+      "id": "legacy-block.marketing.hero-sections",
+      "category": "Marketing",
+      "name": "Hero Sections",
+      "upstream": "https://v2.heroui.pro/components/marketing/hero-sections",
+      "milestone": "M4–M5",
+      "examples": 4
+    },
+    {
+      "id": "legacy-block.marketing.pricing-comparison",
+      "category": "Marketing",
+      "name": "Pricing Comparison",
+      "upstream": "https://v2.heroui.pro/components/marketing/pricing-comparison",
+      "milestone": "M4–M5",
+      "examples": 8
+    },
+    {
+      "id": "legacy-block.marketing.teams",
+      "category": "Marketing",
+      "name": "Teams",
+      "upstream": "https://v2.heroui.pro/components/marketing/teams",
+      "milestone": "M4–M5",
+      "examples": 1
+    },
+    {
+      "id": "legacy-block.marketing.banners",
+      "category": "Marketing",
+      "name": "Banners",
+      "upstream": "https://v2.heroui.pro/components/marketing/banners",
+      "milestone": "M4–M5",
+      "examples": 8
+    },
+    {
+      "id": "legacy-block.marketing.cookie-consents",
+      "category": "Marketing",
+      "name": "Cookie Consents",
+      "upstream": "https://v2.heroui.pro/components/marketing/cookie-consents",
+      "milestone": "M4–M5",
+      "examples": 8
+    },
+    {
+      "id": "legacy-block.ecommerce.filters",
+      "category": "Ecommerce",
+      "name": "Filters",
+      "upstream": "https://v2.heroui.pro/components/ecommerce/filters",
+      "milestone": "M4–M5",
+      "examples": 9
+    },
+    {
+      "id": "legacy-block.ecommerce.product-list",
+      "category": "Ecommerce",
+      "name": "Product List",
+      "upstream": "https://v2.heroui.pro/components/ecommerce/product-list",
+      "milestone": "M4–M5",
+      "examples": 9
+    },
+    {
+      "id": "legacy-block.ecommerce.checkouts",
+      "category": "Ecommerce",
+      "name": "Checkouts",
+      "upstream": "https://v2.heroui.pro/components/ecommerce/checkouts",
+      "milestone": "M4–M5",
+      "examples": 4
+    },
+    {
+      "id": "legacy-block.ecommerce.product-view",
+      "category": "Ecommerce",
+      "name": "Product View",
+      "upstream": "https://v2.heroui.pro/components/ecommerce/product-view",
+      "milestone": "M4–M5",
+      "examples": 1
+    },
+    {
+      "id": "legacy-block.ecommerce.reviews",
+      "category": "Ecommerce",
+      "name": "Reviews",
+      "upstream": "https://v2.heroui.pro/components/ecommerce/reviews",
+      "milestone": "M4–M5",
+      "examples": 6
+    }
+  ]
+}

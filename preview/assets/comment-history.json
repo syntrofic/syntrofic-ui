@@ -1,0 +1,4 @@
+[
+  { "id": "latest", "text": "已复核交付说明。附件可以发布。", "updatedAt": "2026-11-20T09:16:00Z", "author": { "id": "lin", "name": "林舟" }, "current": true },
+  { "id": "initial", "text": "交付意见的初始版本。", "updatedAt": "2026-11-20T09:05:00Z", "author": { "id": "lin", "name": "林舟" } }
+]

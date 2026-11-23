@@ -1,0 +1,3366 @@
+{
+  "W.button": {
+    "component": "SButton",
+    "status": "implementation",
+    "review": "/?component=W.button",
+    "reviewNumber": "001"
+  },
+  "W.button-group": {
+    "component": "SButtonGroup",
+    "status": "implementation",
+    "review": "/?component=W.button-group",
+    "reviewNumber": "002"
+  },
+  "W.close-button": {
+    "component": "SCloseButton",
+    "status": "implementation",
+    "review": "/?component=W.close-button",
+    "reviewNumber": "003"
+  },
+  "W.checkbox": {
+    "component": "SCheckbox",
+    "status": "implementation",
+    "review": "/?component=W.checkbox",
+    "reviewNumber": "004"
+  },
+  "W.checkbox-group": {
+    "component": "SCheckboxGroup",
+    "status": "implementation",
+    "review": "/?component=W.checkbox-group",
+    "reviewNumber": "005"
+  },
+  "W.description": {
+    "component": "SDescription",
+    "status": "implementation",
+    "review": "/?component=W.description",
+    "reviewNumber": "006"
+  },
+  "W.error-message": {
+    "component": "SErrorMessage",
+    "status": "implementation",
+    "review": "/?component=W.error-message",
+    "reviewNumber": "007"
+  },
+  "W.field-error": {
+    "component": "SFieldError",
+    "status": "implementation",
+    "review": "/?component=W.field-error",
+    "reviewNumber": "008"
+  },
+  "W.fieldset": {
+    "component": "SFieldset",
+    "status": "implementation",
+    "review": "/?component=W.fieldset",
+    "reviewNumber": "009"
+  },
+  "W.form": {
+    "component": "SForm",
+    "status": "implementation",
+    "review": "/?component=W.form",
+    "reviewNumber": "010"
+  },
+  "W.input": {
+    "component": "SInput",
+    "status": "implementation",
+    "review": "/?component=W.input",
+    "reviewNumber": "011"
+  },
+  "W.input-group": {
+    "component": "SInputGroup",
+    "status": "implementation",
+    "review": "/?component=W.input-group",
+    "related": ["useInputContainer", "useMergedRefs"],
+    "reviewNumber": "012"
+  },
+  "W.label": {
+    "component": "SLabel",
+    "related": ["SFieldLabel"],
+    "status": "implementation",
+    "review": "/?component=W.label",
+    "reviewNumber": "013"
+  },
+  "W.radio-group": {
+    "component": "SRadioGroup",
+    "status": "implementation",
+    "review": "/?component=W.radio-group",
+    "reviewNumber": "014"
+  },
+  "W.text-area": {
+    "component": "STextArea",
+    "status": "implementation",
+    "review": "/?component=W.text-area",
+    "reviewNumber": "015"
+  },
+  "W.text-field": {
+    "component": "STextField",
+    "status": "implementation",
+    "review": "/?component=W.text-field",
+    "remaining": "中文 IME、自动填充和跨浏览器验收。",
+    "reviewNumber": "016"
+  },
+  "W.tabs": {
+    "component": "STabs",
+    "related": ["STabBar", "STabBarMoreList", "STabMenu", "useKeyboardHint"],
+    "status": "implementation",
+    "review": "/?component=W.tabs",
+    "reviewNumber": "017"
+  },
+  "W.modal": {
+    "component": "SDialog",
+    "related": ["SAdaptiveDialog", "SDialogHeroHeader", "useImperativeDialog", "useImperativeAlertDialog", "useFocusTrap", "useScrollLock"],
+    "status": "implementation",
+    "review": "/?component=W.modal",
+    "remaining": "嵌套、外部关闭策略、多浏览器和 SSR 水合验收。",
+    "reviewNumber": "018"
+  },
+  "W.tooltip": {
+    "component": "STooltip",
+    "related": ["useTooltip"],
+    "status": "implementation",
+    "review": "/?component=W.tooltip",
+    "reviewNumber": "019"
+  },
+  "W.switch": {
+    "component": "SSwitch",
+    "status": "implementation",
+    "review": "/?component=W.switch",
+    "reviewNumber": "020"
+  },
+  "W.alert": {
+    "component": "SAlert",
+    "status": "implementation",
+    "review": "/?component=W.alert",
+    "reviewNumber": "021"
+  },
+  "W.skeleton": {
+    "component": "SSkeleton",
+    "status": "implementation",
+    "review": "/?component=W.skeleton",
+    "reviewNumber": "022"
+  },
+  "W.spinner": {
+    "component": "SSpinner",
+    "status": "implementation",
+    "review": "/?component=W.spinner",
+    "reviewNumber": "023"
+  },
+  "W.card": {
+    "component": "SCard",
+    "status": "implementation",
+    "review": "/?component=W.card",
+    "reviewNumber": "024"
+  },
+  "W.separator": {
+    "component": "SSeparator",
+    "status": "implementation",
+    "review": "/?component=W.separator",
+    "reviewNumber": "025"
+  },
+  "W.surface": {
+    "component": "SSurface",
+    "status": "implementation",
+    "review": "/?component=W.surface",
+    "reviewNumber": "026"
+  },
+  "W.avatar": {
+    "component": "SAvatar",
+    "related": ["SAvatarStatusDot"],
+    "status": "implementation",
+    "review": "/?component=W.avatar",
+    "reviewNumber": "027"
+  },
+  "W.badge": {
+    "component": "SBadge",
+    "status": "implementation",
+    "review": "/?component=W.badge",
+    "reviewNumber": "028"
+  },
+  "W.chip": {
+    "component": "SChip",
+    "status": "implementation",
+    "review": "/?component=W.chip",
+    "reviewNumber": "029"
+  },
+  "W.export.radio": {
+    "component": "SRadio",
+    "status": "implementation",
+    "review": "/?component=W.export.radio",
+    "reviewNumber": "030"
+  },
+  "W.export.switch-group": {
+    "component": "SSwitchGroup",
+    "status": "implementation",
+    "review": "/?component=W.export.switch-group",
+    "reviewNumber": "031"
+  },
+  "W.select": {
+    "component": "SSelect",
+    "related": ["useMultiCombobox"],
+    "status": "implementation",
+    "review": "/?component=W.select",
+    "remaining": "异步数据、浮层嵌套、更多组合场景和跨浏览器验收。",
+    "reviewNumber": "032"
+  },
+  "W.table": {
+    "component": "STable",
+    "related": ["STableSelectionToolbar", "useTablePagination", "useTableSelection", "useTableSelectionState", "useTableSortable", "useTableSortableState", "useTableTreeData", "useTableTreeState", "useTableRowExpansion", "useTableRowIndex", "useTableGroupedRows", "useTableInfiniteScroll", "useTableRowsVirtualization", "useTableColumnsVirtualization", "useTableColumnResize", "useTableColumnSettings", "useTableColumnSettingsState", "useTableStickyColumns"],
+    "status": "implementation",
+    "review": "/?component=W.table",
+    "remaining": "服务端分页流程、长表格跨浏览器和读屏验收。",
+    "reviewNumber": "033"
+  },
+  "W.link": {
+    "component": "SLink",
+    "related": ["SLinkProvider", "useLinkComponent", "useLinkify"],
+    "status": "implementation",
+    "review": "/?component=W.link",
+    "reviewNumber": "034"
+  },
+  "W.breadcrumbs": {
+    "component": "SBreadcrumbs",
+    "related": ["SBreadcrumbItem"],
+    "status": "implementation",
+    "review": "/?component=W.breadcrumbs",
+    "reviewNumber": "035"
+  },
+  "W.pagination": {
+    "component": "SPagination",
+    "status": "implementation",
+    "review": "/?component=W.pagination",
+    "reviewNumber": "036"
+  },
+  "W.toggle-button": {
+    "component": "SToggleButton",
+    "status": "implementation",
+    "review": "/?component=W.toggle-button",
+    "reviewNumber": "037"
+  },
+  "W.toggle-button-group": {
+    "component": "SToggleButtonGroup",
+    "status": "implementation",
+    "review": "/?component=W.toggle-button-group",
+    "reviewNumber": "038"
+  },
+  "W.toolbar": {
+    "component": "SToolbar",
+    "related": ["SToolbarButton"],
+    "status": "implementation",
+    "review": "/?component=W.toolbar",
+    "reviewNumber": "039"
+  },
+  "W.accordion": {
+    "component": "SAccordion",
+    "status": "implementation",
+    "review": "/?component=W.accordion",
+    "reviewNumber": "040"
+  },
+  "W.disclosure": {
+    "component": "SDisclosure",
+    "related": ["useCollapsible"],
+    "status": "implementation",
+    "review": "/?component=W.disclosure",
+    "reviewNumber": "041"
+  },
+  "W.disclosure-group": {
+    "component": "SDisclosureGroup",
+    "status": "implementation",
+    "review": "/?component=W.disclosure-group",
+    "reviewNumber": "042"
+  },
+  "W.alert-dialog": {
+    "component": "SAlertDialog",
+    "status": "implementation",
+    "review": "/?component=W.alert-dialog",
+    "reviewNumber": "043"
+  },
+  "W.popover": {
+    "component": "SPopover",
+    "related": ["usePopover"],
+    "status": "implementation",
+    "review": "/?component=W.popover",
+    "reviewNumber": "044"
+  },
+  "W.dropdown": {
+    "component": "SDropdown",
+    "related": ["SMoreMenu", "SMenuSection", "SMenuItem"],
+    "status": "implementation",
+    "review": "/?component=W.dropdown",
+    "reviewNumber": "045"
+  },
+  "W.export.menu": {
+    "component": "SMenu",
+    "related": ["useMenuPress", "isMenuPressActivation"],
+    "status": "implementation",
+    "review": "/?component=W.export.menu",
+    "reviewNumber": "046"
+  },
+  "W.export.menu-item": {
+    "component": "SMenuItem",
+    "status": "implementation",
+    "review": "/?component=W.export.menu-item",
+    "reviewNumber": "047"
+  },
+  "W.export.menu-section": {
+    "component": "SMenuSection",
+    "status": "implementation",
+    "review": "/?component=W.export.menu-section",
+    "reviewNumber": "048"
+  },
+  "W.export.header": {
+    "component": "SHeader",
+    "status": "implementation",
+    "review": "/?component=W.export.header",
+    "reviewNumber": "049"
+  },
+  "W.export.empty-state": {
+    "component": "SEmptyState",
+    "status": "implementation",
+    "review": "/?component=W.export.empty-state",
+    "reviewNumber": "050"
+  },
+  "W.list-box": {
+    "component": "SListBox",
+    "related": ["useListFocus", "useTypeahead"],
+    "status": "implementation",
+    "review": "/?component=W.list-box",
+    "remaining": "长列表虚拟化适用于平面集合，分组列表保持完整 DOM。",
+    "reviewNumber": "051"
+  },
+  "W.export.list-box-item": {
+    "component": "SListBoxItem",
+    "status": "implementation",
+    "review": "/?component=W.export.list-box-item",
+    "reviewNumber": "052"
+  },
+  "W.export.list-box-section": {
+    "component": "SListBoxSection",
+    "status": "implementation",
+    "review": "/?component=W.export.list-box-section",
+    "reviewNumber": "053"
+  },
+  "W.combo-box": {
+    "component": "SComboBox",
+    "related": ["useCombobox"],
+    "status": "implementation",
+    "review": "/?component=W.combo-box",
+    "remaining": "当前接入单选组合选择框。复杂输入状态和读屏待验收。",
+    "reviewNumber": "054"
+  },
+  "W.autocomplete": {
+    "component": "SAutocomplete",
+    "related": ["SBaseTypeahead"],
+    "status": "implementation",
+    "review": "/?component=W.autocomplete",
+    "reviewNumber": "055"
+  },
+  "W.export.tag": {
+    "component": "STag",
+    "status": "implementation",
+    "review": "/?component=W.export.tag",
+    "reviewNumber": "056"
+  },
+  "W.tag-group": {
+    "component": "STagGroup",
+    "status": "implementation",
+    "review": "/?component=W.tag-group",
+    "reviewNumber": "057"
+  },
+  "W.input-otp": {
+    "component": "SInputOTP",
+    "status": "implementation",
+    "review": "/?component=W.input-otp",
+    "reviewNumber": "058"
+  },
+  "W.number-field": {
+    "component": "SNumberField",
+    "status": "implementation",
+    "review": "/?component=W.number-field",
+    "reviewNumber": "059"
+  },
+  "W.search-field": {
+    "component": "SSearchField",
+    "status": "implementation",
+    "review": "/?component=W.search-field",
+    "reviewNumber": "060"
+  },
+  "W.calendar": {
+    "component": "SCalendar",
+    "related": ["useCalendarConstraints", "useCalendarDays", "useCalendarNavigation"],
+    "status": "implementation",
+    "review": "/?component=W.calendar",
+    "reviewNumber": "061"
+  },
+  "W.date-field": {
+    "component": "SDateField",
+    "status": "implementation",
+    "review": "/?component=W.date-field",
+    "reviewNumber": "062"
+  },
+  "W.date-picker": {
+    "component": "SDatePicker",
+    "status": "implementation",
+    "review": "/?component=W.date-picker",
+    "reviewNumber": "063"
+  },
+  "W.date-range-picker": {
+    "component": "SDateRangePicker",
+    "status": "implementation",
+    "review": "/?component=W.date-range-picker",
+    "reviewNumber": "064"
+  },
+  "W.range-calendar": {
+    "component": "SRangeCalendar",
+    "status": "implementation",
+    "review": "/?component=W.range-calendar",
+    "reviewNumber": "065"
+  },
+  "W.time-field": {
+    "component": "STimeField",
+    "status": "implementation",
+    "review": "/?component=W.time-field",
+    "reviewNumber": "066"
+  },
+  "W.export.calendar-year-picker": {
+    "component": "SCalendarYearPicker",
+    "status": "implementation",
+    "review": "/?component=W.export.calendar-year-picker",
+    "reviewNumber": "067"
+  },
+  "W.export.date-input-group": {
+    "component": "SDateInputGroup",
+    "status": "implementation",
+    "review": "/?component=W.export.date-input-group",
+    "reviewNumber": "068"
+  },
+  "W.drawer": {
+    "component": "SDrawer",
+    "status": "implementation",
+    "review": "/?component=W.drawer",
+    "reviewNumber": "069"
+  },
+  "W.sheet": {
+    "component": "SSheet",
+    "related": ["SBottomSheetSwitcher"],
+    "status": "implementation",
+    "review": "/?component=W.sheet",
+    "reviewNumber": "070"
+  },
+  "W.toast": {
+    "component": "SToast",
+    "related": ["useToast"],
+    "status": "implementation",
+    "review": "/?component=W.toast",
+    "reviewNumber": "071"
+  },
+  "W.slider": {
+    "component": "SSlider",
+    "status": "implementation",
+    "review": "/?component=W.slider",
+    "reviewNumber": "072"
+  },
+  "W.meter": {
+    "component": "SMeter",
+    "status": "implementation",
+    "review": "/?component=W.meter",
+    "reviewNumber": "073"
+  },
+  "W.progress-bar": {
+    "component": "SProgressBar",
+    "status": "implementation",
+    "review": "/?component=W.progress-bar",
+    "reviewNumber": "074"
+  },
+  "W.progress-circle": {
+    "component": "SProgressCircle",
+    "status": "implementation",
+    "review": "/?component=W.progress-circle",
+    "reviewNumber": "075"
+  },
+  "W.avatar-group": {
+    "component": "SAvatarGroup",
+    "related": ["SAvatarGroupOverflow"],
+    "status": "implementation",
+    "review": "/?component=W.avatar-group",
+    "reviewNumber": "076"
+  },
+  "W.kbd": {
+    "component": "SKbd",
+    "status": "implementation",
+    "review": "/?component=W.kbd",
+    "reviewNumber": "077"
+  },
+  "W.typography": {
+    "component": "STypography",
+    "related": ["SCode", "SHeading"],
+    "status": "implementation",
+    "review": "/?component=W.typography",
+    "reviewNumber": "078"
+  },
+  "W.scroll-shadow": {
+    "component": "SScrollShadow",
+    "related": ["useScrollOverflow"],
+    "status": "implementation",
+    "review": "/?component=W.scroll-shadow",
+    "reviewNumber": "079"
+  },
+  "W.color-area": {
+    "component": "SColorArea",
+    "status": "implementation",
+    "review": "/?component=W.color-area",
+    "reviewNumber": "080"
+  },
+  "W.color-field": {
+    "component": "SColorField",
+    "status": "implementation",
+    "review": "/?component=W.color-field",
+    "reviewNumber": "081"
+  },
+  "W.color-picker": {
+    "component": "SColorPicker",
+    "status": "implementation",
+    "review": "/?component=W.color-picker",
+    "reviewNumber": "082"
+  },
+  "W.color-slider": {
+    "component": "SColorSlider",
+    "status": "implementation",
+    "review": "/?component=W.color-slider",
+    "reviewNumber": "083"
+  },
+  "W.color-swatch": {
+    "component": "SColorSwatch",
+    "status": "implementation",
+    "review": "/?component=W.color-swatch",
+    "reviewNumber": "084"
+  },
+  "W.color-swatch-picker": {
+    "component": "SColorSwatchPicker",
+    "status": "implementation",
+    "review": "/?component=W.color-swatch-picker",
+    "reviewNumber": "085"
+  },
+  "W.export.color-input-group": {
+    "component": "SColorInputGroup",
+    "status": "implementation",
+    "review": "/?component=W.export.color-input-group",
+    "reviewNumber": "086"
+  },
+  "W.export.rac": {
+    "component": "ListBoxLoadMoreItem",
+    "related": ["SInternationalizationProvider"],
+    "status": "implementation",
+    "review": "/?component=W.export.rac",
+    "reviewNumber": "087",
+    "componentSource": "src/rac/ListBoxLoadMoreItem.vue",
+    "moduleSource": "src/rac/index.ts"
+  },
+  "N.button": {
+    "component": "SNativeButton",
+    "status": "implementation",
+    "review": "apps/native-demo/src/ReviewScene.vue",
+    "reviewNumber": "088",
+    "componentSource": "packages/native/src/components/SNativeButton.vue",
+    "verification": "native-bundle"
+  },
+  "N.close-button": {
+    "component": "SNativeCloseButton",
+    "status": "implementation",
+    "review": "apps/native-demo/src/ReviewScene.vue",
+    "reviewNumber": "089",
+    "componentSource": "packages/native/src/components/SNativeCloseButton.vue",
+    "verification": "native-bundle"
+  },
+  "N.link-button": {
+    "component": "SNativeLinkButton",
+    "status": "implementation",
+    "review": "apps/native-demo/src/ReviewScene.vue",
+    "reviewNumber": "090",
+    "componentSource": "packages/native/src/components/SNativeLinkButton.vue",
+    "verification": "native-bundle"
+  },
+  "N.pressable-feedback": {
+    "component": "SNativePressableFeedback",
+    "status": "implementation",
+    "review": "apps/native-demo/src/ReviewScene.vue",
+    "reviewNumber": "091",
+    "componentSource": "packages/native/src/components/SNativePressableFeedback.vue",
+    "verification": "native-bundle"
+  },
+  "N.input": {
+    "component": "SNativeInput",
+    "status": "implementation",
+    "review": "apps/native-demo/src/ReviewScene.vue",
+    "reviewNumber": "092",
+    "componentSource": "packages/native/src/components/SNativeInput.vue",
+    "verification": "native-bundle"
+  },
+  "N.text-field": {
+    "component": "SNativeTextField",
+    "status": "implementation",
+    "review": "apps/native-demo/src/ReviewScene.vue",
+    "reviewNumber": "093",
+    "componentSource": "packages/native/src/components/SNativeTextField.vue",
+    "verification": "native-bundle"
+  },
+  "N.label": {
+    "component": "SNativeLabel",
+    "status": "implementation",
+    "review": "apps/native-demo/src/ReviewScene.vue",
+    "reviewNumber": "094",
+    "componentSource": "packages/native/src/components/SNativeLabel.vue",
+    "verification": "native-bundle"
+  },
+  "N.description": {
+    "component": "SNativeDescription",
+    "status": "implementation",
+    "review": "apps/native-demo/src/ReviewScene.vue",
+    "reviewNumber": "095",
+    "componentSource": "packages/native/src/components/SNativeDescription.vue",
+    "verification": "native-bundle"
+  },
+  "N.field-error": {
+    "component": "SNativeFieldError",
+    "status": "implementation",
+    "review": "apps/native-demo/src/ReviewScene.vue",
+    "reviewNumber": "096",
+    "componentSource": "packages/native/src/components/SNativeFieldError.vue",
+    "verification": "native-bundle"
+  },
+  "N.text": {
+    "component": "SNativeText",
+    "status": "implementation",
+    "review": "apps/native-demo/src/ReviewScene.vue",
+    "reviewNumber": "097",
+    "componentSource": "packages/native/src/components/SNativeText.vue",
+    "verification": "native-bundle"
+  },
+  "N.surface": {
+    "component": "SNativeSurface",
+    "status": "implementation",
+    "review": "apps/native-demo/src/ReviewScene.vue",
+    "reviewNumber": "098",
+    "componentSource": "packages/native/src/components/SNativeSurface.vue",
+    "verification": "native-bundle"
+  },
+  "N.separator": {
+    "component": "SNativeSeparator",
+    "status": "implementation",
+    "review": "apps/native-demo/src/ReviewScene.vue",
+    "reviewNumber": "099",
+    "componentSource": "packages/native/src/components/SNativeSeparator.vue",
+    "verification": "native-bundle"
+  },
+  "N.card": {
+    "component": "SNativeCard",
+    "status": "implementation",
+    "review": "apps/native-demo/src/ReviewScene.vue",
+    "reviewNumber": "100",
+    "componentSource": "packages/native/src/components/SNativeCard.vue",
+    "verification": "native-bundle"
+  },
+  "N.spinner": {
+    "component": "SNativeSpinner",
+    "status": "implementation",
+    "review": "apps/native-demo/src/ReviewScene.vue",
+    "reviewNumber": "101",
+    "componentSource": "packages/native/src/components/SNativeSpinner.vue",
+    "verification": "native-bundle"
+  },
+  "N.alert": {
+    "component": "SNativeAlert",
+    "status": "implementation",
+    "review": "apps/native-demo/src/ReviewScene.vue",
+    "reviewNumber": "102",
+    "componentSource": "packages/native/src/components/SNativeAlert.vue",
+    "verification": "native-bundle"
+  },
+  "N.input-group": {
+    "component": "SNativeInputGroup",
+    "status": "implementation",
+    "review": "apps/native-demo/src/FormReview.vue",
+    "reviewNumber": "103",
+    "componentSource": "packages/native/src/components/SNativeInputGroup.vue",
+    "verification": "native-bundle"
+  },
+  "N.search-field": {
+    "component": "SNativeSearchField",
+    "status": "implementation",
+    "review": "apps/native-demo/src/FormReview.vue",
+    "reviewNumber": "104",
+    "componentSource": "packages/native/src/components/SNativeSearchField.vue",
+    "verification": "native-bundle"
+  },
+  "N.input-otp": {
+    "component": "SNativeInputOTP",
+    "status": "implementation",
+    "review": "apps/native-demo/src/FormReview.vue",
+    "reviewNumber": "105",
+    "componentSource": "packages/native/src/components/SNativeInputOTP.vue",
+    "verification": "native-bundle"
+  },
+  "N.text-area": {
+    "component": "SNativeTextArea",
+    "status": "implementation",
+    "review": "apps/native-demo/src/FormReview.vue",
+    "reviewNumber": "106",
+    "componentSource": "packages/native/src/components/SNativeTextArea.vue",
+    "verification": "native-bundle"
+  },
+  "N.checkbox": {
+    "component": "SNativeCheckbox",
+    "status": "implementation",
+    "review": "apps/native-demo/src/FormReview.vue",
+    "reviewNumber": "107",
+    "componentSource": "packages/native/src/components/SNativeCheckbox.vue",
+    "verification": "native-bundle"
+  },
+  "N.switch": {
+    "component": "SNativeSwitch",
+    "status": "implementation",
+    "review": "apps/native-demo/src/FormReview.vue",
+    "reviewNumber": "108",
+    "componentSource": "packages/native/src/components/SNativeSwitch.vue",
+    "verification": "native-bundle"
+  },
+  "N.control-field": {
+    "component": "SNativeControlField",
+    "status": "implementation",
+    "review": "apps/native-demo/src/FormReview.vue",
+    "reviewNumber": "109",
+    "componentSource": "packages/native/src/components/SNativeControlField.vue",
+    "verification": "native-bundle"
+  },
+  "N.radio-group": {
+    "component": "SNativeRadioGroup",
+    "status": "implementation",
+    "review": "apps/native-demo/src/FormReview.vue",
+    "reviewNumber": "110",
+    "componentSource": "packages/native/src/components/SNativeRadioGroup.vue",
+    "verification": "native-bundle"
+  },
+  "N.export.radio": {
+    "component": "SNativeRadio",
+    "status": "implementation",
+    "review": "apps/native-demo/src/FormReview.vue",
+    "reviewNumber": "111",
+    "componentSource": "packages/native/src/components/SNativeRadio.vue",
+    "verification": "native-bundle",
+    "moduleSource": "packages/native/src/radio.ts"
+  },
+  "N.accordion": {
+    "component": "SNativeAccordion",
+    "status": "implementation",
+    "review": "apps/native-demo/src/CollectionReview.vue",
+    "reviewNumber": "112",
+    "componentSource": "packages/native/src/components/SNativeAccordion.vue",
+    "verification": "native-bundle"
+  },
+  "N.list-group": {
+    "component": "SNativeListGroup",
+    "status": "implementation",
+    "review": "apps/native-demo/src/CollectionReview.vue",
+    "reviewNumber": "113",
+    "componentSource": "packages/native/src/components/SNativeListGroup.vue",
+    "verification": "native-bundle"
+  },
+  "N.tabs": {
+    "component": "SNativeTabs",
+    "status": "implementation",
+    "review": "apps/native-demo/src/CollectionReview.vue",
+    "reviewNumber": "114",
+    "componentSource": "packages/native/src/components/SNativeTabs.vue",
+    "verification": "native-bundle"
+  },
+  "N.tag-group": {
+    "component": "SNativeTagGroup",
+    "status": "implementation",
+    "review": "apps/native-demo/src/CollectionReview.vue",
+    "reviewNumber": "115",
+    "componentSource": "packages/native/src/components/SNativeTagGroup.vue",
+    "verification": "native-bundle"
+  },
+  "N.chip": {
+    "component": "SNativeChip",
+    "status": "implementation",
+    "review": "apps/native-demo/src/CollectionReview.vue",
+    "reviewNumber": "116",
+    "componentSource": "packages/native/src/components/SNativeChip.vue",
+    "verification": "native-bundle"
+  },
+  "N.skeleton": {
+    "component": "SNativeSkeleton",
+    "status": "implementation",
+    "review": "apps/native-demo/src/CollectionReview.vue",
+    "reviewNumber": "117",
+    "componentSource": "packages/native/src/components/SNativeSkeleton.vue",
+    "verification": "native-bundle"
+  },
+  "N.skeleton-group": {
+    "component": "SNativeSkeletonGroup",
+    "status": "implementation",
+    "review": "apps/native-demo/src/CollectionReview.vue",
+    "reviewNumber": "118",
+    "componentSource": "packages/native/src/components/SNativeSkeletonGroup.vue",
+    "verification": "native-bundle"
+  },
+  "N.avatar": {
+    "component": "SNativeAvatar",
+    "status": "implementation",
+    "review": "apps/native-demo/src/CollectionReview.vue",
+    "reviewNumber": "119",
+    "componentSource": "packages/native/src/components/SNativeAvatar.vue",
+    "verification": "native-bundle"
+  },
+  "N.scroll-shadow": {
+    "component": "SNativeScrollShadow",
+    "status": "implementation",
+    "review": "apps/native-demo/src/CollectionReview.vue",
+    "reviewNumber": "120",
+    "componentSource": "packages/native/src/components/SNativeScrollShadow.vue",
+    "verification": "native-bundle"
+  },
+  "N.slider": {
+    "component": "SNativeSlider",
+    "status": "implementation",
+    "review": "apps/native-demo/src/ReviewScene.vue",
+    "reviewNumber": "121",
+    "componentSource": "packages/native/src/components/SNativeSlider.vue",
+    "verification": "native-bundle"
+  },
+  "N.dialog": {
+    "component": "SNativeDialog",
+    "status": "implementation",
+    "review": "apps/native-demo/src/OverlayReview.vue",
+    "reviewNumber": "122",
+    "componentSource": "packages/native/src/components/SNativeDialog.vue",
+    "verification": "native-bundle"
+  },
+  "N.toast": {
+    "component": "SNativeToast",
+    "status": "implementation",
+    "review": "apps/native-demo/src/ReviewScene.vue",
+    "reviewNumber": "123",
+    "componentSource": "packages/native/src/components/SNativeToast.vue",
+    "verification": "native-bundle"
+  },
+  "N.bottom-sheet": {
+    "component": "SNativeBottomSheet",
+    "status": "implementation",
+    "review": "apps/native-demo/src/ReviewScene.vue",
+    "reviewNumber": "124",
+    "componentSource": "packages/native/src/components/SNativeBottomSheet.vue",
+    "verification": "native-bundle"
+  },
+  "N.popover": {
+    "component": "SNativePopover",
+    "status": "implementation",
+    "review": "apps/native-demo/src/ChoiceOverlayReview.vue",
+    "reviewNumber": "125",
+    "componentSource": "packages/native/src/components/SNativePopover.vue",
+    "verification": "native-bundle"
+  },
+  "N.menu": {
+    "component": "SNativeMenu",
+    "status": "implementation",
+    "review": "apps/native-demo/src/ChoiceOverlayReview.vue",
+    "reviewNumber": "126",
+    "componentSource": "packages/native/src/components/SNativeMenu.vue",
+    "verification": "native-bundle"
+  },
+  "N.select": {
+    "component": "SNativeSelect",
+    "status": "implementation",
+    "review": "apps/native-demo/src/ChoiceOverlayReview.vue",
+    "reviewNumber": "127",
+    "componentSource": "packages/native/src/components/SNativeSelect.vue",
+    "verification": "native-bundle"
+  },
+  "N.export.sub-menu": {
+    "component": "SNativeSubMenu",
+    "status": "implementation",
+    "review": "apps/native-demo/src/ChoiceOverlayReview.vue",
+    "reviewNumber": "128",
+    "componentSource": "packages/native/src/components/SNativeSubMenu.vue",
+    "verification": "native-bundle",
+    "moduleSource": "packages/native/src/sub-menu.ts"
+  },
+  "N.export.glass-view": {
+    "component": "SNativeGlassView",
+    "status": "implementation",
+    "review": "apps/native-demo/src/MaterialReview.vue",
+    "reviewNumber": "129",
+    "componentSource": "packages/native/src/components/SNativeGlassView.vue",
+    "verification": "native-bundle",
+    "moduleSource": "packages/native/src/glass-view.ts"
+  },
+  "N.export.theme-background": {
+    "component": "SNativeThemeBackground",
+    "status": "implementation",
+    "review": "apps/native-demo/src/MaterialReview.vue",
+    "reviewNumber": "130",
+    "componentSource": "packages/native/src/components/SNativeThemeBackground.vue",
+    "verification": "native-bundle",
+    "moduleSource": "packages/native/src/theme-background.ts"
+  },
+  "WP.number-value": {
+    "component": "SNumberValue",
+    "status": "implementation",
+    "review": "/?component=WP.number-value",
+    "reviewNumber": "131"
+  },
+  "WP.trend-chip": {
+    "component": "STrendChip",
+    "status": "implementation",
+    "review": "/?component=WP.trend-chip",
+    "reviewNumber": "132"
+  },
+  "WP.pressable-feedback": {
+    "component": "SPressableFeedback",
+    "related": ["usePressFeedback"],
+    "status": "implementation",
+    "review": "/?component=WP.pressable-feedback",
+    "reviewNumber": "133"
+  },
+  "WP.rating": {
+    "component": "SRating",
+    "related": ["useKeyboardHint"],
+    "status": "implementation",
+    "review": "/?component=WP.rating",
+    "reviewNumber": "134"
+  },
+  "WP.emoji-picker": {
+    "component": "SEmojiPicker",
+    "status": "implementation",
+    "review": "/?component=WP.emoji-picker",
+    "reviewNumber": "135"
+  },
+  "WP.emoji-reaction-button": {
+    "component": "SEmojiReactionButton",
+    "status": "implementation",
+    "review": "/?component=WP.emoji-reaction-button",
+    "reviewNumber": "136"
+  },
+  "WP.cell-color-picker": {
+    "component": "SCellColorPicker",
+    "status": "implementation",
+    "review": "/?component=WP.cell-color-picker",
+    "reviewNumber": "137"
+  },
+  "WP.cell-select": {
+    "component": "SCellSelect",
+    "status": "implementation",
+    "review": "/?component=WP.cell-select",
+    "reviewNumber": "138"
+  },
+  "WP.cell-slider": {
+    "component": "SCellSlider",
+    "status": "implementation",
+    "review": "/?component=WP.cell-slider",
+    "reviewNumber": "139"
+  },
+  "WP.cell-switch": {
+    "component": "SCellSwitch",
+    "status": "implementation",
+    "review": "/?component=WP.cell-switch",
+    "reviewNumber": "140"
+  },
+  "WP.inline-select": {
+    "component": "SInlineSelect",
+    "status": "implementation",
+    "review": "/?component=WP.inline-select",
+    "reviewNumber": "141"
+  },
+  "WP.native-select": {
+    "component": "SNativeSelect",
+    "status": "implementation",
+    "review": "/?component=WP.native-select",
+    "reviewNumber": "142"
+  },
+  "WP.checkbox-button-group": {
+    "component": "SCheckboxButtonGroup",
+    "status": "implementation",
+    "review": "/?component=WP.checkbox-button-group",
+    "reviewNumber": "143"
+  },
+  "WP.radio-button-group": {
+    "component": "SRadioButtonGroup",
+    "status": "implementation",
+    "review": "/?component=WP.radio-button-group",
+    "reviewNumber": "144"
+  },
+  "WP.number-stepper": {
+    "component": "SNumberStepper",
+    "status": "implementation",
+    "review": "/?component=WP.number-stepper",
+    "reviewNumber": "145"
+  },
+  "WP.drop-zone": {
+    "component": "SDropZone",
+    "status": "implementation",
+    "review": "/?component=WP.drop-zone",
+    "reviewNumber": "146"
+  },
+  "WP.rich-text-editor": {
+    "component": "SRichTextEditor",
+    "related": ["SRichTextView", "SRichTextEditorToolbar", "createRichTextAutoLink"],
+    "status": "implementation",
+    "review": "/?component=WP.rich-text-editor",
+    "reviewNumber": "147"
+  },
+  "WP.markdown": {
+    "component": "SMarkdown",
+    "related": ["SStreamMarkdown", "useStreamingText"],
+    "status": "implementation",
+    "review": "/?component=WP.markdown",
+    "reviewNumber": "148"
+  },
+  "WP.code-block": {
+    "component": "SCodeBlock",
+    "related": ["SBrandTheme", "SMediaTheme", "SSyntaxTheme", "useImageMode", "useSyntaxTheme", "useTheme"],
+    "status": "implementation",
+    "review": "/?component=WP.code-block",
+    "reviewNumber": "149"
+  },
+  "WP.segment": {
+    "component": "SSegment",
+    "status": "implementation",
+    "review": "/?component=WP.segment",
+    "reviewNumber": "150"
+  },
+  "WP.stepper": {
+    "component": "SStepper",
+    "status": "implementation",
+    "review": "/?component=WP.stepper",
+    "reviewNumber": "151"
+  },
+  "WP.context-menu": {
+    "component": "SContextMenu",
+    "related": ["SContextMenuItem"],
+    "status": "implementation",
+    "review": "/?component=WP.context-menu",
+    "reviewNumber": "152"
+  },
+  "WP.app-layout": {
+    "component": "SAppLayout",
+    "related": ["useAppShellMobile"],
+    "status": "implementation",
+    "review": "/?component=WP.app-layout",
+    "reviewNumber": "153"
+  },
+  "WP.navbar": {
+    "component": "SNavbar",
+    "status": "implementation",
+    "review": "/?component=WP.navbar",
+    "reviewNumber": "154"
+  },
+  "WP.sidebar": {
+    "component": "SSidebar",
+    "related": ["SSideNavCollapseButton"],
+    "status": "implementation",
+    "review": "/?component=WP.sidebar",
+    "reviewNumber": "155"
+  },
+  "WP.command": {
+    "component": "SCommand",
+    "related": ["SCommandEmpty", "SCommandFooter", "SCommandGroup", "SCommandItem", "SCommandList"],
+    "status": "implementation",
+    "review": "/?component=WP.command",
+    "reviewNumber": "156"
+  },
+  "WP.resizable": {
+    "component": "SResizable",
+    "related": ["useResizable", "SResizeHandle", "pixel", "percent"],
+    "status": "implementation",
+    "review": "/?component=WP.resizable",
+    "reviewNumber": "157"
+  },
+  "WP.action-bar": {
+    "component": "SActionBar",
+    "status": "implementation",
+    "review": "/?component=WP.action-bar",
+    "reviewNumber": "158"
+  },
+  "WP.agenda": {
+    "component": "SAgenda",
+    "status": "implementation",
+    "review": "/?component=WP.agenda",
+    "reviewNumber": "159"
+  },
+  "WP.carousel": {
+    "component": "SCarousel",
+    "related": ["useSnapPaging"],
+    "status": "implementation",
+    "review": "/?component=WP.carousel",
+    "reviewNumber": "160"
+  },
+  "WP.empty-state": {
+    "component": "SEmptyState",
+    "status": "implementation",
+    "review": "/?component=WP.empty-state",
+    "reviewNumber": "161"
+  },
+  "WP.data-grid": {
+    "component": "SDataGrid",
+    "related": ["useGridFocus"],
+    "status": "implementation",
+    "review": "/?component=WP.data-grid",
+    "reviewNumber": "162"
+  },
+  "WP.file-tree": {
+    "component": "SFileTree",
+    "related": ["useTreeFocus"],
+    "status": "implementation",
+    "review": "/?component=WP.file-tree",
+    "reviewNumber": "163"
+  },
+  "WP.floating-toc": {
+    "component": "SFloatingToc",
+    "status": "implementation",
+    "review": "/?component=WP.floating-toc",
+    "reviewNumber": "164"
+  },
+  "WP.holo-card": {
+    "component": "SHoloCard",
+    "status": "implementation",
+    "review": "/?component=WP.holo-card",
+    "reviewNumber": "165"
+  },
+  "WP.hover-card": {
+    "component": "SHoverCard",
+    "related": ["useHoverCard"],
+    "status": "implementation",
+    "review": "/?component=WP.hover-card",
+    "reviewNumber": "166"
+  },
+  "WP.kanban": {
+    "component": "SKanban",
+    "status": "implementation",
+    "review": "/?component=WP.kanban",
+    "reviewNumber": "167"
+  },
+  "WP.item-card": {
+    "component": "SItemCard",
+    "status": "implementation",
+    "review": "/?component=WP.item-card",
+    "reviewNumber": "168"
+  },
+  "WP.item-card-group": {
+    "component": "SItemCardGroup",
+    "status": "implementation",
+    "review": "/?component=WP.item-card-group",
+    "reviewNumber": "169"
+  },
+  "WP.kpi": {
+    "component": "SKpi",
+    "status": "implementation",
+    "review": "/?component=WP.kpi",
+    "reviewNumber": "170"
+  },
+  "WP.kpi-group": {
+    "component": "SKpiGroup",
+    "status": "implementation",
+    "review": "/?component=WP.kpi-group",
+    "reviewNumber": "171"
+  },
+  "WP.list-view": {
+    "component": "SListView",
+    "status": "implementation",
+    "review": "/?component=WP.list-view",
+    "related": ["SList", "SListItem"],
+    "reviewNumber": "172"
+  },
+  "WP.map": {
+    "component": "SMap",
+    "status": "implementation",
+    "review": "/?component=WP.map",
+    "reviewNumber": "173"
+  },
+  "WP.timeline": {
+    "component": "STimeline",
+    "status": "implementation",
+    "review": "/?component=WP.timeline",
+    "reviewNumber": "174"
+  },
+  "WP.widget": {
+    "component": "SWidget",
+    "status": "implementation",
+    "review": "/?component=WP.widget",
+    "reviewNumber": "175"
+  },
+  "WP.area-chart": {
+    "component": "SAreaChart",
+    "status": "implementation",
+    "review": "/?component=WP.area-chart",
+    "reviewNumber": "176"
+  },
+  "WP.bar-chart": {
+    "component": "SBarChart",
+    "status": "implementation",
+    "review": "/?component=WP.bar-chart",
+    "reviewNumber": "177"
+  },
+  "WP.chart-tooltip": {
+    "component": "SChartTooltip",
+    "status": "implementation",
+    "review": "/?component=WP.chart-tooltip",
+    "reviewNumber": "178"
+  },
+  "WP.composed-chart": {
+    "component": "SComposedChart",
+    "related": ["SChartLegend", "SChartSwatch", "SChartAxis", "SChartGrid"],
+    "status": "implementation",
+    "review": "/?component=WP.composed-chart",
+    "reviewNumber": "179"
+  },
+  "WP.line-chart": {
+    "component": "SLineChart",
+    "status": "implementation",
+    "review": "/?component=WP.line-chart",
+    "reviewNumber": "180"
+  },
+  "WP.pie-chart": {
+    "component": "SPieChart",
+    "status": "implementation",
+    "review": "/?component=WP.pie-chart",
+    "reviewNumber": "181"
+  },
+  "WP.radar-chart": {
+    "component": "SRadarChart",
+    "status": "implementation",
+    "review": "/?component=WP.radar-chart",
+    "reviewNumber": "182"
+  },
+  "WP.radial-chart": {
+    "component": "SRadialChart",
+    "status": "implementation",
+    "review": "/?component=WP.radial-chart",
+    "reviewNumber": "183"
+  },
+  "WP.chain-of-thought": {
+    "component": "SChainOfThought",
+    "status": "implementation",
+    "review": "/?component=WP.chain-of-thought",
+    "reviewNumber": "184"
+  },
+  "WP.chat-attachment": {
+    "component": "SChatAttachment",
+    "status": "implementation",
+    "review": "/?component=WP.chat-attachment",
+    "reviewNumber": "185"
+  },
+  "WP.chat-conversation": {
+    "component": "SChatConversation",
+    "related": ["SChatScrollButton", "SChatVirtualizer"],
+    "status": "implementation",
+    "review": "/?component=WP.chat-conversation",
+    "reviewNumber": "186"
+  },
+  "WP.chat-list-view": {
+    "component": "SChatListView",
+    "status": "implementation",
+    "review": "/?component=WP.chat-list-view",
+    "reviewNumber": "187"
+  },
+  "WP.chat-loader": {
+    "component": "SChatLoader",
+    "status": "implementation",
+    "review": "/?component=WP.chat-loader",
+    "reviewNumber": "188"
+  },
+  "WP.chat-message": {
+    "component": "SChatMessage",
+    "related": ["SChatMessageBubble", "SChatMessageMetadata", "SChatSystemMessage", "SChatTokenizedText"],
+    "status": "implementation",
+    "review": "/?component=WP.chat-message",
+    "reviewNumber": "189"
+  },
+  "WP.chat-message-actions": {
+    "component": "SChatMessageActions",
+    "status": "implementation",
+    "review": "/?component=WP.chat-message-actions",
+    "reviewNumber": "190"
+  },
+  "WP.chat-source": {
+    "component": "SChatSource",
+    "status": "implementation",
+    "review": "/?component=WP.chat-source",
+    "reviewNumber": "191"
+  },
+  "WP.chat-tool": {
+    "component": "SChatTool",
+    "related": ["SChatToolCalls"],
+    "status": "implementation",
+    "review": "/?component=WP.chat-tool",
+    "reviewNumber": "192"
+  },
+  "WP.prompt-input": {
+    "component": "SPromptInput",
+    "related": ["SChatSendButton"],
+    "status": "implementation",
+    "review": "/?component=WP.prompt-input",
+    "reviewNumber": "193"
+  },
+  "WP.prompt-suggestion": {
+    "component": "SPromptSuggestion",
+    "status": "implementation",
+    "review": "/?component=WP.prompt-suggestion",
+    "reviewNumber": "194"
+  },
+  "WP.text-shimmer": {
+    "component": "STextShimmer",
+    "status": "implementation",
+    "review": "/?component=WP.text-shimmer",
+    "reviewNumber": "195"
+  },
+  "NP.fab": {
+    "component": "SNativeFAB",
+    "componentSource": "packages/native/src/components/SNativeFAB.vue",
+    "status": "implementation",
+    "review": "apps/native-demo/src/ActionReview.vue",
+    "reviewNumber": "196",
+    "verification": "native-bundle"
+  },
+  "NP.morph-button": {
+    "component": "SNativeMorphButton",
+    "componentSource": "packages/native/src/components/SNativeMorphButton.vue",
+    "status": "implementation",
+    "review": "apps/native-demo/src/ActionReview.vue",
+    "reviewNumber": "197",
+    "verification": "native-bundle"
+  },
+  "NP.progress-button": {
+    "component": "SNativeProgressButton",
+    "componentSource": "packages/native/src/components/SNativeProgressButton.vue",
+    "status": "implementation",
+    "review": "apps/native-demo/src/ActionReview.vue",
+    "reviewNumber": "198",
+    "verification": "native-bundle"
+  },
+  "NP.slide-button": {
+    "component": "SNativeSlideButton",
+    "componentSource": "packages/native/src/components/SNativeSlideButton.vue",
+    "status": "implementation",
+    "review": "apps/native-demo/src/ActionReview.vue",
+    "reviewNumber": "199",
+    "verification": "native-bundle"
+  },
+  "NP.social-auth-button": {
+    "component": "SNativeSocialAuthButton",
+    "componentSource": "packages/native/src/components/SNativeSocialAuthButton.vue",
+    "status": "implementation",
+    "review": "apps/native-demo/src/ActionReview.vue",
+    "reviewNumber": "200",
+    "verification": "native-bundle"
+  },
+  "NP.toggle-button": {
+    "component": "SNativeToggleButton",
+    "componentSource": "packages/native/src/components/SNativeToggleButton.vue",
+    "status": "implementation",
+    "review": "apps/native-demo/src/ActionReview.vue",
+    "reviewNumber": "201",
+    "verification": "native-bundle"
+  },
+  "NP.toggle-button-group": {
+    "component": "SNativeToggleButtonGroup",
+    "componentSource": "packages/native/src/components/SNativeToggleButtonGroup.vue",
+    "status": "implementation",
+    "review": "apps/native-demo/src/ActionReview.vue",
+    "reviewNumber": "202",
+    "verification": "native-bundle"
+  },
+  "NP.autocomplete": {
+    "component": "SNativeAutocomplete",
+    "componentSource": "packages/native/src/components/SNativeAutocomplete.vue",
+    "status": "implementation",
+    "review": "apps/native-demo/src/InputProReview.vue",
+    "reviewNumber": "203",
+    "verification": "native-bundle"
+  },
+  "NP.combo-box": {
+    "component": "SNativeComboBox",
+    "componentSource": "packages/native/src/components/SNativeComboBox.vue",
+    "status": "implementation",
+    "review": "apps/native-demo/src/InputProReview.vue",
+    "reviewNumber": "204",
+    "verification": "native-bundle"
+  },
+  "NP.number-field": {
+    "component": "SNativeNumberField",
+    "componentSource": "packages/native/src/components/SNativeNumberField.vue",
+    "status": "implementation",
+    "review": "apps/native-demo/src/InputProReview.vue",
+    "reviewNumber": "205",
+    "verification": "native-bundle"
+  },
+  "NP.number-pad": {
+    "component": "SNativeNumberPad",
+    "componentSource": "packages/native/src/components/SNativeNumberPad.vue",
+    "status": "implementation",
+    "review": "apps/native-demo/src/InputProReview.vue",
+    "reviewNumber": "206",
+    "verification": "native-bundle"
+  },
+  "NP.number-stepper": {
+    "component": "SNativeNumberStepper",
+    "componentSource": "packages/native/src/components/SNativeNumberStepper.vue",
+    "status": "implementation",
+    "review": "apps/native-demo/src/InputProReview.vue",
+    "reviewNumber": "207",
+    "verification": "native-bundle"
+  },
+  "NP.phone-number-field": {
+    "component": "SNativePhoneNumberField",
+    "componentSource": "packages/native/src/components/SNativePhoneNumberField.vue",
+    "status": "implementation",
+    "review": "apps/native-demo/src/InputProReview.vue",
+    "reviewNumber": "208",
+    "verification": "native-bundle"
+  },
+  "NP.radio-button-group": {
+    "component": "SNativeRadioButtonGroup",
+    "componentSource": "packages/native/src/components/SNativeRadioButtonGroup.vue",
+    "status": "implementation",
+    "review": "apps/native-demo/src/PickerProReview.vue",
+    "reviewNumber": "209",
+    "verification": "native-bundle"
+  },
+  "NP.wheel-picker": {
+    "component": "SNativeWheelPicker",
+    "componentSource": "packages/native/src/components/SNativeWheelPicker.vue",
+    "status": "implementation",
+    "review": "apps/native-demo/src/PickerProReview.vue",
+    "reviewNumber": "210",
+    "verification": "native-bundle"
+  },
+  "NP.wheel-picker-group": {
+    "component": "SNativeWheelPickerGroup",
+    "componentSource": "packages/native/src/components/SNativeWheelPickerGroup.vue",
+    "status": "implementation",
+    "review": "apps/native-demo/src/PickerProReview.vue",
+    "reviewNumber": "211",
+    "verification": "native-bundle"
+  },
+  "NP.agenda": {
+    "component": "SNativeAgenda",
+    "componentSource": "packages/native/src/components/SNativeAgenda.vue",
+    "status": "implementation",
+    "review": "apps/native-demo/src/DateProReview.vue",
+    "reviewNumber": "212",
+    "verification": "native-bundle"
+  },
+  "NP.calendar": {
+    "component": "SNativeCalendar",
+    "componentSource": "packages/native/src/components/SNativeCalendar.vue",
+    "status": "implementation",
+    "review": "apps/native-demo/src/DateProReview.vue",
+    "reviewNumber": "213",
+    "verification": "native-bundle"
+  },
+  "NP.date-field": {
+    "component": "SNativeDateField",
+    "componentSource": "packages/native/src/components/SNativeDateField.vue",
+    "status": "implementation",
+    "review": "apps/native-demo/src/DateProReview.vue",
+    "reviewNumber": "214",
+    "verification": "native-bundle"
+  },
+  "NP.date-picker": {
+    "component": "SNativeDatePicker",
+    "componentSource": "packages/native/src/components/SNativeDatePicker.vue",
+    "status": "implementation",
+    "review": "apps/native-demo/src/DateProReview.vue",
+    "reviewNumber": "215",
+    "verification": "native-bundle"
+  },
+  "NP.date-range-picker": {
+    "component": "SNativeDateRangePicker",
+    "componentSource": "packages/native/src/components/SNativeDateRangePicker.vue",
+    "status": "implementation",
+    "review": "apps/native-demo/src/TemporalProReview.vue",
+    "reviewNumber": "216",
+    "verification": "native-bundle"
+  },
+  "NP.date-time-picker": {
+    "component": "SNativeDateTimePicker",
+    "componentSource": "packages/native/src/components/SNativeDateTimePicker.vue",
+    "status": "implementation",
+    "review": "apps/native-demo/src/TemporalProReview.vue",
+    "reviewNumber": "217",
+    "verification": "native-bundle"
+  },
+  "NP.range-calendar": {
+    "component": "SNativeRangeCalendar",
+    "componentSource": "packages/native/src/components/SNativeRangeCalendar.vue",
+    "status": "implementation",
+    "review": "apps/native-demo/src/TemporalProReview.vue",
+    "reviewNumber": "218",
+    "verification": "native-bundle"
+  },
+  "NP.time-picker": {
+    "component": "SNativeTimePicker",
+    "componentSource": "packages/native/src/components/SNativeTimePicker.vue",
+    "status": "implementation",
+    "review": "apps/native-demo/src/TemporalProReview.vue",
+    "reviewNumber": "219",
+    "verification": "native-bundle"
+  },
+  "NP.wheel-date-time-picker": {
+    "component": "SNativeWheelDateTimePicker",
+    "componentSource": "packages/native/src/components/SNativeWheelDateTimePicker.vue",
+    "status": "implementation",
+    "review": "apps/native-demo/src/TemporalProReview.vue",
+    "reviewNumber": "220",
+    "verification": "native-bundle"
+  },
+  "NP.wheel-time-picker": {
+    "component": "SNativeWheelTimePicker",
+    "componentSource": "packages/native/src/components/SNativeWheelTimePicker.vue",
+    "status": "implementation",
+    "review": "apps/native-demo/src/TemporalProReview.vue",
+    "reviewNumber": "221",
+    "verification": "native-bundle"
+  },
+  "NP.morph-tabs": {
+    "component": "SNativeMorphTabs",
+    "componentSource": "packages/native/src/components/SNativeMorphTabs.vue",
+    "status": "implementation",
+    "review": "apps/native-demo/src/NavigationProReview.vue",
+    "reviewNumber": "222",
+    "verification": "native-bundle"
+  },
+  "NP.segment": {
+    "component": "SNativeSegment",
+    "componentSource": "packages/native/src/components/SNativeSegment.vue",
+    "status": "implementation",
+    "review": "apps/native-demo/src/NavigationProReview.vue",
+    "reviewNumber": "223",
+    "verification": "native-bundle"
+  },
+  "NP.split-view": {
+    "component": "SNativeSplitView",
+    "componentSource": "packages/native/src/components/SNativeSplitView.vue",
+    "status": "implementation",
+    "review": "apps/native-demo/src/NavigationProReview.vue",
+    "reviewNumber": "224",
+    "verification": "native-bundle"
+  },
+  "NP.stepper": {
+    "component": "SNativeStepper",
+    "componentSource": "packages/native/src/components/SNativeStepper.vue",
+    "status": "implementation",
+    "review": "apps/native-demo/src/NavigationProReview.vue",
+    "reviewNumber": "225",
+    "verification": "native-bundle"
+  },
+  "NP.swipeable-tabs": {
+    "component": "SNativeSwipeableTabs",
+    "componentSource": "packages/native/src/components/SNativeSwipeableTabs.vue",
+    "status": "implementation",
+    "review": "apps/native-demo/src/NavigationProReview.vue",
+    "reviewNumber": "226",
+    "verification": "native-bundle"
+  },
+  "NP.number-value": {
+    "component": "SNativeNumberValue",
+    "componentSource": "packages/native/src/components/SNativeNumberValue.vue",
+    "status": "implementation",
+    "review": "apps/native-demo/src/FeedbackProReview.vue",
+    "reviewNumber": "227",
+    "verification": "native-bundle"
+  },
+  "NP.progress-bar": {
+    "component": "SNativeProgressBar",
+    "componentSource": "packages/native/src/components/SNativeProgressBar.vue",
+    "status": "implementation",
+    "review": "apps/native-demo/src/FeedbackProReview.vue",
+    "reviewNumber": "228",
+    "verification": "native-bundle"
+  },
+  "NP.progress-circle": {
+    "component": "SNativeProgressCircle",
+    "componentSource": "packages/native/src/components/SNativeProgressCircle.vue",
+    "status": "implementation",
+    "review": "apps/native-demo/src/FeedbackProReview.vue",
+    "reviewNumber": "229",
+    "verification": "native-bundle"
+  },
+  "NP.rating": {
+    "component": "SNativeRating",
+    "componentSource": "packages/native/src/components/SNativeRating.vue",
+    "status": "implementation",
+    "review": "apps/native-demo/src/FeedbackProReview.vue",
+    "reviewNumber": "230",
+    "verification": "native-bundle"
+  },
+  "NP.trend-chip": {
+    "component": "SNativeTrendChip",
+    "componentSource": "packages/native/src/components/SNativeTrendChip.vue",
+    "status": "implementation",
+    "review": "apps/native-demo/src/FeedbackProReview.vue",
+    "reviewNumber": "231",
+    "verification": "native-bundle"
+  },
+  "NP.badge": {
+    "component": "SNativeBadge",
+    "componentSource": "packages/native/src/components/SNativeBadge.vue",
+    "status": "implementation",
+    "review": "apps/native-demo/src/DisplayProReview.vue",
+    "reviewNumber": "232",
+    "verification": "native-bundle"
+  },
+  "NP.carousel": {
+    "component": "SNativeCarousel",
+    "componentSource": "packages/native/src/components/SNativeCarousel.vue",
+    "status": "implementation",
+    "review": "apps/native-demo/src/DisplayProReview.vue",
+    "reviewNumber": "233",
+    "verification": "native-bundle"
+  },
+  "NP.empty-state": {
+    "component": "SNativeEmptyState",
+    "componentSource": "packages/native/src/components/SNativeEmptyState.vue",
+    "status": "implementation",
+    "review": "apps/native-demo/src/DisplayProReview.vue",
+    "reviewNumber": "234",
+    "verification": "native-bundle"
+  },
+  "NP.flip-card": {
+    "component": "SNativeFlipCard",
+    "componentSource": "packages/native/src/components/SNativeFlipCard.vue",
+    "status": "implementation",
+    "review": "apps/native-demo/src/DisplayProReview.vue",
+    "reviewNumber": "235",
+    "verification": "native-bundle"
+  },
+  "NP.swipeable-row": {
+    "component": "SNativeSwipeableRow",
+    "componentSource": "packages/native/src/components/SNativeSwipeableRow.vue",
+    "status": "implementation",
+    "review": "apps/native-demo/src/DataProReview.vue",
+    "reviewNumber": "236",
+    "verification": "native-bundle"
+  },
+  "NP.table": {
+    "component": "SNativeTable",
+    "componentSource": "packages/native/src/components/SNativeTable.vue",
+    "status": "implementation",
+    "review": "apps/native-demo/src/DataProReview.vue",
+    "reviewNumber": "237",
+    "verification": "native-bundle"
+  },
+  "NP.timeline": {
+    "component": "SNativeTimeline",
+    "componentSource": "packages/native/src/components/SNativeTimeline.vue",
+    "status": "implementation",
+    "review": "apps/native-demo/src/DataProReview.vue",
+    "reviewNumber": "238",
+    "verification": "native-bundle"
+  },
+  "NP.widget": {
+    "component": "SNativeWidget",
+    "componentSource": "packages/native/src/components/SNativeWidget.vue",
+    "status": "implementation",
+    "review": "apps/native-demo/src/DataProReview.vue",
+    "reviewNumber": "239",
+    "verification": "native-bundle"
+  },
+  "NP.area-chart": {
+    "component": "SNativeAreaChart",
+    "componentSource": "packages/native/src/components/SNativeAreaChart.vue",
+    "status": "implementation",
+    "review": "apps/native-demo/src/ChartProReview.vue",
+    "reviewNumber": "240",
+    "verification": "native-bundle"
+  },
+  "NP.bar-chart": {
+    "component": "SNativeBarChart",
+    "componentSource": "packages/native/src/components/SNativeBarChart.vue",
+    "status": "implementation",
+    "review": "apps/native-demo/src/ChartProReview.vue",
+    "reviewNumber": "241",
+    "verification": "native-bundle"
+  },
+  "NP.composed-chart": {
+    "component": "SNativeComposedChart",
+    "componentSource": "packages/native/src/components/SNativeComposedChart.vue",
+    "status": "implementation",
+    "review": "apps/native-demo/src/ChartProReview.vue",
+    "reviewNumber": "242",
+    "verification": "native-bundle"
+  },
+  "NP.line-chart": {
+    "component": "SNativeLineChart",
+    "componentSource": "packages/native/src/components/SNativeLineChart.vue",
+    "status": "implementation",
+    "review": "apps/native-demo/src/ChartProReview.vue",
+    "reviewNumber": "243",
+    "verification": "native-bundle"
+  },
+  "NP.live-chart": {
+    "component": "SNativeLiveChart",
+    "componentSource": "packages/native/src/components/SNativeLiveChart.vue",
+    "status": "implementation",
+    "review": "apps/native-demo/src/ChartProReview.vue",
+    "reviewNumber": "244",
+    "verification": "native-bundle"
+  },
+  "NP.pie-chart": {
+    "component": "SNativePieChart",
+    "componentSource": "packages/native/src/components/SNativePieChart.vue",
+    "status": "implementation",
+    "review": "apps/native-demo/src/ChartProReview.vue",
+    "reviewNumber": "245",
+    "verification": "native-bundle"
+  },
+  "NP.radar-chart": {
+    "component": "SNativeRadarChart",
+    "componentSource": "packages/native/src/components/SNativeRadarChart.vue",
+    "status": "implementation",
+    "review": "apps/native-demo/src/ChartProReview.vue",
+    "reviewNumber": "246",
+    "verification": "native-bundle"
+  },
+  "NP.radial-chart": {
+    "component": "SNativeRadialChart",
+    "componentSource": "packages/native/src/components/SNativeRadialChart.vue",
+    "status": "implementation",
+    "review": "apps/native-demo/src/ChartProReview.vue",
+    "reviewNumber": "247",
+    "verification": "native-bundle"
+  },
+  "NP.stacked-meter": {
+    "component": "SNativeStackedMeter",
+    "componentSource": "packages/native/src/components/SNativeStackedMeter.vue",
+    "status": "implementation",
+    "review": "apps/native-demo/src/ChartProReview.vue",
+    "reviewNumber": "248",
+    "verification": "native-bundle"
+  },
+  "agent-ui.dashboard": {
+    "component": "SAgentUI",
+    "componentSource": "src/agent-ui/SAgentUI.vue",
+    "status": "implementation",
+    "review": "preview/AgentReview.vue",
+    "reviewNumber": "249",
+    "verification": "agent-browser"
+  },
+  "agent-ui.kpi-grid": {
+    "component": "SAgentUI",
+    "componentSource": "src/agent-ui/SAgentUI.vue",
+    "status": "implementation",
+    "review": "preview/AgentReview.vue",
+    "reviewNumber": "250",
+    "verification": "agent-browser"
+  },
+  "agent-ui.metric-grid": {
+    "component": "SAgentUI",
+    "componentSource": "src/agent-ui/SAgentUI.vue",
+    "status": "implementation",
+    "review": "preview/AgentReview.vue",
+    "reviewNumber": "251",
+    "verification": "agent-browser"
+  },
+  "agent-ui.line-chart": {
+    "component": "SAgentUI",
+    "componentSource": "src/agent-ui/SAgentUI.vue",
+    "status": "implementation",
+    "review": "preview/AgentReview.vue",
+    "reviewNumber": "252",
+    "verification": "agent-browser"
+  },
+  "agent-ui.area-chart": {
+    "component": "SAgentUI",
+    "componentSource": "src/agent-ui/SAgentUI.vue",
+    "status": "implementation",
+    "review": "preview/AgentReview.vue",
+    "reviewNumber": "253",
+    "verification": "agent-browser"
+  },
+  "agent-ui.bar-chart": {
+    "component": "SAgentUI",
+    "componentSource": "src/agent-ui/SAgentUI.vue",
+    "status": "implementation",
+    "review": "preview/AgentReview.vue",
+    "reviewNumber": "254",
+    "verification": "agent-browser"
+  },
+  "agent-ui.composed-chart": {
+    "component": "SAgentUI",
+    "componentSource": "src/agent-ui/SAgentUI.vue",
+    "status": "implementation",
+    "review": "preview/AgentReview.vue",
+    "reviewNumber": "255",
+    "verification": "agent-browser"
+  },
+  "agent-ui.candlestick-chart": {
+    "component": "SAgentUI",
+    "componentSource": "src/agent-ui/SAgentUI.vue",
+    "status": "implementation",
+    "review": "preview/AgentReview.vue",
+    "reviewNumber": "256",
+    "verification": "agent-browser"
+  },
+  "agent-ui.pie-chart": {
+    "component": "SAgentUI",
+    "componentSource": "src/agent-ui/SAgentUI.vue",
+    "status": "implementation",
+    "review": "preview/AgentReview.vue",
+    "reviewNumber": "257",
+    "verification": "agent-browser"
+  },
+  "agent-ui.donut-chart": {
+    "component": "SAgentUI",
+    "componentSource": "src/agent-ui/SAgentUI.vue",
+    "status": "implementation",
+    "review": "preview/AgentReview.vue",
+    "reviewNumber": "258",
+    "verification": "agent-browser"
+  },
+  "agent-ui.funnel-chart": {
+    "component": "SAgentUI",
+    "componentSource": "src/agent-ui/SAgentUI.vue",
+    "status": "implementation",
+    "review": "preview/AgentReview.vue",
+    "reviewNumber": "259",
+    "verification": "agent-browser"
+  },
+  "agent-ui.radar-chart": {
+    "component": "SAgentUI",
+    "componentSource": "src/agent-ui/SAgentUI.vue",
+    "status": "implementation",
+    "review": "preview/AgentReview.vue",
+    "reviewNumber": "260",
+    "verification": "agent-browser"
+  },
+  "agent-ui.radial-chart": {
+    "component": "SAgentUI",
+    "componentSource": "src/agent-ui/SAgentUI.vue",
+    "status": "implementation",
+    "review": "preview/AgentReview.vue",
+    "reviewNumber": "261",
+    "verification": "agent-browser"
+  },
+  "agent-ui.gauge-chart": {
+    "component": "SAgentUI",
+    "componentSource": "src/agent-ui/SAgentUI.vue",
+    "status": "implementation",
+    "review": "preview/AgentReview.vue",
+    "reviewNumber": "262",
+    "verification": "agent-browser"
+  },
+  "agent-ui.sunburst-chart": {
+    "component": "SAgentUI",
+    "componentSource": "src/agent-ui/SAgentUI.vue",
+    "status": "implementation",
+    "review": "preview/AgentReview.vue",
+    "reviewNumber": "263",
+    "verification": "agent-browser"
+  },
+  "agent-ui.sankey-chart": {
+    "component": "SAgentUI",
+    "componentSource": "src/agent-ui/SAgentUI.vue",
+    "status": "implementation",
+    "review": "preview/AgentReview.vue",
+    "reviewNumber": "264",
+    "verification": "agent-browser"
+  },
+  "agent-ui.scatter-chart": {
+    "component": "SAgentUI",
+    "componentSource": "src/agent-ui/SAgentUI.vue",
+    "status": "implementation",
+    "review": "preview/AgentReview.vue",
+    "reviewNumber": "265",
+    "verification": "agent-browser"
+  },
+  "agent-ui.heatmap": {
+    "component": "SAgentUI",
+    "componentSource": "src/agent-ui/SAgentUI.vue",
+    "status": "implementation",
+    "review": "preview/AgentReview.vue",
+    "reviewNumber": "266",
+    "verification": "agent-browser"
+  },
+  "agent-ui.data-table": {
+    "component": "SAgentUI",
+    "componentSource": "src/agent-ui/SAgentUI.vue",
+    "status": "implementation",
+    "review": "preview/AgentReview.vue",
+    "reviewNumber": "267",
+    "verification": "agent-browser"
+  },
+  "agent-ui.comparison-list": {
+    "component": "SAgentUI",
+    "componentSource": "src/agent-ui/SAgentUI.vue",
+    "status": "implementation",
+    "review": "preview/AgentReview.vue",
+    "reviewNumber": "268",
+    "verification": "agent-browser"
+  },
+  "agent-ui.meter-list": {
+    "component": "SAgentUI",
+    "componentSource": "src/agent-ui/SAgentUI.vue",
+    "status": "implementation",
+    "review": "preview/AgentReview.vue",
+    "reviewNumber": "269",
+    "verification": "agent-browser"
+  },
+  "agent-ui.card": {
+    "component": "SAgentUI",
+    "componentSource": "src/agent-ui/SAgentUI.vue",
+    "status": "implementation",
+    "review": "preview/AgentReview.vue",
+    "reviewNumber": "270",
+    "verification": "agent-browser"
+  },
+  "agent-ui.text": {
+    "component": "SAgentUI",
+    "componentSource": "src/agent-ui/SAgentUI.vue",
+    "status": "implementation",
+    "review": "preview/AgentReview.vue",
+    "reviewNumber": "271",
+    "verification": "agent-browser"
+  },
+  "agent-ui.callout": {
+    "component": "SAgentUI",
+    "componentSource": "src/agent-ui/SAgentUI.vue",
+    "status": "implementation",
+    "review": "preview/AgentReview.vue",
+    "reviewNumber": "272",
+    "verification": "agent-browser"
+  },
+  "agent-ui.image": {
+    "component": "SAgentUI",
+    "componentSource": "src/agent-ui/SAgentUI.vue",
+    "status": "implementation",
+    "review": "preview/AgentReview.vue",
+    "reviewNumber": "273",
+    "verification": "agent-browser"
+  },
+  "agent-ui.tag-list": {
+    "component": "SAgentUI",
+    "componentSource": "src/agent-ui/SAgentUI.vue",
+    "status": "implementation",
+    "review": "preview/AgentReview.vue",
+    "reviewNumber": "274",
+    "verification": "agent-browser"
+  },
+  "agent-ui.list": {
+    "component": "SAgentUI",
+    "componentSource": "src/agent-ui/SAgentUI.vue",
+    "status": "implementation",
+    "review": "preview/AgentReview.vue",
+    "reviewNumber": "275",
+    "verification": "agent-browser"
+  },
+  "agent-ui.list-block": {
+    "component": "SAgentUI",
+    "componentSource": "src/agent-ui/SAgentUI.vue",
+    "status": "implementation",
+    "review": "preview/AgentReview.vue",
+    "reviewNumber": "276",
+    "verification": "agent-browser"
+  },
+  "agent-ui.accordion": {
+    "component": "SAgentUI",
+    "componentSource": "src/agent-ui/SAgentUI.vue",
+    "status": "implementation",
+    "review": "preview/AgentReview.vue",
+    "reviewNumber": "277",
+    "verification": "agent-browser"
+  },
+  "agent-ui.steps": {
+    "component": "SAgentUI",
+    "componentSource": "src/agent-ui/SAgentUI.vue",
+    "status": "implementation",
+    "review": "preview/AgentReview.vue",
+    "reviewNumber": "278",
+    "verification": "agent-browser"
+  },
+  "agent-ui.code-block": {
+    "component": "SAgentUI",
+    "componentSource": "src/agent-ui/SAgentUI.vue",
+    "status": "implementation",
+    "review": "preview/AgentReview.vue",
+    "reviewNumber": "279",
+    "verification": "agent-browser"
+  },
+  "agent-ui.diagram": {
+    "component": "SAgentUI",
+    "componentSource": "src/agent-ui/SAgentUI.vue",
+    "status": "implementation",
+    "review": "preview/AgentReview.vue",
+    "reviewNumber": "280",
+    "verification": "agent-browser"
+  },
+  "agent-ui.tabs": {
+    "component": "SAgentUI",
+    "componentSource": "src/agent-ui/SAgentUI.vue",
+    "status": "implementation",
+    "review": "preview/AgentReview.vue",
+    "reviewNumber": "281",
+    "verification": "agent-browser"
+  },
+  "agent-ui.generated-composition": {
+    "component": "SAgentUI",
+    "componentSource": "src/agent-ui/SAgentUI.vue",
+    "status": "implementation",
+    "review": "preview/AgentReview.vue",
+    "reviewNumber": "282",
+    "verification": "agent-browser"
+  },
+  "agent-ui.product-card": {
+    "component": "SAgentUI",
+    "componentSource": "src/agent-ui/SAgentUI.vue",
+    "status": "implementation",
+    "review": "preview/AgentReview.vue",
+    "reviewNumber": "283",
+    "verification": "agent-browser"
+  },
+  "agent-ui.record-card": {
+    "component": "SAgentUI",
+    "componentSource": "src/agent-ui/SAgentUI.vue",
+    "status": "implementation",
+    "review": "preview/AgentReview.vue",
+    "reviewNumber": "284",
+    "verification": "agent-browser"
+  },
+  "agent-ui.item-card": {
+    "component": "SAgentUI",
+    "componentSource": "src/agent-ui/SAgentUI.vue",
+    "status": "implementation",
+    "review": "preview/AgentReview.vue",
+    "reviewNumber": "285",
+    "verification": "agent-browser"
+  },
+  "agent-ui.item-card-group": {
+    "component": "SAgentUI",
+    "componentSource": "src/agent-ui/SAgentUI.vue",
+    "status": "implementation",
+    "review": "preview/AgentReview.vue",
+    "reviewNumber": "286",
+    "verification": "agent-browser"
+  },
+  "agent-ui.product-signals": {
+    "component": "SAgentUI",
+    "componentSource": "src/agent-ui/SAgentUI.vue",
+    "status": "implementation",
+    "review": "preview/AgentReview.vue",
+    "reviewNumber": "287",
+    "verification": "agent-browser"
+  },
+  "agent-ui.composition-api": {
+    "component": "SAgentUI",
+    "componentSource": "src/agent-ui/SAgentUI.vue",
+    "status": "implementation",
+    "review": "preview/AgentReview.vue",
+    "reviewNumber": "288",
+    "verification": "agent-browser"
+  },
+  "agent-ui.map": {
+    "component": "SAgentUI",
+    "componentSource": "src/agent-ui/SAgentUI.vue",
+    "status": "implementation",
+    "review": "preview/AgentReview.vue",
+    "reviewNumber": "289",
+    "verification": "agent-browser"
+  },
+  "agent-ui.row": {
+    "component": "SAgentUI",
+    "componentSource": "src/agent-ui/SAgentUI.vue",
+    "status": "implementation",
+    "review": "preview/AgentReview.vue",
+    "reviewNumber": "290",
+    "verification": "agent-browser"
+  },
+  "agent-ui.column": {
+    "component": "SAgentUI",
+    "componentSource": "src/agent-ui/SAgentUI.vue",
+    "status": "implementation",
+    "review": "preview/AgentReview.vue",
+    "reviewNumber": "291",
+    "verification": "agent-browser"
+  },
+  "agent-ui.grid": {
+    "component": "SAgentUI",
+    "componentSource": "src/agent-ui/SAgentUI.vue",
+    "status": "implementation",
+    "review": "preview/AgentReview.vue",
+    "reviewNumber": "292",
+    "verification": "agent-browser"
+  },
+  "agent-ui.spacer": {
+    "component": "SAgentUI",
+    "componentSource": "src/agent-ui/SAgentUI.vue",
+    "status": "implementation",
+    "review": "preview/AgentReview.vue",
+    "reviewNumber": "293",
+    "verification": "agent-browser"
+  },
+  "agent-ui.divider": {
+    "component": "SAgentUI",
+    "componentSource": "src/agent-ui/SAgentUI.vue",
+    "status": "implementation",
+    "review": "preview/AgentReview.vue",
+    "reviewNumber": "294",
+    "verification": "agent-browser"
+  },
+  "agent-ui.heading": {
+    "component": "SAgentUI",
+    "componentSource": "src/agent-ui/SAgentUI.vue",
+    "status": "implementation",
+    "review": "preview/AgentReview.vue",
+    "reviewNumber": "295",
+    "verification": "agent-browser"
+  },
+  "agent-ui.badge": {
+    "component": "SAgentUI",
+    "componentSource": "src/agent-ui/SAgentUI.vue",
+    "status": "implementation",
+    "review": "preview/AgentReview.vue",
+    "reviewNumber": "296",
+    "verification": "agent-browser"
+  },
+  "agent-ui.icon": {
+    "component": "SAgentUI",
+    "componentSource": "src/agent-ui/SAgentUI.vue",
+    "status": "implementation",
+    "review": "preview/AgentReview.vue",
+    "reviewNumber": "297",
+    "verification": "agent-browser"
+  },
+  "agent-ui.rating": {
+    "component": "SAgentUI",
+    "componentSource": "src/agent-ui/SAgentUI.vue",
+    "status": "implementation",
+    "review": "preview/AgentReview.vue",
+    "reviewNumber": "298",
+    "verification": "agent-browser"
+  },
+  "agent-ui.progress": {
+    "component": "SAgentUI",
+    "componentSource": "src/agent-ui/SAgentUI.vue",
+    "status": "implementation",
+    "review": "preview/AgentReview.vue",
+    "reviewNumber": "299",
+    "verification": "agent-browser"
+  },
+  "agent-ui.form": {
+    "component": "SAgentUI",
+    "componentSource": "src/agent-ui/SAgentUI.vue",
+    "status": "implementation",
+    "review": "preview/AgentReview.vue",
+    "reviewNumber": "300",
+    "verification": "agent-browser"
+  },
+  "agent-ui.switch-group": {
+    "component": "SAgentUI",
+    "componentSource": "src/agent-ui/SAgentUI.vue",
+    "status": "implementation",
+    "review": "preview/AgentReview.vue",
+    "reviewNumber": "301",
+    "verification": "agent-browser"
+  },
+  "agent-ui.toggle-group": {
+    "component": "SAgentUI",
+    "componentSource": "src/agent-ui/SAgentUI.vue",
+    "status": "implementation",
+    "review": "preview/AgentReview.vue",
+    "reviewNumber": "302",
+    "verification": "agent-browser"
+  },
+  "agent-ui.action-group": {
+    "component": "SAgentUI",
+    "componentSource": "src/agent-ui/SAgentUI.vue",
+    "status": "implementation",
+    "review": "preview/AgentReview.vue",
+    "reviewNumber": "303",
+    "verification": "agent-browser"
+  },
+  "agent-ui.follow-up": {
+    "component": "SAgentUI",
+    "componentSource": "src/agent-ui/SAgentUI.vue",
+    "status": "implementation",
+    "review": "preview/AgentReview.vue",
+    "reviewNumber": "304",
+    "verification": "agent-browser"
+  },
+  "agent-ui.button": {
+    "component": "SAgentUI",
+    "componentSource": "src/agent-ui/SAgentUI.vue",
+    "status": "implementation",
+    "review": "preview/AgentReview.vue",
+    "reviewNumber": "305",
+    "verification": "agent-browser"
+  },
+  "legacy-block.charts.bars-and-circles": {
+    "component": "LegacyReview",
+    "componentSource": "preview/LegacyReview.vue",
+    "status": "implementation",
+    "review": "preview/LegacyReview.vue",
+    "reviewNumber": "306",
+    "verification": "block-browser"
+  },
+  "legacy-block.charts.graphs": {
+    "component": "LegacyReview",
+    "componentSource": "preview/LegacyReview.vue",
+    "status": "implementation",
+    "review": "preview/LegacyReview.vue",
+    "reviewNumber": "307",
+    "verification": "block-browser"
+  },
+  "legacy-block.charts.kpi-stats": {
+    "component": "LegacyReview",
+    "componentSource": "preview/LegacyReview.vue",
+    "status": "implementation",
+    "review": "preview/LegacyReview.vue",
+    "reviewNumber": "308",
+    "verification": "block-browser"
+  },
+  "legacy-block.application.calendar": {
+    "component": "LegacyReview",
+    "componentSource": "preview/LegacyReview.vue",
+    "status": "implementation",
+    "review": "preview/LegacyReview.vue",
+    "reviewNumber": "309",
+    "verification": "block-browser"
+  },
+  "legacy-block.application.authentication": {
+    "component": "LegacyReview",
+    "componentSource": "preview/LegacyReview.vue",
+    "status": "implementation",
+    "review": "preview/LegacyReview.vue",
+    "reviewNumber": "310",
+    "verification": "block-browser"
+  },
+  "legacy-block.application.cards": {
+    "component": "LegacyReview",
+    "componentSource": "preview/LegacyReview.vue",
+    "status": "implementation",
+    "review": "preview/LegacyReview.vue",
+    "reviewNumber": "311",
+    "verification": "block-browser"
+  },
+  "legacy-block.application.command-menus": {
+    "component": "LegacyReview",
+    "componentSource": "preview/LegacyReview.vue",
+    "status": "implementation",
+    "review": "preview/LegacyReview.vue",
+    "reviewNumber": "312",
+    "verification": "block-browser"
+  },
+  "legacy-block.application.layouts": {
+    "component": "LegacyReview",
+    "componentSource": "preview/LegacyReview.vue",
+    "status": "implementation",
+    "review": "preview/LegacyReview.vue",
+    "reviewNumber": "313",
+    "verification": "block-browser"
+  },
+  "legacy-block.application.navigation-headers": {
+    "component": "LegacyReview",
+    "componentSource": "preview/LegacyReview.vue",
+    "status": "implementation",
+    "review": "preview/LegacyReview.vue",
+    "reviewNumber": "314",
+    "verification": "block-browser"
+  },
+  "legacy-block.application.scrolling-banners": {
+    "component": "LegacyReview",
+    "componentSource": "preview/LegacyReview.vue",
+    "status": "implementation",
+    "review": "preview/LegacyReview.vue",
+    "reviewNumber": "315",
+    "verification": "block-browser"
+  },
+  "legacy-block.application.sidebars": {
+    "component": "LegacyReview",
+    "componentSource": "preview/LegacyReview.vue",
+    "status": "implementation",
+    "review": "preview/LegacyReview.vue",
+    "reviewNumber": "316",
+    "verification": "block-browser"
+  },
+  "legacy-block.application.tables": {
+    "component": "LegacyReview",
+    "componentSource": "preview/LegacyReview.vue",
+    "status": "implementation",
+    "review": "preview/LegacyReview.vue",
+    "reviewNumber": "317",
+    "verification": "block-browser"
+  },
+  "legacy-block.application.feedbacks": {
+    "component": "LegacyReview",
+    "componentSource": "preview/LegacyReview.vue",
+    "status": "implementation",
+    "review": "preview/LegacyReview.vue",
+    "reviewNumber": "318",
+    "verification": "block-browser"
+  },
+  "legacy-block.application.forms": {
+    "component": "LegacyReview",
+    "componentSource": "preview/LegacyReview.vue",
+    "status": "implementation",
+    "review": "preview/LegacyReview.vue",
+    "reviewNumber": "319",
+    "verification": "block-browser"
+  },
+  "legacy-block.application.navbars": {
+    "component": "LegacyReview",
+    "componentSource": "preview/LegacyReview.vue",
+    "status": "implementation",
+    "review": "preview/LegacyReview.vue",
+    "reviewNumber": "320",
+    "verification": "block-browser"
+  },
+  "legacy-block.application.steppers": {
+    "component": "LegacyReview",
+    "componentSource": "preview/LegacyReview.vue",
+    "status": "implementation",
+    "review": "preview/LegacyReview.vue",
+    "reviewNumber": "321",
+    "verification": "block-browser"
+  },
+  "legacy-block.ai.prompt-containers": {
+    "component": "LegacyReview",
+    "componentSource": "preview/LegacyReview.vue",
+    "status": "implementation",
+    "review": "preview/LegacyReview.vue",
+    "reviewNumber": "322",
+    "verification": "block-browser"
+  },
+  "legacy-block.ai.playgrounds": {
+    "component": "LegacyReview",
+    "componentSource": "preview/LegacyReview.vue",
+    "status": "implementation",
+    "review": "preview/LegacyReview.vue",
+    "reviewNumber": "323",
+    "verification": "block-browser"
+  },
+  "legacy-block.ai.features": {
+    "component": "LegacyReview",
+    "componentSource": "preview/LegacyReview.vue",
+    "status": "implementation",
+    "review": "preview/LegacyReview.vue",
+    "reviewNumber": "324",
+    "verification": "block-browser"
+  },
+  "legacy-block.ai.prompt-inputs": {
+    "component": "LegacyReview",
+    "componentSource": "preview/LegacyReview.vue",
+    "status": "implementation",
+    "review": "preview/LegacyReview.vue",
+    "reviewNumber": "325",
+    "verification": "block-browser"
+  },
+  "legacy-block.ai.messages": {
+    "component": "LegacyReview",
+    "componentSource": "preview/LegacyReview.vue",
+    "status": "implementation",
+    "review": "preview/LegacyReview.vue",
+    "reviewNumber": "326",
+    "verification": "block-browser"
+  },
+  "legacy-block.marketing.faqs": {
+    "component": "LegacyReview",
+    "componentSource": "preview/LegacyReview.vue",
+    "status": "implementation",
+    "review": "preview/LegacyReview.vue",
+    "reviewNumber": "327",
+    "verification": "block-browser"
+  },
+  "legacy-block.marketing.pricing": {
+    "component": "LegacyReview",
+    "componentSource": "preview/LegacyReview.vue",
+    "status": "implementation",
+    "review": "preview/LegacyReview.vue",
+    "reviewNumber": "328",
+    "verification": "block-browser"
+  },
+  "legacy-block.marketing.footers": {
+    "component": "LegacyReview",
+    "componentSource": "preview/LegacyReview.vue",
+    "status": "implementation",
+    "review": "preview/LegacyReview.vue",
+    "reviewNumber": "329",
+    "verification": "block-browser"
+  },
+  "legacy-block.marketing.hero-sections": {
+    "component": "LegacyReview",
+    "componentSource": "preview/LegacyReview.vue",
+    "status": "implementation",
+    "review": "preview/LegacyReview.vue",
+    "reviewNumber": "330",
+    "verification": "block-browser"
+  },
+  "legacy-block.marketing.pricing-comparison": {
+    "component": "LegacyReview",
+    "componentSource": "preview/LegacyReview.vue",
+    "status": "implementation",
+    "review": "preview/LegacyReview.vue",
+    "reviewNumber": "331",
+    "verification": "block-browser"
+  },
+  "legacy-block.marketing.teams": {
+    "component": "LegacyReview",
+    "componentSource": "preview/LegacyReview.vue",
+    "status": "implementation",
+    "review": "preview/LegacyReview.vue",
+    "reviewNumber": "332",
+    "verification": "block-browser"
+  },
+  "legacy-block.marketing.banners": {
+    "component": "LegacyReview",
+    "componentSource": "preview/LegacyReview.vue",
+    "status": "implementation",
+    "review": "preview/LegacyReview.vue",
+    "reviewNumber": "333",
+    "verification": "block-browser"
+  },
+  "legacy-block.marketing.cookie-consents": {
+    "component": "LegacyReview",
+    "componentSource": "preview/LegacyReview.vue",
+    "status": "implementation",
+    "review": "preview/LegacyReview.vue",
+    "reviewNumber": "334",
+    "verification": "block-browser"
+  },
+  "legacy-block.ecommerce.filters": {
+    "component": "LegacyReview",
+    "componentSource": "preview/LegacyReview.vue",
+    "status": "implementation",
+    "review": "preview/LegacyReview.vue",
+    "reviewNumber": "335",
+    "verification": "block-browser"
+  },
+  "legacy-block.ecommerce.product-list": {
+    "component": "LegacyReview",
+    "componentSource": "preview/LegacyReview.vue",
+    "status": "implementation",
+    "review": "preview/LegacyReview.vue",
+    "reviewNumber": "336",
+    "verification": "block-browser"
+  },
+  "legacy-block.ecommerce.checkouts": {
+    "component": "LegacyReview",
+    "componentSource": "preview/LegacyReview.vue",
+    "status": "implementation",
+    "review": "preview/LegacyReview.vue",
+    "reviewNumber": "337",
+    "verification": "block-browser"
+  },
+  "legacy-block.ecommerce.product-view": {
+    "component": "LegacyReview",
+    "componentSource": "preview/LegacyReview.vue",
+    "status": "implementation",
+    "review": "preview/LegacyReview.vue",
+    "reviewNumber": "338",
+    "verification": "block-browser"
+  },
+  "legacy-block.ecommerce.reviews": {
+    "component": "LegacyReview",
+    "componentSource": "preview/LegacyReview.vue",
+    "status": "implementation",
+    "review": "preview/LegacyReview.vue",
+    "reviewNumber": "339",
+    "verification": "block-browser"
+  },
+  "DS-01": {
+    "component": "ThemeWorkspace",
+    "componentSource": "preview/ThemeWorkspace.vue",
+    "status": "implementation",
+    "review": "preview/PlatformReview.vue",
+    "reviewNumber": "340",
+    "verification": "platform-browser"
+  },
+  "DS-03": {
+    "component": "ThemeWorkspace",
+    "componentSource": "preview/ThemeWorkspace.vue",
+    "status": "implementation",
+    "review": "preview/PlatformReview.vue",
+    "reviewNumber": "342",
+    "verification": "platform-browser"
+  },
+  "DS-04": {
+    "component": "ThemeWorkspace",
+    "componentSource": "preview/ThemeWorkspace.vue",
+    "status": "implementation",
+    "review": "preview/PlatformReview.vue",
+    "reviewNumber": "343",
+    "verification": "platform-browser"
+  },
+  "DS-07": {
+    "component": "ThemeWorkspace",
+    "componentSource": "preview/ThemeWorkspace.vue",
+    "status": "implementation",
+    "review": "preview/PlatformReview.vue",
+    "reviewNumber": "346",
+    "verification": "platform-browser"
+  },
+  "DX-01": {
+    "component": "PlatformReview",
+    "componentSource": "preview/PlatformReview.vue",
+    "status": "implementation",
+    "review": "preview/PlatformReview.vue",
+    "reviewNumber": "351",
+    "verification": "platform-browser"
+  },
+  "DX-03": {
+    "component": "PlatformReview",
+    "componentSource": "preview/PlatformReview.vue",
+    "status": "implementation",
+    "review": "preview/PlatformReview.vue",
+    "reviewNumber": "353",
+    "verification": "platform-browser"
+  },
+  "DX-04": {
+    "component": "PlatformReview",
+    "componentSource": "preview/PlatformReview.vue",
+    "status": "implementation",
+    "review": "preview/PlatformReview.vue",
+    "reviewNumber": "354",
+    "verification": "platform-browser"
+  },
+  "legacy-component.code": {
+    "component": "SCode",
+    "componentSource": "src/components/SCode.vue",
+    "status": "implementation",
+    "review": "preview/PlatformReview.vue",
+    "reviewNumber": "387",
+    "verification": "platform-browser"
+  },
+  "legacy-component.image": {
+    "component": "SImage",
+    "componentSource": "src/components/SImage.vue",
+    "status": "implementation",
+    "review": "preview/PlatformReview.vue",
+    "reviewNumber": "388",
+    "verification": "platform-browser"
+  },
+  "legacy-component.snippet": {
+    "component": "SSnippet",
+    "componentSource": "src/components/SSnippet.vue",
+    "status": "implementation",
+    "review": "preview/PlatformReview.vue",
+    "reviewNumber": "389",
+    "verification": "platform-browser"
+  },
+  "legacy-component.spacer": {
+    "component": "SSpacer",
+    "componentSource": "src/components/SSpacer.vue",
+    "status": "implementation",
+    "review": "preview/PlatformReview.vue",
+    "reviewNumber": "390",
+    "verification": "platform-browser"
+  },
+  "legacy-component.user": {
+    "component": "SUser",
+    "componentSource": "src/components/SUser.vue",
+    "status": "implementation",
+    "review": "preview/PlatformReview.vue",
+    "reviewNumber": "391",
+    "verification": "platform-browser"
+  },
+  "T-W1": {
+    "component": "SWorkspaceTemplate",
+    "componentSource": "src/platform/SWorkspaceTemplate.vue",
+    "status": "implementation",
+    "review": "preview/PlatformReview.vue",
+    "reviewNumber": "360",
+    "verification": "platform-browser"
+  },
+  "T-W2": {
+    "component": "SWorkspaceTemplate",
+    "componentSource": "src/platform/SWorkspaceTemplate.vue",
+    "status": "implementation",
+    "review": "preview/PlatformReview.vue",
+    "reviewNumber": "361",
+    "verification": "platform-browser"
+  },
+  "T-W3": {
+    "component": "SWorkspaceTemplate",
+    "componentSource": "src/platform/SWorkspaceTemplate.vue",
+    "status": "implementation",
+    "review": "preview/PlatformReview.vue",
+    "reviewNumber": "362",
+    "verification": "platform-browser"
+  },
+  "T-W4": {
+    "component": "SWorkspaceTemplate",
+    "componentSource": "src/platform/SWorkspaceTemplate.vue",
+    "status": "implementation",
+    "review": "preview/PlatformReview.vue",
+    "reviewNumber": "363",
+    "verification": "platform-browser"
+  },
+  "T-W5": {
+    "component": "SWorkspaceTemplate",
+    "componentSource": "src/platform/SWorkspaceTemplate.vue",
+    "status": "implementation",
+    "review": "preview/PlatformReview.vue",
+    "reviewNumber": "364",
+    "verification": "platform-browser"
+  },
+  "T-N1": {
+    "component": "SNativeWorkspaceTemplate",
+    "componentSource": "packages/native/src/components/SNativeWorkspaceTemplate.vue",
+    "status": "implementation",
+    "review": "apps/native-demo/src/NativeTemplateReview.vue",
+    "reviewNumber": "365",
+    "verification": "native-template"
+  },
+  "T-N2": {
+    "component": "SNativeWorkspaceTemplate",
+    "componentSource": "packages/native/src/components/SNativeWorkspaceTemplate.vue",
+    "status": "implementation",
+    "review": "apps/native-demo/src/NativeTemplateReview.vue",
+    "reviewNumber": "366",
+    "verification": "native-template"
+  },
+  "B-01": {
+    "component": "BuilderReview",
+    "componentSource": "preview/BuilderReview.vue",
+    "status": "implementation",
+    "review": "preview/PlatformReview.vue",
+    "reviewNumber": "367",
+    "verification": "platform-browser"
+  },
+  "B-02": {
+    "component": "BuilderReview",
+    "componentSource": "preview/BuilderReview.vue",
+    "status": "implementation",
+    "review": "preview/PlatformReview.vue",
+    "reviewNumber": "368",
+    "verification": "platform-browser"
+  },
+  "B-03": {
+    "component": "WorkspaceOpsReview",
+    "componentSource": "preview/WorkspaceOpsReview.vue",
+    "status": "implementation",
+    "review": "preview/PlatformReview.vue",
+    "reviewNumber": "369",
+    "verification": "platform-browser"
+  },
+  "B-04": {
+    "component": "WorkspaceOpsReview",
+    "componentSource": "preview/WorkspaceOpsReview.vue",
+    "status": "implementation",
+    "review": "preview/PlatformReview.vue",
+    "reviewNumber": "370",
+    "verification": "platform-browser"
+  },
+  "A-01": {
+    "component": "SAgentPanel",
+    "componentSource": "src/platform/SAgentPanel.vue",
+    "status": "implementation",
+    "review": "preview/PlatformReview.vue",
+    "reviewNumber": "371",
+    "verification": "platform-browser"
+  },
+  "A-04": {
+    "component": "WorkspaceOpsReview",
+    "componentSource": "preview/WorkspaceOpsReview.vue",
+    "status": "implementation",
+    "review": "preview/PlatformReview.vue",
+    "reviewNumber": "374",
+    "verification": "platform-browser"
+  },
+  "A-05": {
+    "component": "SAgentUI",
+    "componentSource": "src/agent-ui/SAgentUI.vue",
+    "status": "implementation",
+    "review": "preview/PlatformReview.vue",
+    "reviewNumber": "375",
+    "verification": "platform-browser"
+  },
+  "DS-02": {
+    "component": "PlatformReview",
+    "componentSource": "preview/PlatformReview.vue",
+    "status": "implementation",
+    "review": "preview/PlatformReview.vue",
+    "reviewNumber": "341",
+    "verification": "platform-browser"
+  },
+  "DS-05": {
+    "component": "SNativePortalHost",
+    "componentSource": "packages/native/src/components/SNativePortalHost.vue",
+    "status": "implementation",
+    "review": "apps/native-demo/src/NativeToolsReview.vue",
+    "reviewNumber": "344",
+    "verification": "native-tools"
+  },
+  "DX-02": {
+    "component": "PlatformReview",
+    "componentSource": "preview/PlatformReview.vue",
+    "status": "implementation",
+    "review": "preview/PlatformReview.vue",
+    "reviewNumber": "352",
+    "verification": "platform-browser"
+  },
+  "DX-09": {
+    "component": "VariantReview",
+    "componentSource": "preview/VariantReview.vue",
+    "status": "implementation",
+    "review": "preview/PlatformReview.vue",
+    "reviewNumber": "359",
+    "verification": "platform-browser"
+  },
+  "DS-06": {
+    "component": "ThemeWorkspace",
+    "componentSource": "preview/ThemeWorkspace.vue",
+    "status": "implementation",
+    "review": "preview/PlatformReview.vue",
+    "reviewNumber": "345",
+    "verification": "platform-browser"
+  },
+  "DS-08": {
+    "component": "ThemeWorkspace",
+    "componentSource": "preview/ThemeWorkspace.vue",
+    "status": "implementation",
+    "review": "preview/PlatformReview.vue",
+    "reviewNumber": "347",
+    "verification": "platform-browser"
+  },
+  "DS-09": {
+    "component": "ThemeWorkspace",
+    "componentSource": "preview/ThemeWorkspace.vue",
+    "status": "implementation",
+    "review": "preview/PlatformReview.vue",
+    "reviewNumber": "348",
+    "verification": "platform-browser"
+  },
+  "DS-10": {
+    "component": "ThemeWorkspace",
+    "componentSource": "preview/ThemeWorkspace.vue",
+    "status": "implementation",
+    "review": "preview/PlatformReview.vue",
+    "reviewNumber": "349",
+    "verification": "platform-browser"
+  },
+  "DS-11": {
+    "component": "ThemeWorkspace",
+    "componentSource": "preview/ThemeWorkspace.vue",
+    "status": "implementation",
+    "review": "preview/PlatformReview.vue",
+    "reviewNumber": "350",
+    "verification": "platform-browser"
+  },
+  "DX-05": {
+    "component": "ProAccessReview",
+    "componentSource": "preview/ProAccessReview.vue",
+    "status": "implementation",
+    "review": "preview/PlatformReview.vue",
+    "reviewNumber": "355",
+    "verification": "platform-browser"
+  },
+  "DX-06": {
+    "component": "ProAccessReview",
+    "componentSource": "preview/ProAccessReview.vue",
+    "status": "implementation",
+    "review": "preview/PlatformReview.vue",
+    "reviewNumber": "356",
+    "verification": "platform-browser"
+  },
+  "DX-07": {
+    "component": "ProAccessReview",
+    "componentSource": "preview/ProAccessReview.vue",
+    "status": "implementation",
+    "review": "preview/PlatformReview.vue",
+    "reviewNumber": "357",
+    "verification": "platform-browser"
+  },
+  "A-02": {
+    "component": "AgentStudioReview",
+    "componentSource": "preview/AgentStudioReview.vue",
+    "status": "implementation",
+    "review": "preview/PlatformReview.vue",
+    "reviewNumber": "372",
+    "verification": "platform-browser"
+  },
+  "A-03": {
+    "component": "AgentStudioReview",
+    "componentSource": "preview/AgentStudioReview.vue",
+    "status": "implementation",
+    "review": "preview/PlatformReview.vue",
+    "reviewNumber": "373",
+    "verification": "platform-browser"
+  },
+  "A-06": {
+    "component": "AgentStudioReview",
+    "componentSource": "preview/AgentStudioReview.vue",
+    "status": "implementation",
+    "review": "preview/PlatformReview.vue",
+    "reviewNumber": "376",
+    "verification": "platform-browser"
+  },
+  "A-07": {
+    "component": "AgentExamplesReview",
+    "componentSource": "preview/AgentExamplesReview.vue",
+    "status": "implementation",
+    "review": "preview/PlatformReview.vue",
+    "reviewNumber": "377",
+    "verification": "platform-browser"
+  },
+  "DX-08": {
+    "component": "PlatformReview",
+    "componentSource": "preview/PlatformReview.vue",
+    "review": "preview/PlatformReview.vue",
+    "reviewNumber": "358",
+    "verification": "platform-browser"
+  },
+  "S-01": {
+    "component": "SProductivityWorkspace",
+    "componentSource": "src/platform/SProductivityWorkspace.vue",
+    "review": "preview/PlatformReview.vue",
+    "reviewNumber": "378",
+    "verification": "platform-browser"
+  },
+  "S-02": {
+    "component": "SuiteServicesReview",
+    "componentSource": "preview/SuiteServicesReview.vue",
+    "review": "preview/PlatformReview.vue",
+    "reviewNumber": "379",
+    "verification": "platform-browser"
+  },
+  "S-03": {
+    "component": "SProductivityWorkspace",
+    "componentSource": "src/platform/SProductivityWorkspace.vue",
+    "review": "preview/PlatformReview.vue",
+    "reviewNumber": "380",
+    "verification": "platform-browser"
+  },
+  "S-04": {
+    "component": "SProductivityWorkspace",
+    "componentSource": "src/platform/SProductivityWorkspace.vue",
+    "review": "preview/PlatformReview.vue",
+    "reviewNumber": "381",
+    "verification": "platform-browser"
+  },
+  "S-05": {
+    "component": "SProductivityWorkspace",
+    "componentSource": "src/platform/SProductivityWorkspace.vue",
+    "review": "preview/PlatformReview.vue",
+    "reviewNumber": "382",
+    "verification": "platform-browser"
+  },
+  "S-06": {
+    "component": "SuiteServicesReview",
+    "componentSource": "preview/SuiteServicesReview.vue",
+    "review": "preview/PlatformReview.vue",
+    "reviewNumber": "383",
+    "verification": "platform-browser"
+  },
+  "S-07": {
+    "component": "SuiteServicesReview",
+    "componentSource": "preview/SuiteServicesReview.vue",
+    "review": "preview/PlatformReview.vue",
+    "reviewNumber": "384",
+    "verification": "platform-browser"
+  },
+  "S-08": {
+    "component": "SProductivityWorkspace",
+    "componentSource": "src/platform/SProductivityWorkspace.vue",
+    "review": "preview/PlatformReview.vue",
+    "reviewNumber": "385",
+    "verification": "platform-browser"
+  },
+  "S-09": {
+    "component": "SuiteServicesReview",
+    "componentSource": "preview/SuiteServicesReview.vue",
+    "review": "preview/PlatformReview.vue",
+    "reviewNumber": "386",
+    "verification": "platform-browser",
+    "moduleSource": "apps/native-demo/src/NativeProductivityReview.vue"
+  },
+  "W.aspect-ratio": {
+    "component": "SAspectRatio",
+    "related": ["SImage"],
+    "status": "implementation",
+    "review": "/?component=W.aspect-ratio",
+    "reviewNumber": "392"
+  },
+  "W.stack": {
+    "component": "SStack",
+    "related": ["SStackItem", "SCenter"],
+    "status": "implementation",
+    "review": "/?component=W.stack",
+    "reviewNumber": "393"
+  },
+  "W.grid": {
+    "component": "SGrid",
+    "related": ["SGridSpan"],
+    "status": "implementation",
+    "review": "/?component=W.grid",
+    "reviewNumber": "394"
+  },
+  "W.blockquote": {
+    "component": "SBlockquote",
+    "status": "implementation",
+    "review": "/?component=W.blockquote",
+    "reviewNumber": "395"
+  },
+  "W.metadata-list": {
+    "component": "SMetadataList",
+    "status": "implementation",
+    "review": "/?component=W.metadata-list",
+    "related": ["SMetadataListItem"],
+    "reviewNumber": "396"
+  },
+  "W.status-dot": {
+    "component": "SStatusDot",
+    "status": "implementation",
+    "review": "/?component=W.status-dot",
+    "reviewNumber": "397"
+  },
+  "W.info-tip": {
+    "component": "SInfoTip",
+    "status": "implementation",
+    "review": "/?component=W.info-tip",
+    "reviewNumber": "398"
+  },
+  "W.clickable-card": {
+    "component": "SClickableCard",
+    "status": "implementation",
+    "review": "/?component=W.clickable-card",
+    "related": ["useClickableContainer", "useInteractiveRole"],
+    "reviewNumber": "399"
+  },
+  "W.selectable-card": {
+    "component": "SSelectableCard",
+    "status": "implementation",
+    "review": "/?component=W.selectable-card",
+    "reviewNumber": "400"
+  },
+  "W.banner": {
+    "component": "SBanner",
+    "status": "implementation",
+    "review": "/?component=W.banner",
+    "reviewNumber": "401"
+  },
+  "W.overlay": {
+    "component": "SOverlay",
+    "related": ["useOverlay", "SMediaTheme", "SLayer", "SLayerProvider", "useLayer"],
+    "status": "implementation",
+    "review": "/?component=W.overlay",
+    "reviewNumber": "402"
+  },
+  "W.scrollable-area": {
+    "component": "SScrollableArea",
+    "related": ["useScrollableArea"],
+    "status": "implementation",
+    "review": "/?component=W.scrollable-area",
+    "reviewNumber": "403"
+  },
+  "W.timer": {
+    "component": "STimer",
+    "status": "implementation",
+    "review": "/?component=W.timer",
+    "reviewNumber": "404"
+  },
+  "W.timestamp": {
+    "component": "STimestamp",
+    "status": "implementation",
+    "review": "/?component=W.timestamp",
+    "reviewNumber": "405"
+  },
+  "W.thumbnail": {
+    "component": "SThumbnail",
+    "status": "implementation",
+    "review": "/?component=W.thumbnail",
+    "related": ["useContainerReveal"],
+    "reviewNumber": "406"
+  },
+  "W.lightbox": {
+    "component": "SLightbox",
+    "related": ["useLightbox", "SMediaPlayer", "SMediaControl", "useMediaPlayer", "useMediaPlaybackTime"],
+    "status": "implementation",
+    "review": "/?component=W.lightbox",
+    "reviewNumber": "407"
+  },
+  "W.date-time-input": {
+    "component": "SDateTimeInput",
+    "status": "implementation",
+    "review": "/?component=W.date-time-input",
+    "reviewNumber": "408"
+  },
+  "W.file-input": {
+    "component": "SFileInput",
+    "status": "implementation",
+    "review": "/?component=W.file-input",
+    "reviewNumber": "409"
+  },
+  "W.tokenizer": {
+    "component": "STokenizer",
+    "related": ["SListInput"],
+    "status": "implementation",
+    "review": "/?component=W.tokenizer",
+    "reviewNumber": "410"
+  },
+  "W.power-search": {
+    "component": "SPowerSearch",
+    "related": ["usePowerSearchConfig"],
+    "status": "implementation",
+    "review": "/?component=W.power-search",
+    "reviewNumber": "411"
+  },
+  "W.overflow-list": {
+    "component": "SOverflowList",
+    "related": ["useOverflow"],
+    "status": "implementation",
+    "review": "/?component=W.overflow-list",
+    "reviewNumber": "412"
+  },
+  "W.snap-paging": {
+    "component": "SSnapPaging",
+    "related": ["SPageControl"],
+    "status": "implementation",
+    "review": "/?component=W.snap-paging",
+    "reviewNumber": "413"
+  },
+  "W.swipe-actions": {
+    "component": "SSwipeActions",
+    "status": "implementation",
+    "review": "/?component=W.swipe-actions",
+    "reviewNumber": "414"
+  },
+  "W.transfer-list": {
+    "component": "STransferList",
+    "related": ["STransferListSelector"],
+    "status": "implementation",
+    "review": "/?component=W.transfer-list",
+    "reviewNumber": "415"
+  },
+  "W.navigation-stack": {
+    "component": "SNavigationStack",
+    "status": "implementation",
+    "review": "/?component=W.navigation-stack",
+    "reviewNumber": "416"
+  },
+  "W.tour": {
+    "component": "STour",
+    "related": ["STourStep"],
+    "status": "implementation",
+    "review": "/?component=W.tour",
+    "reviewNumber": "417"
+  },
+  "W.log-stream": {
+    "component": "SLogStream",
+    "status": "implementation",
+    "review": "/?component=W.log-stream",
+    "reviewNumber": "418"
+  },
+  "W.icon": {
+    "component": "SIcon",
+    "related": ["SWeightedIcon", "SWeightedIconSprite", "buildWeightedIcon", "useIcon", "registerIcons"],
+    "status": "implementation",
+    "review": "/?component=W.icon",
+    "reviewNumber": "419"
+  },
+  "W.internationalization-provider": {
+    "component": "SInternationalizationProvider",
+    "related": ["frFR", "useCollator", "useDirection", "useLocale", "useTranslator"],
+    "status": "implementation",
+    "review": "/?component=W.internationalization-provider",
+    "reviewNumber": "464"
+  },
+  "W.brand-theme": {
+    "component": "SBrandTheme",
+    "related": ["useTheme", "useThemeName"],
+    "status": "implementation",
+    "review": "/?component=W.brand-theme",
+    "reviewNumber": "465"
+  },
+  "W.interaction-tools": {
+    "component": "useHotkeys",
+    "related": ["useAnnounce", "useClipboard"],
+    "componentSource": "src/internal/interaction.ts",
+    "status": "implementation",
+    "review": "/?component=W.interaction-tools",
+    "reviewNumber": "466"
+  },
+  "W.nav-icon": {
+    "component": "SNavIcon",
+    "status": "implementation",
+    "review": "/?component=W.nav-icon",
+    "reviewNumber": "436"
+  },
+  "W.nav-menu": {
+    "component": "SNavMenu",
+    "related": ["SNavMenuItem"],
+    "status": "implementation",
+    "review": "/?component=W.nav-menu",
+    "reviewNumber": "437"
+  },
+  "W.top-nav-menu": {
+    "component": "STopNavMenu",
+    "status": "implementation",
+    "review": "/?component=W.top-nav-menu",
+    "reviewNumber": "438"
+  },
+  "W.mobile-nav": {
+    "component": "SMobileNav",
+    "related": ["SMobileNavToggle"],
+    "status": "implementation",
+    "review": "/?component=W.mobile-nav",
+    "reviewNumber": "439"
+  },
+  "W.side-nav-heading": {
+    "component": "SSideNavHeading",
+    "status": "implementation",
+    "review": "/?component=W.side-nav-heading",
+    "reviewNumber": "440"
+  },
+  "W.side-nav-item": {
+    "component": "SSideNavItem",
+    "status": "implementation",
+    "review": "/?component=W.side-nav-item",
+    "reviewNumber": "441"
+  },
+  "W.side-nav-section": {
+    "component": "SSideNavSection",
+    "status": "implementation",
+    "review": "/?component=W.side-nav-section",
+    "reviewNumber": "442"
+  },
+  "W.tab-menu": {
+    "component": "STabMenu",
+    "status": "implementation",
+    "review": "/?component=W.tab-menu",
+    "reviewNumber": "443"
+  },
+  "W.layout": {
+    "component": "SLayout",
+    "related": ["SLayoutHeader", "SLayoutContent", "SLayoutFooter", "SLayoutPanel"],
+    "status": "implementation",
+    "review": "/?component=W.layout",
+    "reviewNumber": "444"
+  },
+  "W.section": {
+    "component": "SSection",
+    "status": "implementation",
+    "review": "/?component=W.section",
+    "reviewNumber": "445"
+  },
+  "W.field-status": {
+    "component": "SFieldStatus",
+    "related": ["useInputStatusIcon"],
+    "status": "implementation",
+    "review": "/?component=W.field-status",
+    "reviewNumber": "446"
+  },
+  "W.form-layout": {
+    "component": "SFormLayout",
+    "status": "implementation",
+    "review": "/?component=W.form-layout",
+    "reviewNumber": "463"
+  },
+  "W.indicator": {
+    "component": "SIndicator",
+    "status": "implementation",
+    "review": "/?component=W.indicator",
+    "related": ["useIndicatorFocusRing"],
+    "reviewNumber": "420"
+  },
+  "W.visually-hidden": {
+    "component": "SVisuallyHidden",
+    "status": "implementation",
+    "review": "/?component=W.visually-hidden",
+    "reviewNumber": "421"
+  },
+  "W.chat-dictation-button": {
+    "component": "SChatDictationButton",
+    "related": ["useChatDictation", "useSpeechRecognition"],
+    "status": "implementation",
+    "review": "/?component=W.chat-dictation-button",
+    "reviewNumber": "422"
+  },
+  "W.mega-menu": {
+    "component": "SMegaMenu",
+    "status": "implementation",
+    "review": "/?component=W.mega-menu",
+    "reviewNumber": "423"
+  },
+  "W.top-nav-mega-menu": {
+    "component": "STopNavMegaMenu",
+    "related": ["STopNavMegaMenuItem", "STopNavMegaMenuFeaturedCard"],
+    "status": "implementation",
+    "review": "/?component=W.top-nav-mega-menu",
+    "reviewNumber": "447"
+  },
+  "W.outline": {
+    "component": "SOutline",
+    "related": ["useOutlineFromDOM", "useOutlineFromMarkdown"],
+    "status": "implementation",
+    "review": "/?component=W.outline",
+    "reviewNumber": "448"
+  },
+  "W.selector-option": {
+    "component": "SSelectorOption",
+    "status": "implementation",
+    "review": "/?component=W.selector-option",
+    "reviewNumber": "449"
+  },
+  "W.typeahead-item": {
+    "component": "STypeaheadItem",
+    "status": "implementation",
+    "review": "/?component=W.typeahead-item",
+    "reviewNumber": "450"
+  },
+  "W.complex-selector": {
+    "component": "SComplexSelector",
+    "status": "implementation",
+    "review": "/?component=W.complex-selector",
+    "reviewNumber": "451"
+  },
+  "W.text": {
+    "component": "SText",
+    "componentSource": "src/components/STypography.vue",
+    "related": ["useTruncation", "useTruncationState"],
+    "status": "implementation",
+    "review": "/?component=W.text",
+    "reviewNumber": "452"
+  },
+  "W.command-input": {
+    "component": "SCommandInput",
+    "status": "implementation",
+    "review": "/?component=W.command-input",
+    "reviewNumber": "453"
+  },
+  "W.chat-composer-drawer": {
+    "component": "SChatComposerDrawer",
+    "status": "implementation",
+    "review": "/?component=W.chat-composer-drawer",
+    "reviewNumber": "454"
+  },
+  "W.chat-composer-token": {
+    "component": "SChatComposerTokenElement",
+    "status": "implementation",
+    "review": "/?component=W.chat-composer-token",
+    "reviewNumber": "455"
+  },
+  "W.chat-composer-input": {
+    "component": "SChatComposerInput",
+    "related": ["useChatPasteAsToken"],
+    "status": "implementation",
+    "review": "/?component=W.chat-composer-input",
+    "reviewNumber": "456"
+  },
+  "W.tree-list": {
+    "component": "STreeList",
+    "status": "implementation",
+    "review": "/?component=W.tree-list",
+    "reviewNumber": "457"
+  },
+  "W.item": {
+    "component": "SItem",
+    "related": ["useClickableContainer", "createSwipe"],
+    "status": "implementation",
+    "review": "/?component=W.item",
+    "reviewNumber": "459"
+  },
+  "W.chat-reaction-bar": {
+    "component": "SChatReactionBar",
+    "status": "implementation",
+    "review": "/?component=W.chat-reaction-bar",
+    "reviewNumber": "460"
+  },
+  "W.comment-composer": {
+    "component": "SCommentComposer",
+    "status": "implementation",
+    "review": "/?component=W.comment-composer",
+    "reviewNumber": "461"
+  },
+  "W.comment-thread": {
+    "component": "SCommentThread",
+    "status": "implementation",
+    "review": "/?component=W.comment-thread",
+    "reviewNumber": "462"
+  },
+  "W.code-editor": {
+    "component": "SCodeEditor",
+    "status": "implementation",
+    "review": "/?component=W.code-editor",
+    "reviewNumber": "424"
+  },
+  "W.diff-viewer": {
+    "component": "SDiffViewer",
+    "status": "implementation",
+    "review": "/?component=W.diff-viewer",
+    "reviewNumber": "425"
+  },
+  "W.comments": {
+    "component": "SComments",
+    "status": "implementation",
+    "review": "/?component=W.comments",
+    "reviewNumber": "426"
+  },
+  "W.candlestick-chart": {
+    "component": "SCandlestickChart",
+    "status": "implementation",
+    "review": "/?component=W.candlestick-chart",
+    "reviewNumber": "427"
+  },
+  "W.vega-chart": {
+    "component": "SVegaChart",
+    "related": ["parseVegaSchema"],
+    "status": "implementation",
+    "review": "/?component=W.vega-chart",
+    "reviewNumber": "428"
+  },
+  "W.sankey-chart": {
+    "component": "SSankeyChart",
+    "status": "implementation",
+    "review": "/?component=W.sankey-chart",
+    "reviewNumber": "429"
+  },
+  "W.spatial-chart": {
+    "component": "SSpatialChart",
+    "status": "implementation",
+    "review": "/?component=W.spatial-chart",
+    "reviewNumber": "430"
+  },
+  "W.comment-pin": {
+    "component": "SCommentPin",
+    "status": "implementation",
+    "review": "/?component=W.comment-pin",
+    "reviewNumber": "431"
+  },
+  "W.webgl-chart": {
+    "component": "SWebGLChart",
+    "related": ["SChartWebGLLayer"],
+    "status": "implementation",
+    "review": "/?component=W.webgl-chart",
+    "reviewNumber": "432"
+  },
+  "W.motion": {
+    "component": "createAnimator",
+    "related": ["createAnimatedLayout", "createDragToSnapPoints", "createPanGesture", "createReorderable", "gestureMotion", "motionDefaults", "motionSprings", "motionTimings", "resolveMotionSpring", "resolveMotionTiming", "solveDecay", "solveSpring", "themeTempo", "useKeyboardInset", "useAnimator", "useAnimatedLayout", "usePanGesture", "useDragToSnapPoints"],
+    "componentSource": "src/internal/motion.ts",
+    "status": "implementation",
+    "review": "/?component=W.motion",
+    "reviewNumber": "433"
+  },
+  "N.icon": {
+    "component": "SNativeIcon",
+    "componentSource": "packages/native/src/components/SNativeIcon.vue",
+    "status": "implementation",
+    "review": "apps/native-demo/src/ReviewScene.vue",
+    "reviewNumber": "434",
+    "verification": "native-bundle"
+  },
+  "N.item": {
+    "component": "SNativeItem",
+    "componentSource": "packages/native/src/components/SNativeListItem.vue",
+    "status": "implementation",
+    "review": "apps/native-demo/src/ReviewScene.vue",
+    "reviewNumber": "458",
+    "verification": "native-bundle"
+  },
+  "N.thumbnail": {
+    "component": "SNativeThumbnail",
+    "componentSource": "packages/native/src/components/SNativeThumbnail.vue",
+    "status": "implementation",
+    "review": "apps/native-demo/src/ReviewScene.vue",
+    "reviewNumber": "435",
+    "verification": "native-bundle"
+  }
+}

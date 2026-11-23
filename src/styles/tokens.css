@@ -1,0 +1,258 @@
+@layer syntrofic.tokens {
+  :where([data-sy-initializing], [data-sy-initializing] *),
+  :where([data-sy-initializing], [data-sy-initializing] *)::before,
+  :where([data-sy-initializing], [data-sy-initializing] *)::after,
+  :where([data-sy-initializing], [data-sy-initializing] *)::backdrop {
+    transition: none !important;
+  }
+
+  :where(:root, [data-sy-theme]) {
+    color-scheme: light;
+    --sy-font: var(--sy-font-body, Arial, 'Arimo Variable', 'Microsoft YaHei', 'Noto Sans SC Variable', 'Noto Sans CJK SC', sans-serif);
+    --sy-font-body: initial;
+    --sy-font-heading: initial;
+    --sy-font-code: initial;
+    --sy-radius-sm: 11px;
+    --sy-radius-md: 18px;
+    --sy-radius-lg: 30px;
+    --sy-radius-pill: 999px;
+    --sy-space-1: 4px;
+    --sy-space-2: 8px;
+    --sy-space-3: 12px;
+    --sy-space-4: 16px;
+    --sy-space-5: 20px;
+    --sy-space-6: 24px;
+    --sy-layout-gap: clamp(8px, 1vw, 12px);
+    --sy-inset: var(--sy-space-2);
+    --sy-display-1-size: 3rem;
+    --sy-display-2-size: 2.25rem;
+    --sy-display-3-size: 1.75rem;
+    --sy-duration: var(--sy-motion-duration-press, 170ms);
+    --sy-motion-enter: var(--sy-motion-duration-enter, 255ms);
+    --sy-motion-exit: var(--sy-motion-duration-exit, 185ms);
+    --sy-motion-replace: var(--sy-motion-duration-move, 220ms);
+    --sy-ease-settle: cubic-bezier(.23, .72, .24, 1);
+    --sy-ease-exit: cubic-bezier(.44, .05, .72, .48);
+
+    --sy-canvas: light-dark(#ffffff, #1d1e1f);
+    --sy-surface: light-dark(#ffffff, #29292b);
+    --sy-surface-subtle: light-dark(#f8f8f8, #262627);
+    --sy-surface-muted: light-dark(#f5f5f5, #363638);
+    --sy-surface-sage: light-dark(#e9eee8, #303c33);
+    --sy-surface-blue: light-dark(#e9edf4, #303843);
+    --sy-surface-clay: light-dark(#f2e8e5, #463837);
+    --sy-surface-lavender: light-dark(#eeebf3, #383444);
+    --sy-control: light-dark(#f1f1f1, #383b38);
+    --sy-text: light-dark(#252525, #f2ede6);
+    --sy-text-muted: light-dark(#595959, #c5ccc0);
+    --sy-border: light-dark(#e1e1e1, #494b42);
+    --sy-border-width: 1px;
+    --sy-border-strong: light-dark(#818880, #89978a);
+    --sy-accent: light-dark(#425849, #a8bda9);
+    --sy-accent-hover: light-dark(#354b3c, #bed0bd);
+    --sy-accent-on: light-dark(#fffdf9, #1c2e22);
+    --sy-accent-soft: light-dark(#d4dfd2, #435749);
+    --sy-accent-text: light-dark(#344b3c, #d5e4d4);
+    --sy-focus: light-dark(#546a61, #bccfc5);
+    --sy-success-soft: light-dark(#dbe5d5, #35493b);
+    --sy-success: light-dark(#385640, #bfdbc1);
+    --sy-warning-soft: light-dark(#eae0cb, #4d4231);
+    --sy-warning: light-dark(#654e2b, #e9d2a9);
+    --sy-danger-soft: light-dark(#eddfda, #4d3b38);
+    --sy-danger: light-dark(#794f50, #deb0a8);
+    --sy-danger-hover: light-dark(#684142, #f0c2ba);
+    --sy-danger-on: light-dark(#fffaf8, #362120);
+    --sy-info: var(--sy-focus);
+    --sy-info-soft: var(--sy-surface-blue);
+    --sy-scrim: light-dark(rgb(50 53 47 / .42), rgb(8 10 9 / .67));
+    --sy-default-shadow-low: 0 2px 7px color-mix(in srgb, var(--sy-text) 14%, transparent);
+    --sy-default-shadow-med: 0 6px 16px color-mix(in srgb, var(--sy-text) 18%, transparent);
+    --sy-default-shadow-high: 0 12px 28px color-mix(in srgb, var(--sy-text) 22%, transparent);
+    --sy-shadow-low: var(--sy-default-shadow-low);
+    --sy-shadow-med: var(--sy-default-shadow-med);
+    --sy-shadow-high: var(--sy-default-shadow-high);
+
+    --sy-data-categorical-sage: light-dark(#577364, #a0bda9);
+    --sy-data-categorical-clay: light-dark(#a0756c, #d9a9a0);
+    --sy-data-categorical-blue: light-dark(#607e93, #94b7cd);
+    --sy-data-categorical-ochre: light-dark(#987b51, #d3b88b);
+    --sy-data-categorical-plum: light-dark(#856884, #c4a3c2);
+    --sy-data-categorical-teal: light-dark(#537d7b, #94bbb7);
+    --sy-data-categorical-sand: light-dark(#8a836c, #c1bda6);
+    --sy-data-categorical-rose: light-dark(#a56980, #dca0b7);
+    --sy-data-categorical-indigo: light-dark(#666b9c, #adb2df);
+    --sy-data-categorical-olive: light-dark(#758049, #b9c58b);
+    --sy-data-neutral: light-dark(#74777a, #a9adb1);
+
+    --sy-data-sequential-sage-1: light-dark(#ecf1ed, #303b35);
+    --sy-data-sequential-sage-2: light-dark(#c9d8ce, #43564b);
+    --sy-data-sequential-sage-3: light-dark(#9bb6a6, #64816f);
+    --sy-data-sequential-sage-4: light-dark(#64826f, #91af9c);
+    --sy-data-sequential-sage-5: light-dark(#385746, #c7dece);
+
+    --sy-data-sequential-clay-1: light-dark(#f5eeeb, #41342f);
+    --sy-data-sequential-clay-2: light-dark(#ead1c8, #644a42);
+    --sy-data-sequential-clay-3: light-dark(#ccab9f, #916c60);
+    --sy-data-sequential-clay-4: light-dark(#9f776b, #c79a8d);
+    --sy-data-sequential-clay-5: light-dark(#704b40, #eed2c8);
+
+    --sy-data-sequential-blue-1: light-dark(#ebf1f5, #2e3a43);
+    --sy-data-sequential-blue-2: light-dark(#ccdde7, #415663);
+    --sy-data-sequential-blue-3: light-dark(#9ebacb, #5e7b8c);
+    --sy-data-sequential-blue-4: light-dark(#678799, #88aabd);
+    --sy-data-sequential-blue-5: light-dark(#3c5b70, #c3dce9);
+
+    --sy-data-sequential-ochre-1: light-dark(#f5f0e6, #403729);
+    --sy-data-sequential-ochre-2: light-dark(#e9dbc1, #5d4f37);
+    --sy-data-sequential-ochre-3: light-dark(#cbb78d, #8a7550);
+    --sy-data-sequential-ochre-4: light-dark(#9d8457, #bea471);
+    --sy-data-sequential-ochre-5: light-dark(#6d562e, #e7d5aa);
+
+    --sy-data-sequential-plum-1: light-dark(#f1edf2, #3d3442);
+    --sy-data-sequential-plum-2: light-dark(#e0d3e2, #57495f);
+    --sy-data-sequential-plum-3: light-dark(#c0abc5, #7f6987);
+    --sy-data-sequential-plum-4: light-dark(#927998, #af96b8);
+    --sy-data-sequential-plum-5: light-dark(#62486a, #e1cee7);
+
+    --sy-data-sequential-teal-1: light-dark(#eaf1ef, #2c3b39);
+    --sy-data-sequential-teal-2: light-dark(#cbdfdc, #3e5552);
+    --sy-data-sequential-teal-3: light-dark(#9abeb9, #5b7c78);
+    --sy-data-sequential-teal-4: light-dark(#5f8c85, #83aea6);
+    --sy-data-sequential-teal-5: light-dark(#365e59, #bee0d8);
+
+    --sy-data-sequential-rose-1: light-dark(#f5edf1, #41333c);
+    --sy-data-sequential-rose-2: light-dark(#e9d2dc, #614759);
+    --sy-data-sequential-rose-3: light-dark(#cca8ba, #8e6580);
+    --sy-data-sequential-rose-4: light-dark(#a3758c, #bf90ac);
+    --sy-data-sequential-rose-5: light-dark(#75485f, #eed0e0);
+
+    --sy-data-sequential-indigo-1: light-dark(#eeeff6, #34374a);
+    --sy-data-sequential-indigo-2: light-dark(#d7daeb, #4a506c);
+    --sy-data-sequential-indigo-3: light-dark(#aeb4d4, #6c7599);
+    --sy-data-sequential-indigo-4: light-dark(#7d86af, #99a2c8);
+    --sy-data-sequential-indigo-5: light-dark(#4a567e, #d0d7ef);
+
+    --sy-data-sequential-gray-1: light-dark(#f0f1f2, #353638);
+    --sy-data-sequential-gray-2: light-dark(#d9dcdf, #505256);
+    --sy-data-sequential-gray-3: light-dark(#b1b6bb, #767a7f);
+    --sy-data-sequential-gray-4: light-dark(#858b92, #a2a7ac);
+    --sy-data-sequential-gray-5: light-dark(#535a61, #d5d9dd);
+
+    --sy-chart-sage: var(--sy-data-categorical-sage);
+    --sy-chart-clay: var(--sy-data-categorical-clay);
+    --sy-chart-blue: var(--sy-data-categorical-blue);
+    --sy-chart-ochre: var(--sy-data-categorical-ochre);
+    --sy-chart-plum: var(--sy-data-categorical-plum);
+    --sy-chart-teal: var(--sy-data-categorical-teal);
+    --sy-chart-sand: var(--sy-data-categorical-sand);
+  }
+
+  :where([data-sy-theme='light']) { color-scheme: light; }
+  :where([data-sy-theme='system']) { color-scheme: light dark; }
+  :where([data-sy-theme='dark']) { color-scheme: dark; }
+  :where([data-sy-brand]) {
+    --sy-design-heading-weight: initial;
+    --sy-design-heading-tracking: initial;
+    --sy-design-surface-outline: initial;
+    --sy-design-surface-outline-color: initial;
+    --sy-design-surface-shadow: initial;
+    --sy-design-surface-fill: initial;
+    --sy-design-surface-filter: initial;
+    --sy-design-primary-bg: initial;
+    --sy-design-primary-fg: initial;
+    --sy-design-primary-border: initial;
+    --sy-design-primary-hover: initial;
+    --sy-design-button-case: initial;
+    --sy-design-badge-fill: initial;
+    --sy-design-badge-outline: initial;
+    --sy-design-badge-outline-color: initial;
+    --sy-design-badge-neutral-fill: initial;
+    --sy-design-badge-neutral-ink: initial;
+    --sy-design-badge-accent-fill: initial;
+    --sy-design-badge-accent-ink: initial;
+    --sy-design-badge-success-fill: initial;
+    --sy-design-badge-success-ink: initial;
+    --sy-design-badge-warning-fill: initial;
+    --sy-design-badge-warning-ink: initial;
+    --sy-design-badge-danger-fill: initial;
+    --sy-design-badge-danger-ink: initial;
+    --sy-brand-button-primary-radius: initial;
+    --sy-brand-button-primary-background: initial;
+    --sy-brand-button-primary-hover: initial;
+    --sy-brand-button-primary-foreground: initial;
+    --sy-brand-button-primary-hover-background: initial;
+    --sy-brand-button-primary-hover-foreground: initial;
+    --sy-brand-button-primary-active-background: initial;
+    --sy-brand-button-primary-active-foreground: initial;
+    --sy-brand-button-primary-focus-visible-background: initial;
+    --sy-brand-button-primary-focus-visible-foreground: initial;
+    --sy-brand-button-primary-disabled-background: initial;
+    --sy-brand-button-primary-disabled-foreground: initial;
+    --sy-brand-button-secondary-radius: initial;
+    --sy-brand-button-secondary-background: initial;
+    --sy-brand-button-secondary-hover: initial;
+    --sy-brand-button-secondary-foreground: initial;
+    --sy-brand-button-secondary-hover-background: initial;
+    --sy-brand-button-secondary-hover-foreground: initial;
+    --sy-brand-button-secondary-active-background: initial;
+    --sy-brand-button-secondary-active-foreground: initial;
+    --sy-brand-button-secondary-focus-visible-background: initial;
+    --sy-brand-button-secondary-focus-visible-foreground: initial;
+    --sy-brand-button-secondary-disabled-background: initial;
+    --sy-brand-button-secondary-disabled-foreground: initial;
+    --sy-brand-button-ghost-radius: initial;
+    --sy-brand-button-ghost-background: initial;
+    --sy-brand-button-ghost-hover: initial;
+    --sy-brand-button-ghost-foreground: initial;
+    --sy-brand-button-ghost-hover-background: initial;
+    --sy-brand-button-ghost-hover-foreground: initial;
+    --sy-brand-button-ghost-active-background: initial;
+    --sy-brand-button-ghost-active-foreground: initial;
+    --sy-brand-button-ghost-focus-visible-background: initial;
+    --sy-brand-button-ghost-focus-visible-foreground: initial;
+    --sy-brand-button-ghost-disabled-background: initial;
+    --sy-brand-button-ghost-disabled-foreground: initial;
+    --sy-brand-button-danger-radius: initial;
+    --sy-brand-button-danger-background: initial;
+    --sy-brand-button-danger-hover: initial;
+    --sy-brand-button-danger-foreground: initial;
+    --sy-brand-button-danger-hover-background: initial;
+    --sy-brand-button-danger-hover-foreground: initial;
+    --sy-brand-button-danger-active-background: initial;
+    --sy-brand-button-danger-active-foreground: initial;
+    --sy-brand-button-danger-focus-visible-background: initial;
+    --sy-brand-button-danger-focus-visible-foreground: initial;
+    --sy-brand-button-danger-disabled-background: initial;
+    --sy-brand-button-danger-disabled-foreground: initial;
+    --sy-brand-badge-radius: initial;
+    --sy-brand-badge-background: initial;
+    --sy-brand-badge-foreground: initial;
+    --sy-brand-tooltip-radius: initial;
+    --sy-brand-tooltip-background: initial;
+    --sy-brand-tooltip-foreground: initial;
+    --sy-brand-popover-radius: initial;
+    --sy-brand-popover-background: initial;
+    --sy-brand-popover-foreground: initial;
+    --sy-brand-card-radius: initial;
+    --sy-brand-card-background: initial;
+    --sy-brand-card-foreground: initial;
+    --sy-brand-field-radius: initial;
+    --sy-brand-field-background: initial;
+    --sy-brand-field-foreground: initial;
+    --sy-brand-dialog-radius: initial;
+    --sy-brand-dialog-background: initial;
+    --sy-brand-dialog-foreground: initial;
+    --sy-control-height-sm: initial;
+    --sy-control-height-md: initial;
+    --sy-control-height-lg: initial;
+  }
+
+  @media (prefers-reduced-motion: reduce) {
+    :where(:root, [data-sy-theme], [data-sy-reduced-motion]) {
+      --sy-duration: 0ms;
+      --sy-motion-enter: 80ms;
+      --sy-motion-exit: 80ms;
+      --sy-motion-replace: 0ms;
+    }
+  }
+}

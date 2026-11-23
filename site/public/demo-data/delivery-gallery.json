@@ -1,0 +1,25 @@
+[
+  {
+    "id": "delivery",
+    "title": "交付区域",
+    "category": "地图",
+    "alt": "交付园区地图",
+    "ratio": 1.7
+  },
+  {
+    "id": "resources",
+    "title": "资源分布",
+    "category": "资源",
+    "alt": "资源分布仪表盘",
+    "thumbnailFit": "contain",
+    "ratio": 0.86
+  },
+  {
+    "id": "version",
+    "title": "版本规划",
+    "category": "项目",
+    "alt": "项目版本演示",
+    "thumbnailFit": "contain",
+    "ratio": 1.2
+  }
+]
