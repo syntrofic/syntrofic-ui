@@ -40,6 +40,39 @@ async function clickAtCenter(page: Page, control: Locator) {
   await page.mouse.click(target.x + target.width / 2, target.y + target.height / 2)
 }
 
+test('documentation tables have thin grids and fit narrow pages', async ({ page }) => {
+  const expectGrid = async (table: Locator) => {
+    await expect(table).toBeVisible()
+    await expect(table).toHaveCSS('border-collapse', 'collapse')
+    for (const element of [table, table.getByRole('columnheader').first(), table.getByRole('cell').first()]) {
+      await expect(element).toHaveCSS('border-width', '1px')
+      await expect(element).toHaveCSS('border-style', 'solid')
+      await expect(element).toHaveCSS('border-color', 'rgb(227, 227, 227)')
+    }
+    expect(await table.evaluate(node => {
+      const { left, right } = node.getBoundingClientRect()
+      return left >= 0 && right <= document.documentElement.clientWidth
+    })).toBe(true)
+    await expect.poll(() => page.evaluate(() => {
+      const { scrollWidth, clientWidth } = document.documentElement
+      return scrollWidth - clientWidth
+    })).toBe(0)
+  }
+
+  for (const width of [1440, 320]) {
+    await page.setViewportSize({ width, height: 820 })
+    for (const path of ['/docs/design-rules/', '/en/docs/design-rules/']) {
+      await page.goto(path)
+      await expectGrid(page.locator('.doc-prose').getByRole('table'))
+    }
+  }
+
+  await page.goto('/docs/standard-design/')
+  const coverage = page.locator('.design-coverage').first()
+  await coverage.locator('summary').click()
+  await expectGrid(coverage.getByRole('table'))
+})
+
 test('the dashboard template mounts directly on the canvas without an entering frame', async ({ page }) => {
   await page.emulateMedia({ reducedMotion: 'no-preference' })
   let release = () => {}

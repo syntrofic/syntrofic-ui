@@ -4,6 +4,7 @@
 - Use `--sy-text` for body text and `--sy-text-muted` for secondary text. Use muted green `--sy-accent` for primary actions and `--sy-accent-soft` for selection. Pair each status color with readable text or a distinguishable icon.
 - Place page content, workspaces, and templates directly on the canvas. Use spacing to separate content, navigation, and tools. Apply `--sy-surface-subtle` (light default `#f8f8f8`) only to independent functional sections and `--sy-control` to fields. Keep the page, preview, and template wrappers free of decorative backgrounds, borders, and shadows.
 - Distinguish ordinary sections through spacing and subtle contrast. Give individual component examples their own light gray surfaces. Use a high-contrast inset indicator for keyboard focus. A composite input shows one focus outline inside the group and hides its hover outline while focused. Dropdowns use a slightly darker translucent surface with light blur. Use a solid surface when reduced transparency is requested.
+- Documentation tables use 1 px light gray borders around the table and between rows and columns. Let cell content wrap on narrow screens.
 
 ## Radius and density
 

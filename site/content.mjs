@@ -23,6 +23,10 @@ export const repository = 'https://github.com/syntrofic/syntrofic-ui'
 export const webInstallPath = '/docs/quick-start/'
 export const nativeInstallPath = '/docs/native/quick-start/'
 export const markdown = new MarkdownIt({ html: false, linkify: false })
+markdown.renderer.rules.table_open = (tokens, index, options, _env, renderer) => {
+  tokens[index].attrJoin('class', 'doc-table')
+  return renderer.renderToken(tokens, index, options)
+}
 
 export const categories = {
   Buttons: '按钮', Forms: '表单', 'Date and Time': '日期与时间', Navigation: '导航', Overlays: '浮层',

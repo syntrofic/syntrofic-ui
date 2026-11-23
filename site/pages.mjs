@@ -409,7 +409,7 @@ function createSite(english) {
     return summary + coverageFilter(entries.length, coverageLabels) + Object.entries(coverageGroups).map(([group, title]) => {
       const rows = astryx.groups[group]
       return '<div class="design-coverage-frame"><details class="design-coverage" data-site-disclosure><summary>' + title + ' · ' + rows.length + '</summary>' +
-        '<table data-site-disclosure-panel><thead><tr><th scope="col">Astryx</th><th scope="col">覆盖情况</th><th scope="col">Syntrofic</th></tr></thead><tbody>' +
+        '<table class="doc-table" data-site-disclosure-panel><thead><tr><th scope="col">Astryx</th><th scope="col">覆盖情况</th><th scope="col">Syntrofic</th></tr></thead><tbody>' +
         rows.map(([name, path, status, symbol, id]) => {
           const template = group === 'template' && templates.find(item => item.id === name)
           const href = template ? '/templates/' + template.id + '/' : group === 'theme' && symbol ? '/themes/'
@@ -430,7 +430,7 @@ function createSite(english) {
     const labels = { mapped: '已有示例', pending: '待核对' }
     const source = `${astryx.repository}/blob/${astryxExamples.revision}/packages/cli/assets/templates/blocks/components/`
     const list = groups.map(([component, examples]) => `<div class="design-coverage-frame"><details class="design-coverage" data-site-disclosure><summary>${escape(component)} · ${examples.length}</summary>
-      <table data-site-disclosure-panel><thead><tr><th scope="col">Astryx 示例</th><th scope="col">覆盖情况</th><th scope="col">Syntrofic</th></tr></thead><tbody>${examples.map(example => {
+      <table class="doc-table" data-site-disclosure-panel><thead><tr><th scope="col">Astryx 示例</th><th scope="col">覆盖情况</th><th scope="col">Syntrofic</th></tr></thead><tbody>${examples.map(example => {
         const key = component + '/' + example
         const local = standardLinks.get(astryxExamples.verified[key])
         const status = local ? 'mapped' : 'pending'
