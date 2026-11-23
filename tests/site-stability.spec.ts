@@ -40,6 +40,46 @@ async function clickAtCenter(page: Page, control: Locator) {
   await page.mouse.click(target.x + target.width / 2, target.y + target.height / 2)
 }
 
+test('both homepages share alignment and expose localized search metadata', async ({ page }) => {
+  for (const [path, language, locale] of [['/', 'zh-CN', 'zh_CN'], ['/en/', 'en', 'en_US']] as const) {
+    await page.setViewportSize({ width: 1440, height: 820 })
+    await page.goto(path)
+    const origin = 'https://ui.syntrofic.com'
+    await expect(page.locator('html')).toHaveAttribute('lang', language)
+    await expect(page.locator('link[rel="canonical"]')).toHaveAttribute('href', origin + path)
+    await expect(page.locator('link[hreflang="zh-CN"][rel="alternate"]')).toHaveAttribute('href', origin + '/')
+    await expect(page.locator('link[hreflang="en"][rel="alternate"]')).toHaveAttribute('href', origin + '/en/')
+    await expect(page.locator('meta[property="og:locale"]')).toHaveAttribute('content', locale)
+    await expect(page.locator('meta[name="description"]')).toHaveAttribute('content', /MIT/)
+    await expect(page.locator('meta[property="og:image"]')).toHaveAttribute('content', origin + '/previews/dashboard-comparison.webp')
+    expect(JSON.parse((await page.locator('script[type="application/ld+json"]').textContent())!)).toMatchObject({
+      '@type': 'WebSite', name: 'Syntrofic UI', url: origin + '/',
+    })
+    await expect(page.locator('body')).toHaveCSS('background-color', 'rgb(255, 255, 255)')
+    await expect(page.locator('.home-platforms .resource-link').first()).toHaveCSS('background-color', 'rgba(0, 0, 0, 0)')
+    const columns = await page.locator('.home-title, .home-platforms, .hero-demo, .sample-grid').evaluateAll(elements =>
+      elements.map(element => element.getBoundingClientRect().left))
+    expect(Math.abs(columns[0]! - columns[2]!)).toBeLessThan(.5)
+    expect(Math.abs(columns[1]! - columns[3]!)).toBeLessThan(.5)
+    const rightColumns = await page.locator('.home-platforms > :nth-child(2), .sample-grid > :nth-child(2)').evaluateAll(elements =>
+      elements.map(element => element.getBoundingClientRect().left))
+    expect(Math.abs(rightColumns[0]! - rightColumns[1]!)).toBeLessThan(.5)
+    const previews = await page.locator('.template-preview__picture').evaluateAll(elements => elements.map(element => element.getBoundingClientRect().height))
+    expect(previews).toHaveLength(3)
+    for (const height of previews) expect(Math.abs(height - previews[0]!)).toBeLessThan(.5)
+
+    await page.setViewportSize({ width: 360, height: 820 })
+    await page.reload()
+    const narrow = await page.locator('.home-title, .home-platforms, .hero-demo, .sample-grid').evaluateAll(elements =>
+      elements.map(element => ({ left: element.getBoundingClientRect().left, top: element.getBoundingClientRect().top })))
+    for (const [index, item] of narrow.entries()) {
+      expect(item.left).toBeCloseTo(narrow[0]!.left)
+      if (index > 0) expect(item.top).toBeGreaterThan(narrow[index - 1]!.top)
+    }
+    await expect.poll(() => page.evaluate(() => document.documentElement.scrollWidth - document.documentElement.clientWidth)).toBeLessThanOrEqual(0)
+  }
+})
+
 test('documentation tables have thin grids and fit narrow pages', async ({ page }) => {
   const expectGrid = async (table: Locator) => {
     await expect(table).toBeVisible()

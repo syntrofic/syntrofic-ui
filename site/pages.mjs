@@ -8,6 +8,8 @@ import { checkoutBlocks as chineseBlocks } from './template-catalog.mjs'
 import { readFileSync } from 'node:fs'
 
 const origin = 'https://ui.syntrofic.com'
+const siteName = 'Syntrofic UI'
+const shareImage = '/previews/dashboard-comparison.webp'
 const vuePath = '/docs/vue/components/'
 const nativePath = '/docs/native/components/'
 const escape = (text) => markdown.utils.escapeHtml(String(text))
@@ -55,10 +57,16 @@ function createSite(english) {
   const checkoutBlocks = english ? chineseBlocks.map(localizedTemplate) : chineseBlocks
   const posts = english ? chinesePosts.map(post => ({ ...post, ...englishPosts[post.id] })) : chinesePosts
   const blogIndex = JSON.stringify(posts, null, 2) + '\n'
-  const blogFeed = '<?xml version="1.0" encoding="UTF-8"?>\n<rss version="2.0"><channel><title>Syntrofic UI 更新记录</title>' +
-    '<link>' + origin + '/blog/</link><description>Syntrofic UI 的组件、主题与开发工具更新</description>' + posts.map(post =>
-      `<item><title>${escape(post.title)}</title><link>${origin + postPath(post.id)}</link><guid>${origin + postPath(post.id)}</guid>` +
-      `<pubDate>${new Date(post.date).toUTCString()}</pubDate><description>${escape(post.description)}</description></item>`).join('') + '</channel></rss>\n'
+  const blogOrigin = origin + (english ? '/en' : '')
+  const blogName = english ? `${siteName} releases` : `${siteName} 更新记录`
+  const blogDescription = english ? 'Component, theme, and developer tooling updates.' : 'Syntrofic UI 的组件、主题与开发工具更新。'
+  const blogFeed = '<?xml version="1.0" encoding="UTF-8"?>\n<rss version="2.0"><channel>' +
+    `<title>${blogName}</title><link>${blogOrigin}/blog/</link><description>${blogDescription}</description><language>${english ? 'en' : 'zh-CN'}</language>` +
+    posts.map(post => {
+      const url = blogOrigin + postPath(post.id)
+      return `<item><title>${escape(post.title)}</title><link>${url}</link><guid>${url}</guid>` +
+        `<pubDate>${new Date(post.date).toUTCString()}</pubDate><description>${escape(post.description)}</description></item>`
+    }).join('') + '</channel></rss>\n'
   const componentPath = (id) => components.find(item => item.id === id).path
   const anchors = (title) => title.toLowerCase().trim().replace(/[^\p{L}\p{N}]+/gu, '-').replace(/^-|-$/g, '')
   const mark = '<img src="/mark.svg" alt="" width="34" height="34">'
@@ -125,7 +133,7 @@ function createSite(english) {
       const height = id === 'checkout-wizard' ? 494 : 501
       return `<a class="template-preview" href="/templates/${id}/">
         <div class="template-preview__media">
-          <div class="template-preview__picture" data-site-preview style="--site-picture-ratio:850 / ${height}">
+          <div class="template-preview__picture" data-site-preview>
             <img src="/previews/${id}.webp" width="850" height="${height}" loading="lazy" decoding="async" alt="">
             <div class="template-preview__placeholder" aria-hidden="true"><span></span><span></span><span></span></div>
             <span class="template-preview__unavailable" aria-hidden="true">${icon('image')}</span>
@@ -169,13 +177,10 @@ function createSite(english) {
           <h1 id="home-title"><span class="platform-word" data-platform="vue">Vue</span> 与 <span class="platform-word" data-platform="native">Native</span><br>界面组件库</h1>
           <div class="home-actions">${button(webInstallPath, '快速开始')}${button('/docs/standard-design/', '标准设计', true)}</div>
         </div>
-        <div class="home-setup">
-          ${code('pnpm add @syntrofic/ui', '安装 Vue 组件')}
-          <nav class="home-platforms" aria-label="按平台浏览组件">
-            ${resourceLink(vuePath, 'Vue 组件', 'vue')}
-            ${resourceLink(nativePath, 'Native 组件', 'native')}
-          </nav>
-        </div>
+        <nav class="home-platforms" aria-label="按平台浏览组件">
+          ${resourceLink(vuePath, 'Vue 组件', 'vue')}
+          ${resourceLink(nativePath, 'Native 组件', 'native')}
+        </nav>
       </section>
       ${playground()}
       <section class="home-section" aria-labelledby="home-templates-title">
@@ -556,11 +561,20 @@ function createSite(english) {
     routes.set(path, { title, description, body })
   }
 
-  route('/', 'Syntrofic UI · Vue 与 Native 组件库', '用一套设计语言构建 Web、iOS 和 Android 应用。在线试用组件、图表与页面模板。', home)
+  route('/', english ? 'Syntrofic UI | Open-source Vue and NativeScript UI library' : 'Syntrofic UI｜开源 Vue 与 NativeScript 组件库',
+    english ? 'Build Web, iOS, and Android apps with the MIT-licensed Syntrofic UI library. Explore Vue 3 and NativeScript-Vue components, themes, charts, and live templates.'
+      : 'Syntrofic UI 是采用 MIT 许可证的 Vue 3 与 NativeScript-Vue 组件库。在线试用组件、主题、图表和页面模板，构建 Web、iOS 和 Android 界面。', home)
   route('/docs/', '开发文档', 'Syntrofic UI 的入门、组件、主题和开发工具。', docsHome)
   route(vuePath, 'Vue 组件', 'Syntrofic UI 的 Vue 3 组件目录和交互示例。', () => list(false))
   route(nativePath, 'Native 组件', 'Syntrofic UI 的 NativeScript-Vue 原生组件目录。', () => list(true))
-  for (const entry of components) route(entry.path, entry.name + (entry.native ? ' · Native' : ' · Vue'), english ? entry.name + ' component reference and preview.' : entry.criteria ?? entry.symbol ?? entry.name, () => detail(entry))
+  for (const entry of components) {
+    const platform = entry.native ? 'NativeScript-Vue' : 'Vue 3'
+    const usage = englishUsage[entry.id]?.replaceAll('`', '')
+    const description = english
+      ? `${entry.name} for ${platform}. ${usage ?? (entry.preview ? 'See the component usage and try the live example.' : 'See the component usage in Syntrofic UI.')}`
+      : `${platform} 的 ${entry.name} 组件。${entry.criteria ?? `查看 ${entry.symbol ?? entry.name} 的接入与用法。`}`
+    route(entry.path, `${entry.name} · ${platform}`, description, () => detail(entry))
+  }
   route(designExamplesPath, '独立示例对照', '按组件核对 Astryx 的独立示例，并试用 Syntrofic 的对应实现。', designExamples)
   for (const guide of guides) route(guide.path, guide.title, guide.summary, () => guidePage(guide))
   route('/blog/', '更新记录', 'Syntrofic UI 的组件、主题和开发工具更新。', () => featurePage('更新记录',
@@ -635,16 +649,44 @@ const englishBody = html => englishCopy(html)
   .replace(/(id="|href="#|#[^"]*?)(Live preview|Setup|Usage|Device preview|Run the examples)"/g,
     (_, prefix, label) => prefix + label.toLowerCase().replaceAll(' ', '-') + '"')
 
+const siteSchema = JSON.stringify({
+  '@context': 'https://schema.org', '@type': 'WebSite', '@id': origin + '/#website',
+  name: siteName, url: origin + '/', inLanguage: ['zh-CN', 'en'],
+})
+
+function pageMetadata(path, pagePath, title, description) {
+  if (!routes.has(path)) return '<meta name="robots" content="noindex">'
+  const isEnglish = inEnglish(path)
+  const imageAlt = isEnglish ? 'Syntrofic UI dashboard template' : 'Syntrofic UI 仪表盘模板'
+  return `<link rel="canonical" href="${origin + path}">
+      <link rel="alternate" hreflang="zh-CN" href="${origin + pagePath}">
+      <link rel="alternate" hreflang="en" href="${origin + toEnglish(pagePath)}">
+      <link rel="alternate" hreflang="x-default" href="${origin + pagePath}">
+      <link rel="alternate" type="application/rss+xml" title="${siteName}" href="${origin}${isEnglish ? '/en' : ''}/blog/feed.xml">
+      <meta property="og:site_name" content="${siteName}">
+      <meta property="og:type" content="${pagePath.startsWith('/blog/') && pagePath !== '/blog/' ? 'article' : 'website'}">
+      <meta property="og:locale" content="${isEnglish ? 'en_US' : 'zh_CN'}">
+      <meta property="og:locale:alternate" content="${isEnglish ? 'zh_CN' : 'en_US'}">
+      <meta property="og:title" content="${escape(title)}">
+      <meta property="og:description" content="${escape(description)}">
+      <meta property="og:url" content="${origin + path}">
+      <meta property="og:image" content="${origin + shareImage}">
+      <meta property="og:image:width" content="850">
+      <meta property="og:image:height" content="501">
+      <meta property="og:image:alt" content="${escape(imageAlt)}">
+      <meta name="twitter:card" content="summary_large_image">
+      ${pagePath === '/' ? `<script type="application/ld+json">${siteSchema}</script>` : ''}`
+}
+
 function renderPage(template, path) {
   const isEnglish = inEnglish(path)
   const site = isEnglish ? english : chinese
   const pagePath = isEnglish ? path.slice(3) : path
   const page = site.routes.get(pagePath) ?? site.notFound
   const localize = isEnglish ? englishCopy : value => value
-  const title = localize(pagePath === '/' ? page.title : page.title + ' | Syntrofic UI')
+  const title = localize(pagePath === '/' ? page.title : page.title + ' | ' + siteName)
   const description = localize(page.description)
   const zhPath = site.routes.has(pagePath) ? pagePath : '/'
-  const enPath = toEnglish(zhPath)
   const body = site.header(zhPath) + page.body() + site.footer()
   const enBody = () => {
     const localized = englishBody(body)
@@ -653,11 +695,7 @@ function renderPage(template, path) {
   return template.replace('lang="zh-CN"', isEnglish ? 'lang="en"' : 'lang="zh-CN"')
     .replace('<!-- site-head -->', () => `<title>${escape(title)}</title>
       <meta name="description" content="${escape(description)}">
-      ${routes.has(path) ? `<link rel="canonical" href="${origin + path}">
-      <link rel="alternate" hreflang="zh-CN" href="${origin + zhPath}">
-      <link rel="alternate" hreflang="en" href="${origin + enPath}">
-      <link rel="alternate" hreflang="x-default" href="${origin + zhPath}">
-      <meta property="og:title" content="${escape(title)}"><meta property="og:description" content="${escape(description)}"><meta property="og:url" content="${origin + path}">` : '<meta name="robots" content="noindex">'}`)
+      ${pageMetadata(path, pagePath, title, description)}`)
     .replace('<!-- site-body -->', isEnglish ? enBody : () => body)
 }
 

@@ -418,11 +418,11 @@ test('the official homepage uses existing controls and links to complete page pr
   await expect(page.locator('html')).toHaveCSS('background-color', 'rgb(255, 255, 255)')
   await expect(page.locator('body')).toHaveCSS('background-color', 'rgb(255, 255, 255)')
   await expect(page.locator('.topbar')).toHaveCSS('background-color', 'rgb(255, 255, 255)')
-  await expect(page.getByRole('link', { name: '快速开始', exact: true }).first()).toHaveCSS('background-color', 'rgb(37, 37, 37)')
-  await expect(page.locator('.hero-art')).toHaveCSS('background-image', 'none')
+  await expect(page.getByRole('link', { name: '快速开始', exact: true }).first()).toHaveCSS('background-color', 'rgb(39, 66, 53)')
+  await expect(page.locator('.hero-demo')).toHaveCSS('background-image', 'none')
   for (const [selector, base] of [
-    ['.hero-art', 'rgb(248, 248, 248)'], ['.sample-card', 'rgb(248, 248, 248)'],
-    ['.template-preview', 'rgb(248, 248, 248)'], ['.template-preview__media', 'rgb(245, 245, 245)'],
+    ['.sample-card', 'rgb(248, 248, 248)'], ['.template-preview__picture', 'rgb(255, 255, 255)'],
+    ['.home-platforms .resource-link', 'rgba(0, 0, 0, 0)'], ['.template-preview', 'rgba(0, 0, 0, 0)'],
   ]) {
     const surfaces = page.locator(selector)
     await expect(surfaces.first()).toHaveCSS('background-color', base)
@@ -434,7 +434,7 @@ test('the official homepage uses existing controls and links to complete page pr
   const demo = page.getByRole('region', { name: '交付工作台互动示例' })
   await expect(demo).toHaveCSS('background-color', 'rgb(255, 255, 255)')
   await expect(demo.locator('.task-card')).toHaveCSS('background-color', 'rgb(248, 248, 248)')
-  await expect(page.locator('.sample-stage').first()).toHaveCSS('min-height', '64px')
+  await expect(page.locator('.sample-stage').first()).toHaveCSS('min-height', '68px')
   await expect(demo.locator('.sy-chart__plot')).toHaveCSS('background-color', 'rgb(255, 255, 255)')
   await expect(demo.locator('.sy-chart__line')).toHaveCSS('fill', 'none')
   await demo.getByRole('button', { name: '本月' }).click()
@@ -524,9 +524,11 @@ test('the homepage layers quiet panels on a white canvas while loading and after
     }
   }
   await expect(page.locator('.hero-fallback')).toBeVisible()
-  const quiet = '.hero-art, .sample-card, .catalog-strip a, .template-preview'
+  const quiet = '.sample-card'
+  const canvasLinks = '.home-platforms a, .home-resources a, .template-preview'
   await expectPaint(`${chrome}, .hero-fallback`, white)
   await expectPaint(quiet, 'rgb(248, 248, 248)')
+  await expectPaint(canvasLinks, 'rgba(0, 0, 0, 0)')
   await expect(page.locator('.catalog-strip small, .hero-platform, .hero-description, .sample-caption p, .template-preview__copy p')).toHaveCount(0)
 
   await page.unroute('**/assets/*.js')
@@ -534,6 +536,7 @@ test('the homepage layers quiet panels on a white canvas while loading and after
   await expect(page.locator('.demo-composition')).toBeVisible()
   await expectPaint(`${chrome}, .demo-composition`, white)
   await expectPaint(quiet, 'rgb(248, 248, 248)')
+  await expectPaint(canvasLinks, 'rgba(0, 0, 0, 0)')
   await expect(page.locator('.demo-composition .sy-chart__plot')).toHaveCSS('background-color', white)
 })
 
